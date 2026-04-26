@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Fashion Deals 2025 | GoGlobalMart - Top 20 Trending Styles</title>
+    <meta name="description" content="Discover the best fashion deals on sarees, suits, kurtis, jewelry, t-shirts, and more. Compare prices on Amazon & Flipkart.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --white: #ffffff;
+            --bg: #faf7f5;
+            --bg-dark: #1a1a2e;
+            --text: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-muted: #86868b;
+            --border: #e8e4e0;
+            --border-light: #f0ece8;
+            --amazon: #FF9900;
+            --amazon-hover: #e68a00;
+            --flipkart: #2874F0;
+            --flipkart-hover: #1a5dc8;
+            --myntra: #E91E8C;
+            --myntra-hover: #c4177a;
+            --badge-hot: #ff3b30;
+            --badge-best: #34c759;
+            --badge-limited: #ff6b00;
+            --card-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --card-shadow-hover: 0 14px 44px rgba(0,0,0,0.13);
+            --nav-shadow: 0 1px 8px rgba(0,0,0,0.06);
+            --radius: 18px;
+            --radius-sm: 12px;
+            --radius-xs: 8px;
+            --fashion-gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F59E0B 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* === NAVBAR === */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--nav-shadow);
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--fashion-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+            background: rgba(139,92,246,0.06);
+        }
+        .nav-links a.active {
+            font-weight: 600;
+            color: #8B5CF6;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+        .mobile-toggle:hover { background: rgba(0,0,0,0.05); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 24px;
+            animation: slideDown 0.3s ease;
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a {
+            display: block;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: color 0.2s;
+        }
+        .mobile-menu a:hover { color: #8B5CF6; }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === HERO === */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 30%, #4a1942 60%, #6b2142 100%);
+            padding: 64px 24px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 40%, rgba(139,92,246,0.2) 0%, transparent 45%),
+                        radial-gradient(circle at 80% 60%, rgba(236,72,153,0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 80%, rgba(245,158,11,0.08) 0%, transparent 40%);
+            animation: heroGlow 10s ease-in-out infinite alternate;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-3%, 2%) scale(1.06); }
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero h1 {
+            font-size: 2.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -1px;
+            line-height: 1.12;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.5;
+        }
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+        .hero-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.05);
+            transition: all 0.2s;
+        }
+        .hero-tag:hover {
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat-num { font-size: 1.75rem; font-weight: 700; color: #ffffff; }
+        .hero-stat-label {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* === CONTAINER === */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+        /* === AD PLACEHOLDER === */
+        .ad-placeholder {
+            background: var(--white);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 32px auto;
+            max-width: 728px;
+            min-height: 90px;
+            transition: border-color 0.3s;
+        }
+        .ad-placeholder:hover { border-color: #c5c0ba; }
+        .ad-placeholder.wide { max-width: 100%; }
+
+        /* === SECTION HEADERS === */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-title {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+        .section-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: var(--badge-limited);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 999px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.65; }
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* === FILTER TABS === */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 28px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .filter-tabs::-webkit-scrollbar { display: none; }
+        .filter-tab {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .filter-tab:hover {
+            border-color: #8B5CF6;
+            color: #8B5CF6;
+        }
+        .filter-tab.active {
+            background: #8B5CF6;
+            color: #fff;
+            border-color: #8B5CF6;
+        }
+
+        /* === PRODUCT GRID === */
+        .products-section { padding: 40px 0; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* === PRODUCT CARD === */
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid transparent;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: rgba(139,92,246,0.08);
+        }
+        .product-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            background: #f9f6f3;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product-img-wrap img {
+            max-width: 88%;
+            max-height: 88%;
+            object-fit: contain;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 6px;
+        }
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.08);
+        }
+        .product-badges {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 2;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.62rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .badge-hot { background: var(--badge-hot); color: white; }
+        .badge-best { background: var(--badge-best); color: white; }
+        .badge-limited { background: var(--badge-limited); color: white; }
+        .discount-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--bg-dark);
+            color: #00e676;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            z-index: 2;
+        }
+        .product-info {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .product-category {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #8B5CF6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .product-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.4em;
+        }
+        .product-desc {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .product-pricing {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .price-current { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+        .price-original { font-size: 0.82rem; color: var(--text-muted); text-decoration: line-through; }
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 9px 10px;
+            border-radius: var(--radius-xs);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            flex: 1;
+            white-space: nowrap;
+        }
+        .btn-amazon { background: var(--amazon); color: #111; }
+        .btn-amazon:hover { background: var(--amazon-hover); transform: translateY(-1px); }
+        .btn-flipkart { background: var(--flipkart); color: #fff; }
+        .btn-flipkart:hover { background: var(--flipkart-hover); transform: translateY(-1px); }
+        .btn-myntra { background: var(--myntra); color: #fff; }
+        .btn-myntra:hover { background: var(--myntra-hover); transform: translateY(-1px); }
+
+        /* Stars */
+        .stars { display: flex; align-items: center; gap: 1px; margin-bottom: 5px; }
+        .star { color: #F59E0B; font-size: 0.7rem; }
+        .star.empty { color: #e0dcd6; }
+        .rating-text { font-size: 0.68rem; color: var(--text-muted); margin-left: 4px; }
+
+        /* Size chips */
+        .size-chips {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .size-chip {
+            font-size: 0.62rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            background: var(--bg);
+        }
+
+        /* === MYNTRA SECTION === */
+        .myntra-section { padding: 40px 0 20px; }
+        .myntra-section .section-header { }
+        .myntra-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .myntra-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid transparent;
+        }
+        .myntra-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: rgba(233,30,140,0.1);
+        }
+        .myntra-img-wrap {
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .myntra-img-wrap:nth-child(1) { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+        .myntra-img-wrap:nth-child(2) { background: linear-gradient(135deg, #e8eaf6, #c5cae9); }
+        .myntra-img-wrap:nth-child(3) { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+        .myntra-img-wrap:nth-child(4) { background: linear-gradient(135deg, #e0f2f1, #b2dfdb); }
+        .myntra-img-wrap:nth-child(5) { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+        .myntra-card:nth-child(1) .myntra-img-wrap { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+        .myntra-card:nth-child(2) .myntra-img-wrap { background: linear-gradient(135deg, #e8eaf6, #c5cae9); }
+        .myntra-card:nth-child(3) .myntra-img-wrap { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+        .myntra-card:nth-child(4) .myntra-img-wrap { background: linear-gradient(135deg, #e0f2f1, #b2dfdb); }
+        .myntra-card:nth-child(5) .myntra-img-wrap { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+        .myntra-img-wrap img {
+            max-width: 82%;
+            max-height: 82%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        .myntra-card:hover .myntra-img-wrap img { transform: scale(1.06); }
+        .myntra-info {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .myntra-brand {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--myntra);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .myntra-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .myntra-pricing {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .myntra-actions { margin-top: auto; }
+        .myntra-actions .btn { width: 100%; }
+
+        /* === FOOTER === */
+        .footer {
+            background: var(--bg-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 52px 24px 32px;
+            margin-top: 64px;
+        }
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+        .footer-heading {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.78rem;
+        }
+        .disclaimer {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.28);
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        /* === SCROLL TOP === */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(139,92,246,0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .scroll-top.visible { opacity: 1; transform: translateY(0); }
+        .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(139,92,246,0.45); }
+
+        /* === TOAST === */
+        .toast-container {
+            position: fixed;
+            bottom: 84px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .toast {
+            background: var(--bg-dark);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: var(--radius-xs);
+            font-size: 0.82rem;
+            font-weight: 500;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.22);
+            animation: toastIn 0.3s ease, toastOut 0.3s ease 2.5s forwards;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes toastOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(40px); }
+        }
+
+        /* === FADE UP === */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1200px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .myntra-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 900px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .myntra-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .hero { padding: 44px 20px 40px; }
+            .hero-stats { gap: 24px; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .section-title { font-size: 1.35rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+        }
+        @media (max-width: 500px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .myntra-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .hero h1 { font-size: 1.55rem; }
+            .hero-stats { gap: 14px; }
+            .hero-stat-num { font-size: 1.3rem; }
+            .hero-tags { gap: 6px; }
+            .hero-tag { font-size: 0.7rem; padding: 5px 12px; }
+            .product-info { padding: 12px; }
+            .product-title { font-size: 0.78rem; min-height: 2.1em; }
+            .price-current { font-size: 1.08rem; }
+            .btn { font-size: 0.66rem; padding: 8px 6px; gap: 3px; }
+            .product-desc { display: none; }
+            .product-category { display: none; }
+            .badge { font-size: 0.56rem; padding: 2px 7px; }
+            .discount-badge { font-size: 0.62rem; padding: 3px 7px; }
+            .size-chips { display: none; }
+            .myntra-info { padding: 12px; }
+            .myntra-title { font-size: 0.78rem; }
+            .nav-container { padding: 0 16px; }
+            .container { padding: 0 14px; }
+            .footer { padding: 36px 16px 24px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .filter-tab { font-size: 0.72rem; padding: 6px 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <span class="logo-icon">G</span>
+            GoGlobalMart
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="fashions.html" class="active">Fashion</a></li>
+            <li><a href="#">Deals</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+            <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="electronics.html">Electronics</a>
+    <a href="fashions.html" style="color:#8B5CF6;font-weight:600;">Fashion</a>
+    <a href="#">Deals</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>🔥 Best Fashion Deals</h1>
+        <p>Top 20 trending products at lowest prices — updated daily</p>
+        <div class="hero-tags">
+            <span class="hero-tag"> ethnic wear</span>
+            <span class="hero-tag"> western wear</span>
+            <span class="hero-tag"> jewelry</span>
+            <span class="hero-tag"> kids fashion</span>
+            <span class="hero-tag"> men's clothing</span>
+            <span class="hero-tag"> nightwear</span>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num">20+</div>
+                <div class="hero-stat-label">Top Deals</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">75%</div>
+                <div class="hero-stat-label">Max Discount</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">Free</div>
+                <div class="hero-stat-label">Delivery</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">24h</div>
+                <div class="hero-stat-label">Updated</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TOP AD ===== -->
+<div class="container">
+    <div class="ad-placeholder wide">
+        <span>Advertisement</span>
+    </div>
+</div>
+
+<!-- ===== PRODUCTS SECTION ===== -->
+<section class="products-section">
+    <div class="container">
+        <div class="section-header">
+            <div>
+                <div class="section-title">👗 Top Fashion Deals</div>
+                <div class="section-subtitle">Handpicked styles across all categories</div>
+            </div>
+            <span class="section-badge">⏰ Limited Offers</span>
+        </div>
+
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="women">Women</button>
+            <button class="filter-tab" data-filter="men">Men</button>
+            <button class="filter-tab" data-filter="kids">Kids</button>
+            <button class="filter-tab" data-filter="jewelry">Jewelry</button>
+            <button class="filter-tab" data-filter="nightwear">Nightwear</button>
+            <button class="filter-tab" data-filter="ethnic">Ethnic</button>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+            <!-- Products injected by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ===== MID AD ===== -->
+<div class="container">
+    <div class="ad-placeholder wide">
+        <span>Advertisement</span>
+    </div>
+</div>
+
+<!-- ===== MYNTRA SECTION ===== -->
+<section class="myntra-section" id="myntra-section">
+    <div class="container">
+        <div class="section-header">
+            <div>
+                <div class="section-title">🛍️ Trending Myntra Picks</div>
+                <div class="section-subtitle">Hottest fashion styles this week</div>
+            </div>
+        </div>
+        <div class="myntra-grid" id="myntraGrid">
+            <!-- Myntra products injected by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ===== BOTTOM AD ===== -->
+<div class="container">
+    <div class="ad-placeholder wide">
+        <span>Advertisement</span>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand">
+                <span class="logo-icon" style="width:28px;height:28px;font-size:0.9rem;background:var(--fashion-gradient);">G</span>
+                GoGlobalMart
+            </div>
+            <p class="footer-desc">Your trusted destination for the best fashion deals across ethnic wear, western wear, jewelry, and kids fashion. We compare prices so you save more.</p>
+        </div>
+        <div>
+            <div class="footer-heading">Quick Links</div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="electronics.html">Electronics</a></li>
+                <li><a href="#">Fashion</a></li>
+                <li><a href="#">Today's Deals</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-heading">Company</div>
+            <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-heading">Legal</div>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Disclaimer</a></li>
+                <li><a href="#">Affiliate Disclosure</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 GoGlobalMart. All rights reserved.</span>
+        <p class="disclaimer">Affiliate Disclosure: As an Amazon Associate, Flipkart Affiliate, and Myntra partner, we earn from qualifying purchases. Prices and availability are subject to change.</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i data-lucide="chevron-up" style="width:22px;height:22px;"></i>
+</button>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ===== FASHION PRODUCT DATA =====
+const products = [
+    {
+        title: "Indian Women's Silk Embroidered Saree with Blouse Piece",
+        desc: "Banarasi silk weave, zari border, ready to drape",
+        price: "₹799",
+        original: "₹3,499",
+        discount: 77,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "ethnic",
+        filter: "women",
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.2,
+        reviews: "15.3K",
+        img: "https://picsum.photos/seed/saree-silk-01/400/400"
+    },
+    {
+        title: "Men's Slim Fit Cotton Linen Shirt for Casual & Formal Wear",
+        desc: "Breathable fabric, full sleeves, multiple colors",
+        price: "₹449",
+        original: "₹1,899",
+        discount: 76,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Men's Shirts",
+        filter: "men",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        rating: 4.0,
+        reviews: "42.7K",
+        img: "https://picsum.photos/seed/linen-shirt-men/400/400"
+    },
+    {
+        title: "Women's Kurti & Palazzo Set — Rayon Printed Straight Cut",
+        desc: "Floral print, 3-piece set, machine washable",
+        price: "₹599",
+        original: "₹2,499",
+        discount: 76,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "ethnic",
+        filter: "women",
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.1,
+        reviews: "28.9K",
+        img: "https://picsum.photos/seed/kurti-palazzo/400/400"
+    },
+    {
+        title: "Gold Plated Kundan Bridal Jewelry Set — Necklace, Earrings, Maang Tikka",
+        desc: "Artificial jewelry, wedding & festive wear, premium finish",
+        price: "₹699",
+        original: "₹4,999",
+        discount: 86,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "jewelry",
+        filter: "jewelry",
+        sizes: [],
+        rating: 4.3,
+        reviews: "9.4K",
+        img: "https://picsum.photos/seed/kundan-jewelry-set/400/400"
+    },
+    {
+        title: "Men's Cotton Linen Trousers — Slim Fit Formal & Casual Pants",
+        desc: "Elastic waist, drawstring, multiple colors available",
+        price: "₹499",
+        original: "₹1,999",
+        discount: 75,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Men's Trousers",
+        filter: "men",
+        sizes: ["30", "32", "34", "36", "38"],
+        rating: 4.0,
+        reviews: "33.1K",
+        img: "https://picsum.photos/seed/linen-trousers/400/400"
+    },
+    {
+        title: "Women's Satin Silk Nightsuit — Full Sleeve Pajama Set",
+        desc: "Soft breathable fabric, button down, loungewear",
+        price: "₹399",
+        original: "₹1,799",
+        discount: 78,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "nightwear",
+        filter: "nightwear",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        rating: 4.2,
+        reviews: "21.6K",
+        img: "https://picsum.photos/seed/satin-nightsuit/400/400"
+    },
+    {
+        title: "Boys' Cotton Casual T-Shirt — Pack of 3 Printed Tees",
+        desc: "100% cotton, round neck, ages 3-14 years",
+        price: "₹399",
+        original: "₹1,499",
+        discount: 73,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Kids Fashion",
+        filter: "kids",
+        sizes: ["3-4Y", "5-6Y", "7-8Y", "9-10Y"],
+        rating: 4.1,
+        reviews: "18.4K",
+        img: "https://picsum.photos/seed/boys-tshirt-pack/400/400"
+    },
+    {
+        title: "Men's Premium Cotton Polo T-Shirt — Regular Fit",
+        desc: "Ribbed collar, breathable, all-day comfort",
+        price: "₹349",
+        original: "₹1,299",
+        discount: 73,
+        badge: "Limited",
+        badgeClass: "badge-limited",
+        category: "Men's T-Shirts",
+        filter: "men",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        rating: 4.0,
+        reviews: "56.2K",
+        img: "https://picsum.photos/seed/men-polo-tee/400/400"
+    },
+    {
+        title: "Women's Georgette Anarkali Kurti — Embroidered Flared Design",
+        desc: "Floor length, mirror work, festive & party wear",
+        price: "₹899",
+        original: "₹3,999",
+        discount: 78,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "ethnic",
+        filter: "women",
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.4,
+        reviews: "7.8K",
+        img: "https://picsum.photos/seed/anarkali-kurti/400/400"
+    },
+    {
+        title: "Girls' Frock Dress — Cotton A-Line Floral Party Wear",
+        desc: "Cute design, comfortable, ages 2-10 years",
+        price: "₹349",
+        original: "₹1,499",
+        discount: 77,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Kids Fashion",
+        filter: "kids",
+        sizes: ["2-3Y", "4-5Y", "6-7Y", "8-9Y"],
+        rating: 4.3,
+        reviews: "12.1K",
+        img: "https://picsum.photos/seed/girls-frock/400/400"
+    },
+    {
+        title: "Men's Wedding Sherwani Set with Churidar & Dupatta",
+        desc: "Embroidered, premium fabric, complete wedding outfit",
+        price: "₹3,499",
+        original: "₹12,999",
+        discount: 73,
+        badge: "Limited",
+        badgeClass: "badge-limited",
+        category: "ethnic",
+        filter: "men",
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.5,
+        reviews: "2.9K",
+        img: "https://picsum.photos/seed/sherwani-set/400/400"
+    },
+    {
+        title: "Women's Denim Jeans — High Rise Skinny Fit Stretchable",
+        desc: "Super stretch, comfort waist, multiple washes",
+        price: "₹549",
+        original: "₹2,199",
+        discount: 75,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Women's Jeans",
+        filter: "women",
+        sizes: ["26", "28", "30", "32", "34"],
+        rating: 4.1,
+        reviews: "38.5K",
+        img: "https://picsum.photos/seed/women-denim-jeans/400/400"
+    },
+    {
+        title: "Silver Oxidized Antique Temple Jewelry Set — Necklace & Jhumka",
+        desc: "Traditional design, lightweight, gift-ready packaging",
+        price: "₹449",
+        original: "₹2,999",
+        discount: 85,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "jewelry",
+        filter: "jewelry",
+        sizes: [],
+        rating: 4.3,
+        reviews: "11.2K",
+        img: "https://picsum.photos/seed/temple-jewelry/400/400"
+    },
+    {
+        title: "Men's Sports Track Pants — Joggers with Zipper Pockets",
+        desc: "Elastic waistband, tapered fit, gym & casual wear",
+        price: "₹399",
+        original: "₹1,599",
+        discount: 75,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Men's Bottoms",
+        filter: "men",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        rating: 4.0,
+        reviews: "29.3K",
+        img: "https://picsum.photos/seed/track-pants-men/400/400"
+    },
+    {
+        title: "Women's Cotton Nighty — Full Length Maxi Gown Sleepwear",
+        desc: "Floral printed, button front, breathable cotton",
+        price: "₹299",
+        original: "₹1,299",
+        discount: 77,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "nightwear",
+        filter: "nightwear",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        rating: 4.0,
+        reviews: "45.8K",
+        img: "https://picsum.photos/seed/cotton-nighty/400/400"
+    },
+    {
+        title: "Ladies & Girls Fancy Clutch Purse — Embroidered Potli Bag",
+        desc: "Drawstring closure, ethnic design, wedding accessory",
+        price: "₹249",
+        original: "₹999",
+        discount: 75,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Women's Accessories",
+        filter: "women",
+        sizes: [],
+        rating: 3.9,
+        reviews: "22.7K",
+        img: "https://picsum.photos/seed/potli-bag-clutch/400/400"
+    },
+    {
+        title: "Boys' Casual Shirt & Trouser Combo — Cotton Formal Set",
+        desc: "2-piece set, school & party wear, ages 5-14 years",
+        price: "₹599",
+        original: "₹2,499",
+        discount: 76,
+        badge: "Limited",
+        badgeClass: "badge-limited",
+        category: "Kids Fashion",
+        filter: "kids",
+        sizes: ["5-6Y", "7-8Y", "9-10Y", "11-12Y"],
+        rating: 4.2,
+        reviews: "8.6K",
+        img: "https://picsum.photos/seed/boys-formal-set/400/400"
+    },
+    {
+        title: "Women's Padded Cotton Bra — Pack of 3 Non-Wired Comfort",
+        desc: "Breathable, no hook design, everyday comfort wear",
+        price: "₹399",
+        original: "₹1,899",
+        discount: 79,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "Women's Innerwear",
+        filter: "women",
+        sizes: ["32B", "34B", "36B", "38B"],
+        rating: 4.1,
+        reviews: "51.4K",
+        img: "https://picsum.photos/seed/cotton-bra-pack/400/400"
+    },
+    {
+        title: "Men's Graphic Printed Oversized T-Shirt — 100% Cotton",
+        desc: "Drop shoulder, heavy gauge, streetwear style",
+        price: "₹299",
+        original: "₹1,199",
+        discount: 75,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "Men's T-Shirts",
+        filter: "men",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        rating: 4.0,
+        reviews: "64.9K",
+        img: "https://picsum.photos/seed/oversized-tee/400/400"
+    },
+    {
+        title: "Women's Chiffon Dupatta — Embroidered Stole with Lace Border",
+        desc: "Lightweight, multi-color, pairing with suits & kurtis",
+        price: "₹199",
+        original: "₹999",
+        discount: 80,
+        badge: "Best Deal",
+        badgeClass: "badge-best",
+        category: "ethnic",
+        filter: "women",
+        sizes: [],
+        rating: 4.0,
+        reviews: "19.3K",
+        img: "https://picsum.photos/seed/chiffon-dupatta/400/400"
+    },
+    {
+        title: "Men's Formal Blazer — Slim Fit Solid Color Party Wear Coat",
+        desc: "Premium fabric, inner lined, 2-pocket design",
+        price: "₹1,299",
+        original: "₹4,999",
+        discount: 74,
+        badge: "Limited",
+        badgeClass: "badge-limited",
+        category: "Men's Formal",
+        filter: "men",
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.2,
+        reviews: "5.7K",
+        img: "https://picsum.photos/seed/formal-blazer-men/400/400"
+    },
+    {
+        title: "Kids' Cartoon Print Pajama Set — Boys & Girls Night Suit",
+        desc: "Soft fleece, full sleeve, fun designs, ages 2-12Y",
+        price: "₹349",
+        original: "₹1,299",
+        discount: 73,
+        badge: "Hot",
+        badgeClass: "badge-hot",
+        category: "nightwear",
+        filter: "kids",
+        sizes: ["2-3Y", "4-5Y", "6-7Y", "8-9Y", "10-12Y"],
+        rating: 4.3,
+        reviews: "14.2K",
+        img: "https://picsum.photos/seed/kids-pajama-set/400/400"
+    }
+];
+
+// ===== MYNTRA DATA =====
+const myntraProducts = [
+    {
+        brand: "SASSAFRAS",
+        title: "Women Ethnic Motifs Printed Anarkali Kurta",
+        price: "₹1,099",
+        original: "₹2,899",
+        discount: 62,
+        img: "https://picsum.photos/seed/myntra-anarkali/400/533"
+    },
+    {
+        brand: "HIGHLANDER",
+        title: "Men Slim Fit Mid Rise Dark Wash Jeans",
+        price: "₹1,199",
+        original: "₹2,499",
+        discount: 52,
+        img: "https://picsum.photos/seed/myntra-men-jeans/400/533"
+    },
+    {
+        brand: "AKS",
+        title: "Women Handcrafted Artificial Jhumka Earrings Set",
+        price: "₹399",
+        original: "₹1,499",
+        discount: 73,
+        img: "https://picsum.photos/seed/myntra-jhumka/400/533"
+    },
+    {
+        brand: "U.S. POLO ASSN.",
+        title: "Boys Polo T-Shirt & Shorts Combo Set",
+        price: "₹899",
+        original: "₹2,199",
+        discount: 59,
+        img: "https://picsum.photos/seed/myntra-boys-polo/400/533"
+    },
+    {
+        brand: "LIBAS",
+        title: "Women Solid Straight Kurta with Palazzo Pants",
+        price: "₹1,349",
+        original: "₹3,499",
+        discount: 61,
+        img: "https://picsum.photos/seed/myntra-kurta-palazzo/400/533"
+    }
+];
+
+// ===== RENDER FUNCTIONS =====
+function renderStars(rating) {
+    let html = '<div class="stars">';
+    for (let i = 1; i <= 5; i++) {
+        html += i <= Math.round(rating)
+            ? '<span class="star">★</span>'
+            : '<span class="star empty">★</span>';
+    }
+    return html + '</div>';
+}
+
+function renderProducts(filter = 'all') {
+    const grid = document.getElementById('productGrid');
+    const filtered = filter === 'all' ? products : products.filter(p => p.filter === filter);
+
+    grid.innerHTML = filtered.map((p, i) => `
+        <div class="product-card" style="animation: fadeUp 0.45s ease ${i * 0.04}s both;">
+            <div class="product-img-wrap">
+                <div class="product-badges">
+                    <span class="badge ${p.badgeClass}">${p.badge}</span>
+                </div>
+                <span class="discount-badge">-${p.discount}%</span>
+                <img src="${p.img}" alt="${p.title}" loading="lazy">
+            </div>
+            <div class="product-info">
+                <div class="product-category">${p.category}</div>
+                ${renderStars(p.rating)}<span class="rating-text">${p.rating} (${p.reviews})</span>
+                <div class="product-title">${p.title}</div>
+                <div class="product-desc">${p.desc}</div>
+                ${p.sizes.length ? `<div class="size-chips">${p.sizes.map(s => `<span class="size-chip">${s}</span>`).join('')}</div>` : ''}
+                <div class="product-pricing">
+                    <span class="price-current">${p.price}</span>
+                    <span class="price-original">${p.original}</span>
+                </div>
+                <div class="product-actions">
+                    <a href="https://www.amazon.in/s?k=${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-amazon" onclick="showToast('Redirecting to Amazon...')">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        Amazon
+                    </a>
+                    <a href="https://www.flipkart.com/search?q=${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-flipkart" onclick="showToast('Redirecting to Flipkart...')">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        Flipkart
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderMyntra() {
+    const grid = document.getElementById('myntraGrid');
+    grid.innerHTML = myntraProducts.map((p, i) => `
+        <div class="myntra-card" style="animation: fadeUp 0.45s ease ${i * 0.07}s both;">
+            <div class="myntra-img-wrap">
+                <span class="discount-badge">-${p.discount}%</span>
+                <img src="${p.img}" alt="${p.title}" loading="lazy">
+            </div>
+            <div class="myntra-info">
+                <div class="myntra-brand">${p.brand}</div>
+                <div class="myntra-title">${p.title}</div>
+                <div class="myntra-pricing">
+                    <span class="price-current">${p.price}</span>
+                    <span class="price-original">${p.original}</span>
+                </div>
+                <div class="myntra-actions">
+                    <a href="https://www.myntra.com/${encodeURIComponent(p.title.split(' ').slice(0,3).join('-'))}" target="_blank" rel="noopener noreferrer" class="btn btn-myntra" onclick="showToast('Redirecting to Myntra...')">
+                        🛒 Buy on Myntra
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ===== TOAST =====
+function showToast(message) {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ${message}`;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 3200);
+}
+
+// ===== FILTER TABS =====
+const filterTabs = document.getElementById('filterTabs');
+filterTabs.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('filter-tab')) return;
+    filterTabs.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    e.target.classList.add('active');
+    const filter = e.target.dataset.filter;
+    renderProducts(filter);
+});
+
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+}, { passive: true });
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== MOBILE MENU =====
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+mobileToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+    mobileToggle.innerHTML = menuOpen
+        ? '<i data-lucide="x" style="width:24px;height:24px;"></i>'
+        : '<i data-lucide="menu" style="width:24px;height:24px;"></i>';
+    lucide.createIcons();
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        mobileToggle.innerHTML = '<i data-lucide="menu" style="width:24px;height:24px;"></i>';
+        lucide.createIcons();
+    });
+});
+
+// ===== INIT =====
+renderProducts();
+renderMyntra();
+lucide.createIcons();
+</script>
+</body>
+</html>
