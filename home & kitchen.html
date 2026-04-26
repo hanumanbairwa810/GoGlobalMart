@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Home & Kitchen Deals | GoGlobalMart</title>
+    <meta name="description" content="Top 20 useful home products at best prices. Mixer grinders, air fryers, kitchen tools and more with huge discounts.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --green-primary: #2d9f5d;
+            --green-light: #e8f5ee;
+            --green-dark: #1e7a42;
+            --orange-primary: #ff8c00;
+            --orange-light: #fff3e0;
+            --orange-dark: #e67600;
+            --blue-primary: #2874f0;
+            --blue-light: #e8f0fe;
+            --pink-primary: #e91e8c;
+            --pink-light: #fce4f3;
+            --red-hot: #ff3b3b;
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --border: #e0e0e0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Header ── */
+        .header {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s;
+        }
+        .header.scrolled { box-shadow: var(--shadow-md); }
+        .header-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo {
+            font-size: 22px; font-weight: 800;
+            color: var(--green-primary);
+            text-decoration: none;
+            display: flex; align-items: center; gap: 6px;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--orange-primary); }
+        .nav { display: flex; align-items: center; gap: 4px; }
+        .nav a {
+            text-decoration: none; color: var(--text-secondary);
+            font-size: 14px; font-weight: 500;
+            padding: 8px 14px; border-radius: var(--radius-sm);
+            transition: all 0.2s;
+            position: relative;
+        }
+        .nav a:hover { color: var(--green-primary); background: var(--green-light); }
+        .nav a.active { color: var(--green-primary); background: var(--green-light); font-weight: 600; }
+        .mobile-toggle {
+            display: none; background: none; border: none;
+            font-size: 24px; color: var(--text-primary); cursor: pointer;
+            padding: 8px;
+        }
+
+        /* ── Mobile Nav ── */
+        .mobile-nav {
+            display: none; position: fixed; top: 64px; left: 0; right: 0;
+            background: var(--card-bg); border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-lg); z-index: 999; padding: 12px 20px;
+            flex-direction: column; gap: 4px;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            text-decoration: none; color: var(--text-secondary);
+            font-size: 15px; font-weight: 500;
+            padding: 12px 16px; border-radius: var(--radius-sm);
+            transition: all 0.2s;
+        }
+        .mobile-nav a:hover, .mobile-nav a.active {
+            color: var(--green-primary); background: var(--green-light);
+        }
+
+        /* ── Hero / Title Section ── */
+        .hero {
+            background: linear-gradient(135deg, var(--green-light) 0%, #f0faf4 50%, var(--orange-light) 100%);
+            padding: 48px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero h1 {
+            font-size: 32px; font-weight: 800;
+            color: var(--text-primary); margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            font-size: 16px; color: var(--text-secondary);
+            font-weight: 400; margin-bottom: 24px;
+        }
+        .btn-view-all {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--green-primary); color: #fff;
+            padding: 12px 28px; border-radius: 50px;
+            text-decoration: none; font-size: 14px; font-weight: 600;
+            border: none; cursor: pointer;
+            transition: all 0.3s; box-shadow: 0 4px 14px rgba(45,159,93,0.35);
+        }
+        .btn-view-all:hover {
+            background: var(--green-dark); transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45,159,93,0.45);
+        }
+
+        /* ── Container ── */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* ── Ad Placeholder ── */
+        .ad-placeholder {
+            background: #f9f9f9; border: 2px dashed #d0d0d0;
+            border-radius: var(--radius); padding: 32px 20px;
+            text-align: center; margin: 28px auto; max-width: 728px;
+            color: var(--text-muted); font-size: 13px; font-weight: 500;
+        }
+        .ad-placeholder .iconify { font-size: 28px; margin-bottom: 8px; opacity: 0.5; }
+
+        /* ── Section Titles ── */
+        .section-title {
+            font-size: 24px; font-weight: 700; margin-bottom: 8px;
+            color: var(--text-primary); letter-spacing: -0.3px;
+        }
+        .section-subtitle {
+            font-size: 14px; color: var(--text-muted); margin-bottom: 28px;
+        }
+
+        /* ── Product Grid ── */
+        .products-section { padding: 36px 0 20px; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* ── Product Card ── */
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex; flex-direction: column;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        .product-card .card-img {
+            width: 100%; aspect-ratio: 1 / 1;
+            background: #fafafa; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .product-card .card-img img {
+            width: 85%; height: 85%; object-fit: cover;
+            border-radius: var(--radius-sm);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .product-card:hover .card-img img { transform: scale(1.08); }
+        .product-card .card-img .placeholder-icon {
+            font-size: 56px; color: #d0d0d0;
+        }
+
+        /* ── Badges ── */
+        .badge {
+            position: absolute; top: 10px; left: 10px;
+            padding: 4px 10px; border-radius: 50px;
+            font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.3px;
+            z-index: 2; line-height: 1.4;
+        }
+        .badge-bestseller { background: var(--green-primary); color: #fff; }
+        .badge-limited { background: var(--orange-primary); color: #fff; }
+        .badge-hot { background: var(--red-hot); color: #fff; animation: pulse-badge 2s infinite; }
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,59,59,0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(255,59,59,0); }
+        }
+        .discount-tag {
+            position: absolute; top: 10px; right: 10px;
+            background: #ff1744; color: #fff;
+            padding: 4px 8px; border-radius: 50px;
+            font-size: 12px; font-weight: 700; z-index: 2;
+        }
+
+        /* ── Card Body ── */
+        .card-body {
+            padding: 14px 16px 16px;
+            display: flex; flex-direction: column;
+            flex: 1;
+        }
+        .card-body h3 {
+            font-size: 14px; font-weight: 600;
+            color: var(--text-primary); line-height: 1.4;
+            margin-bottom: 4px;
+            display: -webkit-box; -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; overflow: hidden;
+            min-height: 39px;
+        }
+        .card-body .desc {
+            font-size: 12px; color: var(--text-muted);
+            margin-bottom: 10px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .price-row {
+            display: flex; align-items: baseline; gap: 8px;
+            margin-bottom: 14px; flex-wrap: wrap;
+        }
+        .price-now {
+            font-size: 20px; font-weight: 800; color: var(--text-primary);
+        }
+        .price-original {
+            font-size: 13px; color: var(--text-muted);
+            text-decoration: line-through;
+        }
+        .price-off {
+            font-size: 12px; font-weight: 700; color: #ff1744;
+        }
+
+        /* ── Buttons ── */
+        .btn-group {
+            display: flex; gap: 8px; margin-top: auto;
+        }
+        .btn-buy {
+            flex: 1; padding: 9px 6px;
+            border: none; border-radius: var(--radius-sm);
+            font-size: 12px; font-weight: 600;
+            cursor: pointer; text-decoration: none;
+            text-align: center;
+            transition: all 0.25s;
+            display: flex; align-items: center; justify-content: center; gap: 4px;
+        }
+        .btn-amazon {
+            background: var(--orange-primary); color: #fff;
+        }
+        .btn-amazon:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,140,0,0.35); }
+        .btn-flipkart {
+            background: var(--blue-primary); color: #fff;
+        }
+        .btn-flipkart:hover { background: #1a65d6; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(40,116,240,0.35); }
+        .btn-myntra {
+            background: var(--pink-primary); color: #fff;
+        }
+        .btn-myntra:hover { background: #c4177a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(233,30,140,0.35); }
+
+        /* ── Myntra Section ── */
+        .myntra-section {
+            padding: 36px 0 20px;
+            background: linear-gradient(180deg, transparent 0%, var(--pink-light) 100%);
+            margin-top: 20px;
+        }
+        .myntra-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: #1a1a1a; color: #ccc;
+            padding: 40px 20px 24px; margin-top: 40px;
+        }
+        .footer-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: flex; justify-content: space-between;
+            align-items: flex-start; flex-wrap: wrap; gap: 30px;
+        }
+        .footer-brand .logo { color: #fff; font-size: 20px; }
+        .footer-brand p { font-size: 13px; color: #999; margin-top: 8px; max-width: 280px; }
+        .footer-links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+        .footer-links a {
+            display: block; color: #999; text-decoration: none;
+            font-size: 13px; padding: 4px 0; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--green-primary); }
+        .footer-bottom {
+            max-width: 1280px; margin: 30px auto 0;
+            padding-top: 20px; border-top: 1px solid #333;
+            text-align: center; font-size: 12px; color: #666;
+        }
+
+        /* ── Scroll-to-top ── */
+        .scroll-top {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 48px; height: 48px;
+            background: var(--green-primary); color: #fff;
+            border: none; border-radius: 50%;
+            font-size: 22px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: var(--shadow-lg);
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s; z-index: 900;
+        }
+        .scroll-top.visible { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background: var(--green-dark); transform: translateY(-3px); }
+
+        /* ── Toast ── */
+        .toast {
+            position: fixed; bottom: 90px; right: 30px;
+            background: #333; color: #fff;
+            padding: 12px 20px; border-radius: var(--radius-sm);
+            font-size: 13px; font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(20px); opacity: 0;
+            transition: all 0.3s; z-index: 1001;
+            pointer-events: none;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .myntra-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 32px 20px 28px; }
+            .hero h1 { font-size: 24px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .myntra-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .card-body h3 { font-size: 13px; min-height: 36px; }
+            .price-now { font-size: 17px; }
+            .btn-buy { padding: 8px 4px; font-size: 11px; }
+            .section-title { font-size: 20px; }
+            .footer-inner { flex-direction: column; gap: 20px; }
+            .ad-placeholder { padding: 24px 16px; }
+        }
+        @media (max-width: 400px) {
+            .product-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .card-body { padding: 10px 12px 12px; }
+            .btn-group { flex-direction: column; }
+            .hero h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="header" id="header">
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <span class="iconify" data-icon="mdi:earth" data-width="26"></span>
+            GoGlobal<span>Mart</span>
+        </a>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="electronics.html">Electronics</a>
+            <a href="#" class="active">Home & Kitchen</a>
+            <a href="fashions.html">Fashion</a>
+            <a href="#" style="color:var(--red-hot); font-weight:600;">🔥 Deals</a>
+        </nav>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+        </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="electronics.html">Electronics</a>
+        <a href="home & kitchen.html" class="active">Home & Kitchen</a>
+        <a href="fashions.html">Fashion</a>
+        <a href="#" style="color:var(--red-hot);">🔥 Deals</a>
+    </nav>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+    <div class="container">
+        <h1>🏠 Best Home & Kitchen Deals</h1>
+        <p>Top 20 useful home products at best prices — curated just for you</p>
+        <a href="#products" class="btn-view-all">
+            <span class="iconify" data-icon="lucide:zap" data-width="16"></span>
+            View All Deals
+        </a>
+    </div>
+</section>
+
+<!-- ═══════ TOP AD ═══════ -->
+<div class="container">
+    <div class="ad-placeholder">
+        <span class="iconify" data-icon="mdi:advertisements" data-width="28"></span><br>
+        Advertisement — 728×90 Responsive AdSense Placeholder
+    </div>
+</div>
+
+<!-- ═══════ PRODUCTS ═══════ -->
+<section class="products-section" id="products">
+    <div class="container">
+        <h2 class="section-title">⚡ Top Home & Kitchen Products</h2>
+        <p class="section-subtitle">Handpicked deals updated daily — prices may vary</p>
+
+        <div class="product-grid" id="productGrid">
+            <!-- Cards injected by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ BOTTOM AD ═══════ -->
+<div class="container">
+    <div class="ad-placeholder">
+        <span class="iconify" data-icon="mdi:advertisements" data-width="28"></span><br>
+        Advertisement — 728×90 Responsive AdSense Placeholder
+    </div>
+</div>
+
+<!-- ═══════ MYNTRA SECTION ═══════ -->
+<section class="myntra-section">
+    <div class="container">
+        <h2 class="section-title">🛍️ Trending Home Style Picks</h2>
+        <p class="section-subtitle">Stylish home essentials from Myntra</p>
+        <div class="myntra-grid" id="myntraGrid">
+            <!-- Cards injected by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="#" class="logo">
+                <span class="iconify" data-icon="mdi:earth" data-width="22"></span>
+                GoGlobal<span>Mart</span>
+            </a>
+            <p>Your one-stop destination for the best deals across top Indian e-commerce platforms. We curate, you save!</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="electronics.html">Electronics</a>
+            <a href="home & kitchen.html">Home & Kitchen</a>
+            <a href="fashions.html">Fashion</a>
+            <a href="#">Today's Deals</a>
+        </div>
+        <div class="footer-links">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Affiliate Disclosure</a>
+        </div>
+        <div class="footer-links">
+            <h4>Connect</h4>
+            <a href="#"><span class="iconify" data-icon="mdi:instagram" data-width="16" style="vertical-align:-3px;"></span> Instagram</a>
+            <a href="#"><span class="iconify" data-icon="mdi:twitter" data-width="16" style="vertical-align:-3px;"></span> Twitter</a>
+            <a href="#"><span class="iconify" data-icon="mdi:youtube" data-width="16" style="vertical-align:-3px;"></span> YouTube</a>
+            <a href="#"><span class="iconify" data-icon="mdi:telegram" data-width="16" style="vertical-align:-3px;"></span> Telegram</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 GoGlobalMart. All rights reserved. | As an affiliate, we earn from qualifying purchases.
+    </div>
+</footer>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <span class="iconify" data-icon="lucide:chevron-up" data-width="24"></span>
+</button>
+
+<!-- ═══════ TOAST ═══════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ── Product Data ──
+const products = [
+    {
+        title: "Bosch TrueMixx 1000W Mixer Grinder with 3 Stainless Steel Jars",
+        desc: "Powerful 1000W motor for smooth grinding",
+        price: 3499, original: 5990, discount: 42,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/mixer-grinder/400/400"
+    },
+    {
+        title: "Digital Air Fryer 4.5L with 8 Preset Cooking Programs",
+        desc: "Healthy frying with 85% less oil usage",
+        price: 2999, original: 7999, discount: 63,
+        badge: "Hot Deal", badgeClass: "badge-hot",
+        img: "https://picsum.photos/seed/air-fryer-digital/400/400"
+    },
+    {
+        title: "Prestige Electric Kettle 1.5L with Auto Shut-Off",
+        desc: "Fast boiling with stainless steel body",
+        price: 749, original: 1495, discount: 50,
+        badge: "Limited Offer", badgeClass: "badge-limited",
+        img: "https://picsum.photos/seed/electric-kettle-ss/400/400"
+    },
+    {
+        title: "Borosil Set of 12 Glass Storage Containers with Lids",
+        desc: "Microwave & freezer safe borosilicate glass",
+        price: 1299, original: 2499, discount: 48,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/glass-containers/400/400"
+    },
+    {
+        title: "Premium 14-Piece Kitchen Knife Set with Wooden Block",
+        desc: "High-carbon stainless steel blades for precision cutting",
+        price: 1899, original: 4999, discount: 62,
+        badge: "Hot Deal", badgeClass: "badge-hot",
+        img: "https://picsum.photos/seed/knife-set-wood/400/400"
+    },
+    {
+        title: "Milton Thermosteel Duo Deluxe 1000ml Water Bottle",
+        desc: "24-hour hot & cold insulation, leak-proof",
+        price: 545, original: 995, discount: 45,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/water-bottle-steel/400/400"
+    },
+    {
+        title: "Dyson V8 Slim Cordless Vacuum Cleaner for Home",
+        desc: "Powerful suction with 40-minute runtime",
+        price: 22900, original: 38900, discount: 41,
+        badge: "Limited Offer", badgeClass: "badge-limited",
+        img: "https://picsum.photos/seed/vacuum-cleaner-dy/400/400"
+    },
+    {
+        title: "Single Bed 1500 Thread Count Cotton Bedsheet with Pillow Covers",
+        desc: "Ultra-soft sateen weave, skin-friendly fabric",
+        price: 499, original: 1499, discount: 67,
+        badge: "Hot Deal", badgeClass: "badge-hot",
+        img: "https://picsum.photos/seed/bedsheet-cotton/400/400"
+    },
+    {
+        title: "Large Silent Wall Clock 12-Inch Modern Minimalist Design",
+        desc: "Non-ticking quartz movement, sweep second hand",
+        price: 399, original: 999, discount: 60,
+        badge: "Limited Offer", badgeClass: "badge-limited",
+        img: "https://picsum.photos/seed/wall-clock-modern/400/400"
+    },
+    {
+        title: "LED Rechargeable Desk Lamp with 5 Brightness Levels",
+        desc: "Eye-caring light, USB charging port included",
+        price: 649, original: 1599, discount: 59,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/desk-lamp-led/400/400"
+    },
+    {
+        title: "Prestige Iris 2-Burner Manual Glass Top Gas Stove",
+        desc: "Toughened glass top with spill-proof design",
+        price: 2199, original: 3995, discount: 45,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/gas-stove-glass/400/400"
+    },
+    {
+        title: "Milton Star Lunch Box Set of 3 with Insulated Bag",
+        desc: "Microwave safe containers, carry bag included",
+        price: 499, original: 1099, discount: 55,
+        badge: "Limited Offer", badgeClass: "badge-limited",
+        img: "https://picsum.photos/seed/lunch-box-set/400/400"
+    },
+    {
+        title: "Stainless Steel Dish Rack with Drain Board and Utensil Holder",
+        desc: "Rust-proof compact design for modern kitchens",
+        price: 899, original: 1999, discount: 55,
+        badge: "Hot Deal", badgeClass: "badge-hot",
+        img: "https://picsum.photos/seed/dish-rack-steel/400/400"
+    },
+    {
+        title: "Flat Spin Mop with 2 Microfiber Refills and Bucket",
+        desc: "360-degree rotation, hands-free wringing system",
+        price: 799, original: 1999, discount: 60,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/cleaning-mop-flat/400/400"
+    },
+    {
+        title: "Pigeon by Stovekraft 12-Piece Non-Stick Cookware Set",
+        desc: "Induction compatible with wooden spatulas free",
+        price: 1499, original: 3999, discount: 63,
+        badge: "Hot Deal", badgeClass: "badge-hot",
+        img: "https://picsum.photos/seed/cookware-nonstick/400/400"
+    },
+    {
+        title: "Smart WiFi Plug Compatible with Alexa & Google Home",
+        desc: "Control appliances from phone, schedule & timer",
+        price: 399, original: 1299, discount: 69,
+        badge: "Limited Offer", badgeClass: "badge-limited",
+        img: "https://picsum.photos/seed/smart-plug-wifi/400/400"
+    },
+    {
+        title: "Crompton Ceiling Fan 1200mm with Decorative Anti-Dust Blades",
+        desc: "Energy efficient, high air delivery with warranty",
+        price: 2199, original: 3895, discount: 44,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/ceiling-fan-crompt/400/400"
+    },
+    {
+        title: "Bamboo Cutting Board Set of 3 with Juice Groove",
+        desc: "Eco-friendly, antimicrobial, knife-friendly surface",
+        price: 599, original: 1499, discount: 60,
+        badge: "Limited Offer", badgeClass: "badge-limited",
+        img: "https://picsum.photos/seed/cutting-board-bam/400/400"
+    },
+    {
+        title: "Portable Clothes Iron 1000W with Steam Burst Function",
+        desc: "Lightweight, non-stick soleplate, adjustable temp",
+        price: 699, original: 1599, discount: 56,
+        badge: "Best Seller", badgeClass: "badge-bestseller",
+        img: "https://picsum.photos/seed/steam-iron-port/400/400"
+    },
+    {
+        title: "Automatic Sensor Trash Can 12L for Kitchen & Bathroom",
+        desc: "Touchless lid opening, odor-blocking seal design",
+        price: 1299, original: 2999, discount: 57,
+        badge: "Hot Deal", badgeClass: "badge-hot",
+        img: "https://picsum.photos/seed/sensor-trash-can/400/400"
+    }
+];
+
+const myntraItems = [
+    {
+        title: "Jaipur Print Floral King Size Bedsheet with 2 Pillow Covers",
+        price: 799, original: 1999, discount: 60,
+        img: "https://picsum.photos/seed/myntra-bedsheet/400/400"
+    },
+    {
+        title: "Macrame Wall Hanging Boho Decor for Living Room",
+        price: 549, original: 1299, discount: 58,
+        img: "https://picsum.photos/seed/myntra-macrame/400/400"
+    },
+    {
+        title: "Velvet Decorative Cushion Covers Set of 5 (16x16 inch)",
+        price: 649, original: 1899, discount: 66,
+        img: "https://picsum.photos/seed/myntra-cushions/400/400"
+    },
+    {
+        title: "Ceramic Hand-Painted Planters Set of 3 for Indoor Plants",
+        price: 899, original: 2199, discount: 59,
+        img: "https://picsum.photos/seed/myntra-planters/400/400"
+    }
+];
+
+// ── Render Functions ──
+function formatPrice(n) {
+    return '₹' + n.toLocaleString('en-IN');
+}
+
+function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = products.map((p, i) => `
+        <div class="product-card" style="animation: fadeInUp 0.5s ${i * 0.05}s both;">
+            <div class="card-img">
+                <span class="badge ${p.badgeClass}">${p.badge}</span>
+                <span class="discount-tag">-${p.discount}%</span>
+                <img src="${p.img}" alt="${p.title}" loading="lazy"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                <span class="iconify placeholder-icon" data-icon="lucide:image" style="display:none;"></span>
+            </div>
+            <div class="card-body">
+                <h3>${p.title}</h3>
+                <p class="desc">${p.desc}</p>
+                <div class="price-row">
+                    <span class="price-now">${formatPrice(p.price)}</span>
+                    <span class="price-original">${formatPrice(p.original)}</span>
+                    <span class="price-off">${p.discount}% off</span>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn-buy btn-amazon" target="_blank" rel="noopener"
+                       onclick="showToast('Redirecting to Amazon...')">
+                        <span class="iconify" data-icon="mdi:amazon" data-width="14"></span> Amazon
+                    </a>
+                    <a href="#" class="btn-buy btn-flipkart" target="_blank" rel="noopener"
+                       onclick="showToast('Redirecting to Flipkart...')">
+                        <span class="iconify" data-icon="mdi:shopping" data-width="14"></span> Flipkart
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderMyntra() {
+    const grid = document.getElementById('myntraGrid');
+    grid.innerHTML = myntraItems.map((p, i) => `
+        <div class="product-card" style="animation: fadeInUp 0.5s ${i * 0.08}s both;">
+            <div class="card-img">
+                <span class="discount-tag">-${p.discount}%</span>
+                <img src="${p.img}" alt="${p.title}" loading="lazy"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                <span class="iconify placeholder-icon" data-icon="lucide:image" style="display:none;"></span>
+            </div>
+            <div class="card-body">
+                <h3>${p.title}</h3>
+                <p class="desc">Stylish home décor from Myntra</p>
+                <div class="price-row">
+                    <span class="price-now">${formatPrice(p.price)}</span>
+                    <span class="price-original">${formatPrice(p.original)}</span>
+                    <span class="price-off">${p.discount}% off</span>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn-buy btn-myntra" target="_blank" rel="noopener"
+                       onclick="showToast('Redirecting to Myntra...')">
+                        <span class="iconify" data-icon="mdi:shopping-outline" data-width="14"></span> Buy on Myntra
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ── Toast ──
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ── Mobile Nav Toggle ──
+document.getElementById('mobileToggle').addEventListener('click', () => {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+    const icon = document.querySelector('#mobileToggle .iconify');
+    if (nav.classList.contains('open')) {
+        icon.setAttribute('data-icon', 'lucide:x');
+    } else {
+        icon.setAttribute('data-icon', 'lucide:menu');
+    }
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('#mobileNav a').forEach(a => {
+    a.addEventListener('click', () => {
+        document.getElementById('mobileNav').classList.remove('open');
+        document.querySelector('#mobileToggle .iconify').setAttribute('data-icon', 'lucide:menu');
+    });
+});
+
+// ── Sticky Header Shadow ──
+window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
+});
+
+// ── Scroll to Top ──
+document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ── Fade-in Animation Keyframes ──
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+`;
+document.head.appendChild(style);
+
+// ── Init ──
+renderProducts();
+renderMyntra();
+</script>
+</body>
+</html>
