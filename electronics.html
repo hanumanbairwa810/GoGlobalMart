@@ -733,7 +733,7 @@
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
     <div class="nav-container">
-        <a href="#" class="logo">
+        <a href="index.html" class="logo">
             <span class="logo-icon">G</span>
             GoGlobalMart
         </a>
@@ -1156,7 +1156,9 @@ const products = [
         badgeClass: "badge-best",
         rating: 4.4,
         reviews: "22.1K",
-        img: "https://picsum.photos/seed/firestick/400/400"
+        img: "https://picsum.photos/seed/firestick/400/400",
+        amazonLink:"",
+        flipkartLink:""
     }
 ];
 
@@ -1200,7 +1202,8 @@ const myntraProducts = [
         price: "₹1,495",
         original: "₹2,995",
         discount: 50,
-        img: "https://picsum.photos/seed/myntra-nike-tshirt/400/533"
+        img: "https://picsum.photos/seed/myntra-nike-tshirt/400/533",
+        myntraLink:""
     }
 ];
 
@@ -1235,11 +1238,11 @@ function renderProducts() {
                     <span class="price-original">${p.original}</span>
                 </div>
                 <div class="product-actions">
-                    <a href="https://www.amazon.in/s?k=${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-amazon" onclick="showToast('Redirecting to Amazon...')">
+                    <a href="${p.amazonLink}" target="_blank" rel="noopener noreferrer" class="btn btn-amazon" onclick="showToast('Redirecting to Amazon...')">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                         Amazon
                     </a>
-                    <a href="https://www.flipkart.com/search?q=${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-flipkart" onclick="showToast('Redirecting to Flipkart...')">
+                    <a href="${p.flipkartLink}" target="_blank" rel="noopener noreferrer" class="btn btn-flipkart" onclick="showToast('Redirecting to Flipkart...')">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                         Flipkart
                     </a>
@@ -1265,7 +1268,7 @@ function renderMyntra() {
                     <span class="price-original">${p.original}</span>
                 </div>
                 <div class="myntra-actions">
-                    <a href="https://www.myntra.com/${encodeURIComponent(p.title.split(' ').slice(0,3).join('-'))}" target="_blank" rel="noopener noreferrer" class="btn btn-myntra" onclick="showToast('Redirecting to Myntra...')">
+                    <a href="${p.myntraLink}" target="_blank" rel="noopener noreferrer" class="btn btn-myntra" onclick="showToast('Redirecting to Myntra...')">
                         🛒 Buy on Myntra
                     </a>
                 </div>
