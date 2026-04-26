@@ -1867,8 +1867,8 @@
                             <li><a href="#" onclick="navigateTo('home')">Home</a></li>
                             <li><a href="#trending">Trending Deals</a></li>
                             <li><a href="#under500">Under ₹500</a></li>
-                            <li><a href="#electronics">Electronics</a></li>
-                            <li><a href="#fashion">Fashion</a></li>
+                            <li><a href="electronics.html">Electronics</a></li>
+                            <li><a href="fashions.html">Fashion</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
@@ -2320,12 +2320,12 @@
 
         // Category data
         const categoriesData = [
-            { name: "Electronics", icon: "mdi:cellphone", color: "#3B82F6" },
-            { name: "Fashion", icon: "mdi:hanger", color: "#EC4899" },
-            { name: "Home & Kitchen", icon: "mdi:home-outline", color: "#10B981" },
-            { name: "Beauty", icon: "mdi:lipstick", color: "#8B5CF6" },
-            { name: "Sports", icon: "mdi:cricket", color: "#F59E0B" },
-            { name: "Books", icon: "mdi:book-open-variant", color: "#EF4444" }
+            { name: "Electronics", icon: "mdi:cellphone", color: "#3B82F6", link: "electronics.html" },
+            { name: "Fashion", icon: "mdi:hanger", color: "#EC4899", link: "fashion.html" },
+            { name: "Home & Kitchen", icon: "mdi:home-outline", color: "#10B981", link: "home&kitchen.html" },
+            { name: "Beauty", icon: "mdi:lipstick", color: "#8B5CF6", link: "beauty.html" },
+            { name: "Sports", icon: "mdi:cricket", color: "#F59E0B", link: "sports.html" },
+            { name: "Books", icon: "mdi:book-open-variant", color: "#EF4444", link: "books.html" }
         ];
 
 
@@ -2533,7 +2533,7 @@
         function renderCategories() {
             const grid = document.getElementById('categoriesGrid');
             grid.innerHTML = categoriesData.map(cat => `
-                <div class="category-card" onclick="filterByCategory('${cat.name}')">
+                <div class="category-card" onclick="window.location.href='${cat.link}'">
                     <div class="category-icon" style="background:${cat.color}15; color:${cat.color};">
                         <span class="iconify" data-icon="${cat.icon}"></span>
                     </div>
