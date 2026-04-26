@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Deals - GoGlobalMart | Best Offers Across Amazon, Flipkart & Myntra</title>
+    <meta name="description" content="Browse trending deals from all categories at GoGlobalMart. Best offers on Electronics, Fashion, Beauty, Home & Kitchen, Sports, and Books.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --orange: #FF6B00;
+            --orange-hover: #E55D00;
+            --orange-light: #FFF3E8;
+            --blue: #2874F0;
+            --blue-hover: #1A5DC8;
+            --blue-light: #E8F0FE;
+            --white: #FFFFFF;
+            --bg: #F5F5F5;
+            --text-dark: #1A1A2E;
+            --text-mid: #555555;
+            --text-light: #888888;
+            --border: #E8E8E8;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-hover: 0 12px 40px rgba(0,0,0,0.15);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .navbar.scrolled { box-shadow: var(--shadow-md); }
+        .nav-container {
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .logo span { color: var(--orange); }
+        .logo i { color: var(--orange); font-size: 1.3rem; }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--orange);
+            background: var(--orange-light);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 8px;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            padding: 16px 24px;
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--orange); padding-left: 8px; }
+        .mobile-menu a.active { color: var(--orange); font-weight: 600; }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8C38 40%, #FFA94D 100%);
+            padding: 60px 24px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 140%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, var(--bg), transparent);
+            pointer-events: none;
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .hero h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            color: var(--orange);
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: var(--transition);
+        }
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== AD PLACEHOLDER ===== */
+        .ad-placeholder {
+            background: var(--white);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 28px 0;
+            min-height: 100px;
+            transition: var(--transition);
+        }
+        .ad-placeholder:hover { border-color: var(--orange); color: var(--orange); }
+        .ad-placeholder i { margin-right: 8px; font-size: 1rem; }
+
+        /* ===== FILTERS ===== */
+        .filter-section {
+            padding: 32px 0 8px;
+            position: sticky;
+            top: 64px;
+            background: var(--bg);
+            z-index: 100;
+        }
+        .filter-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .filter-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .product-count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+            background: var(--white);
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--border);
+            background: var(--white);
+            color: var(--text-mid);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+        .filter-btn:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            background: var(--orange-light);
+        }
+        .filter-btn.active {
+            background: var(--orange);
+            color: var(--white);
+            border-color: var(--orange);
+            box-shadow: 0 4px 12px rgba(255,107,0,0.3);
+        }
+
+        /* ===== PRODUCT GRID ===== */
+        .products-section { padding: 24px 0 48px; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* ===== PRODUCT CARD ===== */
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: #F9F9F9;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .card-image img { transform: scale(1.08); }
+
+        .card-badges {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 2;
+        }
+        .badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-hot {
+            background: #FF3B3B;
+            color: white;
+            animation: pulseBadge 2s infinite;
+        }
+        .badge-bestseller {
+            background: var(--orange);
+            color: white;
+        }
+        .badge-limited {
+            background: var(--blue);
+            color: white;
+        }
+        @keyframes pulseBadge {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .category-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+        .discount-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 4px 10px;
+            background: #22C55E;
+            color: white;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .card-content {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.4;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.45em;
+        }
+        .card-desc {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .price-current {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+        .price-original {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        .card-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: auto;
+        }
+        .btn-buy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 12px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn-amazon {
+            background: var(--orange);
+            color: white;
+        }
+        .btn-amazon:hover { background: var(--orange-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,107,0,0.3); }
+        .btn-flipkart {
+            background: var(--blue);
+            color: white;
+        }
+        .btn-flipkart:hover { background: var(--blue-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(40,116,240,0.3); }
+        .btn-myntra {
+            background: linear-gradient(135deg, #FF3F6C, #FF1493);
+            color: white;
+        }
+        .btn-myntra:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,63,108,0.3); }
+        .btn-buy i { font-size: 0.85rem; }
+
+        /* ===== NO RESULTS ===== */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            grid-column: 1 / -1;
+        }
+        .no-results i { font-size: 3rem; color: var(--border); margin-bottom: 16px; }
+        .no-results h3 { font-size: 1.2rem; color: var(--text-mid); margin-bottom: 8px; }
+        .no-results p { font-size: 0.9rem; color: var(--text-light); }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--text-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 48px 24px 24px;
+            margin-top: 20px;
+        }
+        .footer-container {
+            max-width: 1340px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand .logo { color: var(--white); margin-bottom: 12px; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        .footer-col a:hover { color: var(--orange); padding-left: 6px; }
+        .footer-bottom {
+            max-width: 1340px;
+            margin: 32px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.8rem;
+        }
+        .footer-socials { display: flex; gap: 12px; }
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-socials a:hover { background: var(--orange); color: white; transform: translateY(-2px); }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--orange);
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(255,107,0,0.35);
+            transition: var(--transition);
+            z-index: 999;
+        }
+        .back-to-top.visible { display: flex; }
+        .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,107,0,0.45); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-container { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 44px 24px 40px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .card-content { padding: 12px; }
+            .card-title { font-size: 0.82rem; }
+            .card-desc { font-size: 0.73rem; margin-bottom: 8px; }
+            .price-current { font-size: 1.1rem; }
+            .btn-buy { padding: 8px 10px; font-size: 0.72rem; }
+            .filter-buttons { gap: 6px; }
+            .filter-btn { padding: 8px 14px; font-size: 0.78rem; }
+            .footer-container { grid-template-columns: 1fr; gap: 24px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .badge { font-size: 0.6rem; padding: 3px 7px; }
+        }
+        @media (max-width: 480px) {
+            .product-grid { gap: 10px; }
+            .card-badges { top: 6px; left: 6px; }
+            .category-tag { top: 6px; right: 6px; font-size: 0.58rem; padding: 3px 6px; }
+            .discount-badge { bottom: 6px; right: 6px; font-size: 0.62rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-globe"></i> GoGlobal<span>Mart</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="electronics.html">Electronics</a></li>
+                <li><a href="beauty.html">Beauty</a></li>
+                <li><a href="sports.html">Sports</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="deals.html" class="active">Deals</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="electronics.html">Electronics</a>
+            <a href="beauty.html">Beauty</a>
+            <a href="sports.html">Sports</a>
+            <a href="books.html">Books</a>
+            <a href="deals.html" class="active">Deals</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🔥 Trending Deals from All Categories</h1>
+            <p>Best offers across Amazon, Flipkart & Myntra — Handpicked just for you</p>
+            <a href="#products" class="hero-btn">
+                <i class="fas fa-shopping-bag"></i> Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- TOP AD -->
+    <div class="container">
+        <div class="ad-placeholder">
+            <i class="fas fa-ad"></i> Ad Space — 728x90 Leaderboard AdSense Placeholder
+        </div>
+    </div>
+
+    <!-- FILTER SECTION -->
+    <div class="container">
+        <section class="filter-section" id="products">
+            <div class="filter-header">
+                <h2><i class="fas fa-fire" style="color:var(--orange);margin-right:6px;"></i> All Deals</h2>
+                <span class="product-count" id="productCount">36 deals found</span>
+            </div>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="Electronics">Electronics</button>
+                <button class="filter-btn" data-category="Beauty">Beauty</button>
+                <button class="filter-btn" data-category="Fashion">Fashion</button>
+                <button class="filter-btn" data-category="Home & Kitchen">Home & Kitchen</button>
+                <button class="filter-btn" data-category="Sports">Sports</button>
+                <button class="filter-btn" data-category="Books">Books</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="container">
+        <section class="products-section">
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+    </div>
+
+    <!-- BOTTOM AD -->
+    <div class="container">
+        <div class="ad-placeholder">
+            <i class="fas fa-ad"></i> Ad Space — 728x90 Leaderboard AdSense Placeholder
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo"><i class="fas fa-globe"></i> GoGlobal<span>Mart</span></a>
+                <p>Your one-stop destination for the best deals across top Indian e-commerce platforms. We compare prices, find discounts, and bring you the hottest offers — all in one place.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="deals.html">All Deals</a>
+                <a href="electronics.html">Electronics</a>
+                <a href="fashions.html">Fashion</a>
+                <a href="beauty.html">Beauty</a>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <a href="home & kitchen.html">Home & Kitchen</a>
+                <a href="sports.html">Sports & Fitness</a>
+                <a href="books.html">Books</a>
+                <a href="#">Top Sellers</a>
+                <a href="deals.html">Limited Time Deals</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="affiliate.html">Affiliate Disclosure</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 GoGlobalMart. All rights reserved. | Affiliate Disclosure: We earn from qualifying purchases.</span>
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/go_global_mart?igsh=bWh0N2Z6M2UxNjFi" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@shoppingclub81" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+<script>
+// ===== PRODUCT DATA =====
+const products = [
+    // ELECTRONICS (6)
+    {
+        id: 1, title: "Sony WH-1000XM5 Wireless Noise Cancelling Headphones — Best Premium ANC",
+        category: "Electronics", price: 22990, originalPrice: 34990, discount: 34,
+        desc: "Industry-leading noise cancellation with Auto NC Optimizer, 30-hour battery life, and multipoint connection.",
+        image: "https://picsum.photos/seed/headphones-sony/400/400", badge: "hot", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 2, title: "Apple Watch Series 9 GPS 45mm Aluminum Case — Smartwatch with Health Features",
+        category: "Electronics", price: 38999, originalPrice: 44900, discount: 13,
+        desc: "Advanced health sensors, crash detection, always-on Retina display, and S9 SiP chip for faster performance.",
+        image: "https://picsum.photos/seed/apple-watch-s9/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 3, title: "Samsung Galaxy Buds FE True Wireless Earbuds — Active Noise Cancellation",
+        category: "Electronics", price: 2999, originalPrice: 5999, discount: 50,
+        desc: "Intelligent ANC, comfortable ergonomic fit, 6hrs playback per charge with 30hrs total with case.",
+        image: "https://picsum.photos/seed/galaxy-buds-fe/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 4, title: "Anker PowerCore 20000mAh Portable Charger — Fast Charging Power Bank",
+        category: "Electronics", price: 1999, originalPrice: 3999, discount: 50,
+        desc: "20000mAh capacity, PowerIQ 2.0 technology, dual USB-A output, trickle-charge mode for low-power devices.",
+        image: "https://picsum.photos/seed/anker-powerbank/400/400", badge: "hot", tag: "Limited Time Deal",
+        platforms: ["amazon"]
+    },
+    {
+        id: 5, title: "JBL Flip 6 Portable Bluetooth Speaker — IP67 Waterproof Wireless Speaker",
+        category: "Electronics", price: 7999, originalPrice: 14999, discount: 47,
+        desc: "Powerful bass with racetrack-shaped driver, IP67 dust and waterproof, 12 hours playtime, PartyBoost.",
+        image: "https://picsum.photos/seed/jbl-flip6/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 6, title: "Logitech MX Master 3S Wireless Mouse — Silent Clicks Ergonomic Design",
+        category: "Electronics", price: 6495, originalPrice: 9950, discount: 35,
+        desc: "8000 DPI track-on-glass sensor, quiet clicks, MagSpeed scroll, USB-C rechargeable, multi-device workflow.",
+        image: "https://picsum.photos/seed/logitech-mx3s/400/400", badge: "limited", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+
+    // BEAUTY (6)
+    {
+        id: 7, title: "Cetaphil Gentle Skin Cleanser — Dermatologist Recommended Face Wash for Sensitive Skin",
+        category: "Beauty", price: 345, originalPrice: 520, discount: 34,
+        desc: "Soap-free, non-irritating formula with gentle cleansing for all skin types. 250ml bottle.",
+        image: "https://picsum.photos/seed/cetaphil-cleanser/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 8, title: "La Roche-Posay Anthelios SPF 50+ Sunscreen — UVA/UVB Protection Gel Cream",
+        category: "Beauty", price: 899, originalPrice: 1399, discount: 36,
+        desc: "Mexoryl SX/XL technology, non-greasy, water-resistant, suitable for sensitive skin. 50ml.",
+        image: "https://picsum.photos/seed/lrp-sunscreen/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 9, title: "Maybelline Fit Me Matte+Poreless Foundation — Oil-Free Liquid Foundation",
+        category: "Beauty", price: 299, originalPrice: 499, discount: 40,
+        desc: "Pore-minimizing matte finish, available in 18 shades, dermatologist tested, 18ml.",
+        image: "https://picsum.photos/seed/maybelline-fitme/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 10, title: "The Ordinary Niacinamide 10% + Zinc 1% — Oil Control Serum for Blemished Skin",
+        category: "Beauty", price: 550, originalPrice: 750, discount: 27,
+        desc: "High-strength vitamin B3 serum that reduces blemishes and congestion. 30ml glass dropper.",
+        image: "https://picsum.photos/seed/ordinary-niacinamide/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 11, title: "Dyson Supersonic HD07 Hair Dryer — Fast Drying with Intelligent Heat Control",
+        category: "Beauty", price: 32900, originalPrice: 42900, discount: 23,
+        desc: "Air Multiplier technology, 3 speed + 4 heat settings, magnetic attachments, ultra-fast drying.",
+        image: "https://picsum.photos/seed/dyson-hairdryer/400/400", badge: "limited", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 12, title: "Lakme Absolute Perfect Radiance Skin Brightening Kit — Face Wash + Day Cream + Serum",
+        category: "Beauty", price: 599, originalPrice: 1199, discount: 50,
+        desc: "Complete skincare routine with vitamins and micro-crystals for radiant glowing skin.",
+        image: "https://picsum.photos/seed/lakme-kit/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+
+    // FASHION (6)
+    {
+        id: 13, title: "Levi's Men 511 Slim Fit Stretch Jeans — Classic Mid Rise Denim",
+        category: "Fashion", price: 1799, originalPrice: 3999, discount: 55,
+        desc: "Premium stretch denim, slim fit through hip and thigh, signature arcuate stitch. Multiple washes.",
+        image: "https://picsum.photos/seed/levis-511-jeans/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 14, title: "Nike Air Max 270 Running Shoes — Men's Air Cushion Sneakers",
+        category: "Fashion", price: 6495, originalPrice: 11995, discount: 46,
+        desc: "Large Max Air unit for plush cushioning, stretchy inner sleeve, breathable mesh upper.",
+        image: "https://picsum.photos/seed/nike-airmax270/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 15, title: "Allen Solly Men's Slim Fit Formal Shirt — Premium Cotton Office Wear",
+        category: "Fashion", price: 799, originalPrice: 1899, discount: 58,
+        desc: "Wrinkle-resistant cotton blend, spread collar, full sleeves. Perfect for corporate wear.",
+        image: "https://picsum.photos/seed/allen-solly-shirt/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 16, title: "Tommy Hilfiger Men's Slim Fit Polo T-Shirt — Iconic Flag Logo",
+        category: "Fashion", price: 1499, originalPrice: 3499, discount: 57,
+        desc: "100% premium cotton pique, embroidered logo, ribbed collar. Classic American style.",
+        image: "https://picsum.photos/seed/tommy-polo/400/400", badge: "limited", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 17, title: "Ray-Ban Aviator Classic Sunglasses — Polarized Gold Frame Green Lens",
+        category: "Fashion", price: 4990, originalPrice: 8990, discount: 44,
+        desc: "Iconic pilot shape, crystal polarized lenses for 100% UV protection, metal frame.",
+        image: "https://picsum.photos/seed/rayban-aviator/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart", "myntra"]
+    },
+    {
+        id: 18, title: "H&M Women's Oversized Blazer — Relaxed Fit Formal Jacket for Women",
+        category: "Fashion", price: 1499, originalPrice: 3499, discount: 57,
+        desc: "Oversized silhouette, notched lapel, single-button closure. Versatile office-to-evening wear.",
+        image: "https://picsum.photos/seed/hm-blazer/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "myntra"]
+    },
+
+    // HOME & KITCHEN (6)
+    {
+        id: 19, title: "Prestige Iris 750W Mixer Grinder — 3 Stainless Steel Jars with Overload Protection",
+        category: "Home & Kitchen", price: 2499, originalPrice: 4999, discount: 50,
+        desc: "Powerful 750W motor, 3 SS jars (1.2L, 0.8L, 0.3L), super-efficient blades, 2-year warranty.",
+        image: "https://picsum.photos/seed/prestige-mixer/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 20, title: "Instant Vortex Plus 6-Quart Air Fryer — 6-in-1 Electric Air Fryer Oven",
+        category: "Home & Kitchen", price: 7999, originalPrice: 13999, discount: 43,
+        desc: "EvenCrisp technology, 6-in-1 functionality (fry, roast, bake, reheat, toast, dehydrate), one-touch smart programs.",
+        image: "https://picsum.photos/seed/instant-airfryer/400/400", badge: "hot", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 21, title: "Bosch 9kg Fully Automatic Front Load Washing Machine — Inverter Motor",
+        category: "Home & Kitchen", price: 34990, originalPrice: 47990, discount: 27,
+        desc: "ActiveWater Plus, SpeedPerfect, AntiStain technology, 15 wash programs, 2-year comprehensive warranty.",
+        image: "https://picsum.photos/seed/bosch-washing/400/400", badge: "limited", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 22, title: "Wakefit Orthopedic Memory Foam Mattress — Queen Size 6-Inch with Anti-Slip Base",
+        category: "Home & Kitchen", price: 8999, originalPrice: 17999, discount: 50,
+        desc: "Orthopedic support, high-density memory foam, breathable fabric cover, 100-night trial.",
+        image: "https://picsum.photos/seed/wakefit-mattress/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 23, title: "Pigeon by Stovekraft 12-Piece Non-Stick Cookware Set — Induction Compatible",
+        category: "Home & Kitchen", price: 1299, originalPrice: 2999, discount: 57,
+        desc: "Includes tawa, kadai, fry pan, saucepan with lids. PTFE-coated, metal spoon friendly.",
+        image: "https://picsum.photos/seed/pigeon-cookware/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 24, title: "Philips LED 18W Smart Wi-Fi Bulb — 16 Million Colors with Alexa & Google Support",
+        category: "Home & Kitchen", price: 749, originalPrice: 1499, discount: 50,
+        desc: "Tunable white light, 16M colors, voice control via Alexa/Google, scheduling via Philips Hue app.",
+        image: "https://picsum.photos/seed/philips-smart-bulb/400/400", badge: "hot", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+
+    // SPORTS (6)
+    {
+        id: 25, title: "Boldfit Premium Yoga Mat — 8mm Thick Anti-Slip TPE Exercise Mat with Carry Strap",
+        category: "Sports", price: 449, originalPrice: 1499, discount: 70,
+        desc: "Eco-friendly TPE material, double-sided anti-slip texture, moisture-resistant, lightweight 900g.",
+        image: "https://picsum.photos/seed/boldfit-yoga/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 26, title: "Fitbit Charge 6 Fitness Tracker — Heart Rate, GPS, Google Wallet Integration",
+        category: "Sports", price: 10999, originalPrice: 14999, discount: 27,
+        desc: "Built-in GPS, advanced health metrics, stress management, 7-day battery, 40+ exercise modes.",
+        image: "https://picsum.photos/seed/fitbit-charge6/400/400", badge: "limited", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 27, title: "Boldfit Resistance Bands Set — 5 Latex Loop Bands for Home Gym Workout",
+        category: "Sports", price: 299, originalPrice: 999, discount: 70,
+        desc: "5 resistance levels (5kg-40kg), premium natural latex, carrying pouch included, full body workout.",
+        image: "https://picsum.photos/seed/boldfit-bands/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 28, title: "Yonex Nanoray Light 18i Badminton Racquet — Lightweight Graphite for Beginners",
+        category: "Sports", price: 1590, originalPrice: 2890, discount: 45,
+        desc: "Ultra-light 77g frame, head-light balance, full graphite construction, pre-strung with cover.",
+        image: "https://picsum.photos/seed/yonex-racquet/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 29, title: "Decathlon Quechua MH100 10L Hiking Backpack — Rain Cover Included Trekking Bag",
+        category: "Sports", price: 799, originalPrice: 1499, discount: 47,
+        desc: "10L capacity, foam-padded back, 2 pockets, integrated rain cover, access pocket for water bladder.",
+        image: "https://picsum.photos/seed/quechua-backpack/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 30, title: "Boldfit Adjustable Dumbbells Set — 5-25kg Pair with Anti-Slip Rubber Coating",
+        category: "Sports", price: 1999, originalPrice: 4999, discount: 60,
+        desc: "Adjustable weight plates, chrome knurled handle, rubber-coated for floor protection, home gym essential.",
+        image: "https://picsum.photos/seed/boldfit-dumbbells/400/400", badge: "hot", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+
+    // BOOKS (6)
+    {
+        id: 31, title: "Atomic Habits by James Clear — #1 Bestseller on Building Good Habits & Breaking Bad Ones",
+        category: "Books", price: 299, originalPrice: 599, discount: 50,
+        desc: "Practical framework for improving every day. Tiny changes, remarkable results. 320 pages paperback.",
+        image: "https://picsum.photos/seed/atomic-habits-book/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 32, title: "The Psychology of Money by Morgan Housel — Timeless Lessons on Wealth & Happiness",
+        category: "Books", price: 249, originalPrice: 499, discount: 50,
+        desc: "19 short stories exploring the strange ways people think about money. 256 pages.",
+        image: "https://picsum.photos/seed/psychology-money/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 33, title: "Rich Dad Poor Dad by Robert Kiyosaki — What the Rich Teach Their Kids About Money",
+        category: "Books", price: 199, originalPrice: 499, discount: 60,
+        desc: "Financial literacy classic covering assets, liabilities, and financial independence. 336 pages.",
+        image: "https://picsum.photos/seed/rich-dad-poor/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 34, title: "IKIGAI: The Japanese Secret to a Long and Happy Life by Héctor García",
+        category: "Books", price: 249, originalPrice: 499, discount: 50,
+        desc: "Discover the Japanese concept of finding your reason for being. Wisdom from Okinawa centenarians.",
+        image: "https://picsum.photos/seed/ikigai-book/400/400", badge: "hot", tag: "Hot Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 35, title: "Clean Code by Robert C. Martin — A Handbook of Agile Software Craftsmanship",
+        category: "Books", price: 449, originalPrice: 899, discount: 50,
+        desc: "Essential programming guide on writing readable, maintainable code. 464 pages.",
+        image: "https://picsum.photos/seed/clean-code-book/400/400", badge: "limited", tag: "Limited Time Deal",
+        platforms: ["amazon", "flipkart"]
+    },
+    {
+        id: 36, title: "The Alchemist by Paulo Coelho — A Fable About Following Your Dream",
+        category: "Books", price: 149, originalPrice: 299, discount: 50,
+        desc: "International bestseller about Santiago's journey to discover his Personal Legend. 208 pages.",
+        image: "https://picsum.photos/seed/alchemist-book/400/400", badge: "bestseller", tag: "Best Seller",
+        platforms: ["amazon", "flipkart"]
+    }
+];
+
+// ===== FORMAT CURRENCY =====
+function formatPrice(price) {
+    return '₹' + price.toLocaleString('en-IN');
+}
+
+// ===== RENDER PRODUCTS =====
+function renderProducts(filteredProducts) {
+    const grid = document.getElementById('productGrid');
+    const countEl = document.getElementById('productCount');
+
+    if (filteredProducts.length === 0) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-search"></i>
+                <h3>No deals found</h3>
+                <p>Try selecting a different category</p>
+            </div>
+        `;
+        countEl.textContent = '0 deals found';
+        return;
+    }
+
+    countEl.textContent = `${filteredProducts.length} deal${filteredProducts.length !== 1 ? 's' : ''} found`;
+
+    grid.innerHTML = filteredProducts.map((product, index) => {
+        const badgeHTML = product.badge === 'hot'
+            ? '<span class="badge badge-hot"><i class="fas fa-fire"></i> Hot Deal</span>'
+            : product.badge === 'bestseller'
+            ? '<span class="badge badge-bestseller"><i class="fas fa-star"></i> Best Seller</span>'
+            : '<span class="badge badge-limited"><i class="fas fa-clock"></i> Limited Time</span>';
+
+        let buttonsHTML = '';
+        if (product.platforms.includes('amazon')) {
+            buttonsHTML += `<a href="https://amazon.in/s?k=${encodeURIComponent(product.title.split('—')[0].trim())}" target="_blank" rel="noopener noreferrer" class="btn-buy btn-amazon"><i class="fab fa-amazon"></i> Buy on Amazon</a>`;
+        }
+        if (product.platforms.includes('flipkart')) {
+            buttonsHTML += `<a href="https://www.flipkart.com/search?q=${encodeURIComponent(product.title.split('—')[0].trim())}" target="_blank" rel="noopener noreferrer" class="btn-buy btn-flipkart"><i class="fas fa-shopping-cart"></i> Buy on Flipkart</a>`;
+        }
+        if (product.platforms.includes('myntra')) {
+            buttonsHTML += `<a href="https://www.myntra.com/${encodeURIComponent(product.title.split('—')[0].trim().replace(/\s+/g, '-').toLowerCase())}" target="_blank" rel="noopener noreferrer" class="btn-buy btn-myntra"><i class="fas fa-shopping-bag"></i> Buy on Myntra</a>`;
+        }
+
+        return `
+            <div class="product-card" style="animation-delay: ${index * 0.05}s">
+                <div class="card-image">
+                    <img src="${product.image}" alt="${product.title}" loading="lazy">
+                    <div class="card-badges">${badgeHTML}</div>
+                    <span class="category-tag">${product.category}</span>
+                    <span class="discount-badge">${product.discount}% OFF</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">${product.title}</h3>
+                    <p class="card-desc">${product.desc}</p>
+                    <div class="card-price">
+                        <span class="price-current">${formatPrice(product.price)}</span>
+                        <span class="price-original">${formatPrice(product.originalPrice)}</span>
+                    </div>
+                    <div class="card-buttons">${buttonsHTML}</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// ===== FILTER LOGIC =====
+let currentCategory = 'all';
+
+document.getElementById('filterButtons').addEventListener('click', function(e) {
+    if (!e.target.classList.contains('filter-btn')) return;
+
+    const btn = e.target;
+    const category = btn.dataset.category;
+
+    if (category === currentCategory) return;
+    currentCategory = category;
+
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Filter products
+    const filtered = category === 'all'
+        ? products
+        : products.filter(p => p.category === category);
+
+    // Animate transition
+    const grid = document.getElementById('productGrid');
+    grid.style.opacity = '0';
+    grid.style.transform = 'translateY(10px)';
+
+    setTimeout(() => {
+        renderProducts(filtered);
+        grid.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        grid.style.opacity = '1';
+        grid.style.transform = 'translateY(0)';
+    }, 200);
+});
+
+// ===== INITIAL RENDER =====
+renderProducts(products);
+
+// ===== STICKY NAVBAR SCROLL EFFECT =====
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+
+    if (window.scrollY > 400) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+});
+
+// ===== BACK TO TOP =====
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== MOBILE MENU =====
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+mobileToggle.addEventListener('click', function() {
+    mobileMenu.classList.toggle('open');
+    const icon = mobileToggle.querySelector('i');
+    if (mobileMenu.classList.contains('open')) {
+        icon.className = 'fas fa-times';
+    } else {
+        icon.className = 'fas fa-bars';
+    }
+});
+
+// Close mobile menu on link click
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileToggle.querySelector('i').className = 'fas fa-bars';
+    });
+});
+
+// Close mobile menu on outside click
+document.addEventListener('click', function(e) {
+    if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        mobileToggle.querySelector('i').className = 'fas fa-bars';
+    }
+});
+</script>
+</body>
+</html>

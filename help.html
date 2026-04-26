@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center — GoGlobalMart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: { lime: '#c1ff72', limeDark: '#a8e060' },
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.8s ease-out forwards',
+            'fade-up-delay-1': 'fadeUp 0.8s ease-out 0.1s forwards',
+            'fade-up-delay-2': 'fadeUp 0.8s ease-out 0.2s forwards',
+            'fade-up-delay-3': 'fadeUp 0.8s ease-out 0.3s forwards',
+            'fade-up-delay-4': 'fadeUp 0.8s ease-out 0.4s forwards',
+            'fade-up-delay-5': 'fadeUp 0.8s ease-out 0.5s forwards',
+            'float': 'float 6s ease-in-out infinite',
+            'clip-in': 'clipIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) both',
+            'marquee': 'marquee 40s linear infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            clipIn: {
+              '0%': { opacity: '0', clipPath: 'inset(0 0 100% 0)' },
+              '100%': { opacity: '1', clipPath: 'inset(0 0 0 0)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Geist', sans-serif;
+      background: #f5f5f5;
+      color: #171717;
+      overflow-x: hidden;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .grid-lines {
+      background-size: 40px 40px;
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    }
+
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                  rgba(193, 255, 114, 0.12), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+
+    .spotlight-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 9999px;
+      background: #c1ff72;
+      filter: blur(120px);
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .search-input:focus {
+      box-shadow: 0 0 0 3px rgba(193, 255, 114, 0.4);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-answer.open {
+      max-height: 300px;
+      padding-top: 12px;
+      padding-bottom: 4px;
+    }
+
+    .faq-chevron {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    .category-card {
+      transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 300ms ease;
+    }
+
+    .category-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-card:hover .card-icon {
+      transform: scale(1.1) rotate(-3deg);
+      background: #c1ff72;
+      color: #171717;
+    }
+
+    .card-icon {
+      transition: transform 300ms ease, background 300ms ease, color 300ms ease;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #c1ff72;
+      transition: width 300ms ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .mobile-menu.open {
+      max-height: 400px;
+    }
+
+    .toast {
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hero-glow {
+        width: 250px;
+        height: 250px;
+        filter: blur(80px);
+      }
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f5f5f5; }
+    ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+  </style>
+</head>
+<body class="grid-lines">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-stone-200/50">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 h-16 lg:h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 lg:w-10 lg:h-10 rounded-xl bg-stone-900 flex items-center justify-center group-hover:scale-95 transition-transform duration-300">
+          <iconify-icon icon="lucide:globe" class="text-brand-lime text-lg lg:text-xl"></iconify-icon>
+        </div>
+        <span class="text-xl lg:text-2xl font-semibold font-montserrat tracking-tight text-stone-900">GoGlobal<span class="text-stone-400">Mart</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">Home</a>
+        <a href="deals.html" class="nav-link text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">Deals</a>
+        <a href="help.html" class="nav-link text-sm font-medium text-stone-900 border-b-2 border-brand-lime pb-0.5">Help Center</a>
+        <a href="#" class="nav-link text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">Blog</a>
+        <a href="mailto:goglobalmart01@gmail.com" class="bg-stone-900 text-brand-lime text-xs lg:text-sm font-semibold px-4 py-2 lg:px-5 lg:py-2.5 rounded-full hover:bg-stone-800 hover:scale-95 transition-all duration-300 flex items-center gap-2">
+          <iconify-icon icon="lucide:mail" class="text-sm"></iconify-icon>
+          Contact
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center hover:bg-stone-100 transition-colors" aria-label="Menu">
+        <iconify-icon icon="lucide:menu" class="text-xl text-stone-700" id="menuIcon"></iconify-icon>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden border-t border-stone-200/50 bg-white/80 backdrop-blur-xl">
+      <div class="px-6 py-4 flex flex-col gap-1">
+        <a href="index.html" class="text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50 rounded-lg px-4 py-3 transition-all">Home</a>
+        <a href="deals.html" class="text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50 rounded-lg px-4 py-3 transition-all">Deals</a>
+        <a href="help.html" class="text-sm font-medium text-stone-900 bg-stone-50 rounded-lg px-4 py-3 transition-all">Help Center</a>
+        <a href="#" class="text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50 rounded-lg px-4 py-3 transition-all">Blog</a>
+        <a href="mailto:goglobalmart01@gmail.com" class="mt-2 bg-stone-900 text-brand-lime text-sm font-semibold px-4 py-3 rounded-xl text-center">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative min-h-[50vh] lg:min-h-[55vh] flex items-center pt-20 overflow-hidden">
+    <!-- Background Glows -->
+    <div class="hero-glow top-20 -left-32 animate-float"></div>
+    <div class="hero-glow bottom-0 right-0 animate-float" style="animation-delay: -3s;"></div>
+
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 w-full py-12 lg:py-20">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Badge -->
+        <div class="opacity-0 animate-fade-up inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-stone-200/50 rounded-full px-4 py-1.5 mb-6">
+          <iconify-icon icon="lucide:sparkles" class="text-brand-limeDark text-sm"></iconify-icon>
+          <span class="text-xs font-medium text-stone-500">Support & Resources</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="opacity-0 animate-fade-up-delay-1 text-4xl md:text-5xl lg:text-7xl font-medium font-montserrat tracking-[-0.05em] leading-[0.95] text-stone-900 mb-4">
+          Help Center
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="opacity-0 animate-fade-up-delay-2 text-base lg:text-lg text-stone-500 leading-relaxed mb-8 max-w-md mx-auto">
+          How can we help you? Find answers, guides, and support for your GoGlobalMart experience.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="opacity-0 animate-fade-up-delay-3 relative max-w-xl mx-auto">
+          <div class="relative">
+            <iconify-icon icon="lucide:search" class="absolute left-5 top-1/2 -translate-y-1/2 text-stone-400 text-lg"></iconify-icon>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search for help articles, guides, FAQs..."
+              class="search-input w-full pl-13 pr-28 py-4 lg:py-5 rounded-2xl lg:rounded-full bg-white border border-stone-200/80 text-sm lg:text-base text-stone-900 placeholder:text-stone-400 outline-none transition-all duration-300"
+              style="padding-left: 3rem;"
+            >
+            <button id="searchBtn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-stone-900 text-brand-lime text-xs lg:text-sm font-semibold px-4 lg:px-5 py-2 lg:py-2.5 rounded-xl lg:rounded-full hover:bg-stone-800 hover:scale-95 transition-all duration-300">
+              Search
+            </button>
+          </div>
+          <!-- Search Toast -->
+          <div id="searchToast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 bg-stone-900 text-white text-sm font-medium px-6 py-3 rounded-xl shadow-2xl z-50 flex items-center gap-2">
+            <iconify-icon icon="lucide:info" class="text-brand-lime"></iconify-icon>
+            <span id="toastMessage">Type something to search</span>
+          </div>
+        </div>
+
+        <!-- Quick Tags -->
+        <div class="opacity-0 animate-fade-up-delay-4 flex flex-wrap justify-center gap-2 mt-5">
+          <button class="quick-tag text-xs text-stone-500 bg-white/70 border border-stone-200/50 rounded-full px-3.5 py-1.5 hover:bg-brand-lime hover:text-stone-900 hover:border-brand-lime transition-all duration-300">Affiliate Links</button>
+          <button class="quick-tag text-xs text-stone-500 bg-white/70 border border-stone-200/50 rounded-full px-3.5 py-1.5 hover:bg-brand-lime hover:text-stone-900 hover:border-brand-lime transition-all duration-300">Payment</button>
+          <button class="quick-tag text-xs text-stone-500 bg-white/70 border border-stone-200/50 rounded-full px-3.5 py-1.5 hover:bg-brand-lime hover:text-stone-900 hover:border-brand-lime transition-all duration-300">Orders</button>
+          <button class="quick-tag text-xs text-stone-500 bg-white/70 border border-stone-200/50 rounded-full px-3.5 py-1.5 hover:bg-brand-lime hover:text-stone-900 hover:border-brand-lime transition-all duration-300">Account</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HELP CATEGORIES ==================== -->
+  <section class="relative py-12 lg:py-20">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <!-- Section Label -->
+      <div class="text-center mb-10 lg:mb-14 opacity-0 animate-fade-up-delay-5" id="categoriesSection">
+        <span class="text-[10px] font-semibold tracking-[0.1em] uppercase text-stone-400">Browse by Topic</span>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6" id="cardsGrid">
+
+        <!-- Card 1: Buying Guide -->
+        <div class="category-card spotlight-card bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-stone-200/50 cursor-pointer group" data-category="buying">
+          <div class="card-icon w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-stone-100 flex items-center justify-center mb-5">
+            <iconify-icon icon="lucide:shopping-bag" class="text-xl lg:text-2xl text-stone-700"></iconify-icon>
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold font-montserrat text-stone-900 mb-2">Buying Guide</h3>
+          <p class="text-sm text-stone-500 leading-relaxed mb-5">
+            Learn how to browse, select, and purchase products through GoGlobalMart's affiliate partners. Step-by-step walkthroughs.
+          </p>
+          <ul class="space-y-2.5 mb-6">
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              How to find products
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Understanding product pages
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Completing a purchase
+            </li>
+          </ul>
+          <div class="flex items-center gap-1.5 text-sm font-semibold text-stone-900 group-hover:text-stone-700 transition-colors">
+            View Guide
+            <iconify-icon icon="lucide:arrow-right" class="text-base group-hover:translate-x-1 transition-transform duration-150"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Card 2: Affiliate Links Info -->
+        <div class="category-card spotlight-card bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-stone-200/50 cursor-pointer group" data-category="affiliate">
+          <div class="card-icon w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-stone-100 flex items-center justify-center mb-5">
+            <iconify-icon icon="lucide:link" class="text-xl lg:text-2xl text-stone-700"></iconify-icon>
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold font-montserrat text-stone-900 mb-2">Affiliate Links Info</h3>
+          <p class="text-sm text-stone-500 leading-relaxed mb-5">
+            Understand how affiliate links work, where they redirect, and how GoGlobalMart earns through partnered recommendations.
+          </p>
+          <ul class="space-y-2.5 mb-6">
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              What are affiliate links?
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Where do links redirect?
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Transparency & disclosures
+            </li>
+          </ul>
+          <div class="flex items-center gap-1.5 text-sm font-semibold text-stone-900 group-hover:text-stone-700 transition-colors">
+            Learn More
+            <iconify-icon icon="lucide:arrow-right" class="text-base group-hover:translate-x-1 transition-transform duration-150"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Card 3: Payment & Orders -->
+        <div class="category-card spotlight-card bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-stone-200/50 cursor-pointer group" data-category="payment">
+          <div class="card-icon w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-stone-100 flex items-center justify-center mb-5">
+            <iconify-icon icon="lucide:credit-card" class="text-xl lg:text-2xl text-stone-700"></iconify-icon>
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold font-montserrat text-stone-900 mb-2">Payment & Orders</h3>
+          <p class="text-sm text-stone-500 leading-relaxed mb-5">
+            Payments and orders are handled directly by our partner stores. Here's what you need to know about the redirect process.
+          </p>
+          <ul class="space-y-2.5 mb-6">
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Payment redirect info
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Order tracking on partner sites
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Refunds & cancellations
+            </li>
+          </ul>
+          <div class="flex items-center gap-1.5 text-sm font-semibold text-stone-900 group-hover:text-stone-700 transition-colors">
+            View Details
+            <iconify-icon icon="lucide:arrow-right" class="text-base group-hover:translate-x-1 transition-transform duration-150"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Card 4: Troubleshooting -->
+        <div class="category-card spotlight-card bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-stone-200/50 cursor-pointer group" data-category="troubleshoot">
+          <div class="card-icon w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-stone-100 flex items-center justify-center mb-5">
+            <iconify-icon icon="lucide:wrench" class="text-xl lg:text-2xl text-stone-700"></iconify-icon>
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold font-montserrat text-stone-900 mb-2">Troubleshooting</h3>
+          <p class="text-sm text-stone-500 leading-relaxed mb-5">
+            Experiencing issues? Find solutions for broken links, redirect errors, page loading problems, and other common glitches.
+          </p>
+          <ul class="space-y-2.5 mb-6">
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Links not working
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Redirect loop issues
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Page loading errors
+            </li>
+          </ul>
+          <div class="flex items-center gap-1.5 text-sm font-semibold text-stone-900 group-hover:text-stone-700 transition-colors">
+            Get Fixes
+            <iconify-icon icon="lucide:arrow-right" class="text-base group-hover:translate-x-1 transition-transform duration-150"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Card 5: Account & Privacy -->
+        <div class="category-card spotlight-card bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-stone-200/50 cursor-pointer group" data-category="account">
+          <div class="card-icon w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-stone-100 flex items-center justify-center mb-5">
+            <iconify-icon icon="lucide:shield-check" class="text-xl lg:text-2xl text-stone-700"></iconify-icon>
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold font-montserrat text-stone-900 mb-2">Account & Privacy</h3>
+          <p class="text-sm text-stone-500 leading-relaxed mb-5">
+            Manage your account settings, understand data practices, and learn how we protect your privacy and personal information.
+          </p>
+          <ul class="space-y-2.5 mb-6">
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Account settings
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Data & privacy policy
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-stone-600">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-base flex-shrink-0"></iconify-icon>
+              Cookie preferences
+            </li>
+          </ul>
+          <div class="flex items-center gap-1.5 text-sm font-semibold text-stone-900 group-hover:text-stone-700 transition-colors">
+            Manage Account
+            <iconify-icon icon="lucide:arrow-right" class="text-base group-hover:translate-x-1 transition-transform duration-150"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Card 6: Still Need Help? (CTA Card) -->
+        <div class="category-card bg-stone-900 rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-stone-800 cursor-pointer group relative overflow-hidden" data-category="contact">
+          <!-- Decorative Glow -->
+          <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-lime rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-5">
+              <iconify-icon icon="lucide:headphones" class="text-xl lg:text-2xl text-brand-lime"></iconify-icon>
+            </div>
+            <h3 class="text-lg lg:text-xl font-bold font-montserrat text-white mb-2">Still Need Help?</h3>
+            <p class="text-sm text-stone-400 leading-relaxed mb-6">
+              Can't find what you're looking for? Our team is here to assist you. Reach out directly and we'll get back to you soon.
+            </p>
+            <a href="mailto:goglobalmart01@gmail.com" class="inline-flex items-center gap-2 bg-brand-lime text-stone-900 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-limeDark hover:scale-95 transition-all duration-300">
+              <iconify-icon icon="lucide:mail" class="text-base"></iconify-icon>
+              Email Us
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ SECTION ==================== -->
+  <section class="relative py-12 lg:py-20">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="max-w-3xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-10 lg:mb-14">
+          <span class="text-[10px] font-semibold tracking-[0.1em] uppercase text-stone-400 block mb-3">Frequently Asked</span>
+          <h2 class="text-2xl lg:text-4xl font-medium font-montserrat tracking-[-0.025em] text-stone-900">Common Questions</h2>
+        </div>
+
+        <!-- FAQ Items -->
+        <div class="space-y-3" id="faqContainer">
+
+          <div class="faq-item bg-white rounded-2xl border border-stone-200/50 overflow-hidden">
+            <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm lg:text-base font-semibold text-stone-900 pr-4">Does GoGlobalMart sell products directly?</span>
+              <iconify-icon icon="lucide:chevron-down" class="faq-chevron text-stone-400 text-lg flex-shrink-0"></iconify-icon>
+            </button>
+            <div class="faq-answer px-6 text-sm text-stone-500 leading-relaxed">
+              No, GoGlobalMart is an affiliate website. We curate and recommend products from trusted partner stores. When you click a link, you'll be redirected to the partner's official website where the purchase is completed directly.
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl border border-stone-200/50 overflow-hidden">
+            <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm lg:text-base font-semibold text-stone-900 pr-4">Why does clicking a link take me to another website?</span>
+              <iconify-icon icon="lucide:chevron-down" class="faq-chevron text-stone-400 text-lg flex-shrink-0"></iconify-icon>
+            </button>
+            <div class="faq-answer px-6 text-sm text-stone-500 leading-relaxed">
+              Since we're an affiliate site, all product links redirect to our partner retailers' websites. This is how affiliate marketing works — we earn a small commission when you purchase through our links, at no extra cost to you.
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl border border-stone-200/50 overflow-hidden">
+            <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm lg:text-base font-semibold text-stone-900 pr-4">What should I do if a link isn't working?</span>
+              <iconify-icon icon="lucide:chevron-down" class="faq-chevron text-stone-400 text-lg flex-shrink-0"></iconify-icon>
+            </button>
+            <div class="faq-answer px-6 text-sm text-stone-500 leading-relaxed">
+              First, try refreshing the page or clearing your browser cache. If the issue persists, it's possible the product is temporarily out of stock or the link has changed. Please email us at <a href="mailto:bansiwalvicky6@gmail.com" class="text-stone-900 font-medium underline underline-offset-2">bansiwalvicky6@gmail.com</a> and we'll fix it promptly.
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl border border-stone-200/50 overflow-hidden">
+            <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm lg:text-base font-semibold text-stone-900 pr-4">Will I pay more by using GoGlobalMart links?</span>
+              <iconify-icon icon="lucide:chevron-down" class="faq-chevron text-stone-400 text-lg flex-shrink-0"></iconify-icon>
+            </button>
+            <div class="faq-answer px-6 text-sm text-stone-500 leading-relaxed">
+              Absolutely not. The prices you see on partner websites are the same whether you arrive through our link or directly. Our affiliate commission comes from the retailer, not from you. You may even find exclusive discount codes on our site!
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl border border-stone-200/50 overflow-hidden">
+            <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm lg:text-base font-semibold text-stone-900 pr-4">How do I track or return an order?</span>
+              <iconify-icon icon="lucide:chevron-down" class="faq-chevron text-stone-400 text-lg flex-shrink-0"></iconify-icon>
+            </button>
+            <div class="faq-answer px-6 text-sm text-stone-500 leading-relaxed">
+              Since orders are placed on partner websites, tracking and returns must be handled through the respective retailer. Check your email for order confirmation from the partner store, and visit their website for tracking and return policies.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section class="relative py-12 lg:py-20">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="bg-white rounded-3xl lg:rounded-[40px] border border-stone-200/50 overflow-hidden relative">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-brand-lime rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0">
+          <!-- Left Content -->
+          <div class="p-8 lg:p-16 flex flex-col justify-center">
+            <span class="text-[10px] font-semibold tracking-[0.1em] uppercase text-stone-400 block mb-4">Get in Touch</span>
+            <h2 class="text-2xl lg:text-4xl font-medium font-montserrat tracking-[-0.025em] text-stone-900 mb-4">
+              Can't find your answer?
+            </h2>
+            <p class="text-sm lg:text-base text-stone-500 leading-relaxed mb-8 max-w-md">
+              We're here to help. Drop us an email and our support team will respond within 24–48 hours with a personalized solution.
+            </p>
+
+            <!-- Contact Info Cards -->
+            <div class="space-y-3">
+              <a href="mailto:goglobalmart01@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-stone-50 hover:bg-brand-lime/10 border border-stone-100 hover:border-brand-lime/30 transition-all duration-300 group">
+                <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:bg-brand-lime transition-colors duration-300">
+                  <iconify-icon icon="lucide:mail" class="text-stone-600 group-hover:text-stone-900 text-lg transition-colors"></iconify-icon>
+                </div>
+                <div>
+                  <span class="text-xs text-stone-400 block">Email Us</span>
+                  <span class="text-sm font-semibold text-stone-900">bansiwalvicky6@gmail.com</span>
+                </div>
+                <iconify-icon icon="lucide:arrow-up-right" class="text-stone-300 group-hover:text-stone-600 ml-auto text-lg transition-colors"></iconify-icon>
+              </a>
+
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100">
+                <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                  <iconify-icon icon="lucide:clock" class="text-stone-600 text-lg"></iconify-icon>
+                </div>
+                <div>
+                  <span class="text-xs text-stone-400 block">Response Time</span>
+                  <span class="text-sm font-semibold text-stone-900">24–48 Hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="p-8 lg:p-16 bg-stone-50/50 lg:bg-stone-50 border-t lg:border-t-0 lg:border-l border-stone-200/50">
+            <form id="contactForm" class="space-y-4">
+              <div>
+                <label class="text-xs font-semibold text-stone-500 block mb-1.5">Your Name</label>
+                <input type="text" id="formName" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200/80 text-sm text-stone-900 placeholder:text-stone-400 outline-none focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/20 transition-all" required>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-stone-500 block mb-1.5">Email Address</label>
+                <input type="email" id="formEmail" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200/80 text-sm text-stone-900 placeholder:text-stone-400 outline-none focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/20 transition-all" required>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-stone-500 block mb-1.5">Subject</label>
+                <select id="formSubject" class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200/80 text-sm text-stone-900 outline-none focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/20 transition-all appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a8a29e%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
+                  <option value="" disabled selected>Select a topic</option>
+                  <option>Buying Guide</option>
+                  <option>Affiliate Links</option>
+                  <option>Payment & Orders</option>
+                  <option>Troubleshooting</option>
+                  <option>Account & Privacy</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-stone-500 block mb-1.5">Message</label>
+                <textarea id="formMessage" rows="4" placeholder="Describe your issue or question..." class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200/80 text-sm text-stone-900 placeholder:text-stone-400 outline-none focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/20 transition-all resize-none" required></textarea>
+              </div>
+              <button type="submit" class="w-full bg-stone-900 text-brand-lime text-sm font-semibold py-3.5 rounded-xl hover:bg-stone-800 hover:scale-[0.98] active:scale-[0.96] transition-all duration-300 flex items-center justify-center gap-2">
+                <iconify-icon icon="lucide:send" class="text-base"></iconify-icon>
+                Send Message
+              </button>
+            </form>
+            <!-- Form Success Message -->
+            <div id="formSuccess" class="hidden mt-4 p-4 rounded-xl bg-brand-lime/10 border border-brand-lime/30 text-center">
+              <iconify-icon icon="lucide:check-circle-2" class="text-brand-limeDark text-2xl mb-2"></iconify-icon>
+              <p class="text-sm font-semibold text-stone-900">Message sent successfully!</p>
+              <p class="text-xs text-stone-500 mt-1">We'll get back to you within 24–48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-stone-900 text-white relative overflow-hidden">
+    <!-- Top Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-brand-lime rounded-full blur-[150px] opacity-5 pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <a href="#" class="flex items-center gap-2.5 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
+              <iconify-icon icon="lucide:globe" class="text-brand-lime text-lg"></iconify-icon>
+            </div>
+            <span class="text-xl font-semibold font-montserrat tracking-tight text-white">GoGlobal<span class="text-stone-500">Mart</span></span>
+          </a>
+          <p class="text-sm text-stone-400 leading-relaxed max-w-xs">
+            Your trusted destination for curated product recommendations from around the globe.
+          </p>
+        </div>
+
+        <!-- About -->
+        <div>
+          <h4 class="text-xs font-semibold tracking-[0.1em] uppercase text-stone-500 mb-4">About</h4>
+          <ul class="space-y-2.5">
+            <li><a href="about.html" class="text-sm text-stone-400 hover:text-white transition-colors">Who We Are</a></li>
+            <li><a href="about.html" class="text-sm text-stone-400 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="affiliate.html" class="text-sm text-stone-400 hover:text-white transition-colors">Affiliate Disclosure</a></li>
+            <li><a href="#" class="text-sm text-stone-400 hover:text-white transition-colors">Partner Stores</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-xs font-semibold tracking-[0.1em] uppercase text-stone-500 mb-4">Contact</h4>
+          <ul class="space-y-2.5">
+            <li>
+              <a href="mailto:goglobalmart01@gmail.com" class="text-sm text-stone-400 hover:text-white transition-colors flex items-center gap-2">
+                <iconify-icon icon="lucide:mail" class="text-stone-500 text-sm"></iconify-icon>
+                goglobalmart01@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="help.html" class="text-sm text-stone-400 hover:text-white transition-colors flex items-center gap-2">
+                <iconify-icon icon="lucide:help-circle" class="text-stone-500 text-sm"></iconify-icon>
+                Help Center
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class="text-sm text-stone-400 hover:text-white transition-colors flex items-center gap-2">
+                <iconify-icon icon="lucide:message-circle" class="text-stone-500 text-sm"></iconify-icon>
+                Live Chat (Coming Soon)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Privacy -->
+        <div>
+          <h4 class="text-xs font-semibold tracking-[0.1em] uppercase text-stone-500 mb-4">Privacy</h4>
+          <ul class="space-y-2.5">
+            <li><a href="privacy.html" class="text-sm text-stone-400 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-sm text-stone-400 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="cookie.html" class="text-sm text-stone-400 hover:text-white transition-colors">Cookie Policy</a></li>
+            <li><a href="#" class="text-sm text-stone-400 hover:text-white transition-colors">GDPR Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-stone-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-stone-500">
+          © 2025 GoGlobalMart. All rights reserved. Affiliate website — we may earn commissions from partner links.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <iconify-icon icon="lucide:twitter" class="text-stone-400 hover:text-white text-sm"></iconify-icon>
+          </a>
+          <a href="https://www.instagram.com/go_global_mart?igsh=bWh0N2Z6M2UxNjFi" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <iconify-icon icon="lucide:instagram" class="text-stone-400 hover:text-white text-sm"></iconify-icon>
+          </a>
+          <a href="https://www.youtube.com/@shoppingclub81" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <iconify-icon icon="lucide:youtube" class="text-stone-400 hover:text-white text-sm"></iconify-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ===== Mobile Menu Toggle =====
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuIcon.setAttribute('icon', menuOpen ? 'lucide:x' : 'lucide:menu');
+    });
+
+    // ===== Spotlight Effect on Cards =====
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // ===== FAQ Accordion =====
+    document.querySelectorAll('.faq-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const chevron = toggle.querySelector('.faq-chevron');
+        const isOpen = answer.classList.contains('open');
+
+        // Close all others
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.querySelector('.faq-answer').classList.remove('open');
+            otherItem.querySelector('.faq-chevron').classList.remove('rotated');
+            otherItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current
+        answer.classList.toggle('open', !isOpen);
+        chevron.classList.toggle('rotated', !isOpen);
+        toggle.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    // ===== Search Functionality =====
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchToast = document.getElementById('searchToast');
+    const toastMessage = document.getElementById('toastMessage');
+
+    function showToast(message, duration = 3000) {
+      toastMessage.textContent = message;
+      searchToast.classList.add('show');
+      setTimeout(() => searchToast.classList.remove('show'), duration);
+    }
+
+    searchBtn.addEventListener('click', () => {
+      const query = searchInput.value.trim();
+      if (!query) {
+        showToast('Please enter a search term');
+        return;
+      }
+      showToast(`Searching for "${query}"... No results yet — feature coming soon!`);
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') searchBtn.click();
+    });
+
+    // ===== Quick Tags =====
+    document.querySelectorAll('.quick-tag').forEach(tag => {
+      tag.addEventListener('click', () => {
+        searchInput.value = tag.textContent;
+        searchInput.focus();
+        showToast(`Filtering by "${tag.textContent}"...`);
+      });
+    });
+
+    // ===== Contact Form =====
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('formName').value.trim();
+      const email = document.getElementById('formEmail').value.trim();
+      const subject = document.getElementById('formSubject').value;
+      const message = document.getElementById('formMessage').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        showToast('Please fill in all fields');
+        return;
+      }
+
+      // Simulate sending
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<iconify-icon icon="lucide:loader-2" class="text-base animate-spin"></iconify-icon> Sending...';
+
+      setTimeout(() => {
+        contactForm.style.display = 'none';
+        formSuccess.classList.remove('hidden');
+        showToast('Message sent successfully!');
+      }, 1500);
+    });
+
+    // ===== Scroll-based card animations =====
+    const cardsGrid = document.getElementById('cardsGrid');
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const cards = entry.target.querySelectorAll('.category-card');
+          cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.08}s, transform 0.6s ease ${index * 0.08}s`;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              });
+            });
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    if (cardsGrid) observer.observe(cardsGrid);
+
+    // ===== FAQ section scroll animation =====
+    const faqContainer = document.getElementById('faqContainer');
+    const faqObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const items = entry.target.querySelectorAll('.faq-item');
+          items.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(15px)';
+            item.style.transition = `opacity 0.5s ease ${index * 0.07}s, transform 0.5s ease ${index * 0.07}s`;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              });
+            });
+          });
+          faqObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    if (faqContainer) faqObserver.observe(faqContainer);
+
+    // ===== Category card click feedback =====
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const category = card.dataset.category;
+        if (category === 'contact') return; // handled by email link
+        showToast(`Opening "${category}" section — detailed articles coming soon!`);
+      });
+    });
+  </script>
+
+</body>
+</html>

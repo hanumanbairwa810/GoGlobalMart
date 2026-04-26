@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers — GoGlobalMart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              DEFAULT: '#A3B14B',
+              hover: '#8f9c40',
+              dark: '#5e6629',
+              light: '#d4e170',
+              bg: '#f7f8ef',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    ::selection { background: #A3B14B; color: #fff; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #fafaf9; }
+    ::-webkit-scrollbar-thumb { background: #A3B14B; border-radius: 3px; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .float-anim { animation: float 4s ease-in-out infinite; }
+    .float-anim-delay { animation: float 4s ease-in-out 1s infinite; }
+    .float-anim-delay2 { animation: float 4s ease-in-out 2s infinite; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    .pulse-ring::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid #A3B14B;
+      animation: pulse-ring 2s ease-out infinite;
+    }
+
+    .role-card {
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .role-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -12px rgba(163, 177, 75, 0.15);
+    }
+    .role-card:hover .role-icon {
+      background: #A3B14B;
+      color: #fff;
+    }
+
+    .benefit-card {
+      transition: all 0.3s ease;
+    }
+    .benefit-card:hover {
+      transform: translateY(-4px);
+    }
+    .benefit-card:hover .benefit-number {
+      background: #A3B14B;
+      color: #fff;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #A3B14B;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .toast {
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#fafaf9] text-[#1c1917] font-sans antialiased">
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 bg-brand rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+            <i data-lucide="globe" class="w-5 h-5 text-white"></i>
+          </div>
+          <span class="text-xl font-semibold tracking-tight">GoGlobal<span class="text-brand">Mart</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#about" class="nav-link text-sm font-medium text-[#57534e] hover:text-[#1c1917] transition-colors">About</a>
+          <a href="#roles" class="nav-link text-sm font-medium text-[#57534e] hover:text-[#1c1917] transition-colors">Open Roles</a>
+          <a href="#benefits" class="nav-link text-sm font-medium text-[#57534e] hover:text-[#1c1917] transition-colors">Why Join Us</a>
+          <a href="#apply" class="nav-link text-sm font-medium text-[#57534e] hover:text-[#1c1917] transition-colors">Apply</a>
+          <a href="#apply" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-hover text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-brand/20">
+            Apply Now
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-stone-100 transition-colors">
+          <i data-lucide="menu" class="w-5 h-5" id="menuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-stone-100">
+      <div class="px-4 py-6 space-y-1">
+        <a href="#about" class="mobile-link block px-4 py-3 rounded-xl text-sm font-medium text-[#57534e] hover:bg-brand-bg hover:text-[#1c1917] transition-all">About</a>
+        <a href="#roles" class="mobile-link block px-4 py-3 rounded-xl text-sm font-medium text-[#57534e] hover:bg-brand-bg hover:text-[#1c1917] transition-all">Open Roles</a>
+        <a href="#benefits" class="mobile-link block px-4 py-3 rounded-xl text-sm font-medium text-[#57534e] hover:bg-brand-bg hover:text-[#1c1917] transition-all">Why Join Us</a>
+        <a href="#apply" class="mobile-link block px-4 py-3 rounded-xl text-sm font-medium text-[#57534e] hover:bg-brand-bg hover:text-[#1c1917] transition-all">Apply</a>
+        <div class="pt-3">
+          <a href="#apply" class="mobile-link flex items-center justify-center gap-2 bg-brand text-white text-sm font-medium px-5 py-3 rounded-full">
+            Apply Now
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
+    <!-- Background Decorations -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-20 left-[10%] w-72 h-72 bg-brand/10 rounded-full blur-3xl float-anim"></div>
+      <div class="absolute bottom-20 right-[10%] w-96 h-96 bg-brand/5 rounded-full blur-3xl float-anim-delay"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand/[0.03] rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: radial-gradient(#1c1917 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-white border border-stone-200 rounded-full px-4 py-2 mb-8 shadow-sm fade-up">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand"></span>
+        </span>
+        <span class="text-xs font-medium text-[#57534e] tracking-wide uppercase">We're Hiring</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] mb-6 fade-up">
+        Careers at<br />
+        <span class="text-brand">GoGlobalMart</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg sm:text-xl text-[#57534e] max-w-xl mx-auto mb-10 leading-relaxed fade-up">
+        Join us and grow with us. Be part of something meaningful from the very beginning.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
+        <a href="#roles" class="inline-flex items-center gap-2.5 bg-brand hover:bg-brand-hover text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-brand/25 hover:-translate-y-0.5">
+          View Open Roles
+          <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </a>
+        <a href="about.html" class="inline-flex items-center gap-2.5 bg-white hover:bg-stone-50 text-[#1c1917] font-medium px-7 py-3.5 rounded-full border border-stone-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+          Learn More
+          <i data-lucide="info" class="w-4 h-4 text-[#78716c]"></i>
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="mt-16 fade-up">
+        <div class="flex flex-col items-center gap-2 text-[#a8a29e]">
+          <span class="text-xs tracking-widest uppercase">Scroll</span>
+          <div class="w-5 h-8 border-2 border-stone-300 rounded-full flex justify-center pt-1.5">
+            <div class="w-1 h-2 bg-brand rounded-full animate-bounce"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT WORKING WITH US ========== -->
+  <section id="about" class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <!-- Left: Text -->
+        <div class="fade-up">
+          <span class="inline-block text-xs font-medium tracking-[0.2em] uppercase text-brand mb-4">Who We Are</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-6">
+            About Working<br />With Us
+          </h2>
+          <div class="space-y-5 text-[#57534e] leading-relaxed">
+            <p>
+              GoGlobalMart is a small, passionate affiliate startup with big ambitions. We believe great things don't need huge teams — they need the <strong class="text-[#1c1917]">right people</strong>.
+            </p>
+            <p>
+              As an early-stage company, every team member has a direct impact. You won't be a small cog in a big machine — you'll be a <strong class="text-[#1c1917]">foundational piece</strong> of what we're building.
+            </p>
+            <p>
+              This is a place where you'll learn real skills, take on real responsibility, and grow alongside the company. If you're someone who thrives in a fast, lean environment — you'll fit right in.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Visual Cards -->
+        <div class="fade-up relative">
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-3xl p-6 border border-stone-100 shadow-sm float-anim">
+              <div class="w-12 h-12 bg-brand-bg rounded-2xl flex items-center justify-center mb-4">
+                <i data-lucide="rocket" class="w-6 h-6 text-brand-dark"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-1">Startup DNA</h3>
+              <p class="text-sm text-[#78716c] leading-relaxed">Small team, big dreams. Move fast and ship often.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-brand rounded-3xl p-6 shadow-sm float-anim-delay mt-8">
+              <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+                <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-lg text-white mb-1">Learn & Grow</h3>
+              <p class="text-sm text-white/80 leading-relaxed">Real-world skills you won't find in textbooks.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-[#1a1a19] rounded-3xl p-6 shadow-sm float-anim-delay2">
+              <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-4">
+                <i data-lucide="users" class="w-6 h-6 text-brand-light"></i>
+              </div>
+              <h3 class="font-semibold text-lg text-white mb-1">Close-Knit</h3>
+              <p class="text-sm text-white/60 leading-relaxed">Work directly with founders. Your voice matters.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white rounded-3xl p-6 border border-stone-100 shadow-sm float-anim mt-8">
+              <div class="w-12 h-12 bg-brand-bg rounded-2xl flex items-center justify-center mb-4">
+                <i data-lucide="heart" class="w-6 h-6 text-brand-dark"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-1">Purpose-Driven</h3>
+              <p class="text-sm text-[#78716c] leading-relaxed">Build something that helps real people globally.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OPEN ROLES ========== -->
+  <section id="roles" class="py-24 md:py-32 bg-white relative">
+    <!-- Subtle top decoration -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+        <span class="inline-block text-xs font-medium tracking-[0.2em] uppercase text-brand mb-4">Open Positions</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-5">
+          Open Roles
+        </h2>
+        <p class="text-[#57534e] text-lg leading-relaxed">
+          We're looking for passionate people who want to learn, create, and make an impact. No fancy degrees required — just curiosity and drive.
+        </p>
+      </div>
+
+      <!-- Role Cards -->
+      <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+
+        <!-- Role 1: Content Creator -->
+        <div class="role-card bg-[#fafaf9] rounded-2xl p-7 border border-stone-100 cursor-pointer fade-up" onclick="openRole('content-creator')">
+          <div class="flex items-start gap-4">
+            <div class="role-icon w-12 h-12 bg-brand-bg rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
+              <i data-lucide="pen-tool" class="w-5 h-5 text-brand-dark"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1">
+                <h3 class="font-semibold text-lg">Content Creator</h3>
+                <span class="inline-flex items-center gap-1 text-[10px] font-medium tracking-wider uppercase bg-brand/10 text-brand-dark px-2.5 py-0.5 rounded-full">New</span>
+              </div>
+              <p class="text-sm text-[#78716c] mb-3 leading-relaxed">Write articles, product reviews, and guides that help our audience make informed buying decisions.</p>
+              <div class="flex items-center gap-4 text-xs text-[#a8a29e]">
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Part-time / Full-time</span>
+                <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Remote</span>
+              </div>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#a8a29e] flex-shrink-0 mt-1 transition-colors group-hover:text-brand"></i>
+          </div>
+        </div>
+
+        <!-- Role 2: Social Media Manager -->
+        <div class="role-card bg-[#fafaf9] rounded-2xl p-7 border border-stone-100 cursor-pointer fade-up" onclick="openRole('social-media')">
+          <div class="flex items-start gap-4">
+            <div class="role-icon w-12 h-12 bg-brand-bg rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
+              <i data-lucide="share-2" class="w-5 h-5 text-brand-dark"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1">
+                <h3 class="font-semibold text-lg">Social Media Manager</h3>
+                <span class="inline-flex items-center gap-1 text-[10px] font-medium tracking-wider uppercase bg-brand/10 text-brand-dark px-2.5 py-0.5 rounded-full">New</span>
+              </div>
+              <p class="text-sm text-[#78716c] mb-3 leading-relaxed">Plan and execute social strategies across Instagram, Twitter, YouTube, and emerging platforms.</p>
+              <div class="flex items-center gap-4 text-xs text-[#a8a29e]">
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Part-time</span>
+                <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Remote</span>
+              </div>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#a8a29e] flex-shrink-0 mt-1"></i>
+          </div>
+        </div>
+
+        <!-- Role 3: Affiliate Marketing Intern -->
+        <div class="role-card bg-[#fafaf9] rounded-2xl p-7 border border-stone-100 cursor-pointer fade-up" onclick="openRole('affiliate-intern')">
+          <div class="flex items-start gap-4">
+            <div class="role-icon w-12 h-12 bg-brand-bg rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
+              <i data-lucide="trending-up" class="w-5 h-5 text-brand-dark"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1">
+                <h3 class="font-semibold text-lg">Affiliate Marketing Intern</h3>
+              </div>
+              <p class="text-sm text-[#78716c] mb-3 leading-relaxed">Learn the affiliate marketing world from scratch — research, outreach, tracking, and optimization.</p>
+              <div class="flex items-center gap-4 text-xs text-[#a8a29e]">
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Internship</span>
+                <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Remote</span>
+              </div>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#a8a29e] flex-shrink-0 mt-1"></i>
+          </div>
+        </div>
+
+        <!-- Role 4: Web Developer -->
+        <div class="role-card bg-[#fafaf9] rounded-2xl p-7 border border-stone-100 cursor-pointer fade-up" onclick="openRole('web-developer')">
+          <div class="flex items-start gap-4">
+            <div class="role-icon w-12 h-12 bg-brand-bg rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
+              <i data-lucide="code-2" class="w-5 h-5 text-brand-dark"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1">
+                <h3 class="font-semibold text-lg">Web Developer</h3>
+                <span class="inline-flex items-center gap-1 text-[10px] font-medium tracking-wider uppercase bg-stone-100 text-[#78716c] px-2.5 py-0.5 rounded-full">Optional</span>
+              </div>
+              <p class="text-sm text-[#78716c] mb-3 leading-relaxed">Build and improve our web presence — landing pages, SEO optimizations, and performance tuning.</p>
+              <div class="flex items-center gap-4 text-xs text-[#a8a29e]">
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Freelance / Part-time</span>
+                <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Remote</span>
+              </div>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#a8a29e] flex-shrink-0 mt-1"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY JOIN US ========== -->
+  <section id="benefits" class="py-24 md:py-32 relative overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a19] via-[#1c1917] to-[#292524]"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand/5 rounded-full blur-3xl"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+        <span class="inline-block text-xs font-medium tracking-[0.2em] uppercase text-brand-light mb-4">Benefits</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-5">
+          Why Join Us
+        </h2>
+        <p class="text-stone-400 text-lg leading-relaxed">
+          We may be small, but the perks of working at an early-stage startup are real and lasting.
+        </p>
+      </div>
+
+      <!-- Benefit Cards -->
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+        <!-- Benefit 1 -->
+        <div class="benefit-card bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-8 fade-up">
+          <div class="benefit-number w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-sm font-semibold text-brand-light mb-6 transition-all duration-300">01</div>
+          <div class="w-14 h-14 bg-brand/20 rounded-2xl flex items-center justify-center mb-5">
+            <i data-lucide="laptop" class="w-7 h-7 text-brand-light"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Flexible Work</h3>
+          <p class="text-stone-400 text-sm leading-relaxed">
+            Work from anywhere, anytime. We care about what you deliver, not when you deliver it. Set your own schedule and work in a way that suits you best.
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="benefit-card bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-8 fade-up">
+          <div class="benefit-number w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-sm font-semibold text-brand-light mb-6 transition-all duration-300">02</div>
+          <div class="w-14 h-14 bg-brand/20 rounded-2xl flex items-center justify-center mb-5">
+            <i data-lucide="sprout" class="w-7 h-7 text-brand-light"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Growth Opportunity</h3>
+          <p class="text-stone-400 text-sm leading-relaxed">
+            As we grow, you grow. Take on leadership early, shape processes, and build a track record that speaks louder than any certificate.
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="benefit-card bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-8 fade-up">
+          <div class="benefit-number w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-sm font-semibold text-brand-light mb-6 transition-all duration-300">03</div>
+          <div class="w-14 h-14 bg-brand/20 rounded-2xl flex items-center justify-center mb-5">
+            <i data-lucide="zap" class="w-7 h-7 text-brand-light"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Learn Real Skills</h3>
+          <p class="text-stone-400 text-sm leading-relaxed">
+            SEO, content strategy, affiliate networks, analytics — get hands-on with the tools and tactics that power modern digital businesses.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Extra perks row -->
+      <div class="flex flex-wrap justify-center gap-3 mt-14 fade-up">
+        <span class="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] text-stone-400 text-sm px-4 py-2 rounded-full">
+          <i data-lucide="coffee" class="w-4 h-4 text-brand-light"></i> No meetings just for meetings
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] text-stone-400 text-sm px-4 py-2 rounded-full">
+          <i data-lucide="message-circle" class="w-4 h-4 text-brand-light"></i> Direct founder access
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] text-stone-400 text-sm px-4 py-2 rounded-full">
+          <i data-lucide="award" class="w-4 h-4 text-brand-light"></i> Certificate provided
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] text-stone-400 text-sm px-4 py-2 rounded-full">
+          <i data-lucide="smile" class="w-4 h-4 text-brand-light"></i> Friendly culture
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW TO APPLY ========== -->
+  <section id="apply" class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+          <!-- Left: Info -->
+          <div class="lg:col-span-2 fade-up">
+            <span class="inline-block text-xs font-medium tracking-[0.2em] uppercase text-brand mb-4">Get Started</span>
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-5">
+              How to Apply
+            </h2>
+            <p class="text-[#57534e] leading-relaxed mb-8">
+              It's simple. No long forms, no complicated portals. Just send us an email with your interest and we'll take it from there.
+            </p>
+
+            <!-- Steps -->
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">1</div>
+                <div>
+                  <h4 class="font-medium mb-0.5">Pick a Role</h4>
+                  <p class="text-sm text-[#78716c]">Choose the position that excites you the most.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">2</div>
+                <div>
+                  <h4 class="font-medium mb-0.5">Send Your Resume</h4>
+                  <p class="text-sm text-[#78716c]">Email us your resume or a short message about why you're interested.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">3</div>
+                <div>
+                  <h4 class="font-medium mb-0.5">We'll Get Back</h4>
+                  <p class="text-sm text-[#78716c]">We review every application and respond within a few days.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Card -->
+          <div class="lg:col-span-3 fade-up">
+            <div class="bg-white rounded-3xl border border-stone-100 shadow-sm p-8 md:p-10">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-brand-bg rounded-2xl flex items-center justify-center">
+                  <i data-lucide="mail" class="w-6 h-6 text-brand-dark"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg">Send Us a Message</h3>
+                  <p class="text-sm text-[#78716c]">We'd love to hear from you</p>
+                </div>
+              </div>
+
+              <!-- Email Display -->
+              <a href="mailto:bansiwalvicky6@gmail.com" class="flex items-center gap-3 bg-brand-bg/50 border border-brand/20 rounded-2xl p-5 mb-8 group hover:border-brand/40 transition-colors">
+                <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center group-hover:bg-brand/20 transition-colors">
+                  <i data-lucide="at-sign" class="w-5 h-5 text-brand-dark"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs text-[#78716c] mb-0.5">Email us at</p>
+                  <p class="text-sm font-medium text-[#1c1917] truncate">bansiwalvicky6@gmail.com</p>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-[#a8a29e] group-hover:text-brand transition-colors flex-shrink-0"></i>
+              </a>
+
+              <!-- Quick Form -->
+              <form id="applyForm" class="space-y-5" onsubmit="handleSubmit(event)">
+                <div>
+                  <label class="block text-sm font-medium text-[#1c1917] mb-2">Your Name</label>
+                  <input type="text" required placeholder="e.g., Priya Sharma" class="w-full px-4 py-3 bg-[#fafaf9] border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand transition-all placeholder:text-[#a8a29e]" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-[#1c1917] mb-2">Email Address</label>
+                  <input type="email" required placeholder="you@example.com" class="w-full px-4 py-3 bg-[#fafaf9] border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand transition-all placeholder:text-[#a8a29e]" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-[#1c1917] mb-2">Interested Role</label>
+                  <select required class="w-full px-4 py-3 bg-[#fafaf9] border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand transition-all text-[#57534e]">
+                    <option value="" disabled selected>Select a role...</option>
+                    <option value="content-creator">Content Creator</option>
+                    <option value="social-media">Social Media Manager</option>
+                    <option value="affiliate-intern">Affiliate Marketing Intern</option>
+                    <option value="web-developer">Web Developer</option>
+                    <option value="other">Other / General Interest</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-[#1c1917] mb-2">Tell Us About Yourself</label>
+                  <textarea rows="4" required placeholder="Share a bit about your background, skills, and why you'd like to join GoGlobalMart..." class="w-full px-4 py-3 bg-[#fafaf9] border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand transition-all resize-none placeholder:text-[#a8a29e]"></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="w-full inline-flex items-center justify-center gap-2.5 bg-brand hover:bg-brand-hover text-white font-medium px-7 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand/20">
+                  <span id="btnText">Submit Application</span>
+                  <i data-lucide="send" class="w-4 h-4" id="btnIcon"></i>
+                  <svg id="btnSpinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                  </svg>
+                </button>
+                <p class="text-xs text-center text-[#a8a29e]">This opens your email client with the details pre-filled.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="py-20 md:py-28 bg-white relative">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center fade-up">
+      <div class="relative inline-flex items-center justify-center mb-8">
+        <div class="w-20 h-20 bg-brand-bg rounded-3xl flex items-center justify-center">
+          <i data-lucide="sparkles" class="w-10 h-10 text-brand"></i>
+        </div>
+        <div class="absolute -top-1 -right-1 w-5 h-5 bg-brand rounded-full flex items-center justify-center pulse-ring">
+          <i data-lucide="plus" class="w-3 h-3 text-white"></i>
+        </div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+        Ready to Start Your Journey?
+      </h2>
+      <p class="text-[#57534e] text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+        Don't wait for the "perfect" moment. The best time to join a startup is now. Let's build something great together.
+      </p>
+      <a href="mailto:bansiwalvicky6@gmail.com?subject=Application%20-%20GoGlobalMart%20Careers&body=Hi%2C%20I%27m%20interested%20in%20joining%20GoGlobalMart." class="inline-flex items-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold px-9 py-4 rounded-full text-lg transition-all duration-300 hover:shadow-xl hover:shadow-brand/25 hover:-translate-y-1">
+        Apply Now
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-[#1a1a19] text-stone-400 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+        <!-- Brand -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#" class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+              <i data-lucide="globe" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-lg font-semibold text-white tracking-tight">GoGlobalMart</span>
+          </a>
+          <p class="text-sm leading-relaxed text-stone-500 max-w-xs">
+            A growing affiliate platform connecting people with the best products from around the world.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">About</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-sm hover:text-brand-light transition-colors">Our Story</a></li>
+            <li><a href="about.html" class="text-sm hover:text-brand-light transition-colors">Mission</a></li>
+            <li><a href="career.html" class="text-sm hover:text-brand-light transition-colors">Careers</a></li>
+            <li><a href="about.html" class="text-sm hover:text-brand-light transition-colors">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h4>
+          <ul class="space-y-3">
+            <li><a href="contact.html" class="text-sm hover:text-brand-light transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5"></i> Email Us</a></li>
+            <li><a href="#" class="text-sm hover:text-brand-light transition-colors flex items-center gap-2"><i data-lucide="twitter" class="w-3.5 h-3.5"></i> Twitter</a></li>
+            <li><a href="https://www.instagram.com/go_global_mart?igsh=bWh0N2Z6M2UxNjFi" class="text-sm hover:text-brand-light transition-colors flex items-center gap-2"><i data-lucide="instagram" class="w-3.5 h-3.5"></i> Instagram</a></li>
+            <li><a href="#" class="text-sm hover:text-brand-light transition-colors flex items-center gap-2"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-3">
+            <li><a href="privacy.html" class="text-sm hover:text-brand-light transition-colors">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-sm hover:text-brand-light transition-colors">Terms of Service</a></li>
+            <li><a href="cookie.html" class="text-sm hover:text-brand-light transition-colors">Cookie Policy</a></li>
+            <li><a href="disclaimer.html" class="text-sm hover:text-brand-light transition-colors">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-stone-600">&copy; 2025 GoGlobalMart. All rights reserved.</p>
+        <p class="text-xs text-stone-600">Made with <span class="text-brand">♥</span> for the curious ones.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== ROLE DETAIL MODAL ========== -->
+  <div id="roleModal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeRole()"></div>
+    <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl" id="roleModalContent">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TOAST ========== -->
+  <div id="toast" class="toast fixed bottom-6 right-6 z-[200] bg-[#1c1917] text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3 max-w-sm">
+    <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center flex-shrink-0">
+      <i data-lucide="check" class="w-4 h-4 text-white"></i>
+    </div>
+    <p class="text-sm" id="toastMessage">Application submitted!</p>
+  </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Init Lucide Icons
+    lucide.createIcons();
+
+    // ===== HEADER SCROLL EFFECT =====
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 50) {
+        header.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-stone-100/50');
+      } else {
+        header.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-stone-100/50');
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ===== MOBILE MENU =====
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    mobileMenuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
+      lucide.createIcons();
+    });
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.add('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ===== ROLE DATA =====
+    const roleData = {
+      'content-creator': {
+        title: 'Content Creator',
+        icon: 'pen-tool',
+        type: 'Part-time / Full-time',
+        location: 'Remote',
+        description: 'We need a creative storyteller who can turn product features into compelling content that educates and engages our audience.',
+        responsibilities: [
+          'Write product reviews, comparison articles, and how-to guides',
+          'Research trending products and affiliate opportunities',
+          'Optimize content for SEO to drive organic traffic',
+          'Collaborate with the social media team for content repurposing',
+          'Maintain a consistent publishing schedule'
+        ],
+        requirements: [
+          'Strong writing skills in English (Hindi is a bonus)',
+          'Basic understanding of SEO principles',
+          'Curiosity about products, e-commerce, and digital trends',
+          'Self-motivated with good time management',
+          'No prior experience required — willingness to learn matters most'
+        ]
+      },
+      'social-media': {
+        title: 'Social Media Manager',
+        icon: 'share-2',
+        type: 'Part-time',
+        location: 'Remote',
+        description: 'Looking for someone who lives on social media and knows how to grow an audience from zero to meaningful numbers.',
+        responsibilities: [
+          'Develop and execute social media strategy across platforms',
+          'Create engaging posts, reels, stories, and threads',
+          'Engage with the community — reply, interact, and build relationships',
+          'Track analytics and optimize posting schedules',
+          'Stay updated on platform trends and algorithm changes'
+        ],
+        requirements: [
+          'Active presence on at least 2 social platforms',
+          'Understanding of what makes content go viral',
+          'Basic design skills (Canva is fine)',
+          'Good communication skills',
+          'Creative mindset with data-driven thinking'
+        ]
+      },
+      'affiliate-intern': {
+        title: 'Affiliate Marketing Intern',
+        icon: 'trending-up',
+        type: 'Internship',
+        location: 'Remote',
+        description: 'Perfect for students or beginners who want to learn affiliate marketing from the ground up in a real business setting.',
+        responsibilities: [
+          'Research and evaluate affiliate programs and networks',
+          'Help set up and manage affiliate links and tracking',
+          'Assist in content creation and product research',
+          'Learn and apply basic SEO and analytics tools',
+          'Document learnings and contribute to team knowledge base'
+        ],
+        requirements: [
+          'Eager to learn — no prior experience needed',
+          'Basic computer and internet skills',
+          'Analytical mindset and attention to detail',
+          'Available for at least 2-3 months',
+          'Certificate of completion will be provided'
+        ]
+      },
+      'web-developer': {
+        title: 'Web Developer',
+        icon: 'code-2',
+        type: 'Freelance / Part-time',
+        location: 'Remote',
+        description: 'Help us build and optimize our web presence. Ideal for someone who enjoys clean code and fast-loading pages.',
+        responsibilities: [
+          'Build and maintain landing pages and web properties',
+          'Optimize site speed, performance, and Core Web Vitals',
+          'Implement SEO best practices (structured data, meta tags, etc.)',
+          'Set up analytics and conversion tracking',
+          'Collaborate on UI/UX improvements'
+        ],
+        requirements: [
+          'Proficiency in HTML, CSS, JavaScript',
+          'Experience with at least one framework (React, Next.js, or similar)',
+          'Understanding of SEO and web performance',
+          'Familiarity with CMS platforms is a plus',
+          'Portfolio or live projects to share'
+        ]
+      }
+    };
+
+    // ===== ROLE MODAL =====
+    function openRole(roleKey) {
+      const role = roleData[roleKey];
+      if (!role) return;
+
+      const modal = document.getElementById('roleModal');
+      const content = document.getElementById('roleModalContent');
+
+      content.innerHTML = `
+        <div class="p-8 md:p-10">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-brand-bg rounded-xl flex items-center justify-center">
+                <i data-lucide="${role.icon}" class="w-6 h-6 text-brand-dark"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-xl">${role.title}</h3>
+                <div class="flex items-center gap-3 text-xs text-[#78716c] mt-0.5">
+                  <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> ${role.type}</span>
+                  <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> ${role.location}</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="closeRole()" class="w-9 h-9 rounded-xl hover:bg-stone-100 flex items-center justify-center transition-colors">
+              <i data-lucide="x" class="w-5 h-5 text-[#78716c]"></i>
+            </button>
+          </div>
+          
+          <p class="text-[#57534e] text-sm leading-relaxed mb-6">${role.description}</p>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-sm uppercase tracking-wider text-[#1c1917] mb-3">What You'll Do</h4>
+            <ul class="space-y-2">
+              ${role.responsibilities.map(r => `
+                <li class="flex items-start gap-2.5 text-sm text-[#57534e]">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-brand flex-shrink-0 mt-0.5"></i>
+                  <span>${r}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          
+          <div class="mb-8">
+            <h4 class="font-semibold text-sm uppercase tracking-wider text-[#1c1917] mb-3">What We're Looking For</h4>
+            <ul class="space-y-2">
+              ${role.requirements.map(r => `
+                <li class="flex items-start gap-2.5 text-sm text-[#57534e]">
+                  <i data-lucide="circle-dot" class="w-4 h-4 text-[#a8a29e] flex-shrink-0 mt-0.5"></i>
+                  <span>${r}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          
+          <a href="mailto:bansiwalvicky6@gmail.com?subject=Application%20-%20${encodeURIComponent(role.title)}&body=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(role.title)}%20position%20at%20GoGlobalMart." class="flex items-center justify-center gap-2.5 w-full bg-brand hover:bg-brand-hover text-white font-medium px-7 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand/20">
+            Apply for This Role
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeRole() {
+      document.getElementById('roleModal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeRole();
+    });
+
+    // ===== FORM SUBMIT =====
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.querySelector('input[type="text"]').value;
+      const email = form.querySelector('input[type="email"]').value;
+      const role = form.querySelector('select').value;
+      const message = form.querySelector('textarea').value;
+
+      const roleNames = {
+        'content-creator': 'Content Creator',
+        'social-media': 'Social Media Manager',
+        'affiliate-intern': 'Affiliate Marketing Intern',
+        'web-developer': 'Web Developer',
+        'other': 'Other / General Interest'
+      };
+
+      const subject = encodeURIComponent(`Application - ${roleNames[role]} - GoGlobalMart`);
+      const body = encodeURIComponent(
+        `Hi GoGlobalMart Team,\n\n` +
+        `I'm interested in the ${roleNames[role]} position.\n\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n\n` +
+        `About me:\n${message}\n\n` +
+        `Please find my resume attached (if applicable).\n\nThank you!`
+      );
+
+      // Show loading state
+      const btn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      const btnSpinner = document.getElementById('btnSpinner');
+
+      btnText.textContent = 'Opening Email...';
+      btnIcon.classList.add('hidden');
+      btnSpinner.classList.remove('hidden');
+      btn.disabled = true;
+      btn.classList.add('opacity-80');
+
+      // Open mailto after brief delay
+      setTimeout(() => {
+        window.location.href = `mailto:bansiwalvicky6@gmail.com?subject=${subject}&body=${body}`;
+
+        // Reset button
+        btnText.textContent = 'Submit Application';
+        btnIcon.classList.remove('hidden');
+        btnSpinner.classList.add('hidden');
+        btn.disabled = false;
+        btn.classList.remove('opacity-80');
+
+        // Show toast
+        showToast('Your email client should be open now. If not, email us directly!');
+        form.reset();
+      }, 800);
+    }
+
+    // ===== TOAST =====
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+  </script>
+</body>
+</html>

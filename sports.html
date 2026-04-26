@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGlobalMart - Sports & Fitness Deals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#16a34a',
+                            'green-dark': '#15803d',
+                            'green-light': '#22c55e',
+                            orange: '#f97316',
+                            'orange-dark': '#ea580c',
+                            'orange-light': '#fb923c',
+                            black: '#0a0a0a',
+                            'black-light': '#171717',
+                            'black-card': '#1a1a1a',
+                            'black-hover': '#262626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e5e5e5; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #171717; }
+        ::-webkit-scrollbar-thumb { background: #16a34a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(22, 163, 74, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(22, 163, 74, 0.6); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+        .animate-slide-in-left { animation: slideInLeft 0.6s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.5s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+        .stagger-1 { animation-delay: 0.05s; }
+        .stagger-2 { animation-delay: 0.1s; }
+        .stagger-3 { animation-delay: 0.15s; }
+        .stagger-4 { animation-delay: 0.2s; }
+        .stagger-5 { animation-delay: 0.25s; }
+        .stagger-6 { animation-delay: 0.3s; }
+        .stagger-7 { animation-delay: 0.35s; }
+        .stagger-8 { animation-delay: 0.4s; }
+
+        /* Product card */
+        .product-card {
+            opacity: 0;
+            background: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            border-color: #16a34a;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(22,163,74,0.1);
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.08);
+        }
+        .product-card:hover .buy-btn-amazon {
+            background: #ff9900;
+            color: #000;
+        }
+        .product-card:hover .buy-btn-flipkart {
+            background: #2874f0;
+            color: #fff;
+        }
+
+        .product-img {
+            overflow: hidden;
+            background: linear-gradient(135deg, #171717, #1a1a1a);
+            position: relative;
+        }
+        .product-img img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        .badge-hot {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+            box-shadow: 0 2px 10px rgba(249,115,22,0.4);
+        }
+        .badge-trending {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            color: white;
+            box-shadow: 0 2px 10px rgba(22,163,74,0.4);
+        }
+
+        .discount-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            color: #22c55e;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .buy-btn {
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .buy-btn-amazon {
+            background: #2a2a2a;
+            color: #ff9900;
+            border: 1px solid rgba(255,153,0,0.3);
+        }
+        .buy-btn-flipkart {
+            background: #2a2a2a;
+            color: #2874f0;
+            border: 1px solid rgba(40,116,240,0.3);
+        }
+
+        /* Ad sections */
+        .ad-banner {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 40%, #0a0a0a 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        .ad-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(249,115,22,0.2), transparent 70%);
+            border-radius: 50%;
+        }
+        .ad-banner-bottom {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 40%, #0a0a0a 100%);
+        }
+        .ad-banner-bottom::before {
+            background: radial-gradient(circle, rgba(22,163,74,0.2), transparent 70%);
+        }
+
+        /* Shimmer text */
+        .shimmer-text {
+            background: linear-gradient(90deg, #fff, #22c55e, #f97316, #fff);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+
+        /* Header glass */
+        .header-glass {
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(38,38,38,0.8);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-menu.open {
+            max-height: 300px;
+        }
+
+        /* Nav link hover */
+        .nav-link {
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #16a34a;
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #16a34a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 9999;
+            transition: transform 0.4s ease;
+            box-shadow: 0 10px 30px rgba(22,163,74,0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Footer */
+        .footer-link {
+            color: #a3a3a3;
+            transition: color 0.2s ease;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-link:hover {
+            color: #22c55e;
+        }
+
+        /* Background pattern */
+        .bg-pattern {
+            background-image: radial-gradient(rgba(22,163,74,0.07) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Glow orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen">
+
+    <!-- Glow Orbs -->
+    <div class="glow-orb w-96 h-96 bg-green-600/10 top-0 left-0 fixed"></div>
+    <div class="glow-orb w-80 h-80 bg-orange-600/8 top-1/3 right-0 fixed"></div>
+    <div class="glow-orb w-72 h-72 bg-green-600/5 bottom-0 left-1/3 fixed"></div>
+
+    <!-- Header -->
+    <header class="header-glass fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg shadow-green-600/20 group-hover:shadow-green-600/40 transition-shadow">
+                        <span class="text-white font-black text-sm">GG</span>
+                    </div>
+                    <div>
+                        <span class="text-white font-bold text-lg leading-none">GoGlobal</span><span class="text-green-400 font-bold text-lg leading-none">Mart</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-neutral-400 hover:text-white text-sm font-medium">Home</a>
+                    <a href="sports.html" class="nav-link active text-white text-sm font-medium">Sports</a>
+                    <a href="electronics.html" class="nav-link text-neutral-400 hover:text-white text-sm font-medium">Electronics</a>
+                    <a href="deals.html" class="nav-link text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center gap-1">
+                        Deals
+                        <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+                    </a>
+                </nav>
+
+                <!-- Right side -->
+                <div class="hidden md:flex items-center gap-4">
+                    <button class="relative p-2 text-neutral-400 hover:text-white transition-colors">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </button>
+                    <button class="relative p-2 text-neutral-400 hover:text-white transition-colors">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-orange-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center">3</span>
+                    </button>
+                    <button class="relative p-2 text-neutral-400 hover:text-white transition-colors">
+                        <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center">5</span>
+                    </button>
+                </div>
+
+                <!-- Mobile hamburger -->
+                <button id="mobileToggle" class="md:hidden p-2 text-neutral-400 hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6" id="menuIcon"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden" id="mobileMenu">
+                <div class="py-4 space-y-1 border-t border-neutral-800">
+                    <a href="index.html" class="block px-4 py-3 text-neutral-300 hover:text-white hover:bg-neutral-800/50 rounded-lg text-sm font-medium transition-colors">Home</a>
+                    <a href="sports.html" class="block px-4 py-3 text-white bg-green-600/10 rounded-lg text-sm font-medium">Sports</a>
+                    <a href="electronics.html" class="block px-4 py-3 text-neutral-300 hover:text-white hover:bg-neutral-800/50 rounded-lg text-sm font-medium transition-colors">Electronics</a>
+                    <a href="deals.html" class="block px-4 py-3 text-orange-400 hover:bg-neutral-800/50 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
+                        Deals
+                        <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Spacer for fixed header -->
+    <div class="h-16"></div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 relative z-10">
+
+        <!-- Hero Title -->
+        <section class="text-center mb-10 animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 bg-green-600/10 border border-green-600/20 rounded-full px-4 py-1.5 mb-5">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">Live Deals Updated</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
+                🏋️ Best Sports &<br>
+                <span class="shimmer-text">Fitness Deals</span>
+            </h1>
+            <p class="text-neutral-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+                Top fitness products at best price — curated from Amazon & Flipkart
+            </p>
+            <div class="flex items-center justify-center gap-6 mt-6 text-sm text-neutral-500">
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="package" class="w-4 h-4 text-green-500"></i>
+                    <span>20+ Products</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="percent" class="w-4 h-4 text-orange-500"></i>
+                    <span>Up to 70% Off</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="truck" class="w-4 h-4 text-blue-400"></i>
+                    <span>Fast Delivery</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Ad Banner -->
+        <section class="mb-10 animate-scale-in">
+            <div class="ad-banner p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="relative z-10 text-center sm:text-left">
+                    <span class="inline-block bg-orange-500/20 text-orange-300 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Limited Time</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">🔥 Mega Fitness Sale</h2>
+                    <p class="text-green-100/70 text-sm sm:text-base">Get up to <strong class="text-orange-300">70% OFF</strong> on premium gym equipment. Don't miss out!</p>
+                </div>
+                <div class="relative z-10 flex-shrink-0">
+                    <button onclick="showToast('Redirecting to sale page...')" class="bg-white text-green-700 font-bold px-6 py-3 rounded-xl hover:bg-green-50 transition-colors shadow-lg text-sm">
+                        Shop Now →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Bar -->
+        <section class="mb-8 flex flex-wrap items-center justify-between gap-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="flex items-center gap-2 flex-wrap">
+                <button class="filter-btn active px-4 py-2 rounded-lg text-sm font-semibold bg-green-600 text-white transition-all" onclick="filterProducts('all', this)">All Products</button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all" onclick="filterProducts('hot', this)">🔥 Hot</button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all" onclick="filterProducts('trending', this)">📈 Trending</button>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-neutral-500">
+                <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+                <span id="productCount">24 Products</span>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12" id="productsGrid">
+            <!-- Products will be injected by JS -->
+        </section>
+
+        <!-- Load More -->
+        <div class="text-center mb-12" id="loadMoreWrap">
+            <button onclick="loadMore()" id="loadMoreBtn" class="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white font-semibold px-8 py-3 rounded-xl transition-all border border-neutral-700 hover:border-green-600/50 text-sm">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                Load More Products
+            </button>
+        </div>
+
+        <!-- Bottom Ad Banner -->
+        <section class="mb-12 animate-scale-in">
+            <div class="ad-banner ad-banner-bottom p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="relative z-10 text-center sm:text-left">
+                    <span class="inline-block bg-green-500/20 text-green-200 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Exclusive</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">💪 Free Protein Shaker</h2>
+                    <p class="text-orange-100/70 text-sm sm:text-base">On orders above ₹999. Use code: <strong class="text-white bg-black/30 px-2 py-0.5 rounded">FIT2024</strong></p>
+                </div>
+                <div class="relative z-10 flex-shrink-0">
+                    <button onclick="showToast('Code FIT2024 copied!')" class="bg-white text-orange-600 font-bold px-6 py-3 rounded-xl hover:bg-orange-50 transition-colors shadow-lg text-sm">
+                        Copy Code 📋
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-8 sm:p-12 text-center mb-12 backdrop-blur-sm">
+            <h3 class="text-2xl font-bold text-white mb-2">Never Miss a Deal</h3>
+            <p class="text-neutral-400 text-sm mb-6 max-w-md mx-auto">Subscribe to get daily sports & fitness deals directly in your inbox.</p>
+            <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="email" id="emailInput" placeholder="your@email.com" class="flex-1 bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm placeholder-neutral-500 focus:outline-none focus:border-green-500 transition-colors">
+                <button onclick="subscribe()" class="bg-green-600 hover:bg-green-500 text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm whitespace-nowrap">
+                    Subscribe
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900/80 border-t border-neutral-800 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+                            <span class="text-white font-black text-xs">GG</span>
+                        </div>
+                        <div>
+                            <span class="text-white font-bold text-base leading-none">GoGlobal</span><span class="text-green-400 font-bold text-base leading-none">Mart</span>
+                        </div>
+                    </a>
+                    <p class="text-neutral-500 text-sm leading-relaxed mb-4">Your trusted destination for the best deals across top e-commerce platforms.</p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 hover:bg-green-600/20 flex items-center justify-center text-neutral-400 hover:text-green-400 transition-all">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.instagram.com/go_global_mart?igsh=bWh0N2Z6M2UxNjFi" class="w-8 h-8 rounded-lg bg-neutral-800 hover:bg-green-600/20 flex items-center justify-center text-neutral-400 hover:text-green-400 transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@shoppingclub81" class="w-8 h-8 rounded-lg bg-neutral-800 hover:bg-green-600/20 flex items-center justify-center text-neutral-400 hover:text-green-400 transition-all">
+                            <i data-lucide="youtube" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-neutral-800 hover:bg-green-600/20 flex items-center justify-center text-neutral-400 hover:text-green-400 transition-all">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Categories</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="sports.html" class="footer-link">Sports & Fitness</a></li>
+                        <li><a href="electronics.html" class="footer-link">Electronics</a></li>
+                        <li><a href="fashions.html" class="footer-link">Fashion</a></li>
+                        <li><a href="home & kitchen.html" class="footer-link">Home & Kitchen</a></li>
+                        <li><a href="beauty.html" class="footer-link">Beauty</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+                        <li><a href="affiliate.html" class="footer-link">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Support</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="about.html" class="footer-link">How It Works</a></li>
+                        <li><a href="privacy.html" class="footer-link">Return Policy</a></li>
+                        <li><a href="sitemap.xml" class="footer-link">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-neutral-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-neutral-600 text-xs">© 2024 GoGlobalMart. All rights reserved. Prices may vary.</p>
+                <div class="flex items-center gap-4">
+                    <span class="text-neutral-600 text-xs">We earn from qualifying purchases.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle" class="w-5 h-5"></i>
+        <span id="toastMsg">Success!</span>
+    </div>
+
+    <script>
+        // Product Data
+        const allProducts = [
+            {
+                id: 1, title: "Adjustable Dumbbells Set (5-25kg)", price: "₹2,499", mrp: "₹5,999",
+                discount: "58%", desc: "Quick-change weight system, anti-slip rubber coating, perfect for home gym.",
+                badge: "hot", img: "dumbbells-gym-fitness"
+            },
+            {
+                id: 2, title: "Premium Yoga Mat (6mm Thick)", price: "₹599", mrp: "₹1,499",
+                discount: "60%", desc: "Anti-slip TPE material, eco-friendly, double-sided texture for grip.",
+                badge: "trending", img: "yoga-mat-exercise-fitness"
+            },
+            {
+                id: 3, title: "Motorized Treadmill (3HP)", price: "₹24,999", mrp: "₹59,999",
+                discount: "58%", desc: "3HP motor, max speed 14km/h, foldable design with LCD display.",
+                badge: "hot", img: "treadmill-running-machine"
+            },
+            {
+                id: 4, title: "Resistance Bands Set (5 Levels)", price: "₹399", mrp: "₹999",
+                discount: "60%", desc: "Latex-free, 5 resistance levels, door anchor & handles included.",
+                badge: "trending", img: "resistance-bands-workout"
+            },
+            {
+                id: 5, title: "English Willow Cricket Bat", price: "₹1,899", mrp: "₹4,500",
+                discount: "58%", desc: "Full size, Kashmir willow, leather grip, ideal for leather ball.",
+                badge: "hot", img: "cricket-bat-sports"
+            },
+            {
+                id: 6, title: "Professional Football (Size 5)", price: "₹499", mrp: "₹1,299",
+                discount: "62%", desc: "FIFA quality, PU leather, machine-stitched, all-weather durable.",
+                badge: "trending", img: "football-soccer-sport"
+            },
+            {
+                id: 7, title: "Gym Gloves with Wrist Support", price: "₹349", mrp: "₹899",
+                discount: "61%", desc: "Anti-slip gel palm, wrist wrap, breathable mesh, extra grip.",
+                badge: "hot", img: "gym-gloves-fitness"
+            },
+            {
+                id: 8, title: "Protein Shaker Bottle (700ml)", price: "₹249", mrp: "₹699",
+                discount: "64%", desc: "BPA-free, mixer ball, leak-proof, measurement markings.",
+                badge: "trending", img: "protein-shaker-bottle"
+            },
+            {
+                id: 9, title: "Digital Skipping Rope (Smart)", price: "₹449", mrp: "₹1,199",
+                discount: "63%", desc: "LCD counter, adjustable length, ball bearing, calorie tracker.",
+                badge: "hot", img: "skipping-rope-jump-fitness"
+            },
+            {
+                id: 10, title: "Foam Roller for Muscle Recovery", price: "₹599", mrp: "₹1,499",
+                discount: "60%", desc: "High-density EVA foam, textured surface, relieves muscle tension.",
+                badge: "trending", img: "foam-roller-massage-fitness"
+            },
+            {
+                id: 11, title: "Whey Protein Powder (1kg)", price: "₹1,499", mrp: "₹3,499",
+                discount: "57%", desc: "24g protein per scoop, chocolate flavor, no added sugar.",
+                badge: "hot", img: "whey-protein-supplement"
+            },
+            {
+                id: 12, title: "Pull-Up Bar (Doorway Mount)", price: "₹699", mrp: "₹1,799",
+                discount: "61%", desc: "Heavy-duty steel, max load 150kg, foam grips, easy install.",
+                badge: "trending", img: "pull-up-bar-chin-exercise"
+            },
+            {
+                id: 13, title: "Badminton Racket Pair Set", price: "₹599", mrp: "₹1,499",
+                discount: "60%", desc: "Isometric head, graphite frame, 2 rackets + 3 shuttlecocks.",
+                badge: "hot", img: "badminton-racket-sports"
+            },
+            {
+                id: 14, title: "Smart Fitness Watch (IP68)", price: "₹1,299", mrp: "₹4,999",
+                discount: "74%", desc: "Heart rate, SpO2, 20+ sport modes, 7-day battery life.",
+                badge: "hot", img: "smart-fitness-watch-sport"
+            },
+            {
+                id: 15, title: "Kettlebell Set (4kg, 8kg, 12kg)", price: "₹1,899", mrp: "₹4,500",
+                discount: "58%", desc: "Vinyl-coated, flat bottom, color-coded weights, home workout.",
+                badge: "trending", img: "kettlebell-weight-fitness"
+            },
+            {
+                id: 16, title: "Ab Roller Wheel with Knee Pad", price: "₹349", mrp: "₹999",
+                discount: "65%", desc: "Dual wheel, non-slip handle, knee pad included, core training.",
+                badge: "trending", img: "ab-roller-exercise-core"
+            },
+            {
+                id: 17, title: "Boxing Gloves (12oz, Pair)", price: "₹799", mrp: "₹1,999",
+                discount: "60%", desc: "Synthetic leather, multi-layer foam padding, wrist velcro strap.",
+                badge: "hot", img: "boxing-gloves-combat-sport"
+            },
+            {
+                id: 18, title: "Compression Sports Tights (Men)", price: "₹699", mrp: "₹1,899",
+                discount: "63%", desc: "Moisture-wicking, 4-way stretch, flatlock seams, quick-dry.",
+                badge: "trending", img: "compression-tights-sportswear"
+            },
+            {
+                id: 19, title: "Table Tennis Racket Set", price: "₹449", mrp: "₹1,199",
+                discount: "63%", desc: "Professional grade rubber, 2 rackets + 3 balls, carry bag.",
+                badge: "trending", img: "table-tennis-ping-pong"
+            },
+            {
+                id: 20, title: "Adjustable Weight Bench", price: "₹4,999", mrp: "₹12,999",
+                discount: "62%", desc: "7 back positions, heavy-duty steel, foldable, 300kg capacity.",
+                badge: "hot", img: "weight-bench-gym-equipment"
+            },
+            {
+                id: 21, title: "Sports Water Bottle (1L)", price: "₹299", mrp: "₹799",
+                discount: "63%", desc: "Insulated stainless steel, keeps cold 24hrs, leak-proof lid.",
+                badge: "trending", img: "sports-water-bottle-insulated"
+            },
+            {
+                id: 22, title: "Jump Box (Plyometric Box)", price: "₹2,199", mrp: "₹5,499",
+                discount: "60%", desc: "3 heights in 1, non-slip surface, heavy-duty foam, safe landing.",
+                badge: "hot", img: "plyometric-box-jump-fitness"
+            },
+            {
+                id: 23, title: "Battle Ropes (12m, 40mm)", price: "₹1,499", mrp: "₹3,499",
+                discount: "57%", desc: "Poly dacron blend, heat-shrink handles, anchor included.",
+                badge: "trending", img: "battle-ropes-crossfit-gym"
+            },
+            {
+                id: 24, title: "Massage Gun (Deep Tissue)", price: "₹2,999", mrp: "₹7,999",
+                discount: "63%", desc: "6 massage heads, 30 speeds, ultra-quiet, rechargeable battery.",
+                badge: "hot", img: "massage-gun-muscle-recovery"
+            }
+        ];
+
+        let displayedCount = 12;
+        let currentFilter = 'all';
+
+        function getImageUrl(seed) {
+            return `https://picsum.photos/seed/${seed}/400/300.jpg`;
+        }
+
+        function createProductCard(product, index) {
+            const badgeClass = product.badge === 'hot' ? 'badge-hot' : 'badge-trending';
+            const badgeText = product.badge === 'hot' ? '🔥 Hot' : '📈 Trending';
+            const staggerClass = `stagger-${(index % 8) + 1}`;
+
+            return `
+                <div class="product-card animate-fade-in-up ${staggerClass}" data-badge="${product.badge}">
+                    <div class="product-img relative">
+                        <img src="${getImageUrl(product.img)}" alt="${product.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/fallback-${product.id}/400/300.jpg'">
+                        <span class="badge ${badgeClass}">${badgeText}</span>
+                        <span class="discount-tag">-${product.discount}</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-white font-semibold text-sm leading-snug mb-2 line-clamp-2 min-h-[2.5rem]">${product.title}</h3>
+                        <p class="text-neutral-500 text-xs leading-relaxed mb-3 line-clamp-2 min-h-[2rem]">${product.desc}</p>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-green-400 font-bold text-lg">${product.price}</span>
+                            <span class="text-neutral-600 text-xs line-through">${product.mrp}</span>
+                            <span class="text-orange-400 text-xs font-semibold">${product.discount} off</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <a href="#" onclick="showToast('Redirecting to Amazon...'); return false;" class="buy-btn buy-btn-amazon flex-1 justify-center">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.874 3.166 2.862 0 5.668-.534 8.418-1.598l.315-.138c.276-.12.522-.066.738.162.216.228.18.462-.108.702-.99.834-2.174 1.542-3.552 2.124-1.728.726-3.558 1.092-5.49 1.092-2.46 0-4.758-.558-6.894-1.674C3.264 20.928 1.512 19.614.228 18.102c-.168-.192-.21-.372-.126-.54l-.057.458zM7.352 15.174c0-1.224.3-2.28.9-3.168.6-.888 1.404-1.572 2.412-2.052 1.008-.48 2.196-.792 3.564-.936l2.52-.18V7.782c0-1.272-.276-2.196-.828-2.772-.552-.576-1.44-.864-2.664-.864-.936 0-1.704.222-2.304.666-.6.444-.984 1.122-1.152 2.034-.036.24-.144.396-.324.468-.18.072-.456.096-.828.072L6.12 7.998c-.288-.036-.468-.12-.54-.252-.072-.132-.06-.312.036-.54C6.3 5.286 7.692 3.87 9.72 2.994c2.028-.876 4.32-1.314 6.876-1.314 3.048 0 5.34.666 6.876 1.998 1.536 1.332 2.304 3.258 2.304 5.778v8.46c0 .528.084.936.252 1.224.168.288.492.504.972.648.264.072.432.18.504.324.072.144.036.312-.108.504l-2.664 2.592c-.216.192-.42.288-.612.288-.192 0-.396-.108-.612-.324-.336-.336-.6-.672-.792-1.008-.192-.336-.348-.636-.468-.9-.936.912-1.944 1.608-3.024 2.088-1.08.48-2.244.72-3.492.72-1.8 0-3.264-.528-4.392-1.584-1.128-1.056-1.692-2.472-1.692-4.248v-2.112zm5.94-.396v-4.32l-1.692.12c-.912.072-1.632.324-2.16.756-.528.432-.792 1.056-.792 1.872v1.62c0 .744.18 1.32.54 1.728.36.408.864.612 1.512.612.792 0 1.44-.282 1.944-.846.504-.564.756-1.266.756-2.106l-.108-1.436z"/></svg>
+                                Amazon
+                            </a>
+                            <a href="#" onclick="showToast('Redirecting to Flipkart...'); return false;" class="buy-btn buy-btn-flipkart flex-1 justify-center">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2.933 13.467a10.08 10.08 0 01-.533-3.267C2.4 5.067 6.867.6 12.4.6c5.533 0 10 4.467 10 10s-4.467 10-10 10a9.963 9.963 0 01-6.8-2.667l-2.8 1.467c-.2.1-.467-.067-.4-.3l.533-5.133zm1.734-2.533l-.4 2.8 2-1.067c.133-.067.3-.033.4.067A7.96 7.96 0 0012.4 17.6c4.413 0 8-3.587 8-8s-3.587-8-8-8c-4.413 0-8 3.587-8 8 0 1.133.233 2.2.667 3.2.067.133.033.3-.1.4l-1.3.733z"/></svg>
+                                Flipkart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            let filtered = currentFilter === 'all' ? allProducts : allProducts.filter(p => p.badge === currentFilter);
+            const toShow = filtered.slice(0, displayedCount);
+
+            grid.innerHTML = toShow.map((p, i) => createProductCard(p, i)).join('');
+
+            document.getElementById('productCount').textContent = `${filtered.length} Products`;
+            document.getElementById('loadMoreWrap').style.display = displayedCount >= filtered.length ? 'none' : 'block';
+
+            lucide.createIcons();
+        }
+
+        function filterProducts(filter, btn) {
+            currentFilter = filter;
+            displayedCount = 12;
+
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-green-600', 'text-white');
+                b.classList.add('bg-neutral-800', 'text-neutral-400');
+            });
+            btn.classList.remove('bg-neutral-800', 'text-neutral-400');
+            btn.classList.add('bg-green-600', 'text-white');
+
+            renderProducts();
+        }
+
+        function loadMore() {
+            displayedCount += 8;
+            renderProducts();
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function subscribe() {
+            const email = document.getElementById('emailInput').value.trim();
+            if (!email || !email.includes('@')) {
+                showToast('Please enter a valid email address');
+                return;
+            }
+            showToast('🎉 Subscribed successfully!');
+            document.getElementById('emailInput').value = '';
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            renderProducts();
+        });
+    </script>
+</body>
+</html>

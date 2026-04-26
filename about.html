@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — GoGlobalMart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-50: #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-200: #bfdbfe;
+            --blue-400: #60a5fa;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --blue-800: #1e40af;
+            --orange-50: #fff7ed;
+            --orange-100: #ffedd5;
+            --orange-400: #fb923c;
+            --orange-500: #f97316;
+            --orange-600: #ea580c;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .navbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--blue-500), var(--orange-500));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--blue-600), var(--orange-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-600);
+            background: var(--blue-50);
+        }
+
+        .nav-links a.active {
+            color: var(--blue-600);
+            background: var(--blue-50);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--gray-700);
+            transition: background 0.2s;
+        }
+
+        .mobile-toggle:hover {
+            background: var(--gray-100);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(16px);
+            z-index: 999;
+            padding: 24px;
+            animation: fadeSlideDown 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: var(--gray-700);
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            background: var(--blue-50);
+            color: var(--blue-600);
+        }
+
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--blue-50) 0%, var(--white) 40%, var(--orange-50) 100%);
+            overflow: hidden;
+            padding: 100px 24px 80px;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.06), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--orange-500);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--blue-600), var(--orange-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--gray-500);
+            max-width: 560px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--blue-600);
+            margin-bottom: 16px;
+        }
+
+        .section-label .line {
+            width: 24px;
+            height: 2px;
+            background: var(--blue-500);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+
+        .section-text {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+            max-width: 720px;
+        }
+
+        /* Alternating bg */
+        .section-alt {
+            background: var(--gray-50);
+        }
+
+        /* ========== INTRO SECTION ========== */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .intro-visual {
+            background: linear-gradient(135deg, var(--blue-100), var(--orange-100));
+            border-radius: 20px;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 340px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .intro-visual-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-600);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .intro-visual h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-tag {
+            background: var(--white);
+            color: var(--gray-700);
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 100px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* ========== MISSION SECTION ========== */
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .mission-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-500), var(--orange-500));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mission-card:hover {
+            border-color: var(--blue-200);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .mission-card:hover::before {
+            opacity: 1;
+        }
+
+        .mission-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .mission-icon.blue {
+            background: var(--blue-50);
+            color: var(--blue-600);
+        }
+
+        .mission-icon.orange {
+            background: var(--orange-50);
+            color: var(--orange-600);
+        }
+
+        .mission-icon.mixed {
+            background: linear-gradient(135deg, var(--blue-50), var(--orange-50));
+            color: var(--blue-600);
+        }
+
+        .mission-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+
+        .mission-card p {
+            font-size: 0.92rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* ========== WHAT WE OFFER ========== */
+        .offer-list {
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 14px;
+            padding: 24px 28px;
+            transition: all 0.3s ease;
+        }
+
+        .offer-item:hover {
+            border-color: var(--blue-200);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.06);
+        }
+
+        .offer-check {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .offer-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .offer-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.65;
+        }
+
+        /* ========== DISCLOSURE ========== */
+        .disclosure-box {
+            margin-top: 36px;
+            background: var(--orange-50);
+            border: 1px solid var(--orange-100);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .disclosure-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange-500);
+        }
+
+        .disclosure-box h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .disclosure-box p {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+            line-height: 1.75;
+        }
+
+        /* ========== WHY CHOOSE US ========== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 40px 28px 36px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            border-color: var(--orange-200);
+            box-shadow: 0 12px 40px rgba(249, 115, 22, 0.07);
+            transform: translateY(-4px);
+        }
+
+        .why-number {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue-50), var(--orange-50));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--blue-600);
+        }
+
+        .why-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* ========== CTA ========== */
+        .cta-section {
+            padding: 80px 24px;
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.2), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-inner {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-inner h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+
+        .cta-inner p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            color: var(--blue-700);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+            background: var(--orange-50);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--gray-900);
+            padding: 48px 24px 32px;
+        }
+
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .footer-left .logo-sm {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--blue-500), var(--orange-500));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-top: 8px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 80px 24px 60px;
+            }
+
+            .section {
+                padding: 56px 20px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .intro-visual {
+                min-height: 240px;
+                padding: 36px;
+            }
+
+            .mission-cards {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .offer-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .disclosure-box {
+                flex-direction: column;
+                padding: 24px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .cta-section {
+                padding: 56px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-inner {
+                height: 60px;
+            }
+
+            .mobile-menu {
+                top: 60px;
+            }
+
+            .brand-tags {
+                justify-content: center;
+            }
+        }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="globe" style="width:20px;height:20px;"></i>
+                </div>
+                <span>GoGlobalMart</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="electronics.html">Electronics</a></li>
+                <li><a href="beauty.html">Beauty</a></li>
+                <li><a href="sports.html">Sports</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="deals.html">Deals</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                <i data-lucide="menu" style="width:22px;height:22px;"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="electronics.html">Electronics</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="sports.html">Sports</a>
+        <a href="books.html">Books</a>
+        <a href="deals.html">Deals</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge fade-up">
+            <span class="hero-badge-dot"></span>
+            Trusted by thousands of smart shoppers
+        </div>
+        <h1 class="fade-up" style="transition-delay:0.1s">
+            About <span class="highlight">GoGlobalMart</span>
+        </h1>
+        <p class="fade-up" style="transition-delay:0.2s">
+            Your trusted destination for the best online deals — curated, compared, and served to you every single day.
+        </p>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="intro-grid">
+                <div class="fade-up">
+                    <div class="section-label">
+                        <span class="line"></span>
+                        Who We Are
+                    </div>
+                    <h2 class="section-title">Your Smart Shopping Companion</h2>
+                    <p class="section-text">
+                        GoGlobalMart is a leading affiliate shopping website designed to make your online shopping experience smarter, faster, and more affordable. We do the heavy lifting for you — scouring through top e-commerce platforms like <strong>Amazon</strong>, <strong>Flipkart</strong>, <strong>Myntra</strong>, and more to bring you the best deals, offers, and product recommendations all in one place.
+                    </p>
+                    <p class="section-text" style="margin-top:16px;">
+                        Instead of jumping between multiple tabs and apps, simply visit GoGlobalMart, explore curated collections, and click through to purchase directly from your favorite platform — with confidence that you're getting the best price.
+                    </p>
+                </div>
+                <div class="intro-visual fade-up" style="transition-delay:0.15s">
+                    <div class="intro-visual-icon">
+                        <i data-lucide="shopping-bag" style="width:36px;height:36px;"></i>
+                    </div>
+                    <h3>Trusted Platforms</h3>
+                    <div class="brand-tags">
+                        <span class="brand-tag">Amazon</span>
+                        <span class="brand-tag">Flipkart</span>
+                        <span class="brand-tag">Myntra</span>
+                        <span class="brand-tag">Snapdeal</span>
+                        <span class="brand-tag">Meesho</span>
+                        <span class="brand-tag">Ajio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR MISSION -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <div class="fade-up" style="text-align:center; max-width:600px; margin:0 auto;">
+                <div class="section-label" style="justify-content:center;">
+                    <span class="line"></span>
+                    Our Mission
+                    <span class="line"></span>
+                </div>
+                <h2 class="section-title">Driven to Save You More</h2>
+                <p class="section-text" style="margin:0 auto;">
+                    Everything we do is guided by one simple purpose — helping you shop better.
+                </p>
+            </div>
+            <div class="mission-cards">
+                <div class="mission-card fade-up" style="transition-delay:0.1s">
+                    <div class="mission-icon blue">
+                        <i data-lucide="piggy-bank" style="width:24px;height:24px;"></i>
+                    </div>
+                    <h3>Help You Save Money</h3>
+                    <p>We find the lowest prices, hidden coupons, and exclusive discounts so your wallet stays happy with every purchase.</p>
+                </div>
+                <div class="mission-card fade-up" style="transition-delay:0.2s">
+                    <div class="mission-icon orange">
+                        <i data-lucide="badge-check" style="width:24px;height:24px;"></i>
+                    </div>
+                    <h3>Best Quality, Lowest Price</h3>
+                    <p>We never compromise on quality. Every recommended product is carefully evaluated to meet high standards at the best possible price.</p>
+                </div>
+                <div class="mission-card fade-up" style="transition-delay:0.3s">
+                    <div class="mission-icon mixed">
+                        <i data-lucide="sparkles" style="width:24px;height:24px;"></i>
+                    </div>
+                    <h3>Simplify Shopping</h3>
+                    <p>No more endless searching. We bring everything together in a clean, intuitive interface so you can find and buy in seconds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE OFFER -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="fade-up">
+                <div class="section-label">
+                    <span class="line"></span>
+                    What We Offer
+                </div>
+                <h2 class="section-title">Everything You Need to Shop Smarter</h2>
+            </div>
+            <div class="offer-list">
+                <div class="offer-item fade-up" style="transition-delay:0.1s">
+                    <div class="offer-check">
+                        <i data-lucide="git-compare" style="width:20px;height:20px;"></i>
+                    </div>
+                    <div>
+                        <h3>Multi-Platform Product Comparison</h3>
+                        <p>Compare prices across Amazon, Flipkart, Myntra and more — side by side — so you always know where the best deal lives.</p>
+                    </div>
+                </div>
+                <div class="offer-item fade-up" style="transition-delay:0.2s">
+                    <div class="offer-check">
+                        <i data-lucide="clock" style="width:20px;height:20px;"></i>
+                    </div>
+                    <div>
+                        <h3>Daily Updated Deals</h3>
+                        <p>Our deals are refreshed every single day. What was hot yesterday gets replaced by something even better today — so you never miss out.</p>
+                    </div>
+                </div>
+                <div class="offer-item fade-up" style="transition-delay:0.3s">
+                    <div class="offer-check">
+                        <i data-lucide="shield-check" style="width:20px;height:20px;"></i>
+                    </div>
+                    <div>
+                        <h3>Trusted Recommendations</h3>
+                        <p>Every product we feature is handpicked based on ratings, reviews, and value — so you can buy with total confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AFFILIATE DISCLOSURE -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <div class="fade-up">
+                <div class="section-label">
+                    <span class="line"></span>
+                    Transparency
+                </div>
+                <h2 class="section-title">Affiliate Disclosure</h2>
+            </div>
+            <div class="disclosure-box fade-up" style="transition-delay:0.1s">
+                <div class="disclosure-icon">
+                    <i data-lucide="info" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                    <h3>Honest & Transparent Partnership</h3>
+                    <p>
+                        GoGlobalMart participates in affiliate programs with Amazon, Flipkart, Myntra, and other e-commerce platforms. This means <strong>we earn a small commission when users purchase through our links — at absolutely no extra cost to them.</strong> The price you pay is exactly the same whether you use our link or go directly to the retailer. Our recommendations are always based on product quality and value, never on commission amounts. Your trust matters more to us than any affiliate earning.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="fade-up" style="text-align:center; max-width:600px; margin:0 auto;">
+                <div class="section-label" style="justify-content:center;">
+                    <span class="line"></span>
+                    Why Choose Us
+                    <span class="line"></span>
+                </div>
+                <h2 class="section-title">Three Reasons to Shop With Us</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-up" style="transition-delay:0.1s">
+                    <div class="why-number">1</div>
+                    <h3>Easy to Use</h3>
+                    <p>Clean layout, intuitive navigation, and zero clutter — finding the best deal takes just a few clicks.</p>
+                </div>
+                <div class="why-card fade-up" style="transition-delay:0.2s">
+                    <div class="why-number">2</div>
+                    <h3>Best Deals Guaranteed</h3>
+                    <p>We aggregate prices from top platforms, ensuring you never overpay. If there's a better price out there, we'll find it.</p>
+                </div>
+                <div class="why-card fade-up" style="transition-delay:0.3s">
+                    <div class="why-number">3</div>
+                    <h3>Trusted Platforms Only</h3>
+                    <p>We partner exclusively with reputable, verified e-commerce brands — so every purchase is safe and secure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner fade-up">
+            <h2>Ready to Start Saving?</h2>
+            <p>Discover thousands of handpicked deals across all your favorite categories — updated daily.</p>
+            <a href="index.html" class="btn-primary">
+                Explore Deals
+                <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="logo-sm">
+                    <i data-lucide="globe" style="width:14px;height:14px;color:white;"></i>
+                </div>
+                GoGlobalMart
+            </div>
+            <div class="footer-links">
+                <a href="contact.html">Contact Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-copy">
+                © 2025 GoGlobalMart. All rights reserved. Prices and availability are subject to change.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sticky navbar shadow on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        mobileToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+            // Swap icon
+            const icon = mobileToggle.querySelector('i, svg');
+            if (icon) {
+                icon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
+                lucide.createIcons();
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.remove('open');
+                const icon = mobileToggle.querySelector('i, svg');
+                if (icon) {
+                    icon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        fadeEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

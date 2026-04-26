@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Disclosure | GoGlobalMart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',
+                            'blue-dark': '#1D4ED8',
+                            'blue-light': '#DBEAFE',
+                            orange: '#F97316',
+                            'orange-dark': '#EA580C',
+                            'orange-light': '#FFF7ED',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1F2937; }
+
+        /* Navbar shadow on scroll */
+        .navbar-scrolled {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        /* Mobile menu transition */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open {
+            max-height: 400px;
+        }
+
+        /* Section card hover */
+        .disclosure-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .disclosure-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.08);
+        }
+
+        /* Icon circle pulse */
+        .icon-circle {
+            position: relative;
+        }
+        .icon-circle::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .disclosure-card:hover .icon-circle::after {
+            opacity: 1;
+        }
+        .icon-blue::after { background: rgba(37, 99, 235, 0.08); }
+        .icon-orange::after { background: rgba(249, 115, 22, 0.08); }
+
+        /* CTA button shine */
+        .cta-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Decorative blob */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Scroll indicator line */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2563EB, #F97316);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* Footer link hover */
+        .footer-link {
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: #F97316;
+            transition: width 0.25s ease;
+        }
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger animation */
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .hamburger-active .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .hamburger-active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-active .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Platform badge */
+        .platform-badge {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .platform-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress" style="width: 0%;"></div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange flex items-center justify-center shadow-md shadow-brand-blue/20 group-hover:shadow-lg group-hover:shadow-brand-blue/30 transition-shadow duration-200">
+                        <i data-lucide="globe" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-brand-blue to-brand-blue-dark bg-clip-text text-transparent">GoGlobalMart</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="index.html" class="px-3.5 py-2 text-sm font-medium text-gray-600 hover:text-brand-blue rounded-lg hover:bg-brand-blue-light/50 transition-all duration-200">Home</a>
+                    <a href="electronics.html" class="px-3.5 py-2 text-sm font-medium text-gray-600 hover:text-brand-blue rounded-lg hover:bg-brand-blue-light/50 transition-all duration-200">Electronics</a>
+                    <a href="beauty.html" class="px-3.5 py-2 text-sm font-medium text-gray-600 hover:text-brand-blue rounded-lg hover:bg-brand-blue-light/50 transition-all duration-200">Beauty</a>
+                    <a href="sports.html" class="px-3.5 py-2 text-sm font-medium text-gray-600 hover:text-brand-blue rounded-lg hover:bg-brand-blue-light/50 transition-all duration-200">Sports</a>
+                    <a href="books.html" class="px-3.5 py-2 text-sm font-medium text-gray-600 hover:text-brand-blue rounded-lg hover:bg-brand-blue-light/50 transition-all duration-200">Books</a>
+                    <a href="deals.html" class="px-3.5 py-2 text-sm font-medium text-gray-600 hover:text-brand-blue rounded-lg hover:bg-brand-blue-light/50 transition-all duration-200">Deals</a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button id="hamburgerBtn" class="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-50 transition-colors" aria-label="Toggle menu">
+                    <span class="hamburger-line block w-5 h-0.5 bg-gray-700 rounded-full"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-gray-700 rounded-full mt-1.5"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-gray-700 rounded-full mt-1.5"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-3 space-y-1">
+                <a href="index.html" class="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-brand-blue hover:bg-brand-blue-light/50 rounded-lg transition-all">Home</a>
+                <a href="electronics.html" class="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-brand-blue hover:bg-brand-blue-light/50 rounded-lg transition-all">Electronics</a>
+                <a href="beauty.html" class="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-brand-blue hover:bg-brand-blue-light/50 rounded-lg transition-all">Beauty</a>
+                <a href="sports.html" class="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-brand-blue hover:bg-brand-blue-light/50 rounded-lg transition-all">Sports</a>
+                <a href="books.html" class="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-brand-blue hover:bg-brand-blue-light/50 rounded-lg transition-all">Books</a>
+                <a href="deals.html" class="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-brand-blue hover:bg-brand-blue-light/50 rounded-lg transition-all">Deals</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO / PAGE TITLE ========== -->
+    <header class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
+        <!-- Decorative Blobs -->
+        <div class="blob w-72 h-72 bg-brand-blue/10 top-10 -left-20" style="position:absolute;"></div>
+        <div class="blob w-56 h-56 bg-brand-orange/10 bottom-0 right-0" style="position:absolute;"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue-light border border-brand-blue/10 mb-6">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-blue"></i>
+                <span class="text-xs font-semibold text-brand-blue uppercase tracking-wider">Legal Notice</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight leading-[1.1] mb-4">
+                Affiliate <span class="bg-gradient-to-r from-brand-blue to-brand-orange bg-clip-text text-transparent">Disclosure</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-500 font-light max-w-xl mx-auto leading-relaxed">
+                Transparency is important to us
+            </p>
+
+            <!-- Thin decorative line -->
+            <div class="mt-8 flex items-center justify-center gap-2">
+                <div class="w-8 h-px bg-gray-200"></div>
+                <div class="w-2 h-2 rounded-full bg-brand-orange"></div>
+                <div class="w-8 h-px bg-gray-200"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="relative pb-20">
+        <!-- Light background pattern -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(37,99,235,0.03)_0%,transparent_50%),radial-gradient(circle_at_80%_80%,rgba(249,115,22,0.03)_0%,transparent_50%)] pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+
+            <!-- Section 1: Introduction -->
+            <article class="disclosure-card bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 shadow-sm">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="icon-circle icon-blue flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue-light flex items-center justify-center">
+                        <i data-lucide="info" class="w-6 h-6 text-brand-blue"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-blue/60">Section 01</span>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 tracking-tight mt-0.5">Introduction</h2>
+                    </div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-[15px]">
+                    GoGlobalMart participates in various affiliate marketing programs. This means that some of the links on our website are affiliate links, and we may receive compensation when you make a purchase through them. This disclosure is provided to ensure full transparency about how our website operates and generates revenue.
+                </p>
+            </article>
+
+            <!-- Section 2: What Are Affiliate Links -->
+            <article class="disclosure-card bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 shadow-sm">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="icon-circle icon-orange flex-shrink-0 w-12 h-12 rounded-xl bg-brand-orange-light flex items-center justify-center">
+                        <i data-lucide="link" class="w-6 h-6 text-brand-orange"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange/60">Section 02</span>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 tracking-tight mt-0.5">What Are Affiliate Links?</h2>
+                    </div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-[15px]">
+                    Affiliate links are special tracking links provided by our partner programs. When you click on one of these links, a small cookie is placed on your device that helps the retailer identify that you were referred by GoGlobalMart. These links do not collect any personal information beyond what is necessary for tracking the referral, and they look and function just like regular links on our website.
+                </p>
+            </article>
+
+            <!-- Section 3: How We Earn -->
+            <article class="disclosure-card bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 shadow-sm">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="icon-circle icon-blue flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue-light flex items-center justify-center">
+                        <i data-lucide="wallet" class="w-6 h-6 text-brand-blue"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-blue/60">Section 03</span>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 tracking-tight mt-0.5">How We Earn</h2>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-brand-blue-light/50 to-brand-orange-light/50 rounded-xl p-5 border border-brand-blue/5 mb-4">
+                    <p class="text-gray-800 font-medium text-[15px] leading-relaxed flex items-start gap-3">
+                        <i data-lucide="quote" class="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5"></i>
+                        We may earn a small commission when users purchase products through our affiliate links, at no extra cost to them.
+                    </p>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-[15px]">
+                    The commission we earn comes directly from the retailer's marketing budget — not from your pocket. The price you pay for any product remains exactly the same whether you use our affiliate link or go directly to the retailer's website. This commission helps us maintain and improve GoGlobalMart, curate better content, and continue providing valuable product recommendations.
+                </p>
+            </article>
+
+            <!-- Section 4: Our Commitment -->
+            <article class="disclosure-card bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 shadow-sm">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="icon-circle icon-orange flex-shrink-0 w-12 h-12 rounded-xl bg-brand-orange-light flex items-center justify-center">
+                        <i data-lucide="heart-handshake" class="w-6 h-6 text-brand-orange"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange/60">Section 04</span>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 tracking-tight mt-0.5">Our Commitment</h2>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-50 flex items-center justify-center mt-0.5">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-green-600"></i>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed text-[15px]">
+                            We recommend only useful and relevant products that we believe add genuine value to our visitors. Every product featured on GoGlobalMart is carefully evaluated before being listed.
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-50 flex items-center justify-center mt-0.5">
+                            <i data-lucide="x" class="w-3.5 h-3.5 text-red-500"></i>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed text-[15px]">
+                            We do not promote misleading or harmful products. Our editorial integrity comes first — we will never compromise our standards for the sake of earning a commission.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 5: Third-Party Websites -->
+            <article class="disclosure-card bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 shadow-sm">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="icon-circle icon-blue flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue-light flex items-center justify-center">
+                        <i data-lucide="external-link" class="w-6 h-6 text-brand-blue"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-blue/60">Section 05</span>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 tracking-tight mt-0.5">Third-Party Websites</h2>
+                    </div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-[15px] mb-5">
+                    When you click an affiliate link on GoGlobalMart, you will be redirected to a third-party platform where the actual purchase takes place. We are not responsible for the products, pricing, or services offered on these platforms. All transactions, shipping, returns, and customer support are handled directly by the respective retailers.
+                </p>
+                <!-- Platform Badges -->
+                <div class="flex flex-wrap gap-3">
+                    <div class="platform-badge inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 text-[#FF9900]"></i>
+                        <span class="text-sm font-medium text-gray-700">Amazon</span>
+                    </div>
+                    <div class="platform-badge inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 text-[#2874F0]"></i>
+                        <span class="text-sm font-medium text-gray-700">Flipkart</span>
+                    </div>
+                    <div class="platform-badge inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                        <i data-lucide="shirt" class="w-4 h-4 text-[#FF3F6C]"></i>
+                        <span class="text-sm font-medium text-gray-700">Myntra</span>
+                    </div>
+                    <div class="platform-badge inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                        <span class="text-sm font-medium text-gray-700">Others</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 6: Transparency Promise -->
+            <article class="disclosure-card bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 shadow-sm">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="icon-circle icon-orange flex-shrink-0 w-12 h-12 rounded-xl bg-brand-orange-light flex items-center justify-center">
+                        <i data-lucide="award" class="w-6 h-6 text-brand-orange"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange/60">Section 06</span>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 tracking-tight mt-0.5">Transparency Promise</h2>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-brand-blue-light/40 rounded-xl p-4 border border-brand-blue/5">
+                        <div class="flex items-center gap-2.5 mb-2">
+                            <i data-lucide="message-circle-check" class="w-5 h-5 text-brand-blue"></i>
+                            <h3 class="text-sm font-semibold text-gray-800">Honest Recommendations</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Every recommendation is based on genuine research, reviews, and value assessment — never solely on commission potential.
+                        </p>
+                    </div>
+                    <div class="bg-brand-orange-light/40 rounded-xl p-4 border border-brand-orange/5">
+                        <div class="flex items-center gap-2.5 mb-2">
+                            <i data-lucide="badge-cent" class="w-5 h-5 text-brand-orange"></i>
+                            <h3 class="text-sm font-semibold text-gray-800">No Hidden Charges</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            You will never pay a penny extra for using our affiliate links. The price is always identical to visiting the retailer directly.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Last Updated Note -->
+            <div class="flex items-center justify-center gap-2 pt-2 pb-4">
+                <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                <span class="text-sm text-gray-400">Last updated: <time datetime="2025-01-15">January 15, 2025</time></span>
+            </div>
+
+            <!-- ========== CTA ========== -->
+            <div class="text-center pt-4">
+                <a href="index.html" class="cta-btn inline-flex items-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white text-sm font-semibold rounded-xl shadow-lg shadow-brand-blue/25 hover:shadow-xl hover:shadow-brand-blue/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
+                    <i data-lucide="tag" class="w-4 h-4"></i>
+                    Explore Deals
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-900 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Top Border Accent -->
+            <div class="h-px bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent"></div>
+
+            <div class="py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <!-- Footer Links -->
+                <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+                    <a href="about.html" class="footer-link text-sm text-gray-400 hover:text-white">About Us</a>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <a href="contact.html" class="footer-link text-sm text-gray-400 hover:text-white">Contact Us</a>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <a href="privacy.html" class="footer-link text-sm text-gray-400 hover:text-white">Privacy Policy</a>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <a href="terms.html" class="footer-link text-sm text-gray-400 hover:text-white">Terms of Service</a>
+                </nav>
+
+                <!-- Logo Small -->
+                <a href="#" class="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="w-6 h-6 rounded bg-gradient-to-br from-brand-blue to-brand-orange flex items-center justify-center">
+                        <i data-lucide="globe" class="w-3.5 h-3.5 text-white"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-300">GoGlobalMart</span>
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 py-5 text-center">
+                <p class="text-xs text-gray-500">
+                    &copy; <span id="currentYear"></span> GoGlobalMart. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ---- Sticky Navbar Shadow ----
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // ---- Mobile Menu Toggle ----
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('hamburger-active');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('hamburger-active');
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // ---- Scroll Progress Bar ----
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>

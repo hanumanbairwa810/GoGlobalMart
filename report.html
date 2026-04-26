@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report an Issue — GoGlobalMart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Instrument Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            brand: {
+              bg: '#E6E3D6',
+              light: '#F5F4F0',
+              dark: '#1A4D2E',
+              darkHover: '#143d24',
+              footer: '#262624',
+              text: '#262624',
+              muted: '#5A5852',
+              weak: '#888888',
+              accent: '#CC5500',
+              accentHover: '#B34900',
+              footerText: '#9EA08F',
+              footerWeak: '#787870',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Noise texture overlay */
+    .noise-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.5;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #E6E3D6; }
+    ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px; }
+
+    /* Focus ring */
+    .form-input:focus {
+      outline: none;
+      border-color: #1A4D2E;
+      box-shadow: 0 0 0 3px rgba(26, 77, 46, 0.12);
+    }
+
+    /* Toast animation */
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(100%); opacity: 0; }
+    }
+    .toast-enter { animation: slideUp 0.35s ease-out forwards; }
+    .toast-exit { animation: slideDown 0.3s ease-in forwards; }
+
+    /* Subtle float for the icon */
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .float-icon { animation: gentleFloat 3s ease-in-out infinite; }
+
+    /* Mobile menu */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .mobile-menu.open {
+      max-height: 300px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-brand-bg font-sans text-brand-text min-h-screen flex flex-col">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-50 backdrop-blur-sm bg-brand-bg/80 border-b border-[rgba(38,38,36,0.1)]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 bg-brand-dark rounded-sm flex items-center justify-center">
+            <iconify-icon icon="lucide:globe" class="text-white text-lg"></iconify-icon>
+          </div>
+          <span class="text-lg font-semibold tracking-tight text-brand-text">GoGlobalMart</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm text-brand-muted hover:text-brand-accent transition-colors duration-150">Home</a>
+          <a href="deals.html" class="text-sm text-brand-muted hover:text-brand-accent transition-colors duration-150">Products</a>
+          <a href="help.html" class="text-sm text-brand-muted hover:text-brand-accent transition-colors duration-150">Support</a>
+          <a href="contact.html" class="text-sm font-medium text-brand-dark border border-brand-dark/20 px-5 py-2 rounded-sm hover:bg-brand-dark hover:text-white transition-all duration-150">Report Issue</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center rounded-sm hover:bg-brand-dark/5 transition-colors" aria-label="Toggle menu">
+          <iconify-icon icon="lucide:menu" class="text-xl text-brand-text" id="menuIconOpen"></iconify-icon>
+          <iconify-icon icon="lucide:x" class="text-xl text-brand-text hidden" id="menuIconClose"></iconify-icon>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu md:hidden border-t border-[rgba(38,38,36,0.05)]">
+        <nav class="py-4 flex flex-col gap-1">
+          <a href="index.html" class="px-3 py-2.5 text-sm text-brand-muted hover:text-brand-accent hover:bg-brand-dark/5 rounded-sm transition-colors">Home</a>
+          <a href="deals.html" class="px-3 py-2.5 text-sm text-brand-muted hover:text-brand-accent hover:bg-brand-dark/5 rounded-sm transition-colors">Products</a>
+          <a href="help.html" class="px-3 py-2.5 text-sm text-brand-muted hover:text-brand-accent hover:bg-brand-dark/5 rounded-sm transition-colors">Support</a>
+          <a href="contact.html" class="px-3 py-2.5 text-sm font-medium text-brand-dark bg-brand-dark/5 rounded-sm">Report Issue</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN ==================== -->
+  <main class="flex-1 relative noise-overlay">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+
+      <!-- Page Title -->
+      <div class="max-w-2xl mx-auto text-center mb-12 md:mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-dark/5 border border-brand-dark/10 mb-6">
+          <iconify-icon icon="lucide:shield-alert" class="text-brand-accent text-sm"></iconify-icon>
+          <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-muted">Help Center</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-500 tracking-tight leading-[1.05] text-brand-text mb-4">
+          Report an Issue
+        </h1>
+        <p class="text-base md:text-lg text-brand-muted leading-relaxed">
+          Let us know if something is not working. Your feedback helps us improve.
+        </p>
+      </div>
+
+      <!-- Form Card -->
+      <div class="max-w-xl mx-auto">
+        <div class="bg-brand-light rounded-sm border border-[rgba(38,38,36,0.1)] p-8 md:p-10 shadow-sm">
+
+          <!-- Floating icon -->
+          <div class="flex justify-center mb-8">
+            <div class="w-14 h-14 rounded-full bg-brand-dark/5 border border-brand-dark/10 flex items-center justify-center float-icon">
+              <iconify-icon icon="lucide:message-square-warning" class="text-2xl text-brand-dark"></iconify-icon>
+            </div>
+          </div>
+
+          <form id="issueForm" novalidate>
+            <!-- Name -->
+            <div class="mb-5">
+              <label for="name" class="block text-sm font-medium text-brand-text mb-1.5">
+                Name <span class="text-brand-accent">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your full name"
+                class="form-input w-full px-4 py-3 bg-white border border-[rgba(38,38,36,0.15)] rounded-sm text-sm text-brand-text placeholder:text-brand-weak transition-all duration-150"
+              >
+              <p class="error-msg hidden mt-1.5 text-xs text-red-600 flex items-center gap-1">
+                <iconify-icon icon="lucide:alert-circle" class="text-xs"></iconify-icon>
+                Please enter your name
+              </p>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-5">
+              <label for="email" class="block text-sm font-medium text-brand-text mb-1.5">
+                Email <span class="text-brand-accent">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="you@example.com"
+                class="form-input w-full px-4 py-3 bg-white border border-[rgba(38,38,36,0.15)] rounded-sm text-sm text-brand-text placeholder:text-brand-weak transition-all duration-150"
+              >
+              <p class="error-msg hidden mt-1.5 text-xs text-red-600 flex items-center gap-1">
+                <iconify-icon icon="lucide:alert-circle" class="text-xs"></iconify-icon>
+                Please enter a valid email address
+              </p>
+            </div>
+
+            <!-- Issue Type -->
+            <div class="mb-5">
+              <label for="issueType" class="block text-sm font-medium text-brand-text mb-1.5">
+                Issue Type <span class="text-brand-accent">*</span>
+              </label>
+              <div class="relative">
+                <select
+                  id="issueType"
+                  name="issueType"
+                  required
+                  class="form-input w-full px-4 py-3 bg-white border border-[rgba(38,38,36,0.15)] rounded-sm text-sm text-brand-text appearance-none transition-all duration-150 cursor-pointer"
+                >
+                  <option value="" disabled selected class="text-brand-weak">Select an issue type</option>
+                  <option value="broken-link">Broken Link</option>
+                  <option value="wrong-price">Wrong Price</option>
+                  <option value="product-not-found">Product Not Found</option>
+                  <option value="other">Other</option>
+                </select>
+                <iconify-icon icon="lucide:chevron-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-weak text-sm pointer-events-none"></iconify-icon>
+              </div>
+              <p class="error-msg hidden mt-1.5 text-xs text-red-600 flex items-center gap-1">
+                <iconify-icon icon="lucide:alert-circle" class="text-xs"></iconify-icon>
+                Please select an issue type
+              </p>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-8">
+              <label for="message" class="block text-sm font-medium text-brand-text mb-1.5">
+                Message <span class="text-brand-accent">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="5"
+                placeholder="Describe the issue in detail — include URLs, product names, or steps to reproduce if possible."
+                class="form-input w-full px-4 py-3 bg-white border border-[rgba(38,38,36,0.15)] rounded-sm text-sm text-brand-text placeholder:text-brand-weak transition-all duration-150 resize-vertical min-h-[120px]"
+              ></textarea>
+              <div class="flex justify-between items-center mt-1.5">
+                <p class="error-msg hidden text-xs text-red-600 flex items-center gap-1">
+                  <iconify-icon icon="lucide:alert-circle" class="text-xs"></iconify-icon>
+                  Please describe the issue
+                </p>
+                <span id="charCount" class="ml-auto text-xs text-brand-weak tabular-nums">0 / 1000</span>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              id="submitBtn"
+              class="w-full bg-brand-dark text-white text-sm font-medium px-8 py-3.5 rounded-sm hover:bg-brand-darkHover hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150 flex items-center justify-center gap-2 shadow-sm"
+            >
+              <iconify-icon icon="lucide:send" class="text-base" id="submitIcon"></iconify-icon>
+              <span id="submitText">Submit Report</span>
+              <!-- Spinner (hidden by default) -->
+              <svg id="submitSpinner" class="hidden animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Note -->
+          <div class="mt-6 flex items-start gap-3 px-4 py-3 bg-brand-dark/5 rounded-sm border border-brand-dark/5">
+            <iconify-icon icon="lucide:clock" class="text-brand-muted text-base mt-0.5 flex-shrink-0"></iconify-icon>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              We will review and respond within <span class="font-medium text-brand-text">24–48 hours</span>. You'll receive a confirmation email shortly after submission.
+            </p>
+          </div>
+        </div>
+
+        <!-- Back link -->
+        <div class="text-center mt-8">
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm text-brand-muted hover:text-brand-accent transition-colors duration-150">
+            <iconify-icon icon="lucide:arrow-left" class="text-sm"></iconify-icon>
+            Back to Help Center
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-footer text-brand-footerText">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+
+        <!-- Left: Brand -->
+        <div class="md:max-w-xs">
+          <a href="#" class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-brand-dark rounded-sm flex items-center justify-center">
+              <iconify-icon icon="lucide:globe" class="text-white text-sm"></iconify-icon>
+            </div>
+            <span class="text-base font-semibold tracking-tight text-white">GoGlobalMart</span>
+          </a>
+          <p class="text-sm text-brand-footerWeak leading-relaxed">
+            Your trusted global marketplace for quality products worldwide.
+          </p>
+        </div>
+
+        <!-- Right: Links -->
+        <nav class="flex items-center gap-8">
+          <a href="about.html" class="text-sm text-brand-footerWeak hover:text-white transition-colors duration-150">About</a>
+          <a href="contact.html" class="text-sm text-brand-footerWeak hover:text-white transition-colors duration-150">Contact</a>
+          <a href="privacy.html" class="text-sm text-brand-footerWeak hover:text-white transition-colors duration-150">Privacy</a>
+        </nav>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-white/10 mt-8 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <p class="text-xs text-brand-footerWeak">
+          &copy; 2025 GoGlobalMart. All rights reserved.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-brand-footerWeak hover:text-white transition-colors duration-150" aria-label="Twitter">
+            <iconify-icon icon="lucide:twitter" class="text-base"></iconify-icon>
+          </a>
+          <a href="#" class="text-brand-footerWeak hover:text-white transition-colors duration-150" aria-label="Facebook">
+            <iconify-icon icon="lucide:facebook" class="text-base"></iconify-icon>
+          </a>
+          <a href="https://www.instagram.com/go_global_mart?igsh=bWh0N2Z6M2UxNjFi" class="text-brand-footerWeak hover:text-white transition-colors duration-150" aria-label="Instagram">
+            <iconify-icon icon="lucide:instagram" class="text-base"></iconify-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== TOAST CONTAINER ==================== -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ---- Mobile Menu Toggle ----
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIconOpen = document.getElementById('menuIconOpen');
+    const menuIconClose = document.getElementById('menuIconClose');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuIconOpen.classList.toggle('hidden', isOpen);
+      menuIconClose.classList.toggle('hidden', !isOpen);
+    });
+
+    // ---- Character Counter ----
+    const messageField = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
+    const MAX_CHARS = 1000;
+
+    messageField.addEventListener('input', () => {
+      const len = messageField.value.length;
+      if (len > MAX_CHARS) {
+        messageField.value = messageField.value.slice(0, MAX_CHARS);
+      }
+      const displayLen = Math.min(len, MAX_CHARS);
+      charCount.textContent = `${displayLen} / ${MAX_CHARS}`;
+      charCount.classList.toggle('text-brand-accent', displayLen >= MAX_CHARS * 0.9);
+      charCount.classList.toggle('text-brand-weak', displayLen < MAX_CHARS * 0.9);
+    });
+
+    // ---- Toast System ----
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+
+      const iconMap = {
+        success: 'lucide:check-circle-2',
+        error: 'lucide:x-circle',
+        info: 'lucide:info',
+      };
+      const colorMap = {
+        success: 'bg-brand-dark text-white',
+        error: 'bg-red-600 text-white',
+        info: 'bg-brand-text text-white',
+      };
+
+      toast.className = `pointer-events-auto flex items-center gap-3 px-5 py-3.5 rounded-sm shadow-lg ${colorMap[type]} toast-enter`;
+      toast.innerHTML = `
+        <iconify-icon icon="${iconMap[type]}" class="text-lg flex-shrink-0"></iconify-icon>
+        <span class="text-sm font-medium">${message}</span>
+      `;
+
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.remove('toast-enter');
+        toast.classList.add('toast-exit');
+        toast.addEventListener('animationend', () => toast.remove());
+      }, 4000);
+    }
+
+    // ---- Form Validation & Submit ----
+    const form = document.getElementById('issueForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitIcon = document.getElementById('submitIcon');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+
+    function validateField(field) {
+      const errorEl = field.closest('.mb-5, .mb-8')?.querySelector('.error-msg');
+      let isValid = true;
+
+      if (field.id === 'email') {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        isValid = emailRegex.test(field.value.trim());
+      } else if (field.tagName === 'SELECT') {
+        isValid = field.value !== '';
+      } else {
+        isValid = field.value.trim().length > 0;
+      }
+
+      if (errorEl) {
+        errorEl.classList.toggle('hidden', isValid);
+      }
+      field.classList.toggle('border-red-400', !isValid);
+      field.classList.toggle('border-[rgba(38,38,36,0.15)]', isValid);
+
+      return isValid;
+    }
+
+    // Real-time validation on blur
+    ['name', 'email', 'issueType', 'message'].forEach(id => {
+      const field = document.getElementById(id);
+      field.addEventListener('blur', () => validateField(field));
+      // Clear error on input
+      field.addEventListener('input', () => {
+        const errorEl = field.closest('.mb-5, .mb-8')?.querySelector('.error-msg');
+        if (errorEl && !errorEl.classList.contains('hidden')) {
+          validateField(field);
+        }
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const fields = [
+        document.getElementById('name'),
+        document.getElementById('email'),
+        document.getElementById('issueType'),
+        document.getElementById('message'),
+      ];
+
+      let allValid = true;
+      fields.forEach(f => {
+        if (!validateField(f)) allValid = false;
+      });
+
+      if (!allValid) {
+        // Focus first invalid field
+        const firstInvalid = fields.find(f => {
+          if (f.id === 'email') return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
+          if (f.tagName === 'SELECT') return f.value === '';
+          return f.value.trim().length === 0;
+        });
+        if (firstInvalid) firstInvalid.focus();
+        showToast('Please fix the highlighted fields', 'error');
+        return;
+      }
+
+      // Simulate submission
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-80', 'pointer-events-none');
+      submitIcon.classList.add('hidden');
+      submitText.textContent = 'Submitting...';
+      submitSpinner.classList.remove('hidden');
+
+      await new Promise(resolve => setTimeout(resolve, 1800));
+
+      // Success
+      submitSpinner.classList.add('hidden');
+      submitIcon.classList.remove('hidden');
+      submitIcon.setAttribute('icon', 'lucide:check');
+      submitText.textContent = 'Submitted!';
+      submitBtn.classList.remove('opacity-80');
+      submitBtn.classList.remove('bg-brand-dark', 'hover:bg-brand-darkHover');
+      submitBtn.classList.add('bg-green-600');
+
+      showToast('Issue reported successfully! Check your email for confirmation.', 'success');
+
+      // Reset after delay
+      setTimeout(() => {
+        form.reset();
+        charCount.textContent = '0 / 1000';
+        charCount.classList.remove('text-brand-accent');
+        charCount.classList.add('text-brand-weak');
+
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('pointer-events-none', 'bg-green-600');
+        submitBtn.classList.add('bg-brand-dark', 'hover:bg-brand-darkHover');
+        submitIcon.setAttribute('icon', 'lucide:send');
+        submitText.textContent = 'Submit Report';
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
