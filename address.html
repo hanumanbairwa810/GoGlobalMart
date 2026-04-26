@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GoGlobal Mart Delivery Address Assistant — Copy your address in one click and redirect to Amazon, Flipkart, or Meesho for faster checkout.">
+  <meta name="keywords" content="delivery address assistant, copy address, Amazon checkout, Flipkart address, Meesho address, GoGlobal Mart">
+  <title>Delivery Address Assistant — GoGlobal Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ========== ANIMATED BACKGROUND ========== */
+    .bg-wrapper {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bg-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(ellipse, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+      animation: floatBlob1 20s ease-in-out infinite;
+    }
+
+    .bg-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      right: -20%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(ellipse, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+      animation: floatBlob2 25s ease-in-out infinite;
+    }
+
+    @keyframes floatBlob1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(10%, 15%) scale(1.1); }
+      66% { transform: translate(-5%, 8%) scale(0.95); }
+    }
+
+    @keyframes floatBlob2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-12%, -10%) scale(1.05); }
+      66% { transform: translate(8%, -5%) scale(0.9); }
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 100%);
+    }
+
+    /* ========== LAYOUT ========== */
+    .page-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 0 16px;
+    }
+
+    /* ========== FADE-IN ANIMATION ========== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-in {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .animate-delay-2 { animation-delay: 0.25s; opacity: 0; }
+    .animate-delay-3 { animation-delay: 0.4s; opacity: 0; }
+    .animate-delay-4 { animation-delay: 0.55s; opacity: 0; }
+    .animate-delay-5 { animation-delay: 0.7s; opacity: 0; }
+
+    /* ========== AD SECTIONS ========== */
+    .ad-container {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .ad-placeholder {
+      width: 728px;
+      max-width: 100%;
+      height: 90px;
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: border-color 0.3s ease;
+    }
+
+    .ad-placeholder:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ========== MAIN CARD ========== */
+    .main-card {
+      width: 100%;
+      max-width: 520px;
+      margin: 10px 0 30px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 40px 32px 36px;
+      box-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(37, 99, 235, 0.04);
+    }
+
+    /* ========== HEADER ========== */
+    .card-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(59, 130, 246, 0.1));
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #3b82f6;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+      background: linear-gradient(to right, #ffffff, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.01em;
+    }
+
+    /* ========== FORM ========== */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #ffffff;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .form-input:hover,
+    .form-textarea:hover {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(59, 130, 246, 0.5);
+      background: rgba(59, 130, 246, 0.06);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 0 20px rgba(59, 130, 246, 0.06);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+      max-height: 200px;
+      line-height: 1.5;
+    }
+
+    /* ========== COPY BUTTON ========== */
+    .copy-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 14px;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .copy-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.35), 0 0 0 1px rgba(59, 130, 246, 0.4);
+    }
+
+    .copy-btn:hover::before {
+      opacity: 1;
+    }
+
+    .copy-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .copy-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .copy-btn-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========== DIVIDER ========== */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+    }
+
+    .divider-text {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    /* ========== PLATFORM BUTTONS ========== */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .platform-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 8px;
+      border-radius: 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      border: none;
+    }
+
+    .platform-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.08));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .platform-btn:hover::before {
+      opacity: 1;
+    }
+
+    .platform-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Amazon */
+    .btn-amazon {
+      background: rgba(255, 153, 0, 0.1);
+      border: 1px solid rgba(255, 153, 0, 0.2);
+      color: #ff9900;
+    }
+
+    .btn-amazon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.2), 0 0 0 1px rgba(255, 153, 0, 0.35);
+      background: rgba(255, 153, 0, 0.15);
+    }
+
+    .btn-amazon svg {
+      stroke: #ff9900;
+    }
+
+    /* Flipkart */
+    .btn-flipkart {
+      background: rgba(28, 100, 242, 0.1);
+      border: 1px solid rgba(28, 100, 242, 0.2);
+      color: #1c64f2;
+    }
+
+    .btn-flipkart:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(28, 100, 242, 0.2), 0 0 0 1px rgba(28, 100, 242, 0.35);
+      background: rgba(28, 100, 242, 0.15);
+    }
+
+    .btn-flipkart svg {
+      stroke: #1c64f2;
+    }
+
+    /* Meesho */
+    .btn-meesho {
+      background: rgba(236, 72, 153, 0.1);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      color: #ec4899;
+    }
+
+    .btn-meesho:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2), 0 0 0 1px rgba(236, 72, 153, 0.35);
+      background: rgba(236, 72, 153, 0.15);
+    }
+
+    .btn-meesho svg {
+      stroke: #ec4899;
+    }
+
+    .platform-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .platform-btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========== TOAST NOTIFICATION ========== */
+    .toast {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-120%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      background: rgba(16, 185, 129, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(16, 185, 129, 0.1);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      max-width: calc(100vw - 32px);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast svg {
+      width: 20px;
+      height: 20px;
+      stroke: #10b981;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .toast-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: #d1fae5;
+      letter-spacing: 0.01em;
+    }
+
+    /* ========== ERROR TOAST ========== */
+    .toast-error {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: rgba(239, 68, 68, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(239, 68, 68, 0.1);
+    }
+
+    .toast-error svg {
+      stroke: #ef4444;
+    }
+
+    .toast-error .toast-text {
+      color: #fecaca;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+      padding: 10px 16px 30px;
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .footer-brand strong {
+      color: rgba(59, 130, 246, 0.7);
+      font-weight: 600;
+    }
+
+    .footer-disclaimer {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.2);
+      line-height: 1.6;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 540px) {
+      .main-card {
+        padding: 32px 20px 28px;
+        border-radius: 20px;
+        margin: 6px 0 24px;
+      }
+
+      .card-title {
+        font-size: 19px;
+      }
+
+      .platform-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .platform-btn {
+        padding: 14px 6px;
+        font-size: 11px;
+        gap: 6px;
+      }
+
+      .platform-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .copy-btn {
+        padding: 13px 20px;
+        font-size: 13px;
+      }
+
+      .ad-placeholder {
+        height: 60px;
+        font-size: 11px;
+      }
+
+      .toast {
+        top: 12px;
+        padding: 12px 16px;
+      }
+
+      .toast-text {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .main-card {
+        padding: 28px 16px 24px;
+      }
+
+      .card-title {
+        font-size: 17px;
+      }
+    }
+
+    /* ========== SCROLLBAR ========== */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ========== SELECTION ========== */
+    ::selection {
+      background: rgba(59, 130, 246, 0.3);
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-wrapper"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+    <span class="toast-text" id="toastText">Address copied! Now paste it on checkout page</span>
+  </div>
+
+  <div class="page-container">
+
+    <!-- ===== TOP AD ===== -->
+    <div class="ad-container animate-in animate-delay-1">
+      <div class="ad-placeholder" id="top-ad">
+        Ad Space — Paste Google AdSense Code Here
+      </div>
+    </div>
+
+    <!-- ===== MAIN CARD ===== -->
+    <div class="main-card animate-in animate-delay-2">
+
+      <!-- Header -->
+      <div class="card-header">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h1 class="card-title">Delivery Address Assistant</h1>
+        <p class="card-subtitle">Enter once, copy &amp; paste anywhere</p>
+      </div>
+
+      <!-- Form -->
+      <div class="form-group animate-in animate-delay-3">
+        <label class="form-label" for="fullName">Full Name</label>
+        <input
+          type="text"
+          id="fullName"
+          class="form-input"
+          placeholder="e.g. Rahul Sharma"
+          autocomplete="name"
+          maxlength="100"
+        >
+      </div>
+
+      <div class="form-group animate-in animate-delay-3">
+        <label class="form-label" for="phoneNumber">Phone Number</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          class="form-input"
+          placeholder="e.g. 9876543210"
+          autocomplete="tel"
+          maxlength="15"
+        >
+      </div>
+
+      <div class="form-group animate-in animate-delay-4">
+        <label class="form-label" for="fullAddress">Full Address</label>
+        <textarea
+          id="fullAddress"
+          class="form-textarea"
+          placeholder="House/Flat No., Street, Landmark, Area, City, State, PIN Code"
+          maxlength="500"
+        ></textarea>
+      </div>
+
+      <!-- Copy Button -->
+      <button class="copy-btn animate-in animate-delay-4" id="copyBtn" type="button">
+        <svg viewBox="0 0 24 24" id="copyIcon">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        <span class="copy-btn-text" id="copyBtnText">Copy Address</span>
+      </button>
+
+      <!-- Divider -->
+      <div class="section-divider animate-in animate-delay-5">
+        <div class="divider-line"></div>
+        <span class="divider-text">Go to Platform</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Platform Buttons -->
+      <div class="platform-grid animate-in animate-delay-5">
+        <!-- Amazon -->
+        <a
+          href="https://www.amazon.in/a/addresses"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="platform-btn btn-amazon"
+          aria-label="Open Amazon address page"
+        >
+          <svg viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span>Amazon</span>
+        </a>
+
+        <!-- Flipkart -->
+        <a
+          href="https://www.flipkart.com/account/addresses"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="platform-btn btn-flipkart"
+          aria-label="Open Flipkart address page"
+        >
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          <span>Flipkart</span>
+        </a>
+
+        <!-- Meesho -->
+        <a
+          href="https://www.meesho.com/address"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="platform-btn btn-meesho"
+          aria-label="Open Meesho address page"
+        >
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>Meesho</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== BOTTOM AD ===== -->
+    <div class="ad-container animate-in animate-delay-5">
+      <div class="ad-placeholder" id="bottom-ad">
+        Ad Space — Paste Ad Code Here
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer animate-in animate-delay-5">
+      <p class="footer-brand">Powered by <strong>GoGlobal Mart</strong></p>
+      <p class="footer-disclaimer">We may earn a commission from qualifying purchases at no extra cost to you.</p>
+    </footer>
+
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // DOM References
+      const nameInput = document.getElementById('fullName');
+      const phoneInput = document.getElementById('phoneNumber');
+      const addressInput = document.getElementById('fullAddress');
+      const copyBtn = document.getElementById('copyBtn');
+      const copyBtnText = document.getElementById('copyBtnText');
+      const copyIcon = document.getElementById('copyIcon');
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toastText');
+
+      let toastTimeout = null;
+      let resetTimeout = null;
+
+      /**
+       * Show a toast notification
+       * @param {string} message - Toast message
+       * @param {boolean} isError - Whether this is an error toast
+       */
+      function showToast(message, isError) {
+        // Clear any existing timeout
+        if (toastTimeout) clearTimeout(toastTimeout);
+
+        // Reset classes
+        toast.classList.remove('show', 'toast-error');
+
+        // Set error state if needed
+        if (isError) {
+          toast.classList.add('toast-error');
+        }
+
+        // Update message
+        toastText.textContent = message;
+
+        // Update icon
+        const iconSvg = isError
+          ? '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'
+          : '<svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>';
+        toast.querySelector('svg').outerHTML = iconSvg;
+
+        // Trigger show
+        requestAnimationFrame(function () {
+          toast.classList.add('show');
+        });
+
+        // Auto-hide after 3 seconds
+        toastTimeout = setTimeout(function () {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+
+      /**
+       * Format and copy address to clipboard
+       */
+      function copyAddress() {
+        const name = nameInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const address = addressInput.value.trim();
+
+        // Validation
+        if (!name && !phone && !address) {
+          showToast('Please fill in at least one field', true);
+          nameInput.focus();
+          return;
+        }
+
+        // Build formatted text
+        var lines = [];
+        if (name) lines.push('Name: ' + name);
+        if (phone) lines.push('Phone: ' + phone);
+        if (address) lines.push('Address: ' + address);
+
+        var formattedText = lines.join('\n');
+
+        // Copy to clipboard using Clipboard API
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(formattedText).then(function () {
+            onCopySuccess();
+          }).catch(function () {
+            fallbackCopy(formattedText);
+          });
+        } else {
+          fallbackCopy(formattedText);
+        }
+      }
+
+      /**
+       * Fallback copy method for older browsers
+       */
+      function fallbackCopy(text) {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        textarea.style.top = '-9999px';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+
+        try {
+          document.execCommand('copy');
+          onCopySuccess();
+        } catch (err) {
+          showToast('Failed to copy. Please select and copy manually.', true);
+        }
+
+        document.body.removeChild(textarea);
+      }
+
+      /**
+       * Handle successful copy — update button + show toast
+       */
+      function onCopySuccess() {
+        // Update button text temporarily
+        if (resetTimeout) clearTimeout(resetTimeout);
+        copyBtnText.textContent = 'Copied!';
+        copyIcon.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+
+        // Show toast
+        showToast('Address copied! Now paste it on checkout page', false);
+
+        // Reset button after 2.5s
+        resetTimeout = setTimeout(function () {
+          copyBtnText.textContent = 'Copy Address';
+          copyIcon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
+        }, 2500);
+      }
+
+      // Event Listeners
+      copyBtn.addEventListener('click', copyAddress);
+
+      // Allow Enter key on inputs to trigger copy (only from phone field as it's the last input-type)
+      phoneInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addressInput.focus();
+        }
+      });
+
+      nameInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          phoneInput.focus();
+        }
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
