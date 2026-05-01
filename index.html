@@ -1507,8 +1507,8 @@
                     <span class="iconify" data-icon="mdi:heart-outline"></span> Wishlist
                     <span class="badge" id="wishlistCount">0</span>
                 </a>
-                <a href="#" class="nav-link" onclick="logout()">
-                    <span class="iconify" data-icon="mdi:logout"></span> Logout
+                <a href="login.html" class="nav-link" onclick="login()">
+                    <span class="iconify" data-icon="mdi:login"></span> Login
                 </a>
             </div>
 
@@ -1527,18 +1527,18 @@
             <span class="iconify" data-icon="mdi:heart-outline"></span> Wishlist
             <span class="badge" id="wishlistCountMobile">0</span>
         </a>
-        <a href="#" class="nav-link" onclick="logout(); closeMobileMenu();">
-            <span class="iconify" data-icon="mdi:logout"></span> Logout
+        <a href="login.html" class="nav-link" onclick="login(); closeMobileMenu();">
+            <span class="iconify" data-icon="mdi:login"></span> Login
         </a>
     </div>
 
     <!-- ============================================
          PAGE 1: LOGIN / SIGNUP
          ============================================ -->
-    <div class="page-view" id="loginPage">
+  <!--  <div class="page-view" id="loginPage">
         <div class="auth-page">
             <div class="auth-card">
-                <!-- Login Form -->
+                <!-- Login Form 
                 <div id="loginForm">
                     <div class="logo" style="margin-bottom:4px;">
                         <div class="logo-icon">
@@ -1565,7 +1565,7 @@
 
                     <div class="divider">or continue with</div>
 
-                    <!-- Google Login (UI only) -->
+                    <!-- Google Login (UI only) --
                     <button class="google-btn" onclick="handleGoogleLogin()">
                         <svg viewBox="0 0 24 24">
                             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
@@ -1581,7 +1581,7 @@
                     </p>
                 </div>
 
-                <!-- Signup Form -->
+                <!-- Signup Form --
                 <div id="signupForm" style="display:none;">
                     <div class="logo" style="margin-bottom:4px;">
                         <div class="logo-icon">
@@ -2433,7 +2433,7 @@
 
         /* ============================================
            AUTH: LOGIN / SIGNUP
-           ============================================ */
+           ============================================ 
         function showSignup() {
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('signupForm').style.display = 'block';
@@ -2843,77 +2843,27 @@
         }
     </script>
     <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
-  import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signOut,
-    onAuthStateChanged
-  } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAJBKu2kYbCD1KwI2xLargDauV_ftdoRQs",
-    authDomain: "goglobalmart-f227e.firebaseapp.com",
-    projectId: "goglobalmart-f227e",
-    storageBucket: "goglobalmart-f227e.firebasestorage.app",
-    messagingSenderId: "270002483993",
-    appId: "1:270002483993:web:089e322acf64ba73104b88",
-    measurementId: "G-RWM1Z0YP74"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyAJBKu2kYbCD1KwI2xLargDauV_ftdoRQs",
+  authDomain: "goglobalmart-f227e.firebaseapp.com",
+  projectId: "goglobalmart-f227e",
+};
 
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-  // Signup
-  window.signup = function () {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => alert("Signup Successful"))
-      .catch(err => alert(err.message));
-  };
-
-  // Login
-  window.login = function () {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => alert("Login Successful"))
-      .catch(err => alert(err.message));
-  };
-
-  // Google Login
-  window.googleLogin = function () {
-    const provider = new GoogleAuthProvider();
-
-    signInWithPopup(auth, provider)
-      .then(() => alert("Google Login Success"))
-      .catch(err => alert(err.message));
-  };
-
-  // Logout
-  window.logout = function () {
-    signOut(auth)
-      .then(() => alert("Logged out"));
-  };
-
-  // User state
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      document.getElementById("userInfo").innerText =
-        "Welcome: " + user.email;
-    } else {
-      document.getElementById("userInfo").innerText =
-        "Not logged in";
-    }
-  });
+// ✅ check login
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.getElementById("userInfo").innerText = "Welcome: " + user.email;
+  } else {
+    // ❗ agar login nahi hai to wapas bhej
+    window.location.href = "login.html";
+  }
+});
 </script>
 </body>
 </html>
