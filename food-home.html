@@ -2156,5 +2156,28 @@
             });
         });
     </script>
+    <script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+       import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+       const firebaseConfig = {
+       apiKey: "AIzaSyAJBKu2kYbCD1KwI2xLargDauV_ftdoRQs",
+       authDomain: "goglobalmart-f227e.firebaseapp.com",
+       projectId: "goglobalmart-f227e",
+     };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // ✅ check login
+       onAuthStateChanged(auth, (user) => {
+       if (user) {
+        document.getElementById("userInfo").innerText = "Welcome: " + user.email;
+      } else {
+       // ❗ agar login nahi hai to wapas bhej
+        window.location.href = "#";
+      }
+ });
+</script>
 </body>
 </html>
