@@ -288,8 +288,8 @@
         .search-bar {
             flex: 1;
             display: flex;
-            max-width: 100%;
-            min-width: 0;
+            max-width: 500px;
+            min-width: 0 auto;
         }
         .search-bar input {
             flex: 1;
@@ -320,7 +320,7 @@
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
             flex-shrink: 0;
         }
         .header-btn {
@@ -975,11 +975,30 @@
         }
         @media (min-width: 1024px) {
             .header-main { gap: 20px; }
-            .search-bar { max-width: 150px; }
+            .search-bar { display:auto; }
             .hero h1 { font-size: 3rem; }
             .products-grid { gap: 20px; }
             .features-grid { gap: 20px; }
             .footer-grid { gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .header-main{
+                gap: 6px;
+            }
+            .search-bar {
+                max-width:120px;
+                flex:1;
+            }
+            .search-bar-input {
+                padding:0 10px;
+                font-size:14px;
+            }
+            .search-bar button {
+                width:40px;
+            }
+            .header-actions{
+                gap:6px;
+            }
         }
 
         /* Cart Drawer */
