@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Important pages
+
+Allow: /index.html
+
+# Block unnecessary files (optional)
+
+Disallow: /script.js
+Disallow: /style.css
+
+# Sitemap (IMPORTANT for Google ranking)
+
+Sitemap: https://goglobalmart.me/sitemap.xml
