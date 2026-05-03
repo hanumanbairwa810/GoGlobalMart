@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1990140258010969"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
-    <link rel="shortcut icon" href="/fevicon.png">
-    <link rel="apple-touch-icon" href="/fevicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Beauty & Personal Care Deals | GoGlobalMart</title>
     <meta name="description" content="Shop the best beauty & personal care deals on face wash, moisturizer, hair oil, makeup kits, vitamins & more. Compare prices on Amazon, Flipkart & Myntra.">
@@ -467,28 +462,23 @@
             flex: 1;
             min-width: 0;
         }
-        .btn-amazon {
+        .amazon-btn {
             background: #FF9900;
             color: #111;
         }
-        .btn-amazon:hover { background: #e68a00; transform: translateY(-1px); }
+        .amazon-btn:hover { background: #e68a00; transform: translateY(-1px); }
+
         .btn-flipkart {
             background: #2874f0;
             color: #fff;
         }
-        .btn-flipkart:hover { background: #1a5dc8; transform: translateY(-1px); }
-        .btn-myntra {
-            background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
-            color: #fff;
+        .flipkart-btn {
+            background: white;
+            color:#2874f0;
+            border: 2px solid #2874f0;
         }
-        .btn-myntra:hover { background: linear-gradient(135deg, var(--pink-600), var(--purple-600)); transform: translateY(-1px); }
-        .btn-health {
-            background: var(--green-500);
-            color: #fff;
-        }
-        .btn-health:hover { background: var(--green-600); transform: translateY(-1px); }
-        .btn .iconify { font-size: 0.85rem; flex-shrink: 0; }
-
+        .flipkart-btn:hover { background: #1a5dc8; transform: translateY(-1px); }
+        
         /* ========= FOOTER ========= */
         .footer {
             background: var(--gray-900);
@@ -773,243 +763,263 @@
 const products = [
     {
         id: 1, category: "skincare",
-        title: "Cetaphil Gentle Skin Cleanser Face Wash for Dry to Normal Skin – 250ml",
-        desc: "Soap-free, non-irritating formula that cleanses without stripping natural moisture.",
-        price: 349, orig: 499, discount: 30,
+        title: "The Plant Fix Plix Jamun Face Wash and Active Acne Serum Combo For Oil Control (2 Items in the set)",
+        desc: "The Plant Fix Plix Jamun Face Wash and Acne Marks Serum Combo(100ML + 30ML) For Acne spots & Oil Control, For Breakouts | Oily & Acne Prone Skin | Women & Men",
+        price: 613, orig: 899, discount: 30,
         badge: "Best Seller", badgeType: "best",
         rating: 4.5, reviews: 12453,
-        img: "https://picsum.photos/seed/facewash01/400/400.jpg",
-        buttons: ["amazon", "flipkart"]
+        img: "plix-face-wash.webp",
+        amazonLink:"https://amzn.to/4cLFX45",
+        flipkartLink:"https://fktr.in/04ritlv"
     },
     {
         id: 2, category: "skincare",
-        title: "Neutrogena Hydro Boost Water Gel Moisturizer with Hyaluronic Acid – 50g",
-        desc: "Lightweight, oil-free gel moisturizer that locks in hydration for up to 48 hours.",
-        price: 449, orig: 750, discount: 40,
+        title: "THE MAN COMPANY Charcoal Face wash - Ylang Ylang and Argan Face Wash (100 ml)",
+        desc: "Bombay Shaving Company Charcoal Face Wash, Fights Pollution And Acne, Oil Control For Men & Women - 150 Gm",
+        price: 179, orig: 450, discount: 40,
         badge: "Best Seller", badgeType: "best",
         rating: 4.6, reviews: 9821,
-        img: "https://picsum.photos/seed/moisturizer02/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "charcole.webp",
+        amazonLink:"https://amzn.to/4uhWH90",
+        flipkartLink:"https://fktr.in/EhjNVZ7"
     },
     {
         id: 3, category: "haircare",
-        title: "Parachute 100% Pure Coconut Hair Oil for Deep Nourishment – 600ml",
-        desc: "Cold-pressed virgin coconut oil that penetrates deep to strengthen hair roots.",
-        price: 269, orig: 350, discount: 23,
+        title: "BEARDO Strong Hold Hair Spray For Men Hair Spray 135 gm Hair Styler (135 g)",
+        desc: "BEARDO Strong Hold Hair Spray, 192 Ml, Hair Spray For Men, Hair Styling, Hair Setting Spray, Hair Fixing Spray, Strong Hold, Natural Shine, Pack of 1",
+        price: 253, orig: 350, discount: 23,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.4, reviews: 18742,
-        img: "https://picsum.photos/seed/hairoil03/400/400.jpg",
-        buttons: ["amazon", "flipkart"]
+        img: "hair-spray.webp",
+        amazonLink:"https://amzn.to/42HT0NZ",
+        flipkartLink:"https://fktr.in/dURx76V"
     },
     {
         id: 4, category: "haircare",
-        title: "L'Oréal Paris Hyaluron Moisture Shampoo for Dry Hair – 340ml",
-        desc: "Infused with hyaluronic acid to replump dry hair with long-lasting hydration.",
-        price: 399, orig: 599, discount: 33,
+        title: "VRIXRA Hair Styling Powder for High Volume, Strong Hold, Matte Look nd Invisible Hair Styler (15 g)",
+        desc: "Hair Volumizing Powder Wax for Men - 10g | Matte Finish | 24-Hour Strong Hold | 100% Natural & Safe",
+        price: 150, orig: 499, discount: 33,
         badge: "Best Seller", badgeType: "best",
         rating: 4.3, reviews: 7654,
-        img: "https://picsum.photos/seed/shampoo04/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "hair-holding.webp",
+        amazonLink:"https://amzn.to/4ukIDvm",
+        flipkartLink:"https://fktr.in/O4Iy8F0"
     },
     {
         id: 5, category: "makeup",
-        title: "Maybelline Fit Me Foundation + Concealer Combo Kit – 14 Shades Available",
-        desc: "Complete makeup kit with matte foundation and concealer for flawless coverage.",
-        price: 599, orig: 999, discount: 40,
+        title: "PJZXMNI Professional Makeup Products Kit With Makeup Fixer And Eyeshadow Palette (Pack of 17)",
+        desc: "Complete Makeup Kit Set with Eyeshadow Palette, Brushes, Mascara, Eyeliner, Lipsticks, Face Powder, Primer, Foundation, Setting Spray, False Lashes",
+        price: 258, orig: 799, discount: 40,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.4, reviews: 15234,
-        img: "https://picsum.photos/seed/makeupkit05/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "make-up-kit.webp",
+        amazonLink:"https://amzn.to/4d3oTFu",
+        flipkartLink:"https://fktr.in/clB7oXF"
     },
     {
         id: 6, category: "grooming",
-        title: "Philips OneBlade Hybrid Electric Trimmer & Shaver – QP2724/10",
-        desc: "Versatile trimmer that trims, edges, and shaves any length of hair smoothly.",
-        price: 1299, orig: 2495, discount: 48,
+        title: "Beauté Secrets Essentials Manicure Set Nail Clippers, Stainless Steel Nail Scissors Grooming Kit, Acne needle, Blackhead Tool Leather Travel Case (Yellow)",
+        desc: "Dwiza Enterprise 12 in 1 Professional Manicure & Pedicure Set With Leather Travel Case",
+        price: 467, orig: 995, discount: 48,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.5, reviews: 22187,
-        img: "https://picsum.photos/seed/trimmer06/400/400.jpg",
-        buttons: ["amazon", "flipkart"]
+        img: "grooming-kit.jpg",
+        amazonLink:"https://amzn.to/42PQcyh",
+        flipkartLink:"https://fktr.in/xyz6JnX"
     },
     {
         id: 7, category: "grooming",
-        title: "Beardo Complete Beard Grooming Kit with Oil, Wax, Wash & Comb",
-        desc: "All-in-one beard care kit for men with premium natural ingredients.",
-        price: 849, orig: 1499, discount: 43,
+        title: "VGR V-937 Professional Hair Trimmer for Men, Rechargeable Beard Trimmer & Body Trimmer, Up to 1 Year Runtime on Single Charge, 500 Min Long Battery Life, Low Noise, LED Display, Type-C Fast Charging",
+        desc: "VGR V-933 Professional Trimmer 500 min  Runtime 3 Length Settings (Black)",
+        price: 1000, orig: 1699, discount: 43,
         badge: "Best Seller", badgeType: "best",
         rating: 4.2, reviews: 8943,
-        img: "https://picsum.photos/seed/beardkit07/400/400.jpg",
-        buttons: ["amazon", "flipkart"]
+        img: "treamer.jpg",
+        amazonLink:"https://amzn.to/3Pi9RUw",
+        flipkartLink:"https://fktr.in/AHCqO8W"
     },
     {
         id: 8, category: "health",
-        title: "HealthKart HK Vitals Multivitamin Tablets – 60 Tablets (Men & Women)",
-        desc: "Complete daily multivitamin with 23 essential nutrients for immunity & energy.",
-        price: 449, orig: 799, discount: 44,
+        title: "Wellcore Micronised Creatine Monohydrate | Lab Tested | Enhanced Absorption | 100% Pure Creatine (100 g, Unflavored)",
+        desc: "Wellcore Pure Micronised Creatine Powder (33 Servings, Lemon Lime) For Enhanced Muscle Strength With Rapid Absorption | Creatine Monohydrate | Wellcore Creatine - 149g",
+        price: 529, orig: 899, discount: 44,
         badge: "Best Seller", badgeType: "best",
         rating: 4.3, reviews: 11342,
-        img: "https://picsum.photos/seed/vitamins08/400/400.jpg",
-        buttons: ["amazon", "flipkart", "health"]
+        img: "creatine.webp",
+        amazonLink:"https://amzn.to/4tevnrj",
+        flipkartLink:"https://fktr.in/SFWh1NU"
     },
     {
         id: 9, category: "health",
-        title: "MuscleBlaze Biozyme Whey Protein Powder – 1kg Chocolate Flavor",
-        desc: "Enhanced absorption whey protein with DigeZyme enzymes for muscle recovery.",
-        price: 1799, orig: 3299, discount: 45,
+        title: "Bigmuscles Nutrition Premium Gold Whey [1Kilogram] | Informed Choice UK Certified | Isolate Whey Protein Blend | 25G Protein | 11G EAA | Prohydrolase Enzyme Technology [Mango Magic], 37 Grams",
+        desc: "BIGMUSCLES NUTRITION Premium Gold Whey | 25g Protein Per Serving, 0g Sugar,5.5g BCAA Whey Protein (1 kg, Chocolate Brownie)",
+        price: 1499, orig: 3099, discount: 45,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.4, reviews: 16789,
-        img: "https://picsum.photos/seed/protein09/400/400.jpg",
-        buttons: ["amazon", "flipkart", "health"]
+        img: "whey-protine.jpg",
+        amazonLink:"https://amzn.to/4dpTcqn",
+        flipkartLink:"https://fktr.in/jfhNdxy"
     },
     {
         id: 10, category: "skincare",
-        title: "The Ordinary Niacinamide 10% + Zinc 1% Serum – 30ml",
-        desc: "Visually reduces blemishes and congestion for smoother, clearer-looking skin.",
-        price: 549, orig: 850, discount: 35,
+        title: "Ghar Soaps Sandalwood & Saffron Magic Soaps For Bath (100 Gms Pack Of 1) | Paraben Free | Chandan & Kesar Bath Soap | Handmade Soaps For Glowing | Skin Brightening Soap For Men & Women",
+        desc: "Ghar Soaps Magic Soap Sandal Wood And Saffron for DeTan and Glowing Brightening Skin (100 g)",
+        price: 192, orig: 450, discount: 35,
         badge: "Best Seller", badgeType: "best",
         rating: 4.5, reviews: 24567,
-        img: "https://picsum.photos/seed/serum10/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "ghar-soap.jpg",
+        amazonLink:"https://amzn.to/4n6nUJa",
+        flipkartLink:"https://fktr.in/WolU181"
     },
     {
         id: 11, category: "skincare",
-        title: "Plum 10% Niacinamide Face Serum with Rice Water – 30ml",
-        desc: "Brightening serum that minimizes pores, evens skin tone & controls oil.",
-        price: 375, orig: 550, discount: 32,
+        title: "Dabur Gulabari Premium Rose Water - 400ml (Pack of 3) | With No Paraben | Cleanses, Hydrates & Moisturises Skin | Balances & Restores Skin's pH Levels | For All Skin Types",
+        desc: "100% Pure and natural rose water with no added preservatives",
+        price: 243, orig: 450, discount: 32,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.3, reviews: 6789,
-        img: "https://picsum.photos/seed/plumserum11/400/400.jpg",
-        buttons: ["amazon", "myntra"]
+        img: "gulab-jal.jpg",
+        amazonLink:"https://amzn.to/3QLJM0y"
     },
     {
         id: 12, category: "skincare",
-        title: "mCaffeine Coffee Face Scrub for Tan Removal – 100g",
-        desc: "Natural caffeine-infused exfoliator that removes dead skin & reduces tan.",
-        price: 299, orig: 495, discount: 40,
+        title: "Ghar Soaps Magic De-Tan Face wash With Saffron & Glutathione 100ml | Tan Removal, Brightening and Glowing Skin I For All Skin Type I For Men & Women",
+        desc: "Ghar Soaps Magic  | With Sandalwood, Saffron & Glutathione Face Wash (100 ml)",
+        price: 269, orig: 495, discount: 40,
         badge: "Best Seller", badgeType: "best",
         rating: 4.4, reviews: 13456,
-        img: "https://picsum.photos/seed/scrub12/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "ghar-facewash.jpg",
+        amazonLink:"https://amzn.to/4wbPvx2",
+        flipkartLink:"https://fktr.in/ZOr9L6E"
     },
     {
         id: 13, category: "makeup",
-        title: "Lakme Absolute 9to5 Primer + Matte Lipstick Combo – Set of 4 Shades",
-        desc: "Long-lasting matte lip color with built-in primer for 16-hour wear.",
-        price: 699, orig: 1199, discount: 42,
+        title: "Premium 13-Piece Soft Makeup Brush Set for Face & Eye | Foundation, Blush, Contour & Eyeshadow Brushes | Professional Cosmetic Kit with Travel Pouch(multicolor)",
+        desc: "Shivaaro Makeup Brush Foundation, Eyeshadow, Blending & Contour Brushes Soft Bristles (Pack of 13)",
+        price: 155, orig: 799, discount: 42,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.2, reviews: 9876,
-        img: "https://picsum.photos/seed/lipstick13/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "make-up-brush.jpg",
+        amazonLink:"https://amzn.to/4eZdxF7",
+        flipkartLink:"https://fktr.in/mU857BU"
     },
     {
         id: 14, category: "makeup",
-        title: "Sugar Cosmetics Ace of Face Foundation Stick – 12 Shades – 9g",
-        desc: "Creamy, blendable foundation stick with buildable medium-to-full coverage.",
-        price: 499, orig: 799, discount: 38,
+        title: "MARS 12 Shades Dance of Joy Eyeshadow Palette | Highly Pigmented and Blendable | Multicolor | Matte and Shimmer Finish (13.2g) (02-Multicolor)",
+        desc: "6 SHIMMERS AND 6 MATTE SHADES: This palette offers a range of shades in both shimmer and matte finishes. It has both bold and subtle shades that will take you from day to night without creasing or clumping.",
+        price: 257, orig: 599, discount: 38,
         badge: "Best Seller", badgeType: "best",
         rating: 4.5, reviews: 11234,
-        img: "https://picsum.photos/seed/foundation14/400/400.jpg",
-        buttons: ["amazon", "myntra"]
+        img: "make-up-box.jpg",
+        amazonLink:"https://amzn.to/4dmohw0"
     },
     {
         id: 15, category: "haircare",
-        title: "WOW Skin Science Onion Black Seed Hair Oil – 200ml",
-        desc: "Reduces hair fall & promotes growth with cold-pressed onion oil & black seed.",
-        price: 349, orig: 549, discount: 36,
+        title: "Hair & Care with Almond, Non-Sticky Hair Oil, 500ml",
+        desc: "HAIR & CARE with Almond,Non-Sticky  Hair Oil (500 ml)",
+        price: 99, orig: 349, discount: 36,
         badge: "Best Seller", badgeType: "best",
         rating: 4.3, reviews: 19876,
-        img: "https://picsum.photos/seed/onionoil15/400/400.jpg",
-        buttons: ["amazon", "flipkart"]
+        img: "almond.jpg",
+        amazonLink:"https://amzn.to/4eTjeV6",
+        flipkartLink:"https://fktr.in/6ur1EkI"
     },
     {
         id: 16, category: "haircare",
-        title: "Dove Intense Damage Repair Shampoo & Conditioner Combo – 700ml",
-        desc: "Fiber actives repair damaged hair from root to tip for silky smooth results.",
-        price: 549, orig: 898, discount: 39,
+        title: "Pantene Advanced Hairfall Solution, Anti-Hairfall Conditioner for Women, 180ML",
+        desc: "PANTENE (Hair fall Control) (400 ml)",
+        price: 180, orig: 698, discount: 39,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.4, reviews: 14567,
-        img: "https://picsum.photos/seed/dovehair16/400/400.jpg",
-        buttons: ["amazon", "flipkart"]
+        img: "hair-fall.jpg",
+        amazonLink:"https://amzn.to/4n6qleM",
+        flipkartLink:"https://fktr.in/jBgJZKP"
     },
     {
         id: 17, category: "skincare",
-        title: "Minimalist 10% Vitamin C Face Serum with Vitamin E & Ferulic Acid – 30ml",
-        desc: "Stable vitamin C serum for brightening, dark spots & antioxidant protection.",
-        price: 499, orig: 799, discount: 38,
+        title: "Minimalist 16% Vitamin C Face Serum – Brightening & Glow-Boosting Formula with Vitamin E, Ferulic Acid & Fullerenes, Antioxidant Boost for Radiant Skin (10 ml)",
+        desc: "Minimalist 16% Vitamin C Serum With Vitamin E & Ferulic acid for Brightening (20 ml)",
+        price: 313, orig: 699, discount: 38,
         badge: "Best Seller", badgeType: "best",
         rating: 4.6, reviews: 21345,
-        img: "https://picsum.photos/seed/vitc17/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "vitamin-c-serum.jpg",
+        amazonLink:"https://amzn.to/4d5pMgY",
+        flipkartLink:"https://fktr.in/430Msd5"
     },
     {
         id: 18, category: "health",
-        title: "Abbott Ensure Complete Nutrition Powder – Vanilla Flavor – 400g",
-        desc: "Science-backed complete nutrition for immune support, muscle health & energy.",
-        price: 649, orig: 950, discount: 32,
+        title: "MYFITNESS Peanut Butter Chocolate Spread Crunchy 510g | 23g Protein & 9g Fiber | Tasty & Healthy Nut Butter Spread for Breakfast & Snacks | Cholesterol Free | Zero Trans Fat | Crunchy Peanut Butter",
+        desc: "MYFITNESS PEANUT BUTTER Original Smooth | Tasty & Healthy Nut Butter Spread (510 g)",
+        price: 207, orig: 550, discount: 32,
         badge: "Best Seller", badgeType: "best",
         rating: 4.4, reviews: 8765,
-        img: "https://picsum.photos/seed/ensure18/400/400.jpg",
-        buttons: ["amazon", "flipkart", "health"]
+        img: "peanut-butter.jpg",
+        amazonLink:"https://amzn.to/4cOWkwI",
+        flipkartLink:"https://fktr.in/Xey7Klu"
     },
     {
         id: 19, category: "health",
-        title: "Himalaya Ashwagandha Tablets for Stress Relief & Energy – 60 Tablets",
-        desc: "Pure herbal extract to reduce stress, boost stamina & improve sleep quality.",
-        price: 195, orig: 330, discount: 41,
+        title: "Himalaya Ashwagandha - General Wellness Tablets, 60 Tablets | Stress Relief | Rejuvenates Mind & Body",
+        desc: "HIMALAYA Ashvagandha General Wellness 60 Tablets (Rejuvenates mind and body) (Pack of 2, 60 Tablets)",
+        price: 234, orig: 360, discount: 41,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.3, reviews: 25678,
-        img: "https://picsum.photos/seed/ashwa19/400/400.jpg",
-        buttons: ["amazon", "flipkart", "health"]
+        img: "ashwagandha.jpg",
+        amazonLink:"https://amzn.to/4nc4Zgs",
+        flipkartLink:"https://fktr.in/ZAb0Gte"
     },
     {
         id: 20, category: "skincare",
-        title: "Dot & Key Watermelon Hyaluronic Acid Face Moisturizer – 50ml",
+        title: "Dot & Key Barrier Repair Moisturizer For Normal, Dry, Combination & Sensitive Skin | 120 Hrs Moisturization, With 5 Ceramides & Hyaluronic | Repairs Damaged Skin Barrier, Non-Comedogenic | 175g",
         desc: "Ultra-light gel-cream moisturizer with watermelon extract for instant hydration.",
-        price: 445, orig: 695, discount: 36,
+        price: 467, orig: 695, discount: 36,
         badge: "Best Seller", badgeType: "best",
         rating: 4.5, reviews: 7890,
-        img: "https://picsum.photos/seed/dotkey20/400/400.jpg",
-        buttons: ["amazon", "myntra"]
+        img: "dot-key.jpg",
+        amazonLink:"https://amzn.to/4ukpucR"
     },
     {
         id: 21, category: "grooming",
-        title: "Bombay Shaving Company Complete Grooming Kit with Trimmer & Accessories",
-        desc: "Premium men's grooming kit featuring precision trimmer, razor, brush & more.",
-        price: 1499, orig: 2999, discount: 50,
+        title: "3-in-1 Women’s Trimmer for Bikini, Face & Body Hair Removal Eyebrow Trimmer for Woman || 120Min Runtime || Facial Hair Remover for Face, Underarms, Nose, Intimate Areas, Arms, Legs Travel Friendly (3 IN 1 Trimer)",
+        desc: "💖 3-in-1 Grooming Kit: Includes eyebrow trimmer, facial shaver, nose trimmer, and bikini/intimate area trimmer for complete grooming.",
+        price: 499, orig: 999, discount: 50,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.3, reviews: 6543,
-        img: "https://picsum.photos/seed/groomkit21/400/400.jpg",
-        buttons: ["amazon", "flipkart"]
+        img: "women-treamer.jpg",
+        amazonLink:"https://amzn.to/4upMerV",
+        flipkartLink:"https://fktr.in/MDfFuoj"
     },
     {
         id: 22, category: "health",
-        title: "Optimum Nutrition (ON) Gold Standard 100% Whey Protein – 2lbs Double Rich Chocolate",
-        desc: "World's #1 whey protein with 24g protein per serving for lean muscle building.",
-        price: 2499, orig: 4199, discount: 40,
+        title: "VegHerbs Height Veda | Supreme Formula Aurvedic Powder | Natural Ayurvedic Supplement for Height Support | 30 Capsules (Pack of 1)",
+        desc: "Dr.TrueSkin Height Veda Powder Effective Growth Builder (200 g)",
+        price: 449, orig: 999, discount: 40,
         badge: "Best Seller", badgeType: "best",
         rating: 4.6, reviews: 34210,
-        img: "https://picsum.photos/seed/onwhey22/400/400.jpg",
-        buttons: ["amazon", "flipkart", "health"]
+        img: "height-veda.jpg",
+        amazonLink:"https://amzn.to/4ekIjIn",
+        flipkartLink:"https://fktr.in/LZI0sOZ"
     },
     {
         id: 23, category: "skincare",
-        title: "Mamaearth Vitamin C Face Wash with Turmeric for Brightening – 250ml",
-        desc: "Natural face wash with vitamin C & turmeric to remove tan & brighten skin.",
-        price: 249, orig: 399, discount: 38,
+        title: "BEARDO DeTan Face Wash for Men, 100ml | Glycolic Acid,Niacinamide & Coffee | Helps to Reduce Tan,Reduce Dark Sports & Pigmentation | Exfoliates & Hydrates for Smooth & Oil Free Skin",
+        desc: "EFFECTIVE TAN REMOVAL WITH AHA POWER:Formulated with Glycolic Acid and Lactic Acid, this de-tan facewash gently exfoliates the skin, removes dead cells, and helps fade sun-induced tanning. It clarifies dull skin and restores a brighter, even-toned complexion with every wash.",
+        price: 209, orig: 349, discount: 38,
         badge: "Hot Deal", badgeType: "hot",
         rating: 4.2, reviews: 16754,
-        img: "https://picsum.photos/seed/mamaearth23/400/400.jpg",
-        buttons: ["amazon", "flipkart", "myntra"]
+        img: "de-tan-face-wash.jpg",
+        amazonLink:"https://amzn.to/48Bjrs9",
+        flipkartLink:"https://fktr.in/FLc4CnW"
     },
     {
         id: 24, category: "makeup",
-        title: "Kay Beauty Matte Attack Lipstick Crayon – 8 Trendy Shades Collection",
-        desc: "High-pigment matte lip crayon with comfortable, lightweight formula for all-day wear.",
-        price: 549, orig: 899, discount: 39,
+        title: "Color Sensational Matte Lipstick Combo – Intense Lip Color for Women | Smooth Long Lasting Matte Finish Lipsticks in Red, Maroon, Pink & Rose Shades for Daily Wear & Party Makeup (8 ml)",
+        desc: "INTENSE MATTE FINISH: Delivers rich, highly pigmented colour in a single swipe with a luxurious matte finish that stays vibrant throughout the day",
+        price: 149, orig: 499, discount: 39,
         badge: "Best Seller", badgeType: "best",
         rating: 4.4, reviews: 8765,
-        img: "https://picsum.photos/seed/kaybeauty24/400/400.jpg",
-        buttons: ["amazon", "myntra"]
+        img: "girls-lips.jpg",
+        amazonLink:"https://amzn.to/3QOLGgS"
     }
 ];
 
@@ -1050,10 +1060,9 @@ function renderProducts(filter = 'all') {
                     <span class="price-off">${p.discount}% off</span>
                 </div>
                 <div class="card-buttons">
-                    ${p.buttons.includes('amazon') ? `<a href="#" class="btn btn-amazon" onclick="handleClick(event,'Amazon')"><span class="iconify" data-icon="lucide:shopping-cart"></span>Amazon</a>` : ''}
-                    ${p.buttons.includes('flipkart') ? `<a href="#" class="btn btn-flipkart" onclick="handleClick(event,'Flipkart')"><span class="iconify" data-icon="lucide:shopping-bag"></span>Flipkart</a>` : ''}
-                    ${p.buttons.includes('myntra') ? `<a href="#" class="btn btn-myntra" onclick="handleClick(event,'Myntra')"><span class="iconify" data-icon="lucide:sparkles"></span>Myntra</a>` : ''}
-                    ${p.buttons.includes('health') ? `<a href="#" class="btn btn-health" onclick="handleClick(event,'Health')"><span class="iconify" data-icon="lucide:heart-pulse"></span>Health & Care</a>` : ''}
+                    ${p.amazonLink ? `<a href="${p.amazonLink}" target="_blank" class="btn amazon-btn">Amzone</a>` : ''}
+                    ${p.flipkartLink ? `<a href="${p.flipkartLink}" target="_blank" class="btn flipkart-btn">Flipkart</a>` : ''}
+                   
                 </div>
             </div>
         </div>
