@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1990140258010969"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
-    <link rel="shortcut icon" href="/fevicon.png">
-    <link rel="apple-touch-icon" href="/fevicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoGlobalMart - Sports & Fitness Deals</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -348,11 +346,11 @@
                     </button>
                     <button class="relative p-2 text-neutral-400 hover:text-white transition-colors">
                         <i data-lucide="heart" class="w-5 h-5"></i>
-                        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-orange-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center">3</span>
+                        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-orange-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center"></span>
                     </button>
                     <button class="relative p-2 text-neutral-400 hover:text-white transition-colors">
                         <i data-lucide="shopping-cart" class="w-5 h-5"></i>
-                        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center">5</span>
+                        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center"></span>
                     </button>
                 </div>
 
@@ -561,124 +559,272 @@
         // Product Data
         const allProducts = [
             {
-                id: 1, title: "Adjustable Dumbbells Set (5-25kg)", price: "₹2,499", mrp: "₹5,999",
-                discount: "58%", desc: "Quick-change weight system, anti-slip rubber coating, perfect for home gym.",
-                badge: "hot", img: "dumbbells-gym-fitness"
+                id: 1,
+                title: "DREAM FIT PVC Adjustable Weight Dumbbells Set 30Kg for Home Gym with Pair of Dumbbell rods and PVC Weight Plates (30Kg (5Kg x 4 + 2.5Kg x 4))",
+                price: "₹1059", 
+                mrp: "₹3,999",
+                discount: "58%", 
+                desc: "Quick-change weight system, anti-slip rubber coating, perfect for home gym.",
+                badge: "hot", 
+                img: "30kg-dumble.jpg",
+                amazonLink:"https://amzn.to/4w9CdAQ",
+                flipkartLink:"https://fktr.in/MXYdqq4"
             },
             {
-                id: 2, title: "Premium Yoga Mat (6mm Thick)", price: "₹599", mrp: "₹1,499",
-                discount: "60%", desc: "Anti-slip TPE material, eco-friendly, double-sided texture for grip.",
-                badge: "trending", img: "yoga-mat-exercise-fitness"
+                id: 2, 
+                title: "LEAFED Premium TPE Yoga Mat 6mm Thick – Non-Slip Anti-Skid Exercise & Workout Mat for Yoga, Gym & Home Fitness | Lightweight Durable Fitness Mat for Men & Women (Navy Blue)", 
+                price: "₹410", 
+                mrp: "₹999",
+                discount: "60%", 
+                desc: "Anti-slip TPE material, eco-friendly, double-sided texture for grip.",
+                badge: "trending", 
+                img: "yoga-met.jpg",
+                amazonLink:"https://amzn.to/48G1Q2f",
+                flipkartLink:"https://fktr.in/gqLWZ3B"
             },
             {
-                id: 3, title: "Motorized Treadmill (3HP)", price: "₹24,999", mrp: "₹59,999",
-                discount: "58%", desc: "3HP motor, max speed 14km/h, foldable design with LCD display.",
-                badge: "hot", img: "treadmill-running-machine"
+                id: 3, 
+                title: "Fitkit by cult.sport FT98 Steel (3HP Peak, Manual Incline) Treadmill with 1 Year Warranty", 
+                price: "₹14,499", 
+                mrp: "₹49,999",
+                discount: "58%", 
+                desc: "3HP motor, max speed 14km/h, foldable design with LCD display.",
+                badge: "hot", 
+                img: "traidmail.jpg",
+                amazonLink:"https://amzn.to/4n6ZvTX",
+                flipkartLink:"https://fktr.in/SKkzpS8"
             },
             {
-                id: 4, title: "Resistance Bands Set (5 Levels)", price: "₹399", mrp: "₹999",
-                discount: "60%", desc: "Latex-free, 5 resistance levels, door anchor & handles included.",
-                badge: "trending", img: "resistance-bands-workout"
+                id: 4, 
+                title: "ALYV Natural Rubber Premium Resistance Bands Set 5 Stackable Tubes (Up to 100 lbs) | Full Body Workout Kit with Handles, Door Anchor, Ankle Straps & Carry Bag | Home, Travel & Gym Use", 
+                price: "₹289", 
+                mrp: "₹899",
+                discount: "60%", 
+                desc: "Latex-free, 5 resistance levels, door anchor & handles included.",
+                badge: "trending", 
+                img: "jumping-belt.jpg",
+                amazonLink:"https://amzn.to/4tQZXZh",
+                flipkartLink:"https://fktr.in/CrdcaaH"
             },
             {
-                id: 5, title: "English Willow Cricket Bat", price: "₹1,899", mrp: "₹4,500",
-                discount: "58%", desc: "Full size, Kashmir willow, leather grip, ideal for leather ball.",
-                badge: "hot", img: "cricket-bat-sports"
+                id: 5, 
+                title: "SAG English Willow Cricket Bat, Professional, Natural Wood, Size 6, Leather Handle, Wide Edges 40-45 MM, with Free Bat Cover", 
+                price: "₹2599", mrp: "₹5,500",
+                discount: "58%", 
+                desc: "Full size, Kashmir willow, leather grip, ideal for leather ball.",
+                badge: "hot", 
+                img: "english-bet.jpg",
+                amazonLink:"https://amzn.to/4dl4jSq",
+                flipkartLink:"https://fktr.in/hjm4dpO"
             },
             {
-                id: 6, title: "Professional Football (Size 5)", price: "₹499", mrp: "₹1,299",
-                discount: "62%", desc: "FIFA quality, PU leather, machine-stitched, all-weather durable.",
-                badge: "trending", img: "football-soccer-sport"
+                id: 6, 
+                title: "SLOVIC Professional Football for Kids [Size-5] | Hard Ground Foot-Ball | Ideal for Grass Ground & Artificial Turf | Training Foot Ball | Soccer Ball | Street Football for Men & Women | Gift for Boys", 
+                price: "₹299", mrp: "₹999",
+                discount: "62%", 
+                desc: "FIFA quality, PU leather, machine-stitched, all-weather durable.",
+                badge: "trending", 
+                img: "football.jpg",
+                amazonLink:"https://amzn.to/4drjIj9",
+                flipkartLink:"https://fktr.in/bMf32jg"
             },
             {
-                id: 7, title: "Gym Gloves with Wrist Support", price: "₹349", mrp: "₹899",
-                discount: "61%", desc: "Anti-slip gel palm, wrist wrap, breathable mesh, extra grip.",
-                badge: "hot", img: "gym-gloves-fitness"
+                id: 7, 
+                title: "Aprodo Beginner Gym Gloves with Wrist Support Strap | 1 Pair - Free Size (Black) | Fitness Gloves with Leather Foam Fabric | Wrist Band for Dumbbell, Exercise & Gym Workout", 
+                price: "₹114", mrp: "₹699",
+                discount: "61%", 
+                desc: "Anti-slip gel palm, wrist wrap, breathable mesh, extra grip.",
+                badge: "hot", 
+                img: "gym-galaps.jpg",
+                amazonLink:"https://amzn.to/4uw4q3w",
+                flipkartLink:"https://fktr.in/V919wxr"
             },
             {
-                id: 8, title: "Protein Shaker Bottle (700ml)", price: "₹249", mrp: "₹699",
-                discount: "64%", desc: "BPA-free, mixer ball, leak-proof, measurement markings.",
-                badge: "trending", img: "protein-shaker-bottle"
+                id: 8, 
+                title: "Boldfit Gym Bottle Bottles For Protein Shake 100% Leakproof Guarantee Protein Shaker Sipper Bottle, Ideal For Protein, Pre Workout And BCAAs Gym Bottle for Men & Women", 
+                price: "₹206", mrp: "₹609",
+                discount: "64%", 
+                desc: "BPA-free, mixer ball, leak-proof, measurement markings.",
+                badge: "trending", 
+                img: "gym-bottle.jpg",
+                amazonLink:"https://amzn.to/499NhnM",
+                flipkartLink:"https://fktr.in/o4krAJl"
             },
             {
-                id: 9, title: "Digital Skipping Rope (Smart)", price: "₹449", mrp: "₹1,199",
-                discount: "63%", desc: "LCD counter, adjustable length, ball bearing, calorie tracker.",
-                badge: "hot", img: "skipping-rope-jump-fitness"
+                id: 9, 
+                title: "StarX Altra Speed Skipping Rope 9ft, Polyvinyl Chlorine (PVC), BLACK", 
+                price: "₹100", mrp: "₹699",
+                discount: "63%", 
+                desc: "Cardio Training, Weight Loss, CrossFit, Home Workout, Gym Workout",
+                badge: "hot", 
+                img: "rop.jpg",
+                amazonLink:"https://amzn.to/4d0mYBE",
+                flipkartLink:"https://fktr.in/zv3gcvJ"
             },
             {
-                id: 10, title: "Foam Roller for Muscle Recovery", price: "₹599", mrp: "₹1,499",
-                discount: "60%", desc: "High-density EVA foam, textured surface, relieves muscle tension.",
-                badge: "trending", img: "foam-roller-massage-fitness"
+                id: 10, 
+                title: "INSTAFIT Premium Foam Roller for Back Pain Relief, Deep Tissue Massage, High Density, for Exercise, Muscle Recovery and Stretching (Black Roller Pack of 1)", 
+                price: "₹549", mrp: "₹1,499",
+                discount: "60%", 
+                desc: "High-density EVA foam, textured surface, relieves muscle tension.",
+                badge: "trending", 
+                img: "roller-for-back-pain.jpg",
+                amazonLink:"https://amzn.to/42KSmPI",
+                flipkartLink:"https://fktr.in/erC4auq"
             },
             {
-                id: 11, title: "Whey Protein Powder (1kg)", price: "₹1,499", mrp: "₹3,499",
-                discount: "57%", desc: "24g protein per scoop, chocolate flavor, no added sugar.",
-                badge: "hot", img: "whey-protein-supplement"
+                id: 11, 
+                title: "NAKPRO NUTRITION Gold Clean Raw Whey Protein Concentrate | 1kg Unflavoured | 28g Protein | Trustified Certified", 
+                price: "₹2299", mrp: "₹4,499",
+                discount: "57%", 
+                desc: "24g protein per scoop, chocolate flavor, no added sugar.",
+                badge: "hot", 
+                img: "whey-protine.jpg",
+                amazonLink:"https://amzn.to/4drmt3Z",
+                flipkartLink:"https://fktr.in/3xwgUWB"
             },
             {
-                id: 12, title: "Pull-Up Bar (Doorway Mount)", price: "₹699", mrp: "₹1,799",
-                discount: "61%", desc: "Heavy-duty steel, max load 150kg, foam grips, easy install.",
-                badge: "trending", img: "pull-up-bar-chin-exercise"
+                id: 12, 
+                title: "Lifelong Adjustable Pull-Up Bar for Home Gym | No Screws Hanging Bar, Adjustable Length (74-97cm), Doorway Chin-Up Bar, Gym Equipment for Men Workout, Strength Training, Weight Capacity (200kg)", 
+                price: "₹1399", mrp: "₹2,799",
+                discount: "61%", 
+                desc: "Heavy-duty steel, max load 150kg, foam grips, easy install.",
+                badge: "trending", 
+                img: "pull-up-bar.jpg",
+                amazonLink:"https://amzn.to/4tcV1N2",
+                flipkartLink:"https://fktr.in/K7XzUq2"
             },
             {
-                id: 13, title: "Badminton Racket Pair Set", price: "₹599", mrp: "₹1,499",
-                discount: "60%", desc: "Isometric head, graphite frame, 2 rackets + 3 shuttlecocks.",
-                badge: "hot", img: "badminton-racket-sports"
+                id: 13, 
+                title: "FEROC 2 Pieces Aluminium Badminton Racket with 3 Pieces Feather Shuttles with Full-Cover Set,Aluminum, Multicolor (Multicolor)", 
+                price: "₹419", mrp: "₹1,399",
+                discount: "60%", 
+                desc: "Isometric head, graphite frame, 2 rackets + 3 shuttlecocks.",
+                badge: "hot", 
+                img: "bedminton.jpg",
+                amazonLink:"https://amzn.to/4utgOBb",
+                flipkartLink:"https://fktr.in/qNsLrZ7"
             },
             {
-                id: 14, title: "Smart Fitness Watch (IP68)", price: "₹1,299", mrp: "₹4,999",
-                discount: "74%", desc: "Heart rate, SpO2, 20+ sport modes, 7-day battery life.",
-                badge: "hot", img: "smart-fitness-watch-sport"
+                id: 14, 
+                title: "Boat Wave Sigma 3 Curv Smartwatch with 2.01” (5.33 cm) Immersive Curved Display, Metallic Finish, Functional Crown, BT Calling, Sleep, Stress, Heart Rate & SpO2 Monitoring, SOS, IP68 (Black Active)", 
+                price: "₹1,499", mrp: "₹5,099",
+                discount: "74%", 
+                desc: "Heart rate, SpO2, 20+ sport modes, 7-day battery life.",
+                badge: "hot", 
+                img: "watch.jpg",
+                amazonLink:"https://amzn.to/4eqFdTk",
+                flipkartLink:"https://fktr.in/3rwAEsH"
             },
             {
-                id: 15, title: "Kettlebell Set (4kg, 8kg, 12kg)", price: "₹1,899", mrp: "₹4,500",
-                discount: "58%", desc: "Vinyl-coated, flat bottom, color-coded weights, home workout.",
-                badge: "trending", img: "kettlebell-weight-fitness"
+                id: 15, 
+                title: "Artino Black Long Lasting 8 Kg PVC Kettlebell for Workout Great for Fullbody Workout, Cross-Training, Weight Loss & Strength Training", 
+                price: "₹749", mrp: "₹2,500",
+                discount: "58%", 
+                desc: "Vinyl-coated, flat bottom, color-coded weights, home workout.",
+                badge: "trending", 
+                img: "kettlebell.jpg",
+                amazonLink:"https://amzn.to/4d4TKlh",
+                flipkartLink:"https://fktr.in/0a2rvZ1"
             },
             {
-                id: 16, title: "Ab Roller Wheel with Knee Pad", price: "₹349", mrp: "₹999",
-                discount: "65%", desc: "Dual wheel, non-slip handle, knee pad included, core training.",
-                badge: "trending", img: "ab-roller-exercise-core"
+                id: 16, 
+                title: "Bodyband Abs Roller for Men & Women Stomach Abs Roller Wheel for Home Workout, Gym Ab Roller for Men Abs Workout Equipment for Abdominal Ab Roller Home Exercise Equipment With Knee Mat -Yellow Black", 
+                price: "₹236", mrp: "₹899",
+                discount: "65%", 
+                desc: "Dual wheel, non-slip handle, knee pad included, core training.",
+                badge: "trending", 
+                img: "abs-roller.jpg",
+                amazonLink:"https://amzn.to/4d2pjMe",
+                flipkartLink:"https://fktr.in/hM64mUo"
             },
             {
-                id: 17, title: "Boxing Gloves (12oz, Pair)", price: "₹799", mrp: "₹1,999",
-                discount: "60%", desc: "Synthetic leather, multi-layer foam padding, wrist velcro strap.",
-                badge: "hot", img: "boxing-gloves-combat-sport"
+                id: 17, 
+                title: "Boxing Gloves - 1 Pair (12 Oz) | Faux Leather Boxing Gloves | Gloves for Kickboxing, MMA, and Training", 
+                price: "₹449", mrp: "₹1,599",
+                discount: "60%", 
+                desc: "Synthetic leather, multi-layer foam padding, wrist velcro strap.",
+                badge: "hot", 
+                img: "boxing-gloves.jpg",
+                amazonLink:"https://amzn.to/3RicUg0",
+                flipkartLink:"https://fktr.in/xgN3l3G"
             },
             {
-                id: 18, title: "Compression Sports Tights (Men)", price: "₹699", mrp: "₹1,899",
-                discount: "63%", desc: "Moisture-wicking, 4-way stretch, flatlock seams, quick-dry.",
-                badge: "trending", img: "compression-tights-sportswear"
+                id: 18, 
+                title: "Unbeatable Mens Sports Running Set | Polyester Spandex Compression Shirt and Tights for Men Workout Combo Set | Long Sleeve Quick-Dry Fitness Track Suit for Man", 
+                price: "₹499", mrp: "₹1,599",
+                discount: "63%", 
+                desc: "Moisture-wicking, 4-way stretch, flatlock seams, quick-dry.",
+                badge: "trending", 
+                img: "gym-fit-for-men.jpg",
+                amazonLink:"https://amzn.to/4nrlXrj",
+                flipkartLink:"https://fktr.in/5R7WK21"
             },
             {
-                id: 19, title: "Table Tennis Racket Set", price: "₹449", mrp: "₹1,199",
-                discount: "63%", desc: "Professional grade rubber, 2 rackets + 3 balls, carry bag.",
-                badge: "trending", img: "table-tennis-ping-pong"
+                id: 19, 
+                title: "Stag 1 Star Table Tennis Play Set (2 Bats and 3 Balls) Height 25 Centimeters Beam Width 15cm", 
+                price: "₹509", mrp: "₹1,199",
+                discount: "63%", 
+                desc: "Professional grade rubber, 2 rackets + 3 balls, carry bag.",
+                badge: "trending", 
+                img: "tenis.jpg",
+                amazonLink:"https://amzn.to/3OK9aDn",
+                flipkartLink:"https://fktr.in/gjwr8Ld"
             },
             {
-                id: 20, title: "Adjustable Weight Bench", price: "₹4,999", mrp: "₹12,999",
-                discount: "62%", desc: "7 back positions, heavy-duty steel, foldable, 300kg capacity.",
-                badge: "hot", img: "weight-bench-gym-equipment"
+                id: 20, 
+                title: "Lifelong Strong Adjustable Foldable Gym Flat Weight Bench", 
+                price: "₹4,499", mrp: "₹12,499",
+                discount: "62%", 
+                desc: "7 back positions, heavy-duty steel, foldable, 300kg capacity.",
+                badge: "hot", 
+                img: "gym-bench.jpg",
+                amazonLink:"https://amzn.to/4d8ip8p",
+                flipkartLink:"https://fktr.in/jf0vGjq"
             },
             {
-                id: 21, title: "Sports Water Bottle (1L)", price: "₹299", mrp: "₹799",
-                discount: "63%", desc: "Insulated stainless steel, keeps cold 24hrs, leak-proof lid.",
-                badge: "trending", img: "sports-water-bottle-insulated"
+                id: 21, 
+                title: "XRT 65 1 Litre Gym Water Bottle with Sipper Lid | Leakproof Sports Bottle with Clear Litre Markings | Strong Lightweight Bottle for Fitness, Training, Hiking & Daily Use (Black)", 
+                price: "₹449", mrp: "₹999",
+                discount: "63%", 
+                desc: "Insulated stainless steel, keeps cold 24hrs, leak-proof lid.",
+                badge: "trending", 
+                img: "watter-bottle.jpg",
+                amazonLink:"https://amzn.to/4eXhcmP",
+                flipkartLink:"https://fktr.in/GpXPbxJ"
             },
             {
-                id: 22, title: "Jump Box (Plyometric Box)", price: "₹2,199", mrp: "₹5,499",
-                discount: "60%", desc: "3 heights in 1, non-slip surface, heavy-duty foam, safe landing.",
-                badge: "hot", img: "plyometric-box-jump-fitness"
+                id: 22, 
+                title: "Protoner Foam Plyo Box Set, 4 Sizes, High Density Exercise Jump Boxes for Home and Club Training, Black/Blue/Red/Green (12 inches)", 
+                price: "₹2,749", mrp: "₹6,499",
+                discount: "60%", 
+                desc: "3 heights in 1, non-slip surface, heavy-duty foam, safe landing.",
+                badge: "hot", 
+                img: "jump-box.jpg",
+                amazonLink:"https://amzn.to/4uxctwZ",
+                flipkartLink:"https://fktr.in/MDCzF9e"
             },
             {
-                id: 23, title: "Battle Ropes (12m, 40mm)", price: "₹1,499", mrp: "₹3,499",
-                discount: "57%", desc: "Poly dacron blend, heat-shrink handles, anchor included.",
-                badge: "trending", img: "battle-ropes-crossfit-gym"
+                id: 23, 
+                title: "De Jure Fitness Battle Rope for Workout | Heavy Training Rope for Full Body Strength, Conditioning & HIIT | Home & Outdoor Exercise Rope with Non-Slip Polyester Grip (PP Polypropylene, 12METER/40FT)", 
+                price: "₹2,445", mrp: "₹4,499",
+                discount: "57%", 
+                desc: "Poly dacron blend, heat-shrink handles, anchor included.",
+                badge: "trending", 
+                img: "battle-rop.jpg",
+                amazonLink:"https://amzn.to/3QE8tw1",
+                flipkartLink:"https://fktr.in/vwPUjBx"
             },
             {
-                id: 24, title: "Massage Gun (Deep Tissue)", price: "₹2,999", mrp: "₹7,999",
-                discount: "63%", desc: "6 massage heads, 30 speeds, ultra-quiet, rechargeable battery.",
-                badge: "hot", img: "massage-gun-muscle-recovery"
+                id: 24, 
+                title: "Tukii Rechargeable Deep Tissue Massage Gun – Full Body Muscle Relief", 
+                price: "₹467", mrp: "₹1,399",
+                discount: "63%", 
+                desc: "6 massage heads, 30 speeds, ultra-quiet, rechargeable battery.",
+                badge: "hot", 
+                img: "massage-gun.webp",
+                amazonLink:"https://amzn.to/3RhD3vo",
+                flipkartLink:"https://fktr.in/rzJabjp"
             }
         ];
 
@@ -686,7 +832,7 @@
         let currentFilter = 'all';
 
         function getImageUrl(seed) {
-            return `https://picsum.photos/seed/${seed}/400/300.jpg`;
+            return;
         }
 
         function createProductCard(product, index) {
@@ -697,7 +843,7 @@
             return `
                 <div class="product-card animate-fade-in-up ${staggerClass}" data-badge="${product.badge}">
                     <div class="product-img relative">
-                        <img src="${getImageUrl(product.img)}" alt="${product.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/fallback-${product.id}/400/300.jpg'">
+                        <img src="${product.img}" alt="${product.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/fallback-${product.id}/400/300.jpg'">
                         <span class="badge ${badgeClass}">${badgeText}</span>
                         <span class="discount-tag">-${product.discount}</span>
                     </div>
@@ -710,11 +856,11 @@
                             <span class="text-orange-400 text-xs font-semibold">${product.discount} off</span>
                         </div>
                         <div class="flex gap-2">
-                            <a href="#" onclick="showToast('Redirecting to Amazon...'); return false;" class="buy-btn buy-btn-amazon flex-1 justify-center">
+                            <a href="${product.amazonLink}" target="_blank" onclick="showToast('Redirecting to Amazon...');" class="buy-btn buy-btn-amazon flex-1 justify-center">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.874 3.166 2.862 0 5.668-.534 8.418-1.598l.315-.138c.276-.12.522-.066.738.162.216.228.18.462-.108.702-.99.834-2.174 1.542-3.552 2.124-1.728.726-3.558 1.092-5.49 1.092-2.46 0-4.758-.558-6.894-1.674C3.264 20.928 1.512 19.614.228 18.102c-.168-.192-.21-.372-.126-.54l-.057.458zM7.352 15.174c0-1.224.3-2.28.9-3.168.6-.888 1.404-1.572 2.412-2.052 1.008-.48 2.196-.792 3.564-.936l2.52-.18V7.782c0-1.272-.276-2.196-.828-2.772-.552-.576-1.44-.864-2.664-.864-.936 0-1.704.222-2.304.666-.6.444-.984 1.122-1.152 2.034-.036.24-.144.396-.324.468-.18.072-.456.096-.828.072L6.12 7.998c-.288-.036-.468-.12-.54-.252-.072-.132-.06-.312.036-.54C6.3 5.286 7.692 3.87 9.72 2.994c2.028-.876 4.32-1.314 6.876-1.314 3.048 0 5.34.666 6.876 1.998 1.536 1.332 2.304 3.258 2.304 5.778v8.46c0 .528.084.936.252 1.224.168.288.492.504.972.648.264.072.432.18.504.324.072.144.036.312-.108.504l-2.664 2.592c-.216.192-.42.288-.612.288-.192 0-.396-.108-.612-.324-.336-.336-.6-.672-.792-1.008-.192-.336-.348-.636-.468-.9-.936.912-1.944 1.608-3.024 2.088-1.08.48-2.244.72-3.492.72-1.8 0-3.264-.528-4.392-1.584-1.128-1.056-1.692-2.472-1.692-4.248v-2.112zm5.94-.396v-4.32l-1.692.12c-.912.072-1.632.324-2.16.756-.528.432-.792 1.056-.792 1.872v1.62c0 .744.18 1.32.54 1.728.36.408.864.612 1.512.612.792 0 1.44-.282 1.944-.846.504-.564.756-1.266.756-2.106l-.108-1.436z"/></svg>
                                 Amazon
                             </a>
-                            <a href="#" onclick="showToast('Redirecting to Flipkart...'); return false;" class="buy-btn buy-btn-flipkart flex-1 justify-center">
+                            <a href="${product.amazonLink}" target="_blank" onclick="showToast('Redirecting to Flipkart...');" class="buy-btn buy-btn-flipkart flex-1 justify-center">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2.933 13.467a10.08 10.08 0 01-.533-3.267C2.4 5.067 6.867.6 12.4.6c5.533 0 10 4.467 10 10s-4.467 10-10 10a9.963 9.963 0 01-6.8-2.667l-2.8 1.467c-.2.1-.467-.067-.4-.3l.533-5.133zm1.734-2.533l-.4 2.8 2-1.067c.133-.067.3-.033.4.067A7.96 7.96 0 0012.4 17.6c4.413 0 8-3.587 8-8s-3.587-8-8-8c-4.413 0-8 3.587-8 8 0 1.133.233 2.2.667 3.2.067.133.033.3-.1.4l-1.3.733z"/></svg>
                                 Flipkart
                             </a>
