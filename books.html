@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1990140258010969"
-     crossorigin="anonymous"></script>
 <meta charset="UTF-8">
- <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
-    <link rel="shortcut icon" href="/fevicon.png">
-    <link rel="apple-touch-icon" href="/fevicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Books & Learning Deals | GoGlobalMart</title>
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -609,7 +607,7 @@
       <h3>🎉 Amazon Prime Day — Extra 10% Off on Books</h3>
       <p>Limited time offer for Prime members. Stack coupons for maximum savings!</p>
     </div>
-    <a href="#" class="ad-btn" onclick="showToast('Redirecting to Amazon...')">Shop Now</a>
+    <a href="https://amzn.to/42PU0Qd" class="ad-btn" onclick="showToast('Redirecting to Amazon...')">Shop Now</a>
   </div>
 </div>
 
@@ -689,30 +687,240 @@
 <script>
 // Book data
 const books = [
-  { title:"Rich Dad Poor Dad", author:"Robert T. Kiyosaki", price:149, mrp:399, desc:"Learn financial literacy and the mindset difference between the rich and the middle class.", badge:"Best Seller", cat:"business", img:"richdad" },
-  { title:"Atomic Habits", author:"James Clear", price:179, mrp:499, desc:"Tiny changes, remarkable results. Build good habits and break bad ones with proven strategies.", badge:"Best Seller", cat:"self-help", img:"atomichabits" },
-  { title:"The Psychology of Money", author:"Morgan Housel", price:169, mrp:449, desc:"Timeless lessons on wealth, greed, and happiness through 19 short stories.", badge:"Trending", cat:"psychology", img:"psychmoney" },
-  { title:"Think and Grow Rich", author:"Napoleon Hill", price:89, mrp:299, desc:"The classic on personal development and wealth creation based on Andrew Carnegie's philosophy.", badge:"Best Seller", cat:"self-help", img:"thinkgrow" },
-  { title:"The 5 AM Club", author:"Robin Sharma", price:159, mrp:399, desc:"Own your morning, elevate your life. A powerful framework for peak performance.", badge:"New", cat:"self-help", img:"5amclub" },
-  { title:"Deep Work", author:"Cal Newport", price:189, mrp:499, desc:"Rules for focused success in a distracted world. Reclaim your concentration.", badge:"Trending", cat:"self-help", img:"deepwork" },
-  { title:"The Lean Startup", author:"Eric Ries", price:199, mrp:550, desc:"How today's entrepreneurs use continuous innovation to create radically successful businesses.", badge:"Best Seller", cat:"business", img:"leanstartup" },
-  { title:"Zero to One", author:"Peter Thiel", price:179, mrp:450, desc:"Notes on startups, or how to build the future. Every moment in business happens only once.", badge:"Best Seller", cat:"business", img:"zerotoone" },
-  { title:"Start with Why", author:"Simon Sinek", price:169, mrp:499, desc:"Why do some people and organizations inspire more? It all starts with WHY.", badge:"New", cat:"business", img:"startwithwhy" },
-  { title:"The Subtle Art of Not Giving a F*ck", author:"Mark Manson", price:149, mrp:399, desc:"A counterintuitive approach to living a good life by caring about what truly matters.", badge:"Best Seller", cat:"self-help", img:"subtleart" },
-  { title:"How to Win Friends and Influence People", author:"Dale Carnegie", price:99, mrp:299, desc:"The timeless classic on human relations. Master the art of communication.", badge:"Best Seller", cat:"self-help", img:"winfriends" },
-  { title:"The Power of Now", author:"Eckhart Tolle", price:139, mrp:399, desc:"A guide to spiritual enlightenment. Learn to live fully in the present moment.", badge:"New", cat:"psychology", img:"powernow" },
-  { title:"Clean Code", author:"Robert C. Martin", price:249, mrp:649, desc:"A handbook of agile software craftsmanship. Write code that is clean, readable, and maintainable.", badge:"Best Seller", cat:"coding", img:"cleancode" },
-  { title:"Cracking the Coding Interview", author:"Gayle Laakmann McDowell", price:289, mrp:699, desc:"189 programming questions and solutions. The definitive guide to tech interviews.", badge:"Best Seller", cat:"coding", img:"crackingcode" },
-  { title:"Eloquent JavaScript", author:"Marijn Haverbeke", price:199, mrp:550, desc:"A modern introduction to programming. Master JavaScript from basics to advanced concepts.", badge:"Trending", cat:"coding", img:"eloquentjs" },
-  { title:"Good to Great", author:"Jim Collins", price:189, mrp:499, desc:"Why some companies make the leap and others don't. A landmark management study.", badge:"Best Seller", cat:"business", img:"goodtogreat" },
-  { title:"The Hard Thing About Hard Things", author:"Ben Horowitz", price:169, mrp:450, desc:"Building a business when there are no easy answers. Raw, honest startup wisdom.", badge:"New", cat:"business", img:"hardthings" },
-  { title:"Ikigai", author:"Héctor García & Francesc Miralles", price:149, mrp:399, desc:"The Japanese secret to a long and happy life. Find your reason for being.", badge:"Trending", cat:"self-help", img:"ikigai" },
-  { title:"Sapiens", author:"Yuval Noah Harari", price:199, mrp:549, desc:"A brief history of humankind. From the Stone Age to the Silicon Age.", badge:"Best Seller", cat:"psychology", img:"sapiens" },
-  { title:"The Alchemist", author:"Paulo Coelho", price:109, mrp:299, desc:"A fable about following your dreams. An international bestseller translated into 80+ languages.", badge:"Best Seller", cat:"fiction", img:"alchemist" },
-  { title:"Outliers", author:"Malcolm Gladwell", price:169, mrp:450, desc:"The story of success. Understand what really makes high-achievers different.", badge:"Trending", cat:"psychology", img:"outliers" },
-  { title:"The 7 Habits of Highly Effective People", author:"Stephen R. Covey", price:159, mrp:449, desc:"A powerful framework for personal effectiveness. The #1 most influential business book.", badge:"Best Seller", cat:"self-help", img:"7habits" },
-  { title:"Python Crash Course", author:"Eric Matthes", price:279, mrp:699, desc:"A hands-on, project-based introduction to programming with Python 3.", badge:"New", cat:"coding", img:"pythoncrash" },
-  { title:"The Monk Who Sold His Ferrari", author:"Robin Sharma", price:119, mrp:350, desc:"A powerful fable about fulfilling your dreams and reaching your destiny.", badge:"Trending", cat:"fiction", img:"monkferrari" }
+  { 
+    title:"Rich Dad Poor Dad", 
+    author:"Robert T. Kiyosaki", 
+    price:198, mrp:499, 
+    desc:"Learn financial literacy and the mindset difference between the rich and the middle class.", 
+    badge:"Best Seller", 
+    cat:"business", 
+    img:"richdad.webp",
+    amazonLink:"https://amzn.to/48Mbu3n",
+    flipkartLink:"https://fktr.in/B53eltd"
+ },
+  { 
+    title:"Atomic Habits", 
+    author:"James Clear", 
+    price:199, mrp:499, 
+    desc:"Tiny changes, remarkable results. Build good habits and break bad ones with proven strategies.", 
+    badge:"Best Seller", 
+    cat:"self-help", 
+    img:"atomic-habits.jpg",
+    amazonLink:"https://amzn.to/4d5Q7eR",
+    flipkartLink:"https://fktr.in/eWS2hnZ"
+ },
+  { 
+    title:"The Psychology of Money", author:"Morgan Housel", 
+    price:120, mrp:449, 
+    desc:"Timeless lessons on wealth, greed, and happiness through 19 short stories.", 
+    badge:"Trending", 
+    cat:"psychology", 
+    img:"scyclogy-of-money.webp",
+    amazonLink:"https://amzn.to/4drhzVB",
+    flipkartLink:"https://fktr.in/166EQyR"
+  },
+  { 
+    title:"Think and Grow Rich", author:"Napoleon Hill", 
+    price:119, mrp:299, 
+    desc:"The classic on personal development and wealth creation based on Andrew Carnegie's philosophy.", 
+    badge:"Best Seller", 
+    cat:"self-help", 
+    img:"think-and-grow-rich.webp",
+    amazonLink:"https://amzn.to/4n9d59m",
+    flipkartLink:"https://fktr.in/elcO83h" 
+  },
+  { 
+    title:"The 5 AM Club", author:"Robin Sharma", 
+    price:249, mrp:499, 
+    desc:"Own your morning, elevate your life. A powerful framework for peak performance.", 
+    badge:"New", 
+    cat:"self-help", 
+    img:"the-5-am-club.webp",
+    amazonLink:"https://amzn.to/4cTRAWM",
+    flipkartLink:"https://fktr.in/2hA1f6n" 
+  },
+  { 
+    title:"Deep Work", author:"Cal Newport", 
+    price:262, mrp:549, 
+    desc:"Rules for focused success in a distracted world. Reclaim your concentration.", 
+    badge:"Trending", 
+    cat:"self-help", 
+    img:"depp-work.webp",
+    amazonLink:"https://amzn.to/48Iu9x2",
+    flipkartLink:"https://fktr.in/5V9mpt6" 
+  },
+  { 
+    title:"The Lean Startup", author:"Eric Ries", 
+    price:233, mrp:580, 
+    desc:"How today's entrepreneurs use continuous innovation to create radically successful businesses.", 
+    badge:"Best Seller", 
+    cat:"business", 
+    img:"the-lean-startup.webp",
+    amazonLink:"https://amzn.to/4d9r1f9",
+    flipkartLink:"https://fktr.in/7IyPA36" 
+  },
+  { 
+    title:"Zero to One", author:"Peter Thiel", 
+    price:282, mrp:550, 
+    desc:"Notes on startups, or how to build the future. Every moment in business happens only once.", 
+    badge:"Best Seller", 
+    cat:"business", 
+    img:"zerotoone.webp",
+    amazonLink:"https://amzn.to/4wavuqm",
+    flipkartLink:"https://fktr.in/km9XQF1" 
+  },
+  { 
+    title:"Start with Why", author:"Simon Sinek", 
+    price:132, mrp:469, 
+    desc:"Why do some people and organizations inspire more? It all starts with WHY.", 
+    badge:"New", 
+    cat:"business", 
+    img:"startwithwhy",
+    amazonLink:"https://amzn.to/4neXDbN",
+    flipkartLink:"https://fktr.in/4rzMPy8"
+  },
+  { 
+    title:"The Subtle Art of Not Giving a F*ck", author:"Mark Manson", 
+    price:246, mrp:499, 
+    desc:"A counterintuitive approach to living a good life by caring about what truly matters.", 
+    badge:"Best Seller", 
+    cat:"self-help", 
+    img:"subtleart",
+    amazonLink:"https://amzn.to/4drjSYL",
+    flipkartLink:"https://fktr.in/uuJ83NS" 
+  },
+  { 
+    title:"How to Win Friends and Influence People", author:"Dale Carnegie", 
+    price:158, mrp:359, 
+    desc:"The timeless classic on human relations. Master the art of communication.", 
+    badge:"Best Seller", 
+    cat:"self-help", 
+    img:"how-to-win-freinds.webp",
+    amazonLink:"https://amzn.to/4tkitIj",
+    flipkartLink:"https://fktr.in/68rd36g"
+  },
+  { 
+    title:"The Power of Now", author:"Eckhart Tolle", 
+    price:200, mrp:459, 
+    desc:"A guide to spiritual enlightenment. Learn to live fully in the present moment.", 
+    badge:"New", 
+    cat:"psychology", 
+    img:"the-power-of-now.webp",
+    amazonLink:"https://amzn.to/42hleiw",
+    flipkartLink:"https://fktr.in/27vrQx3"
+  },
+  { 
+    title:"Clean Code", author:"Robert C. Martin", 
+    price:402, mrp:849, 
+    desc:"A handbook of agile software craftsmanship. Write code that is clean, readable, and maintainable.", 
+    badge:"Best Seller", 
+    cat:"coding", 
+    img:"clean-code.webp",
+    amazonLink:"https://amzn.to/4teHHHR",
+    flipkartLink:"https://fktr.in/CxTf61G"
+  },
+  { 
+    title:"Cracking the Coding Interview", author:"Gayle Laakmann McDowell", 
+    price:406, mrp:899, 
+    desc:"189 programming questions and solutions. The definitive guide to tech interviews.", 
+    badge:"Best Seller", 
+    cat:"coding", 
+    img:"cracking-intreview.webp",
+    amazonLink:"https://amzn.to/4upmA6K",
+    flipkartLink:"https://fktr.in/18Ab7bl"
+  },
+  { 
+    title:"Eloquent JavaScript", author:"Marijn Haverbeke", 
+    price:1605, mrp:1750, 
+    desc:"A modern introduction to programming. Master JavaScript from basics to advanced concepts.", 
+    badge:"Trending", 
+    cat:"coding", 
+    img:"javascript.webp",
+    amazonLink:"https://amzn.to/4eqPn6j",
+    flipkartLink:"https://fktr.in/xyL5Ykd" 
+  },
+  { 
+    title:"Good to Great", author:"Jim Collins", 
+    price:273, mrp:599, 
+    desc:"Why some companies make the leap and others don't. A landmark management study.", 
+    badge:"Best Seller", 
+    cat:"business", 
+    img:"good-to-greate.webp",
+    amazonLink:"https://amzn.to/48IOxyb",
+    flipkartLink:"https://fktr.in/psv8onm"
+  },
+  { 
+    title:"The Hard Thing About Hard Things", author:"Ben Horowitz", 
+    price:569, mrp:850, 
+    desc:"Building a business when there are no easy answers. Raw, honest startup wisdom.", 
+    badge:"New", cat:"business", 
+    img:"the-hard-thing.webp",
+    amazonLink:"https://amzn.to/4wsDyTM",
+    flipkartLink:"https://fktr.in/jJrNgOc" 
+  },
+  { 
+    title:"Ikigai", author:"Héctor García & Francesc Miralles", 
+    price:328, mrp:599, 
+    desc:"The Japanese secret to a long and happy life. Find your reason for being.", 
+    badge:"Trending", cat:"self-help", 
+    img:"ikigai.webp",
+    amazonLink:"https://amzn.to/4uvGyN8",
+    flipkartLink:"https://fktr.in/5Vu74Dk" 
+  },
+  { 
+    title:"Sapiens", author:"Yuval Noah Harari", 
+    price:299, mrp:649, 
+    desc:"A brief history of humankind. From the Stone Age to the Silicon Age.", 
+    badge:"Best Seller", cat:"psychology", 
+    img:"sapiens.webp",
+    amazonLink:"https://amzn.to/4uwDK2v",
+    flipkartLink:"https://fktr.in/7EeXPZa"
+  },
+  { 
+    title:"The Alchemist", author:"Paulo Coelho", 
+    price:174, mrp:359, 
+    desc:"A fable about following your dreams. An international bestseller translated into 80+ languages.", 
+    badge:"Best Seller", cat:"fiction", 
+    img:"alchemist.webp",
+    amazonLink:"https://amzn.to/4weuAsX",
+    flipkartLink:"https://fktr.in/E7ce73j" 
+  },
+  { 
+    title:"Outliers", author:"Malcolm Gladwell", 
+    price:215, mrp:499, 
+    desc:"The story of success. Understand what really makes high-achievers different.", 
+    badge:"Trending", cat:"psychology", 
+    img:"outlier.webp",
+    amazonLink:"https://amzn.to/48FG5Qb",
+    flipkartLink:"https://fktr.in/iG4uG7s" 
+  },
+  { 
+    title:"The 7 Habits of Highly Effective People", author:"Stephen R. Covey", 
+    price:213, mrp:499, 
+    desc:"A powerful framework for personal effectiveness. The #1 most influential business book.", 
+    badge:"Best Seller", cat:"self-help", 
+    img:"7habits.webp",
+    amazonLink:"https://amzn.to/4tiSCQS",
+    flipkartLink:"https://fktr.in/x9Iogj4" 
+  },
+  { 
+    title:"Python Crash Course", author:"Eric Matthes", 
+    price:1599, mrp:1999, 
+    desc:"A hands-on, project-based introduction to programming with Python 3.", 
+    badge:"New", cat:"coding", 
+    img:"python.webp",
+    amazonLink:"https://amzn.to/42MSjD8",
+    flipkartLink:"https://fktr.in/c7j7VnK" 
+  },
+  { 
+    title:"The Monk Who Sold His Ferrari", author:"Robin Sharma", 
+    price:167, mrp:390, 
+    desc:"A powerful fable about fulfilling your dreams and reaching your destiny.", 
+    badge:"Trending", cat:"fiction", 
+    img:"ferrari.webp",
+    amazonLink:"https://amzn.to/4nclngN",
+    flipkartLink:"https://fktr.in/cjuq62w" 
+  }
 ];
 
 const grid = document.getElementById('productsGrid');
@@ -739,7 +947,7 @@ function renderBooks(filter = 'all') {
     card.setAttribute('data-cat', book.cat);
     card.innerHTML = `
       <div class="card-img-wrap">
-        <img src="https://picsum.photos/seed/${book.img}/280/400.jpg" alt="${book.title}" loading="lazy">
+        <img src="${book.img}" alt="${book.title}" loading="lazy">
         <span class="badge ${getBadgeClass(book.badge)}">${book.badge}</span>
         <span class="discount-badge">${disc}% OFF</span>
       </div>
@@ -753,11 +961,11 @@ function renderBooks(filter = 'all') {
           <span class="card-save">Save ₹${book.mrp - book.price}</span>
         </div>
         <div class="card-actions">
-          <button class="btn-amazon" onclick="showToast('Opening ${book.title.replace(/'/g,"\\'")} on Amazon...')">
+          <button class="btn-amazon" onclick="window.open('${book.amazonLink}', '_blank')">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.165 11.875 3.165 2.862 0 5.666-.536 8.412-1.604l.315-.138c.277-.124.498-.062.662.182.164.246.104.468-.182.668-2.82 1.575-5.885 2.362-9.194 2.362-3.985 0-7.688-.907-11.107-2.72-.27-.14-.324-.336-.129-.594v.001zm3.217-2.86c.138-.206.32-.214.546-.026 2.618 2.143 5.445 3.215 8.48 3.215 2.002 0 4.074-.478 6.216-1.432l.228-.104c.248-.114.456-.056.624.174.168.228.112.438-.168.628-2.356 1.34-4.878 2.01-7.566 2.01-3.37 0-6.5-1.064-9.388-3.19-.24-.172-.256-.348-.048-.526l.076.05zm8.61-13.602c1.26 0 2.328.446 3.204 1.338.876.892 1.314 1.97 1.314 3.236v8.09c0 .208-.074.386-.222.534-.148.148-.326.222-.534.222-.2 0-.376-.076-.528-.228-.152-.152-.228-.332-.228-.54v-3.58c-.736.58-1.56.87-2.472.87-1.2 0-2.226-.44-3.078-1.318-.852-.878-1.278-1.94-1.278-3.186 0-1.26.434-2.328 1.302-3.204.868-.876 1.914-1.334 3.138-1.334h.382zm-.05 7.2c.854 0 1.58-.304 2.178-.912.598-.608.896-1.342.896-2.202 0-.86-.298-1.59-.896-2.19-.598-.6-1.324-.9-2.178-.9-.854 0-1.576.3-2.166.9-.59.6-.884 1.33-.884 2.19 0 .86.294 1.594.884 2.202.59.608 1.312.912 2.166.912v-.001z"/></svg>
             Amazon
           </button>
-          <button class="btn-flipkart" onclick="showToast('Opening ${book.title.replace(/'/g,"\\'")} on Flipkart...')">
+          <button class="btn-flipkart" onclick="window.open('${book.flipkartLink}', '_blank')">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Flipkart
           </button>
