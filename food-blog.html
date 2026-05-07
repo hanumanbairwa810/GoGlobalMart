@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoGlobalMart Food Blog | Food Tips, Restaurant News & Updates</title>
+  <meta name="description" content="Read the latest food blogs, restaurant tips, delivery updates, and online food ordering guides on GoGlobalMart Food Blog.">
+  <meta name="keywords" content="food blog, online food ordering tips, restaurant updates, food delivery blog, GoGlobalMart blog, food trends India">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="GoGlobalMart Food">
+  <link rel="canonical" href="https://www.goglobalmart.me/food-blog.html">
+  <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GoGlobalMart Food Blog | Food Tips, Restaurant News & Updates">
+  <meta property="og:description" content="Read the latest food blogs, restaurant tips, delivery updates, and online food ordering guides on GoGlobalMart Food Blog.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.goglobalmart.me/food-blog.html">
+  <meta property="og:image" content="https://picsum.photos/seed/goglobalmart-og/1200/630.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GoGlobalMart Food Blog | Food Tips, Restaurant News & Updates">
+  <meta name="twitter:description" content="Read the latest food blogs, restaurant tips, delivery updates, and online food ordering guides.">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "GoGlobalMart Food Blog",
+    "description": "Food Stories, Restaurant Tips & Delivery Updates",
+    "url": "https://www.goglobalmart.me/food-blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "GoGlobalMart Food",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.goglobalmart.me/fevicon.png"
+      }
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Top 10 Food Trends in India for 2025",
+        "description": "Discover the hottest food trends sweeping across India this year.",
+        "datePublished": "2025-01-15",
+        "author": { "@type": "Person", "name": "Priya Sharma" },
+        "image": "https://picsum.photos/seed/foodtrends2025/800/500.jpg"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Choose the Best Restaurant for Online Ordering",
+        "description": "Expert tips for picking the right restaurant when ordering food online.",
+        "datePublished": "2025-01-10",
+        "author": { "@type": "Person", "name": "Rahul Verma" },
+        "image": "https://picsum.photos/seed/bestrestaurant/800/500.jpg"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #020204; color: #ffffff; overflow-x: hidden; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #020204; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+    /* Text Gradient */
+    .text-gradient-cyan {
+      background: linear-gradient(to right, #22d3ee, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Glass Surface */
+    .glass-surface {
+      background: rgba(10, 15, 30, 0.65);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+
+    /* Glass Card */
+    .glass-card {
+      background: rgba(10, 15, 30, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(6, 182, 212, 0.25);
+      background: rgba(6, 182, 212, 0.03);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5), 0 0 30px rgba(6,182,212,0.08);
+    }
+
+    /* Hero Glow */
+    .hero-glow {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(30,58,138,0.25), rgba(2,2,4,0.8), transparent);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* Category Card Glow */
+    .category-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      opacity: 0;
+      transition: opacity 0.5s;
+      background: radial-gradient(circle at center, rgba(6,182,212,0.12), transparent 70%);
+    }
+    .glass-card:hover .category-glow { opacity: 1; }
+
+    /* Blog Image Hover */
+    .blog-img-wrap { overflow: hidden; border-radius: 12px; }
+    .blog-img-wrap img {
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .glass-card:hover .blog-img-wrap img { transform: scale(1.06); }
+
+    /* Animations */
+    @keyframes fade-slide-blur {
+      0% { opacity: 0; transform: translateY(30px); filter: blur(12px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    .animate-enter {
+      animation: fade-slide-blur 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+
+    /* Scroll Reveal */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(8px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* Filter Button */
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.3s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .filter-btn:hover {
+      border-color: rgba(6,182,212,0.3);
+      color: #22d3ee;
+      background: rgba(6,182,212,0.05);
+    }
+    .filter-btn.active {
+      background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(37,99,235,0.15));
+      border-color: rgba(6,182,212,0.4);
+      color: #22d3ee;
+      box-shadow: 0 0 20px rgba(6,182,212,0.1);
+    }
+
+    /* Trending Scroll */
+    .trending-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 12px;
+      scrollbar-width: none;
+    }
+    .trending-scroll::-webkit-scrollbar { display: none; }
+    .trending-item { scroll-snap-align: start; flex-shrink: 0; }
+
+    /* Ad Placeholder */
+    .ad-placeholder {
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      color: #475569;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      background: #0891b2;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 20px rgba(34,211,238,0.15);
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      background: #06b6d4;
+      box-shadow: 0 0 30px rgba(34,211,238,0.3);
+      transform: translateY(-1px);
+    }
+
+    .cta-btn-outline {
+      background: transparent;
+      color: #22d3ee;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 10px;
+      border: 1px solid rgba(6,182,212,0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .cta-btn-outline:hover {
+      background: rgba(6,182,212,0.08);
+      border-color: rgba(6,182,212,0.5);
+      box-shadow: 0 0 20px rgba(6,182,212,0.1);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 360px;
+      height: 100vh;
+      background: rgba(5, 8, 18, 0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 100;
+      transition: right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border-left: 1px solid rgba(255,255,255,0.05);
+      padding: 80px 32px 32px;
+    }
+    .mobile-menu.open { right: 0; }
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .mobile-overlay.open { opacity: 1; pointer-events: all; }
+
+    /* Badge */
+    .category-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(6,182,212,0.12);
+      color: #22d3ee;
+      border: 1px solid rgba(6,182,212,0.2);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 200;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: rgba(6,182,212,0.15);
+      border: 1px solid rgba(6,182,212,0.3);
+      color: #22d3ee;
+      backdrop-filter: blur(16px);
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* Blog grid animation */
+    .blog-post-card {
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .blog-post-card.hidden-card {
+      opacity: 0;
+      transform: scale(0.9);
+      pointer-events: none;
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ STICKY HEADER ============ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16 sm:h-18">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: linear-gradient(to bottom right, #22d3ee, #2563eb);">
+            <i data-lucide="utensils" class="w-4 h-4 text-white"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold tracking-tight text-white">GoGlobalMart <span class="text-gradient-cyan">Food Blog</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-1">
+          <a href="food-home.html" class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">Home</a>
+          <a href="food-home.html" class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">Food</a>
+          <a href="#" class="px-4 py-2 text-sm font-medium text-white rounded-lg bg-white/5 border border-white/10">Blog</a>
+          <a href="food-about.html" class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">About</a>
+          <a href="contact.html" class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">Contact</a>
+        </nav>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="hidden sm:inline-flex cta-btn text-xs py-2.5 px-5">
+            <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+            Login
+          </a>
+          <!-- Hamburger -->
+          <button id="hamburgerBtn" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-lg border border-white/10 hover:bg-white/5 transition-colors" aria-label="Open menu">
+            <i data-lucide="menu" class="w-5 h-5 text-slate-300" id="hamburgerIcon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button id="closeMenuBtn" class="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-white/5 transition-colors" aria-label="Close menu">
+      <i data-lucide="x" class="w-5 h-5 text-slate-300"></i>
+    </button>
+    <nav class="flex flex-col gap-2">
+      <a href="food-home.html" class="px-4 py-3 text-base font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">Home</a>
+      <a href="food-home.html" class="px-4 py-3 text-base font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">Food</a>
+      <a href="#" class="px-4 py-3 text-base font-medium text-cyan-400 rounded-lg bg-cyan-400/5 border border-cyan-400/10">Blog</a>
+      <a href="food-about.html" class="px-4 py-3 text-base font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">About</a>
+      <a href="contact.html" class="px-4 py-3 text-base font-medium text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5">Contact</a>
+      <div class="mt-4 pt-4 border-t border-white/5">
+        <a href="login.html" class="cta-btn w-full justify-center">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
+          Login
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden">
+    <div class="hero-glow"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="animate-enter">
+          <span class="category-badge mb-6 inline-block">✨ Fresh Stories Daily</span>
+        </div>
+        <h1 class="animate-enter delay-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
+          GoGlobalMart<br><span class="text-gradient-cyan">Food Blog</span>
+        </h1>
+        <p class="animate-enter delay-200 text-lg sm:text-xl font-light text-slate-400 leading-relaxed max-w-2xl mx-auto mb-10">
+          Discover Food Trends, Restaurant Stories & Delivery Tips
+        </p>
+        <div class="animate-enter delay-300 flex flex-wrap justify-center gap-4">
+          <a href="#blog-posts" class="cta-btn">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+            Explore Blogs
+          </a>
+          <a href="#categories" class="cta-btn-outline">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            Browse Categories
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative line -->
+    <div class="absolute bottom-0 left-0 right-0 h-px" style="background: linear-gradient(to right, transparent, rgba(6,182,212,0.2), transparent);"></div>
+  </section>
+
+  <!-- ============ TOP BANNER AD ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
+    <div class="ad-placeholder h-24 sm:h-28 animate-enter delay-400">
+      <span>Advertisement</span>
+      <span class="text-[10px] text-slate-600">728 × 90 Banner</span>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED BLOG SECTION ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
+    <div class="scroll-reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-1.5 h-6 rounded-full bg-cyan-400"></div>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Featured Article</h2>
+      </div>
+
+      <div class="glass-card overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-0">
+          <div class="blog-img-wrap rounded-none md:rounded-l-2xl md:rounded-r-none rounded-t-2xl md:rounded-t-none">
+            <img src="https://picsum.photos/seed/featured-food-blog/800/500.jpg" alt="Top 10 Food Trends in India for 2025" loading="eager" class="w-full h-full object-cover min-h-[240px] md:min-h-[360px]" width="800" height="500">
+          </div>
+          <div class="p-6 sm:p-8 md:p-10 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="category-badge">Food Trends</span>
+              <span class="text-xs text-slate-500 font-mono">Jan 15, 2025</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-4 leading-tight">
+              Top 10 Food Trends in India for 2025 You Need to Know
+            </h3>
+            <p class="text-slate-400 text-sm sm:text-base font-light leading-relaxed mb-6">
+              From plant-based biryanis to AI-curated meal plans, the Indian food landscape is evolving at breakneck speed. Discover the trends reshaping how India eats, orders, and experiences food in 2025.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-xs font-bold">PS</div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Priya Sharma</p>
+                  <p class="text-xs text-slate-500">8 min read</p>
+                </div>
+              </div>
+              <a href="#" class="cta-btn-outline text-xs">
+                Read More
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEARCH & FILTER ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-10" id="blog-posts">
+    <div class="scroll-reveal">
+      <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6">
+        <div class="relative flex-1 w-full sm:max-w-md">
+          <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"></i>
+          <input type="text" id="blogSearch" placeholder="Search articles..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/40 focus:bg-cyan-500/[0.03] transition-all min-h-[44px]">
+        </div>
+        <div class="text-xs text-slate-500 font-mono" id="resultCount">Showing 8 articles</div>
+      </div>
+      <div class="flex flex-wrap gap-2" id="filterButtons">
+        <button class="filter-btn active" data-category="all">All Posts</button>
+        <button class="filter-btn" data-category="food-trends">🍕 Food Trends</button>
+        <button class="filter-btn" data-category="restaurant-tips">🍽️ Restaurant Tips</button>
+        <button class="filter-btn" data-category="delivery-updates">🚚 Delivery Updates</button>
+        <button class="filter-btn" data-category="healthy-food">🥗 Healthy Food</button>
+        <button class="filter-btn" data-category="street-food">🌮 Street Food</button>
+        <button class="filter-btn" data-category="ordering-tips">📱 Ordering Tips</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG POSTS GRID ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="blogGrid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+      <!-- Blog Card 1 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="food-trends" data-title="Why Cloud Kitchens Are the Future of Food Delivery">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/cloud-kitchens/600/400.jpg" alt="Cloud Kitchens Future" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Food Trends</span>
+            <span class="text-[11px] text-slate-500 font-mono">6 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">Why Cloud Kitchens Are the Future of Food Delivery</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">Explore how cloud kitchens are disrupting the traditional restaurant model and changing the way we order food online in India.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-[9px] font-bold">RV</div>
+              <span class="text-xs text-slate-500">Jan 12, 2025</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 2 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="restaurant-tips" data-title="5 Secrets Restaurants Don't Want You to Know">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/restaurant-secrets/600/400.jpg" alt="Restaurant Secrets" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Restaurant Tips</span>
+            <span class="text-[11px] text-slate-500 font-mono">5 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">5 Secrets Restaurants Don't Want You to Know</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">From menu psychology to portion sizing tricks, learn what happens behind the scenes at your favorite restaurants.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-[9px] font-bold">AK</div>
+              <span class="text-xs text-slate-500">Jan 10, 2025</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 3 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="delivery-updates" data-title="GoGlobalMart Food Launches 30-Minute Guarantee">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/fast-delivery/600/400.jpg" alt="Fast Delivery Guarantee" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Delivery Updates</span>
+            <span class="text-[11px] text-slate-500 font-mono">4 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">GoGlobalMart Food Launches 30-Minute Guarantee</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">We're raising the bar with our new 30-minute delivery promise. Here's how we're making lightning-fast food delivery a reality.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-[9px] font-bold">MG</div>
+              <span class="text-xs text-slate-500">Jan 8, 2025</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 4 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="healthy-food" data-title="10 High-Protein Indian Meals Under 500 Calories">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/healthy-indian/600/400.jpg" alt="High Protein Indian Meals" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Healthy Food</span>
+            <span class="text-[11px] text-slate-500 font-mono">7 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">10 High-Protein Indian Meals Under 500 Calories</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">Eating healthy doesn't mean giving up flavor. These protein-rich Indian dishes are perfect for your fitness journey.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-[9px] font-bold">NP</div>
+              <span class="text-xs text-slate-500">Jan 5, 2025</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 5 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="street-food" data-title="Mumbai's Best Street Food You Must Try in 2025">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/mumbai-street/600/400.jpg" alt="Mumbai Street Food" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Street Food</span>
+            <span class="text-[11px] text-slate-500 font-mono">9 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">Mumbai's Best Street Food You Must Try in 2025</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">From iconic vada pav stalls to hidden chaat corners, explore the street food gems that make Mumbai a food lover's paradise.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-[9px] font-bold">SK</div>
+              <span class="text-xs text-slate-500">Jan 3, 2025</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 6 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="ordering-tips" data-title="How to Save ₹500 Every Month on Food Orders">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/save-money-food/600/400.jpg" alt="Save Money Food Orders" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Ordering Tips</span>
+            <span class="text-[11px] text-slate-500 font-mono">6 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">How to Save ₹500 Every Month on Food Orders</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">Smart strategies to maximize coupons, choose the right plans, and order smarter without compromising on your favorite meals.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-[9px] font-bold">DV</div>
+              <span class="text-xs text-slate-500">Dec 28, 2024</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 7 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="food-trends" data-title="The Rise of Millet-Based Foods in Urban India">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/millet-foods/600/400.jpg" alt="Millet Based Foods" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Food Trends</span>
+            <span class="text-[11px] text-slate-500 font-mono">5 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">The Rise of Millet-Based Foods in Urban India</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">Millets are making a massive comeback. Discover how traditional grains are being reinvented for modern Indian palates.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-[9px] font-bold">PS</div>
+              <span class="text-xs text-slate-500">Dec 25, 2024</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 8 -->
+      <article class="blog-post-card glass-card overflow-hidden" data-category="restaurant-tips" data-title="How to Read Restaurant Reviews Like a Pro">
+        <div class="blog-img-wrap">
+          <img src="https://picsum.photos/seed/restaurant-reviews/600/400.jpg" alt="Reading Restaurant Reviews" loading="lazy" width="600" height="400">
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="category-badge">Restaurant Tips</span>
+            <span class="text-[11px] text-slate-500 font-mono">4 min</span>
+          </div>
+          <h3 class="text-base font-bold tracking-tight mb-2 leading-snug line-clamp-2">How to Read Restaurant Reviews Like a Pro</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed mb-4 line-clamp-3">Not all reviews are equal. Learn to spot fake reviews, identify genuine feedback, and make better dining decisions.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center text-[9px] font-bold">RV</div>
+              <span class="text-xs text-slate-500">Dec 22, 2024</span>
+            </div>
+            <a href="#" class="text-cyan-400 text-xs font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1">
+              Read <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- No Results -->
+    <div id="noResults" class="hidden text-center py-16">
+      <i data-lucide="search-x" class="w-12 h-12 text-slate-600 mx-auto mb-4"></i>
+      <p class="text-slate-400 text-lg font-medium">No articles found</p>
+      <p class="text-slate-500 text-sm mt-1">Try adjusting your search or filter criteria</p>
+    </div>
+  </section>
+
+  <!-- ============ MID-BLOG AD ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
+    <div class="scroll-reveal">
+      <div class="ad-placeholder h-64 sm:h-72">
+        <span>Advertisement</span>
+        <span class="text-[10px] text-slate-600">Responsive Mid-Content Ad</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG CATEGORIES SECTION ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24" id="categories">
+    <div class="scroll-reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-1.5 h-6 rounded-full bg-cyan-400"></div>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Browse Categories</h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <a href="#" class="glass-card p-5 text-center group relative overflow-hidden">
+          <div class="category-glow"></div>
+          <div class="text-3xl mb-3">🍕</div>
+          <h3 class="text-sm font-bold tracking-tight mb-1">Food Trends</h3>
+          <p class="text-[11px] text-slate-500">12 articles</p>
+        </a>
+        <a href="#" class="glass-card p-5 text-center group relative overflow-hidden">
+          <div class="category-glow"></div>
+          <div class="text-3xl mb-3">🍽️</div>
+          <h3 class="text-sm font-bold tracking-tight mb-1">Restaurant Tips</h3>
+          <p class="text-[11px] text-slate-500">9 articles</p>
+        </a>
+        <a href="#" class="glass-card p-5 text-center group relative overflow-hidden">
+          <div class="category-glow"></div>
+          <div class="text-3xl mb-3">🚚</div>
+          <h3 class="text-sm font-bold tracking-tight mb-1">Delivery Updates</h3>
+          <p class="text-[11px] text-slate-500">7 articles</p>
+        </a>
+        <a href="#" class="glass-card p-5 text-center group relative overflow-hidden">
+          <div class="category-glow"></div>
+          <div class="text-3xl mb-3">🥗</div>
+          <h3 class="text-sm font-bold tracking-tight mb-1">Healthy Food</h3>
+          <p class="text-[11px] text-slate-500">15 articles</p>
+        </a>
+        <a href="#" class="glass-card p-5 text-center group relative overflow-hidden">
+          <div class="category-glow"></div>
+          <div class="text-3xl mb-3">🌮</div>
+          <h3 class="text-sm font-bold tracking-tight mb-1">Street Food</h3>
+          <p class="text-[11px] text-slate-500">11 articles</p>
+        </a>
+        <a href="#" class="glass-card p-5 text-center group relative overflow-hidden">
+          <div class="category-glow"></div>
+          <div class="text-3xl mb-3">📱</div>
+          <h3 class="text-sm font-bold tracking-tight mb-1">Ordering Tips</h3>
+          <p class="text-[11px] text-slate-500">8 articles</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRENDING POSTS SECTION ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
+    <div class="scroll-reveal">
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-1.5 h-6 rounded-full bg-cyan-400"></div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Trending Now</h2>
+        </div>
+        <div class="flex gap-2">
+          <button id="trendLeft" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-white/5 transition-colors" aria-label="Scroll left">
+            <i data-lucide="chevron-left" class="w-4 h-4 text-slate-400"></i>
+          </button>
+          <button id="trendRight" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-white/5 transition-colors" aria-label="Scroll right">
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="trending-scroll" id="trendingScroll">
+        <a href="#" class="trending-item glass-card overflow-hidden w-72 sm:w-80 group">
+          <div class="blog-img-wrap">
+            <img src="https://picsum.photos/seed/trending1/400/250.jpg" alt="Trending Post" loading="lazy" width="400" height="250" class="h-44 object-cover">
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> Trending</span>
+            </div>
+            <h3 class="text-sm font-bold tracking-tight leading-snug mb-1 group-hover:text-cyan-400 transition-colors">Biryani Wars: Which City Makes India's Best?</h3>
+            <p class="text-xs text-slate-500">4 min read · 12K views</p>
+          </div>
+        </a>
+        <a href="#" class="trending-item glass-card overflow-hidden w-72 sm:w-80 group">
+          <div class="blog-img-wrap">
+            <img src="https://picsum.photos/seed/trending2/400/250.jpg" alt="Trending Post" loading="lazy" width="400" height="250" class="h-44 object-cover">
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> Trending</span>
+            </div>
+            <h3 class="text-sm font-bold tracking-tight leading-snug mb-1 group-hover:text-cyan-400 transition-colors">Is Sushi the New Pizza in India?</h3>
+            <p class="text-xs text-slate-500">6 min read · 9K views</p>
+          </div>
+        </a>
+        <a href="#" class="trending-item glass-card overflow-hidden w-72 sm:w-80 group">
+          <div class="blog-img-wrap">
+            <img src="https://picsum.photos/seed/trending3/400/250.jpg" alt="Trending Post" loading="lazy" width="400" height="250" class="h-44 object-cover">
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> Trending</span>
+            </div>
+            <h3 class="text-sm font-bold tracking-tight leading-snug mb-1 group-hover:text-cyan-400 transition-colors">Late Night Food Delivery: Best Options After 11 PM</h3>
+            <p class="text-xs text-slate-500">5 min read · 8K views</p>
+          </div>
+        </a>
+        <a href="#" class="trending-item glass-card overflow-hidden w-72 sm:w-80 group">
+          <div class="blog-img-wrap">
+            <img src="https://picsum.photos/seed/trending4/400/250.jpg" alt="Trending Post" loading="lazy" width="400" height="250" class="h-44 object-cover">
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> Trending</span>
+            </div>
+            <h3 class="text-sm font-bold tracking-tight leading-snug mb-1 group-hover:text-cyan-400 transition-colors">Dosa Beyond South: How It Conquered North India</h3>
+            <p class="text-xs text-slate-500">7 min read · 6.5K views</p>
+          </div>
+        </a>
+        <a href="#" class="trending-item glass-card overflow-hidden w-72 sm:w-80 group">
+          <div class="blog-img-wrap">
+            <img src="https://picsum.photos/seed/trending5/400/250.jpg" alt="Trending Post" loading="lazy" width="400" height="250" class="h-44 object-cover">
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> Trending</span>
+            </div>
+            <h3 class="text-sm font-bold tracking-tight leading-snug mb-1 group-hover:text-cyan-400 transition-colors">Why Everyone's Obsessed With Paneer Tikka Pizza</h3>
+            <p class="text-xs text-slate-500">3 min read · 11K views</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESTAURANT STORIES SECTION ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
+    <div class="scroll-reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-1.5 h-6 rounded-full bg-cyan-400"></div>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Restaurant Stories</h2>
+        <span class="category-badge ml-2">Partner Spotlights</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Story 1 -->
+        <div class="glass-card overflow-hidden">
+          <div class="grid sm:grid-cols-5 gap-0">
+            <div class="sm:col-span-2 blog-img-wrap rounded-none sm:rounded-l-2xl sm:rounded-r-none rounded-t-2xl sm:rounded-t-none">
+              <img src="https://picsum.photos/seed/restaurant-story1/400/400.jpg" alt="Spice Heritage Kitchen" loading="lazy" width="400" height="400" class="w-full h-full object-cover min-h-[200px]">
+            </div>
+            <div class="sm:col-span-3 p-5 sm:p-6 flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Active Partner</span>
+              </div>
+              <h3 class="text-lg font-bold tracking-tight mb-2">Spice Heritage Kitchen</h3>
+              <p class="text-slate-400 text-xs font-light leading-relaxed mb-4">From a small family kitchen in Jaipur to serving 500+ orders daily on GoGlobalMart — discover the inspiring journey of Chef Meera and her team.</p>
+              <a href="#" class="cta-btn-outline text-xs self-start">
+                Read Story <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="glass-card overflow-hidden">
+          <div class="grid sm:grid-cols-5 gap-0">
+            <div class="sm:col-span-2 blog-img-wrap rounded-none sm:rounded-l-2xl sm:rounded-r-none rounded-t-2xl sm:rounded-t-none">
+              <img src="https://picsum.photos/seed/restaurant-story2/400/400.jpg" alt="The Bowl House" loading="lazy" width="400" height="400" class="w-full h-full object-cover min-h-[200px]">
+            </div>
+            <div class="sm:col-span-3 p-5 sm:p-6 flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Active Partner</span>
+              </div>
+              <h3 class="text-lg font-bold tracking-tight mb-2">The Bowl House</h3>
+              <p class="text-slate-400 text-xs font-light leading-relaxed mb-4">How two college friends turned their passion for healthy bowls into Bangalore's most-loved delivery brand with a 4.8 rating.</p>
+              <a href="#" class="cta-btn-outline text-xs self-start">
+                Read Story <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="glass-card overflow-hidden">
+          <div class="grid sm:grid-cols-5 gap-0">
+            <div class="sm:col-span-2 blog-img-wrap rounded-none sm:rounded-l-2xl sm:rounded-r-none rounded-t-2xl sm:rounded-t-none">
+              <img src="https://picsum.photos/seed/restaurant-story3/400/400.jpg" alt="Dhaba Express" loading="lazy" width="400" height="400" class="w-full h-full object-cover min-h-[200px]">
+            </div>
+            <div class="sm:col-span-3 p-5 sm:p-6 flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Active Partner</span>
+              </div>
+              <h3 class="text-lg font-bold tracking-tight mb-2">Dhaba Express — Highway to Home</h3>
+              <p class="text-slate-400 text-xs font-light leading-relaxed mb-4">Bringing authentic highway dhaba flavors to city doorsteps — a story of tradition meeting technology in Punjab.</p>
+              <a href="#" class="cta-btn-outline text-xs self-start">
+                Read Story <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 4 -->
+        <div class="glass-card overflow-hidden">
+          <div class="grid sm:grid-cols-5 gap-0">
+            <div class="sm:col-span-2 blog-img-wrap rounded-none sm:rounded-l-2xl sm:rounded-r-none rounded-t-2xl sm:rounded-t-none">
+              <img src="https://picsum.photos/seed/restaurant-story4/400/400.jpg" alt="Coastal Catch" loading="lazy" width="400" height="400" class="w-full h-full object-cover min-h-[200px]">
+            </div>
+            <div class="sm:col-span-3 p-5 sm:p-6 flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Active Partner</span>
+              </div>
+              <h3 class="text-lg font-bold tracking-tight mb-2">Coastal Catch — Kerala on a Plate</h3>
+              <p class="text-slate-400 text-xs font-light leading-relaxed mb-4">A fisherman's daughter built a seafood empire delivering fresh catches from Kochi's coast to Delhi's dining tables.</p>
+              <a href="#" class="cta-btn-outline text-xs self-start">
+                Read Story <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIDEBAR AD (full width on mobile) ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
+    <div class="scroll-reveal">
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 ad-placeholder h-48 sm:h-56">
+          <span>Advertisement</span>
+          <span class="text-[10px] text-slate-600">Content Ad</span>
+        </div>
+        <div class="ad-placeholder h-48 sm:h-56">
+          <span>Advertisement</span>
+          <span class="text-[10px] text-slate-600">Sidebar Ad</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER SECTION ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
+    <div class="scroll-reveal">
+      <div class="glass-card p-8 sm:p-12 text-center relative overflow-hidden">
+        <!-- Background glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gradient-to-b from-cyan-500/10 to-transparent rounded-full blur-[80px] pointer-events-none"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="mail" class="w-7 h-7 text-cyan-400"></i>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Stay Hungry, Stay Updated</h2>
+          <p class="text-slate-400 text-sm sm:text-base font-light max-w-lg mx-auto mb-8 leading-relaxed">
+            Get latest food blogs & updates directly in your inbox. Join 25,000+ food enthusiasts who read our weekly digest.
+          </p>
+          <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" required class="flex-1 px-5 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/40 focus:bg-cyan-500/[0.03] transition-all min-h-[44px]">
+            <button type="submit" class="cta-btn whitespace-nowrap">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              Subscribe
+            </button>
+          </form>
+          <p class="text-[11px] text-slate-600 mt-4">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / COMMUNITY SECTION ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
+    <div class="scroll-reveal">
+      <div class="glass-card p-8 sm:p-10">
+        <div class="grid sm:grid-cols-2 gap-8 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-1.5 h-6 rounded-full bg-cyan-400"></div>
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Join Our Community</h2>
+            </div>
+            <p class="text-slate-400 text-sm font-light leading-relaxed mb-6">
+              Connect with fellow food lovers, share your food stories, participate in polls, and get exclusive access to restaurant events and food tastings.
+            </p>
+            <a href="#" class="cta-btn">
+              <i data-lucide="users" class="w-4 h-4"></i>
+              Join the Community
+            </a>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-slate-300 mb-4 uppercase tracking-wider">Follow Us</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <a href="#" class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/20 hover:bg-cyan-500/[0.03] transition-all group">
+                <i data-lucide="instagram" class="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors"></i>
+                <div>
+                  <p class="text-xs font-semibold text-white">Instagram</p>
+                  <p class="text-[10px] text-slate-500">150K followers</p>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/20 hover:bg-cyan-500/[0.03] transition-all group">
+                <i data-lucide="twitter" class="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors"></i>
+                <div>
+                  <p class="text-xs font-semibold text-white">Twitter / X</p>
+                  <p class="text-[10px] text-slate-500">85K followers</p>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/20 hover:bg-cyan-500/[0.03] transition-all group">
+                <i data-lucide="facebook" class="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors"></i>
+                <div>
+                  <p class="text-xs font-semibold text-white">Facebook</p>
+                  <p class="text-[10px] text-slate-500">200K followers</p>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/20 hover:bg-cyan-500/[0.03] transition-all group">
+                <i data-lucide="youtube" class="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors"></i>
+                <div>
+                  <p class="text-xs font-semibold text-white">YouTube</p>
+                  <p class="text-[10px] text-slate-500">120K subscribers</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER AD ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
+    <div class="ad-placeholder h-24 sm:h-28">
+      <span>Advertisement</span>
+      <span class="text-[10px] text-slate-600">Footer Banner Ad</span>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+        <!-- Brand -->
+        <div class="col-span-2 md:col-span-4 lg:col-span-1 mb-4 lg:mb-0">
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: linear-gradient(to bottom right, #22d3ee, #2563eb);">
+              <i data-lucide="utensils" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-sm font-bold tracking-tight">GoGlobalMart Food</span>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed max-w-xs">
+            Food Stories, Restaurant Tips & Delivery Updates. Your daily dose of food inspiration.
+          </p>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="food-about.html" class="text-xs text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="#" class="text-xs text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="food-career.html" class="text-xs text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="contact.html" class="text-xs text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Blog -->
+        <div>
+          <h4 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-4">Blog</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-xs text-slate-500 hover:text-white transition-colors">Food Trends</a></li>
+            <li><a href="#" class="text-xs text-slate-500 hover:text-white transition-colors">Restaurant Tips</a></li>
+            <li><a href="#" class="text-xs text-slate-500 hover:text-white transition-colors">Delivery Updates</a></li>
+            <li><a href="#" class="text-xs text-slate-500 hover:text-white transition-colors">Healthy Food</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="food-privacy.html" class="text-xs text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="food-terms.html" class="text-xs text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="food-cookie.html" class="text-xs text-slate-500 hover:text-white transition-colors">Cookie Policy</a></li>
+            <li><a href="food-disclaimer.html" class="text-xs text-slate-500 hover:text-white transition-colors">Disclaimer</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h4 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-4">Support</h4>
+          <ul class="space-y-2.5">
+            <li><a href="help.html" class="text-xs text-slate-500 hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="food-faq.html" class="text-xs text-slate-500 hover:text-white transition-colors">FAQs</a></li>
+            <li><a href="#" class="text-xs text-slate-500 hover:text-white transition-colors">Feedback</a></li>
+            <li><a href="sitemap.xml" class="text-xs text-slate-500 hover:text-white transition-colors">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-[11px] text-slate-600">© 2025 GoGlobalMart Food. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-slate-600 hover:text-slate-400 transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" class="text-slate-600 hover:text-slate-400 transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+          <a href="#" class="text-slate-600 hover:text-slate-400 transition-colors" aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" class="text-slate-600 hover:text-slate-400 transition-colors" aria-label="YouTube"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ============ JAVASCRIPT ============ -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // ===== NAVBAR SCROLL EFFECT =====
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 50) {
+        navbar.classList.add('glass-surface');
+        navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+      } else {
+        navbar.classList.remove('glass-surface');
+        navbar.style.borderBottom = 'none';
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ===== MOBILE MENU =====
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburgerBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+
+    // ===== SCROLL REVEAL =====
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('revealed');
+          }, i * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+    // ===== BLOG SEARCH & FILTER =====
+    const searchInput = document.getElementById('blogSearch');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-post-card');
+    const noResults = document.getElementById('noResults');
+    const resultCount = document.getElementById('resultCount');
+    let activeCategory = 'all';
+
+    function filterBlogs() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      blogCards.forEach(card => {
+        const category = card.dataset.category;
+        const title = card.dataset.title.toLowerCase();
+        const excerpt = card.querySelector('p').textContent.toLowerCase();
+
+        const matchCategory = activeCategory === 'all' || category === activeCategory;
+        const matchSearch = !searchTerm || title.includes(searchTerm) || excerpt.includes(searchTerm);
+
+        if (matchCategory && matchSearch) {
+          card.classList.remove('hidden-card');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden-card');
+        }
+      });
+
+      resultCount.textContent = `Showing ${visibleCount} article${visibleCount !== 1 ? 's' : ''}`;
+      noResults.classList.toggle('hidden', visibleCount > 0);
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.dataset.category;
+        filterBlogs();
+      });
+    });
+
+    searchInput.addEventListener('input', filterBlogs);
+
+    // ===== TRENDING SCROLL =====
+    const trendingScroll = document.getElementById('trendingScroll');
+    const trendLeft = document.getElementById('trendLeft');
+    const trendRight = document.getElementById('trendRight');
+
+    trendLeft.addEventListener('click', () => {
+      trendingScroll.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+    trendRight.addEventListener('click', () => {
+      trendingScroll.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+
+    // ===== NEWSLETTER FORM =====
+    const newsletterForm = document.getElementById('newsletterForm');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value;
+      if (email) {
+        showToast('🎉 Subscribed successfully! Check your inbox.');
+        document.getElementById('newsletterEmail').value = '';
+      }
+    });
+
+    // ===== TOAST =====
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    // ===== LINE CLAMP UTILITY (CSS fallback) =====
+    const style = document.createElement('style');
+    style.textContent = `
+      .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
