@@ -9,6 +9,7 @@
 <link rel="apple-touch-icon" href="/fevicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="canonical" href="https://goglobalmart.me/books.html" />
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1011,6 +1012,46 @@ scrollTopBtn.addEventListener('click', () => {
 
 // Init Lucide icons
 lucide.createIcons();
+</script>
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "Book",
+      "name": "Rich Dad Poor Dad",
+
+      "author": {
+        "@type": "Person",
+        "name": "Robert T. Kiyosaki"
+      },
+
+      "image": "https://goglobalmart.me/richdad.webp",
+
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": "198",
+
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "INR"
+          }
+        },
+
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "IN",
+          "merchantReturnDays": 7
+        }
+      }
+    }
+  ]
+}
 </script>
 </body>
 </html>
