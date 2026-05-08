@@ -1221,7 +1221,10 @@ window.sendPhoneOtp = async function() {
   clearFieldError('signupPhone');
   if (!phone) { showFieldError('signupPhone', 'Phone number is required'); return; }
   if (!isValidPhone($('#signupPhone').value.trim())) { showFieldError('signupPhone', 'Enter valid +91 number'); return; }
-
+window.addEventListener(
+  'load',
+  initRecaptcha
+);
   const btn = $('#phoneVerifyBtn');
   btn.disabled = true;
   btn.textContent = 'Sending...';
