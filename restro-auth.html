@@ -846,9 +846,15 @@ const firebaseConfig = {
 // ===== Initialize Firebase =====
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-  sendPasswordResetEmail, signOut, onAuthStateChanged,
-  RecaptchaVerifier, signInWithPhoneNumber
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail, 
+  signOut, 
+  onAuthStateChanged,
+  RecaptchaVerifier, 
+  signInWithPhoneNumber,
+  sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
   getFirestore, collection, doc, setDoc, getDoc, serverTimestamp
@@ -871,7 +877,6 @@ let phoneVerified = false;
 let aadhaarVerified = false;
 let phoneConfirmationResult = null;
 let currentOtpType = null; // 'email' | 'phone' | 'aadhaar'
-let generatedEmailOtp = '';
 let generatedAadhaarOtp = '';
 let recaptchaVerifier = null;
 let ownerProfileFile = null;
@@ -1137,7 +1142,6 @@ function validateStep2() {
   else if (!isValidEmail(email)) { showFieldError('signupEmail', 'Enter a valid email address'); valid = false; }
   if (!phone) { showFieldError('signupPhone', 'Phone number is required'); valid = false; }
   else if (!isValidPhone($('#signupPhone').value.trim())) { showFieldError('signupPhone', 'Enter valid +91 number'); valid = false; }
-  if (!emailVerified) { showToast('Please verify your email with OTP', 'warning'); valid = false; }
   if (!phoneVerified) { showToast('Please verify your phone number with OTP', 'warning'); valid = false; }
   return valid;
 }
@@ -1285,8 +1289,14 @@ window.checkEmailVerification =
 
       emailVerified = true;
 
+      markVerified(
+        'emailVerifyBtn',
+        'Email Verified'
+      );
+
       showToast(
-        'Email verified successfully!'
+        'Email verified successfully!',
+        'success'
       );
 
       // Go next step
@@ -1407,8 +1417,8 @@ window.sendAadhaarOtp = async function() {
 // ===== OTP MODAL =====
 function openOtpModal(type, target) {
   currentOtpType = type;
-  const titles = { email: 'Verify Email OTP', phone: 'Verify Phone OTP', aadhaar: 'Verify Aadhaar OTP' };
-  const descs = { email: `Enter the 6-digit OTP sent to ${target}`, phone: `Enter the 6-digit OTP sent to ${target}`, aadhaar: `Enter the OTP for Aadhaar ${target}` };
+  const titles = { phone: 'Verify Phone OTP', aadhaar: 'Verify Aadhaar OTP' };
+  const descs = {phone: `Enter the 6-digit OTP sent to ${target}`, aadhaar: `Enter the OTP for Aadhaar ${target}` };
   $('#otpModalTitle').textContent = titles[type];
   $('#otpModalDesc').textContent = descs[type];
 
@@ -1500,8 +1510,7 @@ function stopOtpCountdown() {
 
 window.resendOtp = function() {
   closeOtpModal();
-  if (currentOtpType === 'email') sendEmailOtp();
-  else if (currentOtpType === 'phone') sendPhoneOtp();
+  if (currentOtpType === 'phone') sendPhoneOtp();
   else if (currentOtpType === 'aadhaar') sendAadhaarOtp();
 };
 
@@ -1519,14 +1528,7 @@ window.verifyOtp = async function() {
   btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
 
   try {
-    if (currentOtpType === 'email') {
-      if (otp !== generatedEmailOtp) throw new Error('invalid');
-      emailVerified = true;
-      markVerified('emailVerifyBtn', 'Email Verified');
-      showToast('Email verified successfully', 'success');
-      closeOtpModal();
-    }
-    else if (currentOtpType === 'phone') {
+      if (currentOtpType === 'phone') {
       if (!phoneConfirmationResult) throw new Error('no_result');
       await phoneConfirmationResult.confirm(otp);
       // Sign out immediately — we only wanted to verify, not sign in
@@ -1590,7 +1592,7 @@ window.handleSignup = async function() {
   if (!terms) { showFieldError('terms', 'You must accept the terms'); return; }
 
   // Double-check verifications
-  if (!emailVerified) { showToast('Email not verified', 'error'); return; }
+  if (!emailVerified) { showToast('Please verify your email first', 'error'); return; }
   if (!phoneVerified) { showToast('Phone not verified', 'error'); return; }
   if (!aadhaarVerified) { showToast('Aadhaar not verified', 'error'); return; }
 
@@ -1688,7 +1690,6 @@ function resetSignupForm() {
   ownerProfileFile = null;
   restaurantImageFile = null;
   phoneConfirmationResult = null;
-  generatedEmailOtp = '';
   generatedAadhaarOtp = '';
 
   // Reset all inputs
@@ -1701,7 +1702,7 @@ function resetSignupForm() {
   ['emailVerifyBtn', 'phoneVerifyBtn', 'aadhaarVerifyBtn'].forEach(id => {
     const btn = $(`#${id}`);
     btn.classList.remove('verified');
-    const texts = { emailVerifyBtn: 'Send OTP', phoneVerifyBtn: 'Send OTP', aadhaarVerifyBtn: 'Verify' };
+    const texts = { emailVerifyBtn: 'Verify Email', phoneVerifyBtn: 'Send OTP', aadhaarVerifyBtn: 'Verify' };
     btn.innerHTML = texts[id];
     btn.disabled = false;
   });
