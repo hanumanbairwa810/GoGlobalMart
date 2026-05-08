@@ -621,7 +621,7 @@ button:focus-visible,.tab-btn:focus-visible{outline-offset:-2px}
           <label class="form-label" for="signupEmail">Email Address<span class="required">*</span></label>
           <div class="verify-row">
             <input type="email" id="signupEmail" class="form-input" placeholder="restaurant@example.com">
-            <button type="button" class="verify-btn" id="emailVerifyBtn" onclick="sendEmailOtp()">Send OTP</button>
+            <button type="button" class="verify-btn" id="emailVerifyBtn" onclick="sendVerificationEmail()">Verify Email</button>
           </div>
           <div class="error-msg" id="signupEmailErr"><i class="fas fa-exclamation-circle"></i><span></span></div>
         </div>
@@ -1158,42 +1158,158 @@ function validateStep3() {
   return valid;
 }
 
-// ===== EMAIL OTP VERIFICATION =====
-window.sendEmailOtp = async function() {
-  const email = $('#signupEmail').value.trim();
-  clearFieldError('signupEmail');
-  if (!email) { showFieldError('signupEmail', 'Email is required'); return; }
-  if (!isValidEmail(email)) { showFieldError('signupEmail', 'Enter a valid email'); return; }
+// ===== SEND EMAIL VERIFICATION =====
 
-  const btn = $('#emailVerifyBtn');
+window.sendVerificationEmail = async function () {
+
+  const email =
+    $('#signupEmail').value.trim();
+
+  clearFieldError('signupEmail');
+
+  if (!email) {
+
+    showFieldError(
+      'signupEmail',
+      'Email is required'
+    );
+
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+
+    showFieldError(
+      'signupEmail',
+      'Enter valid email'
+    );
+
+    return;
+  }
+
+  const btn =
+    $('#emailVerifyBtn');
+
   btn.disabled = true;
-  btn.textContent = 'Sending...';
+
+  btn.textContent =
+    'Sending...';
 
   try {
-    // Generate 6-digit OTP
-    generatedEmailOtp = String(Math.floor(100000 + Math.random() * 900000));
 
-    // Store OTP in Firestore with 5-minute expiry
-    const emailKey = email.replace(/\./g, '_');
-    await setDoc(doc(db, 'email_otps', emailKey), {
-      otp: generatedEmailOtp,
-      createdAt: serverTimestamp(),
-      expiresAt: new Date(Date.now() + 5 * 60 * 1000)
-    });
+    // Create strong random password
+    const password =
+      crypto.randomUUID();
 
-    // In production, use Firebase Cloud Functions + SendGrid/Mailgun to send the email.
-    // For demo/testing, the OTP is shown below:
-    showToast(`Demo OTP for ${email}: ${generatedEmailOtp}`, 'demo', 10000);
+    // Save temporary password
+    localStorage.setItem(
+      "tempSignupPassword",
+      password
+    );
+
+    // Create Firebase account
+    const userCredential =
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+    // Send verification link
+    await sendEmailVerification(
+      userCredential.user
+    );
 
     emailVerified = false;
-    openOtpModal('email', email);
+
+    showToast(
+      'Verification email sent successfully!'
+    );
+
   } catch (err) {
-    console.error('Email OTP error:', err);
-    showToast('Failed to send OTP. Check network connection.', 'error');
+
+    console.error(err);
+
+    if (
+      err.code ===
+      'auth/email-already-in-use'
+    ) {
+
+      showToast(
+        'Email already registered'
+      );
+
+    } else {
+
+      showToast(
+        err.message
+      );
+
+    }
+
   } finally {
+
     btn.disabled = false;
-    btn.textContent = 'Send OTP';
+
+    btn.textContent =
+      'Verify Email';
+
   }
+
+};
+
+
+// ===== CHECK EMAIL VERIFICATION =====
+
+window.checkEmailVerification =
+  async function () {
+
+  try {
+
+    const user =
+      auth.currentUser;
+
+    if (!user) {
+
+      showToast(
+        'Please verify email first'
+      );
+
+      return;
+    }
+
+    // Reload latest status
+    await user.reload();
+
+    if (user.emailVerified) {
+
+      emailVerified = true;
+
+      showToast(
+        'Email verified successfully!'
+      );
+
+      // Go next step
+      nextStep(3);
+
+    } else {
+
+      showToast(
+        'Please verify your email first'
+      );
+
+    }
+
+  } catch (err) {
+
+    console.error(err);
+
+    showToast(
+      err.message
+    );
+
+  }
+
 };
 
 // ===== PHONE OTP VERIFICATION =====
