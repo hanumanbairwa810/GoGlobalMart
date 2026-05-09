@@ -1408,7 +1408,7 @@ window.sendAadhaarOtp = async function() {
     });
     const result = await response.json();
 
-    if(result.ststus==="success"){
+    if(result.status==="success"){
       window.aadhaar_ref_id=result.data.reference_id;
       const masked = result.data.aadhaar_number;
       alert("aadhaar otp sent");
@@ -1425,6 +1425,24 @@ window.sendAadhaarOtp = async function() {
     btn.textContent = 'Verify';
   }
 };
+
+const verifyResponse = await fetch(
+  "https://api.sandbox.co.in/kyc/aadhaar/okyc/otp/verify",
+  {
+    method: "POST",
+    headers: {
+      "x-api-key": "key_live_9de3d19181dd46cd9104070e6889aabf",
+      "x-api-version": "1.0",
+      "Content-Type": "application/json"
+    },
+
+    body: JSON.stringify({
+      "@entity": "in.co.sandbox.kyc.aadhaar.okyc.request",
+      reference_id: window.aadhaar_ref_id,
+      otp: enteredOtp
+    })
+  }
+);
 
 // ===== OTP MODAL =====
 function openOtpModal(type, target) {
