@@ -481,7 +481,7 @@ button:focus-visible,.tab-btn:focus-visible{outline-offset:-2px}
 <div class="toast-container" id="toastContainer"></div>
 
 <!-- reCAPTCHA Container -->
-<div id="recaptcha-container" style="position:absolute;left:-9999px;top:-9999px;"></div>
+<div id="recaptcha-container"></div>
 
 <div class="auth-wrapper">
   <!-- Brand Header -->
@@ -1324,23 +1324,25 @@ window.checkEmailVerification =
 
 // ===== PHONE OTP VERIFICATION =====
 async function initRecaptcha() {
-  if (recaptchaVerifier) {
-    try { recaptchaVerifier.clear(); } catch(e) {}
+  if (window.recaptchaVerifier) {
+    try { window.recaptchaVerifier.clear(); } catch(e) {}
   }
   // Ensure container exists and is clear
-  const container = $('#recaptcha-container');
-  container.innerHTML = '';
-  recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-    size: 'invisible',
-    callback: () => { /* solved */ },
-    'expired-callback': () => { showToast('reCAPTCHA expired. Please try again.', 'warning'); }
+  try{
+    window.recaptchaVerifier=new RecaptchaVerifier(auth,'recaptcha-container',{
+      'size':'invisible',
+      'callback':(response)=>{/* solved*/},
+      'expired-callback':()=>{
+        showToast('reCAPTCHA expired. Please try again.','warning');
+      }
   });
-  try {
-    await recaptchaVerifier.render();
-  } catch(e) {
-    console.error('reCAPTCHA render error:', e);
+    await window.recaptchaVerifier.render();
+    console.log("reCAPTCHA rendered successfully");
+  } catch(e){
+    console.error('reCAPTCHA render error:',e);
   }
 }
+
 
 window.sendPhoneOtp = async function() {
   const phone = cleanPhone($('#signupPhone').value.trim());
@@ -1390,22 +1392,32 @@ window.sendAadhaarOtp = async function() {
   btn.textContent = 'Sending...';
 
   try {
-    generatedAadhaarOtp = String(Math.floor(100000 + Math.random() * 900000));
-    const aadhaarClean = cleanAadhaar(aadhaar);
-    await setDoc(doc(db, 'aadhaar_otps', aadhaarClean), {
-      otp: generatedAadhaarOtp,
-      createdAt: serverTimestamp(),
-      expiresAt: new Date(Date.now() + 5 * 60 * 1000)
+    const response = await fetch('https://api.sandbox.co.in/kyc/aadhaar/okyc/otp',{
+      method: 'POST',
+      headers: {
+        'x-api-key':'key_live_9de3d19181dd46cd9104070e6889aabf',
+        'x-api-version':'1.0',
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        "@entity":"in.co.sandbox.kyc.aadhaar.okyc.otp.request",
+        aadhaar_number:aadhaar,
+        consent:"y",
+        reason:"Restaurent Verification"
+      })
     });
+    const result = await response.json();
 
-    // In production, integrate with UIDAI/DigiLocker API for actual Aadhaar OTP.
-    // For demo, the OTP is shown:
-    const masked = aadhaarClean.substring(0, 4) + ' XXXX ' + aadhaarClean.substring(8);
-    showToast(`Demo Aadhaar OTP for ${masked}: ${generatedAadhaarOtp}`, 'demo', 10000);
-
-    aadhaarVerified = false;
-    openOtpModal('aadhaar', masked);
+    if(result.ststus==="success"){
+      window.aadhaar_ref_id=result.data.reference_id;
+      const masked = result.data.aadhaar_number;
+      alert("aadhaar otp sent");
+      openOtpModel('aadhaar',masked);
+    } else{
+      alert("Error:"+ result.message);
+    }
   } catch (err) {
+    aadhaarVerified = false;
     console.error('Aadhaar OTP error:', err);
     showToast('Failed to send Aadhaar OTP.', 'error');
   } finally {
