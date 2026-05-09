@@ -9,7 +9,6 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
 <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
 <link rel="shortcut icon" href="/fevicon.png">
 <link rel="apple-touch-icon" href="/fevicon.png">
@@ -2357,7 +2356,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db   = firebase.firestore();
-const storage = firebase.storage();
 
 /* ===================== APP STATE ===================== */
 const APP = {
@@ -2595,23 +2593,35 @@ async function submitSignup() {
      const CLOUD_NAME = "dkgztyu90";
      const UPLOAD_PRESET = "goglobalmart_upload";
 
-     async function uploadFile(file) {
+      async function uploadFile(file) {
       if (!file) return '';
 
-     const formData = new FormData();
-     formData.append('file', file);
-     formData.append('upload_preset', UPLOAD_PRESET);
+       const formData = new FormData();
+        formData.append('file', file);
+       formData.append('upload_preset', UPLOAD_PRESET);
 
-     const res = await fetch(
-       `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+       let uploadType = 'image';
+
+      if (file.type === 'application/pdf') {
+       uploadType = 'raw';
+  }
+
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${uploadType}/upload`,
     {
-        method: 'POST',
-        body: formData
+      method: 'POST',
+      body: formData
     }
   );
 
   const data = await res.json();
-  return data.secure_url;
+
+  if (data.secure_url) {
+    return data.secure_url;
+  } else {
+    console.error(data);
+    throw new Error('Upload failed');
+  }
 }
 
     const [logoUrl, bannerUrl, shopUrl, fssaiDocUrl] = await Promise.all([
