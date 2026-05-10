@@ -2584,12 +2584,7 @@ async function submitSignup() {
     await cred.user.sendEmailVerification();
 
     // 3. Upload files
-    /*const uploadFile = async (file, path) => {
-      if (!file) return '';
-      const ref = storage.ref(`restaurants/${uid}/${path}`);
-      await ref.put(file);
-      return await ref.getDownloadURL();
-    };*/
+    
      const CLOUD_NAME = "dkgztyu90";
      const UPLOAD_PRESET = "goglobalmart_upload";
 
