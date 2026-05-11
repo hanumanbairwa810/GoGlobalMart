@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cookie Policy for GoGlobalMart Mini Store. Learn how we use cookies, your rights under GDPR, and how to manage your cookie preferences.">
+    <meta name="keywords" content="cookie policy, GDPR, cookies, privacy, GoGlobalMart, Mini Store, data protection, cookie consent">
+    <meta name="author" content="GoGlobalMart Mini Store">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Cookie Policy – GoGlobalMart Mini Store">
+    <meta property="og:description" content="Understand how GoGlobalMart Mini Store uses cookies and how you can control your preferences.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goglobalmart.me/cookie-policy">
+    <meta property="og:image" content="https://picsum.photos/seed/goglobalmart-og/1200/630.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cookie Policy – GoGlobalMart Mini Store">
+    <meta name="twitter:description" content="Understand how GoGlobalMart Mini Store uses cookies and how you can control your preferences.">
+    <link rel="canonical" href="https://goglobalmart.me/mini-cookie.html">
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+    <title>Cookie Policy – GoGlobalMart Mini Store</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'bg-100': '#FFFFFF',
+                        'bg-200': '#f5f5f5',
+                        'bg-300': '#cccccc',
+                        'neutral-100': '#333333',
+                        'neutral-200': '#5c5c5c',
+                        'primary-100': '#0072FF',
+                        'primary-200': '#6aa0ff',
+                        'primary-300': '#e1ffff',
+                        'accent-100': '#4D8BFF',
+                        'accent-200': '#003699',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .fade-in-up:nth-child(1) { animation-delay: 0s; }
+        .fade-in-up:nth-child(2) { animation-delay: 0.1s; }
+        .fade-in-up:nth-child(3) { animation-delay: 0.2s; }
+        .fade-in-up:nth-child(4) { animation-delay: 0.3s; }
+        .fade-in-up:nth-child(5) { animation-delay: 0.4s; }
+        .fade-in-up:nth-child(6) { animation-delay: 0.5s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .cookie-popup-animate {
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0) scale(1); }
+            to { opacity: 0; transform: translateY(20px) scale(0.97); }
+        }
+        .cookie-popup-close {
+            animation: fadeOut 0.35s ease-in forwards;
+        }
+
+        @keyframes backdropIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .backdrop-animate {
+            animation: backdropIn 0.3s ease-out forwards;
+        }
+        .backdrop-close {
+            animation: fadeOut 0.3s ease-in forwards;
+        }
+
+        .toc-link {
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+        .toc-link:hover, .toc-link.active {
+            border-left-color: #0072FF;
+            color: #0072FF;
+            padding-left: 16px;
+            background: rgba(0, 114, 255, 0.04);
+        }
+
+        .cookie-card {
+            transition: all 0.3s ease;
+        }
+        .cookie-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 114, 255, 0.15);
+            border-color: rgba(0, 114, 255, 0.3);
+        }
+
+        .toggle-track {
+            transition: background-color 0.3s ease;
+        }
+        .toggle-thumb {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .toggle-active .toggle-track {
+            background-color: #0072FF;
+        }
+        .toggle-active .toggle-thumb {
+            transform: translateX(20px);
+        }
+
+        .toast-enter {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+        .toast-exit {
+            animation: fadeOut 0.3s ease-in forwards;
+        }
+
+        .dot-pattern {
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+
+        @media (max-width: 1023px) {
+            .toc-sidebar { display: none; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Cookie Policy – GoGlobalMart Mini Store",
+        "description": "Cookie Policy for GoGlobalMart Mini Store. Learn how we use cookies, your rights under GDPR, and how to manage your cookie preferences.",
+        "url": "https://goglobalmart.me/mini-cookie.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "GoGlobalMart Mini Store",
+            "url": "https://goglobalmart.me"
+        },
+        "datePublished": "2025-01-15",
+        "dateModified": "2025-07-12"
+    }
+    </script>
+</head>
+<body class="bg-bg-100 text-neutral-100 antialiased">
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-bg-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-xl bg-primary-100 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="font-semibold text-lg tracking-tight">GoGlobalMart <span class="text-neutral-200 font-normal text-sm">Mini Store</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm text-neutral-200">
+                <a href="mini-home.html" class="hover:text-primary-100 transition-colors">Home</a>
+                <a href="mini-home.html" class="hover:text-primary-100 transition-colors">Products</a>
+                <a href="mini-privacy.html" class="hover:text-primary-100 transition-colors">Privacy</a>
+        
+            </div>
+            <button id="openCookiePrefs" class="flex items-center gap-2 text-sm font-medium text-primary-100 hover:text-accent-200 transition-colors px-4 py-2 rounded-full border border-primary-100/20 hover:border-primary-100/40 hover:bg-primary-100/5">
+                <i data-lucide="cookie" class="w-4 h-4"></i>
+                <span class="hidden sm:inline">Cookie Settings</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+        <div class="absolute inset-0 dot-pattern opacity-40"></div>
+        <div class="absolute top-20 right-0 w-96 h-96 bg-primary-100/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-200/5 rounded-full blur-3xl -z-10"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 text-center">
+            <div class="fade-in-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100/10 text-primary-100 text-xs font-semibold uppercase tracking-widest mb-8">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                GDPR Compliant
+            </div>
+            <h1 class="fade-in-up text-4xl md:text-6xl font-semibold tracking-tight leading-tight mb-6">
+                Cookie <span class="text-primary-100">Policy</span>
+            </h1>
+            <p class="fade-in-up text-lg md:text-xl text-neutral-200 font-light max-w-2xl mx-auto leading-relaxed mb-8">
+                We believe in full transparency. This page explains exactly how GoGlobalMart Mini Store uses cookies, why we use them, and how you maintain control.
+            </p>
+            <div class="fade-in-up flex flex-wrap items-center justify-center gap-4 text-sm text-neutral-200">
+                <span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> Last updated: July 12, 2025</span>
+                <span class="hidden sm:inline text-bg-300">|</span>
+                <span class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> 5 min read</span>
+                <span class="hidden sm:inline text-bg-300">|</span>
+                <span class="flex items-center gap-2"><i data-lucide="scale" class="w-4 h-4"></i> GDPR / ePrivacy</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="max-w-7xl mx-auto px-6 pb-24">
+        <div class="flex gap-12">
+
+            <!-- TABLE OF CONTENTS SIDEBAR -->
+            <aside class="toc-sidebar w-64 flex-shrink-0">
+                <div class="sticky top-28">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-neutral-200 mb-4">On this page</p>
+                    <nav class="flex flex-col gap-1">
+                        <a href="#what-are-cookies" class="toc-link text-sm text-neutral-200 py-2 pl-3 rounded-r-lg">What Are Cookies?</a>
+                        <a href="#types-of-cookies" class="toc-link text-sm text-neutral-200 py-2 pl-3 rounded-r-lg">Types of Cookies</a>
+                        <a href="#analytics-cookies" class="toc-link text-sm text-neutral-200 py-2 pl-3 rounded-r-lg">Analytics Cookies</a>
+                        <a href="#advertising-cookies" class="toc-link text-sm text-neutral-200 py-2 pl-3 rounded-r-lg">Advertising Cookies</a>
+                        <a href="#user-control" class="toc-link text-sm text-neutral-200 py-2 pl-3 rounded-r-lg">Your Control Options</a>
+                    </nav>
+
+                    <div class="mt-8 p-4 rounded-2xl bg-bg-200 border border-bg-200">
+                        <p class="text-xs font-semibold text-neutral-100 mb-2">Your Current Preferences</p>
+                        <div id="sidebarPrefs" class="space-y-2 text-xs text-neutral-200">
+                            <p class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span> Essential: Accepted</p>
+                            <p id="sidebarAnalytics" class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-bg-300"></span> Analytics: Undecided</p>
+                            <p id="sidebarAds" class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-bg-300"></span> Advertising: Undecided</p>
+                        </div>
+                        <button onclick="openCookieModal()" class="mt-3 w-full text-xs font-medium text-primary-100 hover:text-accent-200 transition-colors text-left flex items-center gap-1">
+                            Update <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CONTENT AREA -->
+            <article class="flex-1 max-w-3xl space-y-16">
+
+                <!-- SECTION 1: What Are Cookies -->
+                <section id="what-are-cookies" class="fade-in-up scroll-mt-28">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center">
+                            <i data-lucide="cookie" class="w-5 h-5 text-primary-100"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">What Are Cookies?</h2>
+                    </div>
+                    <div class="space-y-4 text-neutral-200 leading-relaxed">
+                        <p>
+                            Cookies are small text files that are placed on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently, provide a better browsing experience, and supply information to the owners of the site.
+                        </p>
+                        <p>
+                            At <strong class="text-neutral-100">GoGlobalMart Mini Store</strong>, we use cookies to enhance your shopping experience, understand how our store is used, and deliver relevant content. Cookies allow us to recognize your device and remember information about your preferences or past actions.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 grid sm:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-2xl bg-bg-200 border border-bg-200 text-center">
+                            <div class="w-12 h-12 rounded-full bg-primary-100/10 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="hard-drive" class="w-5 h-5 text-primary-100"></i>
+                            </div>
+                            <p class="text-sm font-medium text-neutral-100">Stored Locally</p>
+                            <p class="text-xs text-neutral-200 mt-1">On your device</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-bg-200 border border-bg-200 text-center">
+                            <div class="w-12 h-12 rounded-full bg-primary-100/10 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="text" class="w-5 h-5 text-primary-100"></i>
+                            </div>
+                            <p class="text-sm font-medium text-neutral-100">Text-Only Files</p>
+                            <p class="text-xs text-neutral-200 mt-1">Not executable</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-bg-200 border border-bg-200 text-center">
+                            <div class="w-12 h-12 rounded-full bg-primary-100/10 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="timer" class="w-5 h-5 text-primary-100"></i>
+                            </div>
+                            <p class="text-sm font-medium text-neutral-100">Time-Limited</p>
+                            <p class="text-xs text-neutral-200 mt-1">Auto-expire</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 2: Types of Cookies -->
+                <section id="types-of-cookies" class="fade-in-up scroll-mt-28">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center">
+                            <i data-lucide="layers" class="w-5 h-5 text-primary-100"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Types of Cookies We Use</h2>
+                    </div>
+                    <p class="text-neutral-200 leading-relaxed mb-8">
+                        We categorize cookies based on their purpose and necessity. Below is a clear breakdown of each category used on GoGlobalMart Mini Store.
+                    </p>
+
+                    <div class="space-y-4">
+                        <!-- Strictly Necessary -->
+                        <div class="cookie-card p-6 rounded-[2rem] border border-bg-200 bg-white">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="lock" class="w-6 h-6 text-green-500"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <h3 class="text-lg font-semibold">Strictly Necessary Cookies</h3>
+                                        <span class="px-2.5 py-0.5 rounded-full bg-green-50 text-green-600 text-xs font-semibold">Always On</span>
+                                    </div>
+                                    <p class="text-sm text-neutral-200 leading-relaxed mb-4">
+                                        These cookies are essential for the website to function properly. They enable core functionality such as page navigation, secure access to authenticated areas, and shopping cart management. The website cannot function properly without these cookies.
+                                    </p>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-xs">
+                                            <thead>
+                                                <tr class="text-left text-neutral-200 border-b border-bg-200">
+                                                    <th class="pb-2 pr-4 font-medium">Cookie</th>
+                                                    <th class="pb-2 pr-4 font-medium">Duration</th>
+                                                    <th class="pb-2 font-medium">Purpose</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-neutral-200">
+                                                <tr class="border-b border-bg-200/50">
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">gogm_session</td>
+                                                    <td class="py-2.5 pr-4">Session</td>
+                                                    <td class="py-2.5">Maintains your session while browsing</td>
+                                                </tr>
+                                                <tr class="border-b border-bg-200/50">
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">gogm_cart</td>
+                                                    <td class="py-2.5 pr-4">30 days</td>
+                                                    <td class="py-2.5">Stores items in your shopping cart</td>
+                                                </tr>
+                                                <tr class="border-b border-bg-200/50">
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">gogm_cookie_consent</td>
+                                                    <td class="py-2.5 pr-4">1 year</td>
+                                                    <td class="py-2.5">Records your cookie consent preferences</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">XSRF-TOKEN</td>
+                                                    <td class="py-2.5 pr-4">Session</td>
+                                                    <td class="py-2.5">Prevents cross-site request forgery attacks</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Functional Cookies -->
+                        <div class="cookie-card p-6 rounded-[2rem] border border-bg-200 bg-white">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="settings-2" class="w-6 h-6 text-blue-500"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <h3 class="text-lg font-semibold">Functional Cookies</h3>
+                                        <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">Optional</span>
+                                    </div>
+                                    <p class="text-sm text-neutral-200 leading-relaxed mb-4">
+                                        These cookies enable enhanced functionality and personalization, such as remembering your language preference, currency selection, and display settings. They may be set by us or by third-party providers whose services we have added to our pages.
+                                    </p>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-xs">
+                                            <thead>
+                                                <tr class="text-left text-neutral-200 border-b border-bg-200">
+                                                    <th class="pb-2 pr-4 font-medium">Cookie</th>
+                                                    <th class="pb-2 pr-4 font-medium">Duration</th>
+                                                    <th class="pb-2 font-medium">Purpose</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-neutral-200">
+                                                <tr class="border-b border-bg-200/50">
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">gogm_locale</td>
+                                                    <td class="py-2.5 pr-4">1 year</td>
+                                                    <td class="py-2.5">Remembers your language and region</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">gogm_currency</td>
+                                                    <td class="py-2.5 pr-4">1 year</td>
+                                                    <td class="py-2.5">Stores your preferred currency</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 3: Analytics Cookies -->
+                <section id="analytics-cookies" class="fade-in-up scroll-mt-28">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-primary-100"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Analytics Cookies</h2>
+                    </div>
+                    <div class="space-y-4 text-neutral-200 leading-relaxed mb-8">
+                        <p>
+                            Analytics cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. These insights allow us to improve the structure, content, and performance of GoGlobalMart Mini Store.
+                        </p>
+                        <p>
+                            We use <strong class="text-neutral-100">Google Analytics 4</strong> as our primary analytics tool. Data is processed in anonymized form — we do not use analytics cookies to personally identify you.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card mb-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="activity" class="w-6 h-6 text-orange-500"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <h3 class="text-lg font-semibold">Google Analytics 4</h3>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-orange-50 text-orange-600 text-xs font-semibold">Optional</span>
+                                </div>
+                                <p class="text-sm text-neutral-200 leading-relaxed mb-4">
+                                    Measures site traffic, user journeys, and conversion events. All data is anonymized using Google's IP anonymization feature.
+                                </p>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-xs">
+                                        <thead>
+                                            <tr class="text-left text-neutral-200 border-b border-bg-200">
+                                                <th class="pb-2 pr-4 font-medium">Cookie</th>
+                                                <th class="pb-2 pr-4 font-medium">Duration</th>
+                                                <th class="pb-2 font-medium">Purpose</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-neutral-200">
+                                            <tr class="border-b border-bg-200/50">
+                                                <td class="py-2.5 pr-4 font-mono text-neutral-100">_ga</td>
+                                                <td class="py-2.5 pr-4">2 years</td>
+                                                <td class="py-2.5">Distinguishes unique visitors</td>
+                                            </tr>
+                                            <tr class="border-b border-bg-200/50">
+                                                <td class="py-2.5 pr-4 font-mono text-neutral-100">_ga_*</td>
+                                                <td class="py-2.5 pr-4">2 years</td>
+                                                <td class="py-2.5">Maintains session state for GA4</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2.5 pr-4 font-mono text-neutral-100">_gid</td>
+                                                <td class="py-2.5 pr-4">24 hours</td>
+                                                <td class="py-2.5">Distinguishes unique visitors within a day</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-amber-50/60 border border-amber-200/50 flex gap-3">
+                        <i data-lucide="info" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i>
+                        <div class="text-sm text-amber-800 leading-relaxed">
+                            <strong>IP Anonymization:</strong> We have enabled IP anonymization in Google Analytics, meaning your IP address is truncated before being processed. This ensures compliance with GDPR's data minimization principle.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 4: Advertising Cookies -->
+                <section id="advertising-cookies" class="fade-in-up scroll-mt-28">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center">
+                            <i data-lucide="megaphone" class="w-5 h-5 text-primary-100"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Advertising Cookies</h2>
+                    </div>
+                    <div class="space-y-4 text-neutral-200 leading-relaxed mb-8">
+                        <p>
+                            Advertising cookies are used to deliver advertisements that are relevant to you and your interests. They also help limit the number of times you see an ad and measure the effectiveness of advertising campaigns.
+                        </p>
+                        <p>
+                            These cookies track your browsing activity across different websites and may be set by third-party ad networks with our permission. We work with the following advertising partners:
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 mb-6">
+                        <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="target" class="w-6 h-6 text-purple-500"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <h3 class="text-lg font-semibold">Meta (Facebook) Pixel</h3>
+                                        <span class="px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-600 text-xs font-semibold">Optional</span>
+                                    </div>
+                                    <p class="text-sm text-neutral-200 leading-relaxed mb-4">
+                                        Measures the effectiveness of ads by tracking actions taken on our website after viewing a Facebook or Instagram ad.
+                                    </p>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-xs">
+                                            <thead>
+                                                <tr class="text-left text-neutral-200 border-b border-bg-200">
+                                                    <th class="pb-2 pr-4 font-medium">Cookie</th>
+                                                    <th class="pb-2 pr-4 font-medium">Duration</th>
+                                                    <th class="pb-2 font-medium">Purpose</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-neutral-200">
+                                                <tr class="border-b border-bg-200/50">
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">_fbp</td>
+                                                    <td class="py-2.5 pr-4">90 days</td>
+                                                    <td class="py-2.5">Stores and tracks visits across websites</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">_fbc</td>
+                                                    <td class="py-2.5 pr-4">2 years</td>
+                                                    <td class="py-2.5">Tracks ad click attribution</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="repeat" class="w-6 h-6 text-sky-500"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <h3 class="text-lg font-semibold">Google Ads Remarketing</h3>
+                                        <span class="px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-600 text-xs font-semibold">Optional</span>
+                                    </div>
+                                    <p class="text-sm text-neutral-200 leading-relaxed mb-4">
+                                        Enables remarketing to previous visitors of GoGlobalMart Mini Store across the Google Display Network.
+                                    </p>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-xs">
+                                            <thead>
+                                                <tr class="text-left text-neutral-200 border-b border-bg-200">
+                                                    <th class="pb-2 pr-4 font-medium">Cookie</th>
+                                                    <th class="pb-2 pr-4 font-medium">Duration</th>
+                                                    <th class="pb-2 font-medium">Purpose</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-neutral-200">
+                                                <tr>
+                                                    <td class="py-2.5 pr-4 font-mono text-neutral-100">__gads</td>
+                                                    <td class="py-2.5 pr-4">13 months</td>
+                                                    <td class="py-2.5">Enables ad personalization across Google</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-blue-50/60 border border-blue-200/50 flex gap-3">
+                        <i data-lucide="external-link" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                        <div class="text-sm text-blue-800 leading-relaxed">
+                            <strong>Opt-out links:</strong> You can opt out of personalized advertising directly through
+                            <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="underline font-medium hover:text-blue-600 transition-colors">Google Ads Settings</a> and
+                            <a href="https://www.facebook.com/ads/preferences" target="_blank" rel="noopener noreferrer" class="underline font-medium hover:text-blue-600 transition-colors">Facebook Ad Preferences</a>.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 5: User Control Options -->
+                <section id="user-control" class="fade-in-up scroll-mt-28">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center">
+                            <i data-lucide="sliders-horizontal" class="w-5 h-5 text-primary-100"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Your Control Options</h2>
+                    </div>
+                    <p class="text-neutral-200 leading-relaxed mb-8">
+                        Under the General Data Protection Regulation (GDPR) and the ePrivacy Directive, you have the right to decide whether or not to accept cookies. Here are all the ways you can manage your preferences:
+                    </p>
+
+                    <div class="space-y-4">
+                        <!-- Option 1 -->
+                        <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center flex-shrink-0 text-lg font-semibold text-primary-100">1</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Cookie Consent Banner</h3>
+                                    <p class="text-sm text-neutral-200 leading-relaxed">
+                                        When you first visit our site, a consent banner appears at the bottom of your screen. You can <strong class="text-neutral-100">Accept All</strong>, <strong class="text-neutral-100">Reject All</strong>, or click <strong class="text-neutral-100">Customize</strong> to choose which categories to enable. Your choice is saved for 1 year.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 2 -->
+                        <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center flex-shrink-0 text-lg font-semibold text-primary-100">2</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Cookie Settings Button</h3>
+                                    <p class="text-sm text-neutral-200 leading-relaxed">
+                                        At any time, click the <strong class="text-neutral-100">"Cookie Settings"</strong> button in the navigation bar to reopen the preference center and modify your choices.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 3 -->
+                        <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center flex-shrink-0 text-lg font-semibold text-primary-100">3</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Browser Settings</h3>
+                                    <p class="text-sm text-neutral-200 leading-relaxed">
+                                        Most browsers allow you to control cookies through their settings. You can set your browser to refuse all cookies, accept only first-party cookies, or delete cookies when you close your browser. Note that disabling cookies may affect some website functionality.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 4 -->
+                        <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center flex-shrink-0 text-lg font-semibold text-primary-100">4</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Opt-Out Platforms</h3>
+                                    <p class="text-sm text-neutral-200 leading-relaxed">
+                                        You can opt out of tracking across multiple websites using industry-standard tools:
+                                    </p>
+                                    <div class="flex flex-wrap gap-3 mt-3">
+                                        <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-medium text-primary-100 bg-primary-100/5 border border-primary-100/20 px-3 py-2 rounded-full hover:bg-primary-100/10 transition-colors">
+                                            <i data-lucide="external-link" class="w-3 h-3"></i> NAI Opt-Out
+                                        </a>
+                                        <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-medium text-primary-100 bg-primary-100/5 border border-primary-100/20 px-3 py-2 rounded-full hover:bg-primary-100/10 transition-colors">
+                                            <i data-lucide="external-link" class="w-3 h-3"></i> DAA Opt-Out
+                                        </a>
+                                        <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-medium text-primary-100 bg-primary-100/5 border border-primary-100/20 px-3 py-2 rounded-full hover:bg-primary-100/10 transition-colors">
+                                            <i data-lucide="external-link" class="w-3 h-3"></i> EDMA Choices
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 5 -->
+                        <div class="p-6 rounded-[2rem] border border-bg-200 bg-white cookie-card">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center flex-shrink-0 text-lg font-semibold text-primary-100">5</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Your GDPR Rights</h3>
+                                    <p class="text-sm text-neutral-200 leading-relaxed">
+                                        As a data subject under GDPR, you have the right to <strong class="text-neutral-100">access</strong>, <strong class="text-neutral-100">rectify</strong>, <strong class="text-neutral-100">erase</strong>, <strong class="text-neutral-100">restrict processing</strong>, <strong class="text-neutral-100">data portability</strong>, and <strong class="text-neutral-100">object</strong> to the processing of your personal data. To exercise any of these rights, contact us at:
+                                    </p>
+                                    <a href="mailto:privacy@goglobalmart.com" class="inline-flex items-center gap-2 text-sm font-medium text-primary-100 hover:text-accent-200 transition-colors mt-2">
+                                        <i data-lucide="mail" class="w-4 h-4"></i> privacy@goglobalmart.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CHANGES & CONTACT -->
+                <section class="fade-in-up">
+                    <div class="p-8 rounded-[2rem] bg-gradient-to-br from-neutral-100 to-accent-200 text-white">
+                        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="refresh-cw" class="w-5 h-5"></i> Changes to This Policy
+                        </h2>
+                        <p class="text-sm text-white/80 leading-relaxed mb-6">
+                            We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our data practices. We will notify you of any material changes by posting the updated policy on this page and updating the "Last updated" date at the top.
+                        </p>
+                        <div class="border-t border-white/20 pt-6">
+                            <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                                <i data-lucide="headphones" class="w-5 h-5"></i> Contact Us
+                            </h3>
+                            <p class="text-sm text-white/80 leading-relaxed mb-4">
+                                If you have any questions about this Cookie Policy or our use of cookies, please don't hesitate to reach out:
+                            </p>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <a href="mailto:privacy@goglobalmart.com" class="flex items-center gap-3 text-sm text-white/90 hover:text-white transition-colors">
+                                    <i data-lucide="mail" class="w-4 h-4 opacity-60"></i> privacy@goglobalmart.com
+                                </a>
+                                <span class="flex items-center gap-3 text-sm text-white/90">
+                                    <i data-lucide="map-pin" class="w-4 h-4 opacity-60"></i> Amsterdam, Netherlands
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="border-t border-bg-200 bg-bg-200">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <span class="font-medium text-sm">GoGlobalMart Mini Store</span>
+                </div>
+                <div class="flex items-center gap-6 text-sm text-neutral-200">
+                    <a href="mini-privacy.html" class="hover:text-primary-100 transition-colors">Privacy Policy</a>
+                    <a href="-mini-terms.html" class="hover:text-primary-100 transition-colors">Terms of Service</a>
+                    
+                </div>
+                <p class="text-xs text-neutral-200">© 2025 GoGlobalMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== COOKIE CONSENT BANNER ==================== -->
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 z-[60] hidden">
+        <div class="max-w-4xl mx-auto px-4 pb-6">
+            <div class="cookie-popup-animate bg-white rounded-[2rem] shadow-2xl border border-bg-200 p-6 md:p-8">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-primary-100/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="cookie" class="w-6 h-6 text-primary-100"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">We value your privacy</h3>
+                        <p class="text-sm text-neutral-200 leading-relaxed">
+                            We use cookies to enhance your browsing experience, serve personalized ads, and analyze our traffic. You can choose which cookie categories to allow. Read our <a href="#what-are-cookies" class="text-primary-100 underline hover:text-accent-200 transition-colors" onclick="closeBanner()">Cookie Policy</a> for details.
+                        </p>
+                    </div>
+                    <button onclick="closeBanner()" class="text-neutral-200 hover:text-neutral-100 transition-colors flex-shrink-0 mt-1">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Quick Toggles in Banner -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-bg-200 border border-bg-200">
+                        <div>
+                            <p class="text-xs font-semibold">Necessary</p>
+                            <p class="text-[10px] text-neutral-200">Always active</p>
+                        </div>
+                        <div class="w-10 h-6 rounded-full bg-green-400 flex items-center px-0.5 cursor-not-allowed">
+                            <div class="w-5 h-5 rounded-full bg-white shadow transform translate-x-4"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-bg-200 border border-bg-200">
+                        <div>
+                            <p class="text-xs font-semibold">Analytics</p>
+                            <p class="text-[10px] text-neutral-200">Google Analytics</p>
+                        </div>
+                        <div id="bannerAnalyticsToggle" onclick="toggleBannerCategory('analytics')" class="w-10 h-6 rounded-full bg-bg-300 flex items-center px-0.5 cursor-pointer toggle-track">
+                            <div class="w-5 h-5 rounded-full bg-white shadow toggle-thumb"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-bg-200 border border-bg-200">
+                        <div>
+                            <p class="text-xs font-semibold">Advertising</p>
+                            <p class="text-[10px] text-neutral-200">Meta & Google Ads</p>
+                        </div>
+                        <div id="bannerAdsToggle" onclick="toggleBannerCategory('ads')" class="w-10 h-6 rounded-full bg-bg-300 flex items-center px-0.5 cursor-pointer toggle-track">
+                            <div class="w-5 h-5 rounded-full bg-white shadow toggle-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <button onclick="rejectAll()" class="px-6 py-3 rounded-full text-sm font-medium text-neutral-200 border border-bg-300 hover:border-neutral-100 hover:text-neutral-100 transition-all text-center">
+                        Reject All
+                    </button>
+                    <button onclick="saveBannerPreferences()" class="px-6 py-3 rounded-full text-sm font-medium text-white bg-primary-100 hover:bg-accent-200 transition-all shadow-md hover:shadow-lg text-center">
+                        Save Selection
+                    </button>
+                    <button onclick="acceptAll()" class="px-6 py-3 rounded-full text-sm font-medium text-white bg-neutral-100 hover:bg-black transition-all text-center">
+                        Accept All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== COOKIE PREFERENCES MODAL ==================== -->
+    <div id="cookieModal" class="fixed inset-0 z-[70] hidden">
+        <div id="cookieModalBackdrop" class="absolute inset-0 bg-black/40 backdrop-animate" onclick="closeCookieModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <div id="cookieModalContent" class="cookie-popup-animate pointer-events-auto bg-white rounded-[2rem] shadow-2xl w-full max-w-xl max-h-[85vh] overflow-hidden flex flex-col">
+                <!-- Modal Header -->
+                <div class="p-6 md:p-8 pb-0">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-primary-100/10 flex items-center justify-center">
+                                <i data-lucide="settings" class="w-5 h-5 text-primary-100"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold">Cookie Preferences</h2>
+                        </div>
+                        <button onclick="closeCookieModal()" class="w-9 h-9 rounded-full hover:bg-bg-200 flex items-center justify-center transition-colors">
+                            <i data-lucide="x" class="w-5 h-5 text-neutral-200"></i>
+                        </button>
+                    </div>
+                    <p class="text-sm text-neutral-200 leading-relaxed">Manage your cookie categories below. Essential cookies cannot be disabled.</p>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="flex-1 overflow-y-auto p-6 md:p-8 space-y-4">
+                    <!-- Essential -->
+                    <div class="p-4 rounded-2xl border border-bg-200 bg-bg-200/50">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-green-50 flex items-center justify-center">
+                                    <i data-lucide="lock" class="w-4 h-4 text-green-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">Essential</p>
+                                    <p class="text-xs text-neutral-200">Required for basic site functionality</p>
+                                </div>
+                            </div>
+                            <div class="w-10 h-6 rounded-full bg-green-400 flex items-center px-0.5 cursor-not-allowed">
+                                <div class="w-5 h-5 rounded-full bg-white shadow transform translate-x-4"></div>
+                            </div>
+                        </div>
+                        <div class="mt-3 pl-12 text-xs text-neutral-200 leading-relaxed">
+                            Session management, shopping cart, CSRF protection, and consent storage.
+                        </div>
+                    </div>
+
+                    <!-- Functional -->
+                    <div class="p-4 rounded-2xl border border-bg-200 bg-bg-200/50">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center">
+                                    <i data-lucide="settings-2" class="w-4 h-4 text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">Functional</p>
+                                    <p class="text-xs text-neutral-200">Remember your preferences</p>
+                                </div>
+                            </div>
+                            <div id="modalFunctionalToggle" onclick="toggleModalCategory('functional')" class="w-10 h-6 rounded-full bg-bg-300 flex items-center px-0.5 cursor-pointer toggle-track">
+                                <div class="w-5 h-5 rounded-full bg-white shadow toggle-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="mt-3 pl-12 text-xs text-neutral-200 leading-relaxed">
+                            Language, region, and currency preferences.
+                        </div>
+                    </div>
+
+                    <!-- Analytics -->
+                    <div class="p-4 rounded-2xl border border-bg-200 bg-bg-200/50">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-orange-50 flex items-center justify-center">
+                                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-orange-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">Analytics</p>
+                                    <p class="text-xs text-neutral-200">Help us improve our store</p>
+                                </div>
+                            </div>
+                            <div id="modalAnalyticsToggle" onclick="toggleModalCategory('analytics')" class="w-10 h-6 rounded-full bg-bg-300 flex items-center px-0.5 cursor-pointer toggle-track">
+                                <div class="w-5 h-5 rounded-full bg-white shadow toggle-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="mt-3 pl-12 text-xs text-neutral-200 leading-relaxed">
+                            Google Analytics 4 — page views, user journeys, anonymized traffic data.
+                        </div>
+                    </div>
+
+                    <!-- Advertising -->
+                    <div class="p-4 rounded-2xl border border-bg-200 bg-bg-200/50">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-purple-50 flex items-center justify-center">
+                                    <i data-lucide="megaphone" class="w-4 h-4 text-purple-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">Advertising</p>
+                                    <p class="text-xs text-neutral-200">Personalized ads & remarketing</p>
+                                </div>
+                            </div>
+                            <div id="modalAdsToggle" onclick="toggleModalCategory('ads')" class="w-10 h-6 rounded-full bg-bg-300 flex items-center px-0.5 cursor-pointer toggle-track">
+                                <div class="w-5 h-5 rounded-full bg-white shadow toggle-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="mt-3 pl-12 text-xs text-neutral-200 leading-relaxed">
+                            Meta Pixel & Google Ads — ad delivery, conversion tracking, remarketing.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="p-6 md:p-8 pt-0 flex flex-col sm:flex-row gap-3">
+                    <button onclick="rejectAllFromModal()" class="flex-1 px-6 py-3 rounded-full text-sm font-medium text-neutral-200 border border-bg-300 hover:border-neutral-100 hover:text-neutral-100 transition-all text-center">
+                        Reject All
+                    </button>
+                    <button onclick="saveModalPreferences()" class="flex-1 px-6 py-3 rounded-full text-sm font-medium text-white bg-primary-100 hover:bg-accent-200 transition-all shadow-md hover:shadow-lg text-center">
+                        Save Preferences
+                    </button>
+                    <button onclick="acceptAllFromModal()" class="flex-1 px-6 py-3 rounded-full text-sm font-medium text-white bg-neutral-100 hover:bg-black transition-all text-center">
+                        Accept All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST CONTAINER ==================== -->
+    <div id="toastContainer" class="fixed top-24 right-6 z-[80] space-y-3 pointer-events-none"></div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ===== STATE MANAGEMENT =====
+        const CONSENT_KEY = 'gogm_cookie_consent';
+        const consentState = {
+            essential: true,
+            functional: false,
+            analytics: false,
+            ads: false,
+            timestamp: null
+        };
+
+        // Banner toggle state
+        const bannerToggles = { analytics: false, ads: false };
+        // Modal toggle state
+        const modalToggles = { functional: false, analytics: false, ads: false };
+
+        // ===== INITIALIZATION =====
+        function init() {
+            loadConsent();
+            updateAllUI();
+            if (!hasConsented()) {
+                setTimeout(showBanner, 800);
+            }
+            setupScrollSpy();
+            lucide.createIcons();
+        }
+
+        // ===== CONSENT PERSISTENCE =====
+        function loadConsent() {
+            try {
+                const saved = localStorage.getItem(CONSENT_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    consentState.functional = parsed.functional || false;
+                    consentState.analytics = parsed.analytics || false;
+                    consentState.ads = parsed.ads || false;
+                    consentState.timestamp = parsed.timestamp || null;
+                }
+            } catch (e) {
+                console.warn('Could not load consent:', e);
+            }
+        }
+
+        function saveConsent() {
+            consentState.timestamp = new Date().toISOString();
+            localStorage.setItem(CONSENT_KEY, JSON.stringify({
+                essential: consentState.essential,
+                functional: consentState.functional,
+                analytics: consentState.analytics,
+                ads: consentState.ads,
+                timestamp: consentState.timestamp
+            }));
+        }
+
+        function hasConsented() {
+            return localStorage.getItem(CONSENT_KEY) !== null;
+        }
+
+        // ===== BANNER CONTROLS =====
+        function showBanner() {
+            const banner = document.getElementById('cookieBanner');
+            banner.classList.remove('hidden');
+            // Reset banner toggles to match consent state if exists
+            bannerToggles.analytics = consentState.analytics;
+            bannerToggles.ads = consentState.ads;
+            updateBannerToggles();
+        }
+
+        function closeBanner() {
+            const banner = document.getElementById('cookieBanner');
+            const content = banner.querySelector('.cookie-popup-animate');
+            content.classList.remove('cookie-popup-animate');
+            content.classList.add('cookie-popup-close');
+            setTimeout(() => {
+                banner.classList.add('hidden');
+                content.classList.remove('cookie-popup-close');
+                content.classList.add('cookie-popup-animate');
+            }, 350);
+        }
+
+        function toggleBannerCategory(cat) {
+            bannerToggles[cat] = !bannerToggles[cat];
+            updateBannerToggles();
+        }
+
+        function updateBannerToggles() {
+            const analyticsEl = document.getElementById('bannerAnalyticsToggle');
+            const adsEl = document.getElementById('bannerAdsToggle');
+            updateToggleVisual(analyticsEl, bannerToggles.analytics);
+            updateToggleVisual(adsEl, bannerToggles.ads);
+        }
+
+        // ===== MODAL CONTROLS =====
+        function openCookieModal() {
+            const modal = document.getElementById('cookieModal');
+            const backdrop = document.getElementById('cookieModalBackdrop');
+            modal.classList.remove('hidden');
+            backdrop.classList.remove('backdrop-close');
+            backdrop.classList.add('backdrop-animate');
+
+            // Sync modal toggles with consent state
+            modalToggles.functional = consentState.functional;
+            modalToggles.analytics = consentState.analytics;
+            modalToggles.ads = consentState.ads;
+            updateModalToggles();
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeCookieModal() {
+            const modal = document.getElementById('cookieModal');
+            const backdrop = document.getElementById('cookieModalBackdrop');
+            const content = document.getElementById('cookieModalContent');
+
+            backdrop.classList.remove('backdrop-animate');
+            backdrop.classList.add('backdrop-close');
+            content.classList.remove('cookie-popup-animate');
+            content.classList.add('cookie-popup-close');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                backdrop.classList.remove('backdrop-close');
+                backdrop.classList.add('backdrop-animate');
+                content.classList.remove('cookie-popup-close');
+                content.classList.add('cookie-popup-animate');
+                document.body.style.overflow = '';
+            }, 350);
+        }
+
+        function toggleModalCategory(cat) {
+            modalToggles[cat] = !modalToggles[cat];
+            updateModalToggles();
+        }
+
+        function updateModalToggles() {
+            updateToggleVisual(document.getElementById('modalFunctionalToggle'), modalToggles.functional);
+            updateToggleVisual(document.getElementById('modalAnalyticsToggle'), modalToggles.analytics);
+            updateToggleVisual(document.getElementById('modalAdsToggle'), modalToggles.ads);
+        }
+
+        // ===== TOGGLE VISUAL HELPER =====
+        function updateToggleVisual(el, active) {
+            if (active) {
+                el.classList.add('toggle-active');
+                el.style.backgroundColor = '#0072FF';
+            } else {
+                el.classList.remove('toggle-active');
+                el.style.backgroundColor = '#cccccc';
+            }
+        }
+
+        // ===== CONSENT ACTIONS =====
+        function acceptAll() {
+            consentState.functional = true;
+            consentState.analytics = true;
+            consentState.ads = true;
+            saveConsent();
+            closeBanner();
+            updateAllUI();
+            showToast('All cookies accepted', 'success');
+        }
+
+        function rejectAll() {
+            consentState.functional = false;
+            consentState.analytics = false;
+            consentState.ads = false;
+            saveConsent();
+            closeBanner();
+            updateAllUI();
+            showToast('Non-essential cookies rejected', 'info');
+        }
+
+        function saveBannerPreferences() {
+            consentState.functional = false; // Not in banner
+            consentState.analytics = bannerToggles.analytics;
+            consentState.ads = bannerToggles.ads;
+            saveConsent();
+            closeBanner();
+            updateAllUI();
+            showToast('Cookie preferences saved', 'success');
+        }
+
+        function acceptAllFromModal() {
+            consentState.functional = true;
+            consentState.analytics = true;
+            consentState.ads = true;
+            saveConsent();
+            closeCookieModal();
+            updateAllUI();
+            showToast('All cookies accepted', 'success');
+        }
+
+        function rejectAllFromModal() {
+            consentState.functional = false;
+            consentState.analytics = false;
+            consentState.ads = false;
+            saveConsent();
+            closeCookieModal();
+            updateAllUI();
+            showToast('Non-essential cookies rejected', 'info');
+        }
+
+        function saveModalPreferences() {
+            consentState.functional = modalToggles.functional;
+            consentState.analytics = modalToggles.analytics;
+            consentState.ads = modalToggles.ads;
+            saveConsent();
+            closeCookieModal();
+            updateAllUI();
+            showToast('Cookie preferences saved', 'success');
+        }
+
+        // ===== UI UPDATE =====
+        function updateAllUI() {
+            updateSidebarPrefs();
+        }
+
+        function updateSidebarPrefs() {
+            const analyticsEl = document.getElementById('sidebarAnalytics');
+            const adsEl = document.getElementById('sidebarAds');
+
+            if (hasConsented()) {
+                analyticsEl.innerHTML = `<span class="w-2 h-2 rounded-full ${consentState.analytics ? 'bg-green-400' : 'bg-red-400'}"></span> Analytics: ${consentState.analytics ? 'Accepted' : 'Rejected'}`;
+                adsEl.innerHTML = `<span class="w-2 h-2 rounded-full ${consentState.ads ? 'bg-green-400' : 'bg-red-400'}"></span> Advertising: ${consentState.ads ? 'Accepted' : 'Rejected'}`;
+            } else {
+                analyticsEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-bg-300"></span> Analytics: Undecided';
+                adsEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-bg-300"></span> Advertising: Undecided';
+            }
+        }
+
+        // ===== TOAST NOTIFICATIONS =====
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            const icon = type === 'success' ? 'check-circle' : 'info';
+            const color = type === 'success' ? 'text-green-500' : 'text-primary-100';
+
+            toast.className = 'toast-enter pointer-events-auto flex items-center gap-3 bg-white rounded-2xl shadow-lg border border-bg-200 px-5 py-3.5 min-w-[280px]';
+            toast.innerHTML = `
+                <i data-lucide="${icon}" class="w-5 h-5 ${color} flex-shrink-0"></i>
+                <p class="text-sm font-medium text-neutral-100">${message}</p>
+            `;
+
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.remove('toast-enter');
+                toast.classList.add('toast-exit');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // ===== SCROLL SPY FOR TOC =====
+        function setupScrollSpy() {
+            const sections = document.querySelectorAll('section[id]');
+            const links = document.querySelectorAll('.toc-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        links.forEach(l => l.classList.remove('active'));
+                        const activeLink = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-20% 0px -70% 0px' });
+
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // ===== NAV BUTTON BINDING =====
+        document.getElementById('openCookiePrefs').addEventListener('click', openCookieModal);
+
+        // ===== KEYBOARD SUPPORT =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('cookieModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeCookieModal();
+                }
+            }
+        });
+
+        // ===== START =====
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+
+</body>
+</html>

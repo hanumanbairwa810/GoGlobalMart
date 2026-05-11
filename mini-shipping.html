@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GoGlobalMart Mini Store Shipping Policy — Learn about delivery timelines, shipping charges, international shipping, order tracking, delayed shipment policy, and lost package support.">
+    <meta name="keywords" content="shipping policy, delivery timeline, shipping charges, international shipping, order tracking, GoGlobalMart, mini store">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Shipping Policy — GoGlobalMart Mini Store">
+    <meta property="og:description" content="Complete shipping information including delivery timelines, charges, international shipping, tracking, and support for delayed or lost packages.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GoGlobalMart Mini Store">
+    <title>Shipping Policy — GoGlobalMart Mini Store</title>
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#EFF6FF', 100: '#DBEAFE', 200: '#BFDBFE', 300: '#93C5FD',
+                            400: '#60A5FA', 500: '#3B82F6', 600: '#2563EB', 700: '#1D4ED8',
+                            800: '#1E40AF', 900: '#1E3A8A'
+                        },
+                        slate: { 850: '#151F2E' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    letterSpacing: { tighter: '-0.04em', tight: '-0.02em' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748B; }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, #3B82F6, #1E3A8A, #3B82F6);
+        }
+
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .timeline-item:hover .timeline-dot {
+            box-shadow: 0 0 0 8px rgba(59,130,246,0.15);
+            transform: scale(1.15);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+        }
+        .faq-answer.open {
+            max-height: 500px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        .charge-card {
+            transition: all 0.3s ease;
+        }
+        .charge-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+
+        .step-card {
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            border-color: #3B82F6;
+            box-shadow: 0 10px 15px -3px rgba(59,130,246,0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2563EB;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226,232,240,0.8);">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5">
+                <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+                    <span class="iconify text-white text-lg" data-icon="mdi:shopping-outline"></span>
+                </div>
+                <span class="font-semibold text-lg tracking-tight text-slate-900">GoGlobalMart</span>
+                <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full hidden sm:inline">Mini Store</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#delivery" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Delivery</a>
+                <a href="#charges" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Charges</a>
+                <a href="#international" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">International</a>
+                <a href="#tracking" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Tracking</a>
+                <a href="#faq" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">FAQ</a>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-brand-600 transition-colors">
+                <span class="iconify text-2xl" data-icon="mdi:menu" id="menuIcon"></span>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-slate-100 px-6 py-4">
+            <div class="flex flex-col gap-3">
+                <a href="#delivery" class="text-sm font-medium text-slate-600 hover:text-brand-600 py-2 mobile-link">Delivery Timelines</a>
+                <a href="#charges" class="text-sm font-medium text-slate-600 hover:text-brand-600 py-2 mobile-link">Shipping Charges</a>
+                <a href="#international" class="text-sm font-medium text-slate-600 hover:text-brand-600 py-2 mobile-link">International Shipping</a>
+                <a href="#tracking" class="text-sm font-medium text-slate-600 hover:text-brand-600 py-2 mobile-link">Tracking Orders</a>
+                <a href="#delayed" class="text-sm font-medium text-slate-600 hover:text-brand-600 py-2 mobile-link">Delayed Shipments</a>
+                <a href="#lost" class="text-sm font-medium text-slate-600 hover:text-brand-600 py-2 mobile-link">Lost Packages</a>
+                <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-brand-600 py-2 mobile-link">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-900 via-slate-900 to-brand-900"></div>
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-brand-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-20 w-96 h-96 bg-brand-400 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-400 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+                <span class="iconify text-brand-400" data-icon="mdi:truck-delivery-outline"></span>
+                <span class="text-sm font-medium text-white/90">Shipping & Delivery Information</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.1] mb-6">
+                Shipping <span class="text-brand-400">Policy</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto mb-10">
+                Everything you need to know about how we deliver your orders — from timelines and charges to tracking and support.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#delivery" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium px-6 py-3.5 rounded-xl transition-colors">
+                    View Delivery Timeline
+                    <span class="iconify" data-icon="mdi:arrow-down"></span>
+                </a>
+                <a href="#faq" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-6 py-3.5 rounded-xl border border-white/20 transition-colors">
+                    Read FAQ
+                </a>
+            </div>
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-3xl mx-auto">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                    <div class="text-2xl font-bold text-white">50+</div>
+                    <div class="text-xs text-slate-400 mt-1">Countries Served</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                    <div class="text-2xl font-bold text-white">2-7</div>
+                    <div class="text-xs text-slate-400 mt-1">Days Domestic</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                    <div class="text-2xl font-bold text-white">99.2%</div>
+                    <div class="text-xs text-slate-400 mt-1">On-Time Rate</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                    <div class="text-2xl font-bold text-white">24/7</div>
+                    <div class="text-xs text-slate-400 mt-1">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <section class="bg-slate-50 border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-6 py-8">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="iconify text-brand-600 text-lg" data-icon="mdi:format-list-bulleted"></span>
+                <span class="text-sm font-semibold text-slate-900 uppercase tracking-wide">On This Page</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                <a href="#delivery" class="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors py-1.5">
+                    <span class="w-6 h-6 bg-brand-50 text-brand-600 rounded-md flex items-center justify-center text-xs font-semibold">1</span>
+                    Delivery
+                </a>
+                <a href="#charges" class="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors py-1.5">
+                    <span class="w-6 h-6 bg-brand-50 text-brand-600 rounded-md flex items-center justify-center text-xs font-semibold">2</span>
+                    Charges
+                </a>
+                <a href="#international" class="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors py-1.5">
+                    <span class="w-6 h-6 bg-brand-50 text-brand-600 rounded-md flex items-center justify-center text-xs font-semibold">3</span>
+                    International
+                </a>
+                <a href="#tracking" class="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors py-1.5">
+                    <span class="w-6 h-6 bg-brand-50 text-brand-600 rounded-md flex items-center justify-center text-xs font-semibold">4</span>
+                    Tracking
+                </a>
+                <a href="#delayed" class="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors py-1.5">
+                    <span class="w-6 h-6 bg-brand-50 text-brand-600 rounded-md flex items-center justify-center text-xs font-semibold">5</span>
+                    Delays
+                </a>
+                <a href="#lost" class="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors py-1.5">
+                    <span class="w-6 h-6 bg-brand-50 text-brand-600 rounded-md flex items-center justify-center text-xs font-semibold">6</span>
+                    Lost Packages
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+
+        <!-- Section 1: Delivery Timelines -->
+        <section id="delivery" class="py-20 md:py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mb-16 reveal">
+                    <div class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                        <span class="iconify" data-icon="mdi:clock-fast"></span>
+                        SECTION 01
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">Delivery Timelines</h2>
+                    <p class="text-lg text-slate-500 font-light leading-relaxed">From the moment you place your order to when it arrives at your doorstep — here's exactly what to expect at every stage.</p>
+                </div>
+
+                <!-- Timeline UI -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Vertical Line -->
+                        <div class="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 timeline-line"></div>
+
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row items-start mb-12 reveal">
+                            <div class="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0">
+                                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                                    <div class="flex items-center gap-2 md:justify-end mb-2">
+                                        <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Instant</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Order Confirmed</h3>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Your order is placed and confirmed. You'll receive an email with your order number and summary details.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-6">
+                                <div class="timeline-dot w-5 h-5 bg-brand-500 rounded-full border-4 border-white"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row items-start mb-12 reveal delay-100">
+                            <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                            <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-6">
+                                <div class="timeline-dot w-5 h-5 bg-brand-500 rounded-full border-4 border-white"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12 pl-16">
+                                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">1-2 Business Days</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Processing & Packed</h3>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Our team carefully picks, quality-checks, and packs your items. Stock verification and secure packaging are completed.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row items-start mb-12 reveal delay-200">
+                            <div class="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0">
+                                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                                    <div class="flex items-center gap-2 md:justify-end mb-2">
+                                        <span class="text-xs font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full">Day 2-3</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Shipped & In Transit</h3>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Your package is handed to our carrier partner. A tracking number is generated and shared via email and SMS.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-6">
+                                <div class="timeline-dot w-5 h-5 bg-brand-500 rounded-full border-4 border-white"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                        </div>
+
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row items-start mb-12 reveal delay-100">
+                            <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                            <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-6">
+                                <div class="timeline-dot w-5 h-5 bg-brand-500 rounded-full border-4 border-white"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12 pl-16">
+                                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full">Day 4-7</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Out for Delivery</h3>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Your package arrives at the local delivery hub and is assigned to a delivery agent. You'll get a real-time notification.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 5 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row items-start reveal delay-200">
+                            <div class="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0">
+                                <div class="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl p-6 shadow-lg">
+                                    <div class="flex items-center gap-2 md:justify-end mb-2">
+                                        <span class="text-xs font-semibold text-white/80 bg-white/20 px-2.5 py-1 rounded-full">Day 5-7</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-white mb-1">Delivered! 🎉</h3>
+                                    <p class="text-sm text-blue-100 leading-relaxed">Your order is delivered to your specified address. A delivery confirmation with photo proof is sent to you.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-6">
+                                <div class="timeline-dot w-5 h-5 bg-green-500 rounded-full border-4 border-white"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note Box -->
+                <div class="max-w-4xl mx-auto mt-12 reveal">
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4">
+                        <span class="iconify text-amber-500 text-2xl flex-shrink-0 mt-0.5" data-icon="mdi:information-outline"></span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-amber-800 mb-1">Please Note</h4>
+                            <p class="text-sm text-amber-700 leading-relaxed">Delivery timelines are estimates based on business days (Mon–Sat, excluding public holidays). Remote areas, high-demand periods (sales, festive seasons), and weather conditions may add 1-3 additional days.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Shipping Charges -->
+        <section id="charges" class="py-20 md:py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mb-16 reveal">
+                    <div class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                        <span class="iconify" data-icon="mdi:tag-outline"></span>
+                        SECTION 02
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">Shipping Charges</h2>
+                    <p class="text-lg text-slate-500 font-light leading-relaxed">Transparent pricing with no hidden fees. Orders above a certain threshold qualify for free shipping.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <!-- Standard -->
+                    <div class="charge-card bg-white border border-slate-200 rounded-2xl p-8 reveal">
+                        <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-slate-600 text-2xl" data-icon="mdi:package-variant-closed"></span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Standard Shipping</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-3xl font-bold text-slate-900">$4.99</span>
+                            <span class="text-sm text-slate-400">/order</span>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Delivery in 5-7 business days
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Basic tracking included
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Standard packaging
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                No signature required
+                            </li>
+                        </ul>
+                        <div class="text-xs text-slate-400 bg-slate-50 rounded-lg p-3">
+                            <span class="iconify inline text-brand-500" data-icon="mdi:gift-outline"></span>
+                            Free on orders over $35
+                        </div>
+                    </div>
+
+                    <!-- Express (Featured) -->
+                    <div class="charge-card bg-brand-600 border-2 border-brand-500 rounded-2xl p-8 relative reveal delay-100">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-800 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                            Most Popular
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-white text-2xl" data-icon="mdi:truck-fast-outline"></span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Express Shipping</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-3xl font-bold text-white">$9.99</span>
+                            <span class="text-sm text-blue-200">/order</span>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start gap-2.5 text-sm text-blue-100">
+                                <span class="iconify text-white text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Delivery in 2-3 business days
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-blue-100">
+                                <span class="iconify text-white text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Real-time GPS tracking
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-blue-100">
+                                <span class="iconify text-white text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Priority packaging
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-blue-100">
+                                <span class="iconify text-white text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Signature on delivery
+                            </li>
+                        </ul>
+                        <div class="text-xs text-blue-200 bg-white/10 rounded-lg p-3">
+                            <span class="iconify inline text-white" data-icon="mdi:gift-outline"></span>
+                            Free on orders over $75
+                        </div>
+                    </div>
+
+                    <!-- Overnight -->
+                    <div class="charge-card bg-white border border-slate-200 rounded-2xl p-8 reveal delay-200">
+                        <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-slate-600 text-2xl" data-icon="mdi:lightning-bolt"></span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Overnight Shipping</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-3xl font-bold text-slate-900">$19.99</span>
+                            <span class="text-sm text-slate-400">/order</span>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Next business day delivery
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Live tracking + SMS alerts
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Premium gift-ready packaging
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <span class="iconify text-green-500 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                                Guaranteed by 8 PM
+                            </li>
+                        </ul>
+                        <div class="text-xs text-slate-400 bg-slate-50 rounded-lg p-3">
+                            <span class="iconify inline text-brand-500" data-icon="mdi:clock-outline"></span>
+                            Order by 2 PM for next-day
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charge Exceptions Table -->
+                <div class="max-w-5xl mx-auto mt-12 reveal">
+                    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+                        <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
+                            <h4 class="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                                <span class="iconify text-slate-500" data-icon="mdi:table"></span>
+                                Additional Charge Scenarios
+                            </h4>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-slate-100">
+                                        <th class="text-left px-6 py-3 font-semibold text-slate-600">Scenario</th>
+                                        <th class="text-left px-6 py-3 font-semibold text-slate-600">Additional Fee</th>
+                                        <th class="text-left px-6 py-3 font-semibold text-slate-600 hidden sm:table-cell">Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                                        <td class="px-6 py-3.5 text-slate-700">Oversized/Heavy Items (>30 lbs)</td>
+                                        <td class="px-6 py-3.5 text-slate-700 font-medium">$5.00 – $15.00</td>
+                                        <td class="px-6 py-3.5 text-slate-500 hidden sm:table-cell">Based on dimensional weight</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                                        <td class="px-6 py-3.5 text-slate-700">Remote Area Surcharge</td>
+                                        <td class="px-6 py-3.5 text-slate-700 font-medium">$3.00 – $8.00</td>
+                                        <td class="px-6 py-3.5 text-slate-500 hidden sm:table-cell">Applied to ZIP codes in remote zones</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                                        <td class="px-6 py-3.5 text-slate-700">Address Correction</td>
+                                        <td class="px-6 py-3.5 text-slate-700 font-medium">$2.00</td>
+                                        <td class="px-6 py-3.5 text-slate-500 hidden sm:table-cell">If carrier needs to correct address</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 transition-colors">
+                                        <td class="px-6 py-3.5 text-slate-700">Re-delivery (after failed attempt)</td>
+                                        <td class="px-6 py-3.5 text-slate-700 font-medium">$1.50</td>
+                                        <td class="px-6 py-3.5 text-slate-500 hidden sm:table-cell">Per re-delivery attempt</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: International Shipping -->
+        <section id="international" class="py-20 md:py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="reveal">
+                        <div class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                            <span class="iconify" data-icon="mdi:earth"></span>
+                            SECTION 03
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">International Shipping</h2>
+                        <p class="text-lg text-slate-500 font-light leading-relaxed mb-8">We ship to over 50 countries worldwide. International orders are processed with care and full customs documentation.</p>
+
+                        <div class="space-y-5">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-brand-600 text-xl" data-icon="mdi:clock-outline"></span>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-900 mb-1">Timeline: 7-21 Business Days</h4>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Varies by destination country and customs processing speed. Express international available for select countries (5-10 days).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-brand-600 text-xl" data-icon="mdi:file-document-outline"></span>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-900 mb-1">Customs & Duties</h4>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Import duties, taxes, and customs fees are <strong class="text-slate-700">not included</strong> in our shipping charges. These are the buyer's responsibility and vary by country.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-brand-600 text-xl" data-icon="mdi:alert-circle-outline"></span>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-900 mb-1">Prohibited Items</h4>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Certain products (batteries, liquids, aerosols) may have shipping restrictions per country. We'll notify you if an item cannot be shipped to your location.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-brand-600 text-xl" data-icon="mdi:currency-usd"></span>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-900 mb-1">International Rates</h4>
+                                    <p class="text-sm text-slate-500 leading-relaxed">Starting at <strong class="text-slate-700">$12.99</strong> for standard international. Rates calculated at checkout based on weight, dimensions, and destination.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal delay-200">
+                        <div class="relative">
+                            <img src="https://picsum.photos/seed/globalshipping/640/480.jpg" alt="International shipping worldwide" class="w-full rounded-2xl shadow-xl object-cover aspect-[4/3]" loading="lazy">
+                            <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                        <span class="iconify text-green-600 text-xl" data-icon="mdi:check-decagram"></span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-slate-900">50+ Countries</div>
+                                        <div class="text-xs text-slate-500">and growing every quarter</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-4 border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center">
+                                        <span class="iconify text-brand-600 text-xl" data-icon="mdi:shield-check-outline"></span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-slate-900">Insured Shipments</div>
+                                        <div class="text-xs text-slate-500">up to $500 coverage</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- International Zones -->
+                <div class="max-w-5xl mx-auto mt-16 reveal">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-6 text-center">Shipping Zones & Estimated Rates</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                            <div class="text-2xl mb-2">🌎</div>
+                            <h4 class="text-sm font-semibold text-slate-900 mb-1">Zone A — North America</h4>
+                            <p class="text-xs text-slate-500 mb-3">US, Canada, Mexico</p>
+                            <div class="text-lg font-bold text-brand-600">From $12.99</div>
+                            <div class="text-xs text-slate-400 mt-1">7-12 business days</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                            <div class="text-2xl mb-2">🌍</div>
+                            <h4 class="text-sm font-semibold text-slate-900 mb-1">Zone B — Europe</h4>
+                            <p class="text-xs text-slate-500 mb-3">EU, UK, Norway, Switzerland</p>
+                            <div class="text-lg font-bold text-brand-600">From $15.99</div>
+                            <div class="text-xs text-slate-400 mt-1">10-15 business days</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                            <div class="text-2xl mb-2">🌏</div>
+                            <h4 class="text-sm font-semibold text-slate-900 mb-1">Zone C — Asia Pacific</h4>
+                            <p class="text-xs text-slate-500 mb-3">Japan, Australia, Singapore, SK</p>
+                            <div class="text-lg font-bold text-brand-600">From $17.99</div>
+                            <div class="text-xs text-slate-400 mt-1">12-18 business days</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                            <div class="text-2xl mb-2">🌐</div>
+                            <h4 class="text-sm font-semibold text-slate-900 mb-1">Zone D — Rest of World</h4>
+                            <p class="text-xs text-slate-500 mb-3">South America, Africa, Middle East</p>
+                            <div class="text-lg font-bold text-brand-600">From $22.99</div>
+                            <div class="text-xs text-slate-400 mt-1">14-21 business days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Tracking Orders -->
+        <section id="tracking" class="py-20 md:py-24 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mb-16 reveal">
+                    <div class="inline-flex items-center gap-2 bg-white/10 text-blue-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                        <span class="iconify" data-icon="mdi:map-marker-path"></span>
+                        SECTION 04
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">Tracking Your Orders</h2>
+                    <p class="text-lg text-slate-400 font-light leading-relaxed">Stay informed at every step. We provide multiple ways to track your package in real time.</p>
+                </div>
+
+                <!-- Tracking Input Demo -->
+                <div class="max-w-2xl mx-auto mb-16 reveal">
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                        <h3 class="text-lg font-semibold text-white mb-2 text-center">Quick Track Your Order</h3>
+                        <p class="text-sm text-slate-400 text-center mb-6">Enter your order number or tracking ID</p>
+                        <div class="flex gap-3">
+                            <input type="text" id="trackingInput" placeholder="e.g., GGM-2024-78542" class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 transition-colors">
+                            <button id="trackBtn" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium px-6 py-3 rounded-xl transition-colors flex items-center gap-2 flex-shrink-0">
+                                <span class="iconify" data-icon="mdi:magnify"></span>
+                                Track
+                            </button>
+                        </div>
+                        <div id="trackResult" class="hidden mt-4 p-4 rounded-xl text-sm"></div>
+                    </div>
+                </div>
+
+                <!-- Tracking Methods -->
+                <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div class="step-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 reveal">
+                        <div class="w-12 h-12 bg-brand-500/20 rounded-xl flex items-center justify-center mb-4">
+                            <span class="iconify text-brand-400 text-2xl" data-icon="mdi:email-outline"></span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Email Notifications</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Receive automatic updates at every milestone — order confirmed, shipped, out for delivery, and delivered.</p>
+                    </div>
+                    <div class="step-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 reveal delay-100">
+                        <div class="w-12 h-12 bg-brand-500/20 rounded-xl flex items-center justify-center mb-4">
+                            <span class="iconify text-brand-400 text-2xl" data-icon="mdi:cellphone-message"></span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">SMS Alerts</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Get real-time text messages with tracking links and delivery time windows directly to your phone.</p>
+                    </div>
+                    <div class="step-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 reveal delay-200">
+                        <div class="w-12 h-12 bg-brand-500/20 rounded-xl flex items-center justify-center mb-4">
+                            <span class="iconify text-brand-400 text-2xl" data-icon="mdi:account-outline"></span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Account Dashboard</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Log into your GoGlobalMart account to view all orders, tracking history, and delivery status in one place.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Delayed Shipment Policy -->
+        <section id="delayed" class="py-20 md:py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="reveal">
+                        <div class="inline-flex items-center gap-2 bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                            <span class="iconify" data-icon="mdi:timer-sand"></span>
+                            SECTION 05
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">Delayed Shipment Policy</h2>
+                        <p class="text-lg text-slate-500 font-light leading-relaxed mb-8">We understand delays are frustrating. Here's our commitment when things don't go as planned.</p>
+
+                        <div class="space-y-4">
+                            <div class="bg-white border border-slate-200 rounded-xl p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="w-7 h-7 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 text-xs font-bold">1</span>
+                                    <h4 class="text-sm font-semibold text-slate-900">Delay of 1-3 Days Beyond ETA</h4>
+                                </div>
+                                <p class="text-sm text-slate-500 leading-relaxed pl-10">No action needed from you. Our system automatically flags the shipment and the carrier is notified. We'll send you a status update within 24 hours.</p>
+                            </div>
+                            <div class="bg-white border border-slate-200 rounded-xl p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="w-7 h-7 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 text-xs font-bold">2</span>
+                                    <h4 class="text-sm font-semibold text-slate-900">Delay of 4-7 Days Beyond ETA</h4>
+                                </div>
+                                <p class="text-sm text-slate-500 leading-relaxed pl-10">Our support team proactively reaches out with an investigation update. You may request a <strong class="text-slate-700">10% shipping fee refund</strong> as a goodwill gesture.</p>
+                            </div>
+                            <div class="bg-white border border-slate-200 rounded-xl p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="w-7 h-7 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-xs font-bold">3</span>
+                                    <h4 class="text-sm font-semibold text-slate-900">Delay Exceeding 7 Days Beyond ETA</h4>
+                                </div>
+                                <p class="text-sm text-slate-500 leading-relaxed pl-10">Full shipping fee refund is issued automatically. You'll also have the option to <strong class="text-slate-700">cancel for a full order refund</strong> or continue waiting with an additional 15% store credit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal delay-200">
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-2">
+                                <span class="iconify text-brand-600" data-icon="mdi:shield-alert-outline"></span>
+                                Common Delay Causes
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <span class="iconify text-slate-400 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:weather-cloudy"></span>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-slate-900">Severe Weather</h4>
+                                        <p class="text-sm text-slate-500">Hurricanes, snowstorms, floods — natural events that halt logistics networks.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="iconify text-slate-400 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:calendar-star"></span>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-slate-900">Peak Season Volume</h4>
+                                        <p class="text-sm text-slate-500">Black Friday, Christmas, and other high-demand periods increase carrier loads significantly.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="iconify text-slate-400 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:file-document-check-outline"></span>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-slate-900">Customs Hold (International)</h4>
+                                        <p class="text-sm text-slate-500">Packages may be held for inspection or documentation review by customs authorities.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="iconify text-slate-400 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:map-marker-off-outline"></span>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-slate-900">Incorrect/Incomplete Address</h4>
+                                        <p class="text-sm text-slate-500">Always double-check your shipping address to avoid rerouting delays.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="iconify text-slate-400 text-lg mt-0.5 flex-shrink-0" data-icon="mdi:warehouse"></span>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-slate-900">Inventory Backorder</h4>
+                                        <p class="text-sm text-slate-500">Rare cases where an item is unexpectedly out of stock after order placement.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-slate-200">
+                                <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-slate-500">Our promise:</strong> We will never knowingly delay your order without communicating. Transparency is at the core of our shipping practices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Lost Package Support -->
+        <section id="lost" class="py-20 md:py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mb-16 reveal">
+                    <div class="inline-flex items-center gap-2 bg-red-50 text-red-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                        <span class="iconify" data-icon="mdi:package-variant-remove"></span>
+                        SECTION 06
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">Lost Package Support</h2>
+                    <p class="text-lg text-slate-500 font-light leading-relaxed">While rare, packages can occasionally go missing. Our dedicated support team ensures you're never left without resolution.</p>
+                </div>
+
+                <!-- Steps -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="step-card bg-white border border-slate-200 rounded-2xl p-6 reveal">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-brand-700 font-bold text-sm">01</span>
+                                </div>
+                                <h3 class="text-base font-semibold text-slate-900">Report the Issue</h3>
+                            </div>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-4">Contact us within <strong class="text-slate-700">14 days</strong> of the expected delivery date via email, live chat, or phone. Include your order number and tracking ID.</p>
+                            <div class="bg-slate-50 rounded-lg p-3 text-xs text-slate-500">
+                                <span class="iconify inline text-brand-500" data-icon="mdi:email-fast-outline"></span>
+                                <strong>Email:</strong> support@goglobalmart.com
+                            </div>
+                        </div>
+
+                        <div class="step-card bg-white border border-slate-200 rounded-2xl p-6 reveal delay-100">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-brand-700 font-bold text-sm">02</span>
+                                </div>
+                                <h3 class="text-base font-semibold text-slate-900">Investigation Begins</h3>
+                            </div>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-4">We open a formal inquiry with the carrier within 24 hours. You'll receive a case reference number and an estimated resolution timeline.</p>
+                            <div class="bg-slate-50 rounded-lg p-3 text-xs text-slate-500">
+                                <span class="iconify inline text-amber-500" data-icon="mdi:clock-alert-outline"></span>
+                                Typical investigation: 3-7 business days
+                            </div>
+                        </div>
+
+                        <div class="step-card bg-white border border-slate-200 rounded-2xl p-6 reveal delay-100">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-brand-700 font-bold text-sm">03</span>
+                                </div>
+                                <h3 class="text-base font-semibold text-slate-900">Resolution Options</h3>
+                            </div>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-4">Once the carrier confirms the package is lost, you choose your preferred resolution:</p>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li class="flex items-center gap-2">
+                                    <span class="iconify text-green-500" data-icon="mdi:refresh"></span>
+                                    Full reorder at no cost (expedited shipping free)
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="iconify text-green-500" data-icon="mdi:cash-refund"></span>
+                                    Full refund to original payment method
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="iconify text-green-500" data-icon="mdi:gift-outline"></span>
+                                    Full refund + 10% store credit (goodwill)
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="step-card bg-white border border-slate-200 rounded-2xl p-6 reveal delay-200">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-green-700 font-bold text-sm">04</span>
+                                </div>
+                                <h3 class="text-base font-semibold text-slate-900">Resolution Delivered</h3>
+                            </div>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-4">Your chosen resolution is processed within <strong class="text-slate-700">48 hours</strong> of confirmation. Refunds appear in 3-5 business days. Reorders ship within 24 hours.</p>
+                            <div class="bg-green-50 rounded-lg p-3 text-xs text-green-700">
+                                <span class="iconify inline" data-icon="mdi:check-decagram"></span>
+                                100% satisfaction guaranteed on lost packages
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Note -->
+                <div class="max-w-4xl mx-auto mt-10 reveal">
+                    <div class="bg-red-50 border border-red-200 rounded-2xl p-6 flex gap-4">
+                        <span class="iconify text-red-500 text-2xl flex-shrink-0 mt-0.5" data-icon="mdi:alert-outline"></span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-800 mb-1">Important: Reporting Window</h4>
+                            <p class="text-sm text-red-700 leading-relaxed">Lost package claims must be filed within <strong>14 days</strong> of the estimated delivery date for domestic orders, and <strong>30 days</strong> for international orders. Claims filed after these windows may not be eligible for resolution. We strongly recommend enabling SMS/email alerts for the fastest notification of any delivery issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <div class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                        <span class="iconify" data-icon="mdi:frequently-asked-questions"></span>
+                        FAQ
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">Frequently Asked Questions</h2>
+                    <p class="text-lg text-slate-500 font-light leading-relaxed">Quick answers to the most common shipping questions we receive.</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-3 reveal">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors" aria-expanded="false">
+                            <span class="text-sm font-semibold text-slate-900 pr-4">How can I get free shipping on my order?</span>
+                            <span class="iconify faq-icon text-slate-400 text-xl flex-shrink-0" data-icon="mdi:chevron-down"></span>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <div class="pb-5 text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                                Free standard shipping is automatically applied at checkout for domestic orders over $35 and express shipping for orders over $75. International orders qualify for free standard shipping on orders over $150. The free shipping threshold is calculated after any discounts or coupons are applied.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors" aria-expanded="false">
+                            <span class="text-sm font-semibold text-slate-900 pr-4">Can I change my shipping address after placing an order?</span>
+                            <span class="iconify faq-icon text-slate-400 text-xl flex-shrink-0" data-icon="mdi:chevron-down"></span>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <div class="pb-5 text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                                Yes, you can update your shipping address within 2 hours of placing your order by contacting our support team. Once the order has been processed and a tracking number is generated, address changes may not be possible and a $2.00 address correction fee may apply if the carrier needs to reroute the package.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors" aria-expanded="false">
+                            <span class="text-sm font-semibold text-slate-900 pr-4">Do you ship to P.O. boxes or APO/FPO addresses?</span>
+                            <span class="iconify faq-icon text-slate-400 text-xl flex-shrink-0" data-icon="mdi:chevron-down"></span>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <div class="pb-5 text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                                Yes, we ship to P.O. boxes via USPS. However, express and overnight shipping options are not available for P.O. box addresses. APO/FPO addresses are supported for military personnel and are shipped via USPS with standard delivery timelines. Please allow an additional 5-10 days for APO/FPO deliveries.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors" aria-expanded="false">
+                            <span class="text-sm font-semibold text-slate-900 pr-4">What happens if I'm not home when my package arrives?</span>
+                            <span class="iconify faq-icon text-slate-400 text-xl flex-shrink-0" data-icon="mdi:chevron-down"></span>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <div class="pb-5 text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                                For standard shipping, the carrier will typically leave the package at your door or a safe location. For express and overnight shipments requiring a signature, the carrier will attempt delivery up to 3 times over consecutive business days. After 3 failed attempts, the package will be held at the nearest carrier facility for 5 business days before being returned to us.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors" aria-expanded="false">
+                            <span class="text-sm font-semibold text-slate-900 pr-4">How do I know if my international order will have customs fees?</span>
+                            <span class="iconify faq-icon text-slate-400 text-xl flex-shrink-0" data-icon="mdi:chevron-down"></span>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <div class="pb-5 text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                                Customs fees vary by country and product category. While we can't predict exact amounts, most countries have a de minimis threshold (e.g., $800 for the US, €22 for the EU) below which no duties are charged. We recommend checking your country's customs website for specific thresholds. All international shipments include a customs declaration with accurate product descriptions and values.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors" aria-expanded="false">
+                            <span class="text-sm font-semibold text-slate-900 pr-4">Can I cancel my order after it has been shipped?</span>
+                            <span class="iconify faq-icon text-slate-400 text-xl flex-shrink-0" data-icon="mdi:chevron-down"></span>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <div class="pb-5 text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                                Once an order has been shipped, it cannot be cancelled directly. However, you can request a return-to-sender intercept within the first 24 hours of shipment for a $5.00 intercept fee. If the intercept is unsuccessful, you can refuse delivery or initiate a standard return once the package arrives. Refunds for shipped orders are processed within 5-7 business days after we receive the returned items.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors" aria-expanded="false">
+                            <span class="text-sm font-semibold text-slate-900 pr-4">Are my packages insured during transit?</span>
+                            <span class="iconify faq-icon text-slate-400 text-xl flex-shrink-0" data-icon="mdi:chevron-down"></span>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <div class="pb-5 text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                                All domestic orders include basic carrier insurance (up to $100). Express and overnight shipments include coverage up to $500. International orders include insurance up to $200 by default, with the option to purchase additional coverage at checkout. If your package arrives damaged, report it within 48 hours with photos and we'll arrange a replacement or full refund.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="py-20 md:py-24 bg-gradient-to-br from-brand-600 to-brand-800 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute -top-20 -right-20 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-cyan-300 rounded-full blur-3xl"></div>
+            </div>
+            <div class="relative max-w-3xl mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">Still Have Shipping Questions?</h2>
+                <p class="text-lg text-blue-100 font-light leading-relaxed mb-8">Our support team is available 24/7 to help with any shipping concerns, tracking issues, or special delivery requests.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="mailto:support@goglobalmart.com" class="inline-flex items-center gap-2 bg-white text-brand-700 text-sm font-semibold px-6 py-3.5 rounded-xl hover:bg-blue-50 transition-colors">
+                        <span class="iconify" data-icon="mdi:email-outline"></span>
+                        Email Support
+                    </a>
+                    <button onclick="showToast('Live chat is available Monday–Friday, 9 AM – 9 PM EST.')" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-6 py-3.5 rounded-xl border border-white/20 transition-colors">
+                        <span class="iconify" data-icon="mdi:chat-outline"></span>
+                        Live Chat
+                    </button>
+                    <a href="tel:+918107747972" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-6 py-3.5 rounded-xl border border-white/20 transition-colors">
+                        <span class="iconify" data-icon="mdi:phone-outline"></span>
+                        1-800-123-4567
+                    </a>
+                </div>
+                <p class="text-xs text-blue-200 mt-6">Average response time: under 2 hours for email, instant for live chat</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+                            <span class="iconify text-white text-lg" data-icon="mdi:shopping-outline"></span>
+                        </div>
+                        <span class="font-semibold text-lg tracking-tight">GoGlobalMart</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">Your trusted mini store for quality products delivered worldwide with care.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-600 rounded-lg flex items-center justify-center transition-colors" aria-label="Facebook">
+                            <span class="iconify text-white text-lg" data-icon="mdi:facebook"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-600 rounded-lg flex items-center justify-center transition-colors" aria-label="Twitter">
+                            <span class="iconify text-white text-lg" data-icon="mdi:twitter"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-600 rounded-lg flex items-center justify-center transition-colors" aria-label="Instagram">
+                            <span class="iconify text-white text-lg" data-icon="mdi:instagram"></span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4">Policies</h4>
+                    <ul class="space-y-2.5">
+                        
+                        <li><a href="mini-return.html" class="text-sm text-slate-400 hover:text-white transition-colors">Return & Refund Policy</a></li>
+                        <li><a href="mini-privacy.html" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="mini-terms.html" class="text-sm text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4">Support</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="mini-help.html" class="text-sm text-slate-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="mini-track.html" class="text-sm text-slate-400 hover:text-white transition-colors">Track Order</a></li>
+                        <li><a href="mini-contact.html" class="text-sm text-slate-400 hover:text-white transition-colors">Contact Us</a></li>
+                        
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4">Newsletter</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">Get shipping updates and exclusive deals.</p>
+                    <div class="flex gap-2">
+                        <input type="email" id="newsletterEmail" placeholder="your@email.com" class="flex-1 bg-white/10 border border-white/20 rounded-lg px-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 transition-colors">
+                        <button onclick="subscribeNewsletter()" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors flex-shrink-0">
+                            <span class="iconify" data-icon="mdi:send"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-500">© 2024 GoGlobalMart Mini Store. All rights reserved.</p>
+                <p class="text-xs text-slate-500">Last updated: December 2024 · <a href="#" class="text-brand-400 hover:text-brand-300 transition-colors">View printable version</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-6 py-4 rounded-xl shadow-2xl max-w-sm border border-slate-700">
+        <div class="flex items-start gap-3">
+            <span class="iconify text-brand-400 text-xl flex-shrink-0 mt-0.5" data-icon="mdi:information-outline"></span>
+            <p id="toastMessage" class="text-sm text-slate-200 leading-relaxed"></p>
+            <button onclick="hideToast()" class="text-slate-500 hover:text-white transition-colors flex-shrink-0">
+                <span class="iconify" data-icon="mdi:close"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="fixed bottom-6 left-6 z-50 w-10 h-10 bg-brand-600 hover:bg-brand-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 translate-y-4 pointer-events-none" aria-label="Back to top">
+        <span class="iconify text-lg" data-icon="mdi:chevron-up"></span>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.setAttribute('data-icon', menuOpen ? 'mdi:close' : 'mdi:menu');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen = false;
+                menuIcon.setAttribute('data-icon', 'mdi:menu');
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const item = toggle.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+                const icon = toggle.querySelector('.faq-icon');
+                const isOpen = answer.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotated'));
+                document.querySelectorAll('.faq-toggle').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+                // Open clicked (if it was closed)
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    icon.classList.add('rotated');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 100) {
+                navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                backToTop.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                backToTop.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                backToTop.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Toast
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(hideToast, 5000);
+        }
+        function hideToast() {
+            document.getElementById('toast').classList.remove('show');
+        }
+
+        // Tracking Demo
+        document.getElementById('trackBtn').addEventListener('click', () => {
+            const input = document.getElementById('trackingInput').value.trim();
+            const result = document.getElementById('trackResult');
+
+            if (!input) {
+                result.className = 'mt-4 p-4 rounded-xl text-sm bg-amber-500/20 border border-amber-500/30 text-amber-300';
+                result.textContent = 'Please enter an order number or tracking ID to continue.';
+                result.classList.remove('hidden');
+                return;
+            }
+
+            result.className = 'mt-4 p-4 rounded-xl text-sm bg-green-500/20 border border-green-500/30 text-green-300';
+            result.innerHTML = `
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="iconify" data-icon="mdi:check-circle"></span>
+                    <strong>Order Found: ${input.toUpperCase()}</strong>
+                </div>
+                <div class="text-green-200/80 text-xs">Status: <strong>In Transit</strong> — Last update: Dec 18, 2024 at 2:34 PM EST<br>
+                Estimated delivery: Dec 21, 2024</div>
+            `;
+            result.classList.remove('hidden');
+        });
+
+        document.getElementById('trackingInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('trackBtn').click();
+        });
+
+        // Newsletter
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value.trim();
+            if (!email || !email.includes('@')) {
+                showToast('Please enter a valid email address.');
+                return;
+            }
+            showToast('Thanks for subscribing! You\'ll receive shipping updates and deals at ' + email);
+            document.getElementById('newsletterEmail').value = '';
+        }
+
+        // Structured Data for SEO
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Shipping Policy — GoGlobalMart Mini Store",
+            "description": "Complete shipping information including delivery timelines, charges, international shipping, tracking, and support for delayed or lost packages.",
+            "url": "https://goglobalmart.com/shipping-policy",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "GoGlobalMart Mini Store",
+                "url": "https://goglobalmart.com"
+            },
+            "mainEntity": {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How can I get free shipping on my order?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Free standard shipping is automatically applied at checkout for domestic orders over $35 and express shipping for orders over $75. International orders qualify for free standard shipping on orders over $150."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I change my shipping address after placing an order?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, you can update your shipping address within 2 hours of placing your order by contacting our support team. Once the order has been processed and a tracking number is generated, address changes may not be possible."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are my packages insured during transit?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "All domestic orders include basic carrier insurance (up to $100). Express and overnight shipments include coverage up to $500. International orders include insurance up to $200 by default."
+                        }
+                    }
+                ]
+            }
+        };
+        const scriptTag = document.createElement('script');
+        scriptTag.type = 'application/ld+json';
+        scriptTag.textContent = JSON.stringify(schema);
+        document.head.appendChild(scriptTag);
+    </script>
+</body>
+</html>
