@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | GoGlobalMart Mini Store</title>
+    <meta name="description" content="Get in touch with GoGlobalMart Mini Store. Reach our customer support, seller support, or business partnership teams. We're here to help 24/7.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.goglobalmart.me/mini-contact.html">
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+
+    <meta property="og:title" content="Contact Us | GoGlobalMart Mini Store">
+    <meta property="og:description" content="Reach GoGlobalMart's customer support, seller support, or business partnership teams. Available 24/7 to assist you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.goglobalmart.me/mini-contact.html">
+    <meta property="og:site_name" content="GoGlobalMart Mini Store">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact GoGlobalMart Mini Store",
+        "description": "Contact page for GoGlobalMart Mini Store offering customer support, seller support, and business partnership inquiries.",
+        "url": "https://www.goglobalmart.me/mini-contact.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "GoGlobalMart Mini Store",
+            "url": "https://www.goglobalmart.me"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GoGlobalMart, Inc.",
+            "url": "https://www.goglobalmart.me",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.goglobalmart.me/fevicon.png"
+            }
+        },
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "GoGlobalMart, Inc.",
+            "telephone": "+918107747972",
+            "email": "support@goglobalmart.me",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1000 Commerce Way, Suite 400",
+                "addressLocality": "Wilmington",
+                "addressRegion": "Delaware",
+                "postalCode": "19801",
+                "addressCountry": "US"
+            },
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "support@goglobalmart.me",
+                    "telephone": "+1-302-555-0199",
+                    "availableLanguage": ["English"],
+                    "hoursAvailable": {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                        "opens": "00:00",
+                        "closes": "23:59"
+                    }
+                },
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "sales",
+                    "email": "partnerships@goglobalmart.me",
+                    "availableLanguage": ["English"]
+                },
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "technical support",
+                    "email": "seller-support@goglobalmart.me",
+                    "availableLanguage": ["English"]
+                }
+            ]
+        },
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-07-10"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        geist: ['Geist', 'sans-serif'],
+                        newsreader: ['Newsreader', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-main: #0a0a0a;
+            --bg-alt: #111111;
+            --bg-card: #151515;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --text-dim: #52525b;
+            --accent: #c05621;
+            --accent-hover: #d4622a;
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Geist', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 10px; }
+
+        .progress-bar {
+            position: fixed; top: 0; left: 0; height: 2px;
+            background: linear-gradient(90deg, #c05621, #e8773a);
+            z-index: 200; width: 0%; transition: width 0.08s linear;
+        }
+
+        /* Contact cards */
+        .contact-card {
+            padding: 32px 28px; border-radius: 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+            position: relative; overflow: hidden;
+        }
+        .contact-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 2px; background: transparent;
+            transition: background 0.4s ease;
+        }
+        .contact-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.04);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
+        }
+        .contact-card:hover::before { background: var(--accent); }
+
+        .contact-icon {
+            width: 52px; height: 52px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.4s ease;
+        }
+        .contact-card:hover .contact-icon { transform: scale(1.08); }
+
+        /* Form */
+        .form-group { position: relative; margin-bottom: 20px; }
+        .form-label {
+            display: block; font-size: 0.75rem; font-weight: 500;
+            color: #a1a1aa; margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%; padding: 14px 18px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px; color: #ffffff;
+            font-family: 'Geist', sans-serif;
+            font-size: 0.9rem; font-weight: 300;
+            outline: none; transition: all 0.3s ease;
+        }
+        .form-input::placeholder, .form-textarea::placeholder { color: #3f3f46; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: rgba(192,86,33,0.5);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 0 3px rgba(192,86,33,0.06);
+        }
+        .form-input.error, .form-textarea.error, .form-select.error {
+            border-color: rgba(239,68,68,0.5);
+            box-shadow: 0 0 0 3px rgba(239,68,68,0.06);
+        }
+        .form-error {
+            font-size: 0.72rem; color: #f87171; margin-top: 6px;
+            display: none; align-items: center; gap: 4px;
+        }
+        .form-error.visible { display: flex; }
+        .form-select {
+            appearance: none; -webkit-appearance: none;
+            cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2352525b' stroke-width='2' stroke-linecap='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 44px;
+        }
+        .form-select option { background: #111; color: #fff; }
+        .form-textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
+
+        .btn-submit {
+            width: 100%; padding: 17px 32px;
+            background: #c05621; color: #fff;
+            font-family: 'Geist', sans-serif;
+            font-size: 0.85rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; border-radius: 10px; cursor: pointer;
+            transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        .btn-submit:hover:not(:disabled) {
+            background: #d4622a; transform: translateY(-2px);
+            box-shadow: 0 0 40px -10px rgba(192,86,33,0.5);
+        }
+        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-submit .spinner {
+            display: none; width: 18px; height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #fff; border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        .btn-submit.loading .spinner { display: inline-block; }
+        .btn-submit.loading .btn-text { display: none; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Map */
+        .map-container {
+            border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
+            position: relative;
+        }
+        .map-container iframe { display: block; width: 100%; height: 400px; border: none; filter: grayscale(1) invert(1) contrast(0.85) brightness(0.7); }
+        .map-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 20px 24px;
+            background: linear-gradient(to top, rgba(10,10,10,0.95), transparent);
+        }
+
+        /* Hours */
+        .hours-row {
+            display: flex; justify-content: space-between;
+            align-items: center; padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.88rem;
+        }
+        .hours-row:last-child { border-bottom: none; }
+        .hours-row .day { color: #a1a1aa; font-weight: 400; }
+        .hours-row .time { color: #d4d4d8; font-weight: 500; font-variant-numeric: tabular-nums; }
+        .hours-row.today .day { color: #c05621; font-weight: 500; }
+        .hours-row.today .time { color: #fff; }
+        .open-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 4px 10px; border-radius: 100px; font-size: 0.65rem;
+            font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .open-badge.open { background: rgba(34,197,94,0.1); color: #22c55e; }
+        .open-badge.closed { background: rgba(239,68,68,0.1); color: #f87171; }
+        .open-badge .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+        }
+        .open-badge.open .dot { background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+        .open-badge.closed .dot { background: #f87171; }
+
+        /* FAQ links */
+        .faq-link {
+            display: flex; align-items: center; gap: 14px;
+            padding: 16px 20px; border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease; cursor: pointer;
+            text-decoration: none;
+        }
+        .faq-link:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.04);
+            transform: translateX(4px);
+        }
+
+        /* Toast */
+        .toast-notification {
+            position: fixed; bottom: 32px; right: 32px;
+            background: #111; border: 1px solid rgba(255,255,255,0.1);
+            padding: 22px 28px; border-radius: 14px; z-index: 100;
+            transform: translateY(140%); opacity: 0;
+            transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+            max-width: 420px;
+        }
+        .toast-notification.show { transform: translateY(0); opacity: 1; }
+        .toast-notification.error { border-color: rgba(239,68,68,0.3); }
+
+        /* Back to top */
+        .back-top {
+            position: fixed; bottom: 28px; right: 28px;
+            width: 46px; height: 46px; border-radius: 50%;
+            background: rgba(17,17,17,0.9); border: 1px solid rgba(255,255,255,0.08);
+            color: #71717a; display: flex; align-items: center;
+            justify-content: center; cursor: pointer; z-index: 40;
+            opacity: 0; pointer-events: none; transition: all 0.3s ease;
+        }
+        .back-top.show { opacity: 1; pointer-events: auto; }
+        .back-top:hover { color: #fff; border-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+
+        @keyframes revealUp {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        .anim-in { animation: revealUp 1s cubic-bezier(0.16,1,0.3,1) both; }
+        .anim-d1 { animation-delay: 100ms; }
+        .anim-d2 { animation-delay: 200ms; }
+        .anim-d3 { animation-delay: 300ms; }
+        .anim-d4 { animation-delay: 400ms; }
+        .anim-d5 { animation-delay: 500ms; }
+
+        @media (max-width: 1023px) {
+            .map-container iframe { height: 280px; }
+            .toast-notification { right: 16px; bottom: 16px; left: 16px; max-width: none; }
+            .back-top { right: 16px; bottom: 16px; width: 42px; height: 42px; }
+        }
+    </style>
+</head>
+<body class="font-geist antialiased">
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-5" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.07);">
+        <a href="/" class="flex items-center gap-2">
+            <span class="text-white font-semibold text-[1.05rem] tracking-tight">GoGlobalMart</span>
+            <span class="text-[0.65rem] font-medium text-zinc-600 uppercase tracking-widest hidden sm:inline">Mini Store</span>
+        </a>
+        <div class="flex items-center gap-5">
+            <a href="mini-help.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-600 hover:text-white transition-colors hidden sm:inline">Help</a>
+            <a href="mini-faq.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-600 hover:text-white transition-colors hidden sm:inline">FAQ</a>
+            <a href="https://www.goglobalmart.me/mini-contact.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-500">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pt-28 pb-12 lg:pt-36 lg:pb-16 px-5 relative overflow-hidden" style="background:linear-gradient(to bottom,#0a0a0a,#111111);">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full pointer-events-none opacity-15" style="background:radial-gradient(circle,rgba(192,86,33,0.1) 0%,transparent 70%);"></div>
+        <div class="max-w-[1600px] mx-auto relative text-center">
+            <div class="anim-in">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                    <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Get in Touch</span>
+                    <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[0.95] mb-6">
+                    How can we<br>help you?
+                </h1>
+                <p class="text-base sm:text-lg font-light leading-relaxed text-zinc-400 max-w-xl mx-auto mb-8">
+                    Our dedicated support teams are available around the clock to assist you with any questions, issues, or partnership inquiries.
+                </p>
+                <div class="flex items-center justify-center gap-6 text-sm text-zinc-600">
+                    <span class="flex items-center gap-2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Available 24/7
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        +91 8107747972
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Cards -->
+    <section class="px-5 pb-16" style="background:#111;">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+                <!-- Customer Support -->
+                <div class="contact-card anim-in anim-d1">
+                    <div class="contact-icon mb-5" style="background:rgba(192,86,33,0.08);border:1px solid rgba(192,86,33,0.15);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold tracking-tight mb-2">Customer Support</h3>
+                    <p class="text-sm text-zinc-500 font-light leading-relaxed mb-5">Get help with orders, returns, payments, account issues, and general inquiries.</p>
+                    <div class="space-y-3">
+                        <a href="mailto:support@goglobalmart.me" class="flex items-center gap-3 text-sm text-zinc-400 hover:text-white transition-colors">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            support@goglobalmart.me
+                        </a>
+                        <a href="tel:+918107747972" class="flex items-center gap-3 text-sm text-zinc-400 hover:text-white transition-colors">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                            +91 8107747972
+                        </a>
+                        <span class="flex items-center gap-3 text-sm text-zinc-400">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Response: &lt; 2 hours
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Seller Support -->
+                <div class="contact-card anim-in anim-d2">
+                    <div class="contact-icon mb-5" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold tracking-tight mb-2">Seller Support</h3>
+                    <p class="text-sm text-zinc-500 font-light leading-relaxed mb-5">Assistance with listings, payouts, seller account, performance metrics, and disputes.</p>
+                    <div class="space-y-3">
+                        <a href="mailto:seller-support@goglobalmart.me" class="flex items-center gap-3 text-sm text-zinc-400 hover:text-white transition-colors">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            seller-support@goglobalmart.me
+                        </a>
+                        <a href="tel:+13025550200" class="flex items-center gap-3 text-sm text-zinc-400 hover:text-white transition-colors">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                            +1 (302) 555-0200
+                        </a>
+                        <span class="flex items-center gap-3 text-sm text-zinc-400">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Response: &lt; 4 hours
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Business Partnership -->
+                <div class="contact-card anim-in anim-d3">
+                    <div class="contact-icon mb-5" style="background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.15);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold tracking-tight mb-2">Business Partnership</h3>
+                    <p class="text-sm text-zinc-500 font-light leading-relaxed mb-5">Explore enterprise solutions, API integrations, wholesale partnerships, and co-marketing opportunities.</p>
+                    <div class="space-y-3">
+                        <a href="mailto:partnerships@goglobalmart.me" class="flex items-center gap-3 text-sm text-zinc-400 hover:text-white transition-colors">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            partnerships@goglobalmart.me
+                        </a>
+                        <a href="tel:+13025550201" class="flex items-center gap-3 text-sm text-zinc-400 hover:text-white transition-colors">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                            +1 (302) 555-0201
+                        </a>
+                        <span class="flex items-center gap-3 text-sm text-zinc-400">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Response: &lt; 24 hours
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form + Sidebar Layout -->
+    <section class="px-5 pb-20" style="background:var(--bg-main);">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10">
+
+                <!-- Contact Form -->
+                <div class="anim-in anim-d2">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                        <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Send a Message</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight mb-2">We'd love to hear from you</h2>
+                    <p class="text-sm text-zinc-500 font-light leading-relaxed mb-8">Fill out the form below and our team will get back to you as soon as possible.</p>
+
+                    <form id="contactForm" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5">
+                            <div class="form-group">
+                                <label for="formName" class="form-label">Full Name <span class="text-[#c05621]">*</span></label>
+                                <input type="text" id="formName" name="name" class="form-input" placeholder="John Doe" required autocomplete="name">
+                                <div class="form-error" id="nameError">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                    <span>Please enter your name</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="formEmail" class="form-label">Email Address <span class="text-[#c05621]">*</span></label>
+                                <input type="email" id="formEmail" name="email" class="form-input" placeholder="john@example.com" required autocomplete="email">
+                                <div class="form-error" id="emailError">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                    <span>Please enter a valid email</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5">
+                            <div class="form-group">
+                                <label for="formPhone" class="form-label">Phone Number</label>
+                                <input type="tel" id="formPhone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="formSubject" class="form-label">Subject <span class="text-[#c05621]">*</span></label>
+                                <select id="formSubject" name="subject" class="form-select" required>
+                                    <option value="" disabled selected>Select a topic</option>
+                                    <option value="order-issue">Order Issue</option>
+                                    <option value="return-refund">Return & Refund</option>
+                                    <option value="payment-problem">Payment Problem</option>
+                                    <option value="account-help">Account Help</option>
+                                    <option value="seller-question">Seller Question</option>
+                                    <option value="partnership">Business Partnership</option>
+                                    <option value="technical">Technical Issue</option>
+                                    <option value="feedback">Feedback & Suggestion</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-error" id="subjectError">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                    <span>Please select a subject</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="formMessage" class="form-label">Message <span class="text-[#c05621]">*</span></label>
+                            <textarea id="formMessage" name="message" class="form-textarea" placeholder="Describe your question or issue in detail..." required></textarea>
+                            <div class="flex items-center justify-between mt-2">
+                                <div class="form-error" id="messageError">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                    <span>Please enter your message (min 10 characters)</span>
+                                </div>
+                                <span id="charCount" class="text-[0.7rem] text-zinc-700 ml-auto">0 / 2000</span>
+                            </div>
+                        </div>
+
+                        <!-- Privacy consent -->
+                        <label class="flex items-start gap-3 cursor-pointer select-none mb-6">
+                            <input type="checkbox" id="formConsent" class="agreement-check" style="appearance:none;-webkit-appearance:none;width:20px;height:20px;min-width:20px;border:1.5px solid rgba(255,255,255,0.18);border-radius:5px;background:transparent;cursor:pointer;transition:all 0.25s;position:relative;margin-top:2px;">
+                            <span class="text-xs text-zinc-500 font-light leading-relaxed">I agree to the <a href="/privacy-policy" class="text-[#c05621] underline underline-offset-2 decoration-[rgba(192,86,33,0.3)] hover:decoration-[#c05621] transition-colors">Privacy Policy</a> and consent to GoGlobalMart processing my data to respond to my inquiry.</span>
+                        </label>
+
+                        <button type="submit" id="submitBtn" class="btn-submit" disabled>
+                            <span class="btn-text">Send Message</span>
+                            <span class="spinner"></span>
+                        </button>
+                        <p class="text-[0.7rem] text-zinc-700 text-center mt-4">By submitting this form, you agree to our terms. We'll never share your information with third parties.</p>
+                    </form>
+                </div>
+
+                <!-- Sidebar: Hours + Map + FAQ -->
+                <aside class="space-y-6 anim-in anim-d4">
+
+                    <!-- Business Hours -->
+                    <div class="p-6 rounded-2xl" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="flex items-center gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <h3 class="text-sm font-semibold tracking-tight">Business Hours</h3>
+                            </div>
+                            <span id="openBadge" class="open-badge open">
+                                <span class="dot"></span>
+                                Open Now
+                            </span>
+                        </div>
+                        <div id="hoursContainer">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="mt-5 pt-4" style="border-top:1px solid var(--border);">
+                            <p class="text-[0.7rem] text-zinc-600 leading-relaxed">All times shown in <strong class="text-zinc-500">Eastern Time (ET)</strong>. Support chat and email are available 24/7 outside phone support hours.</p>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.354!2d-75.55!3d39.74!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ0JzI0LjAiTiA3NcKwMzMnMDAuMCJX!5e0!3m2!1sen!2sus!4v1"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="GoGlobalMart Office Location">
+                        </iframe>
+                        <div class="map-overlay">
+                            <p class="text-sm font-semibold text-white">GoGlobalMart Headquarters</p>
+                            <p class="text-xs text-zinc-400 mt-1">1000 Commerce Way, Suite 400, Wilmington, DE 19801</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Quick Links -->
+                    <div class="p-6 rounded-2xl" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
+                        <div class="flex items-center gap-2 mb-5">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <h3 class="text-sm font-semibold tracking-tight">Quick Answers</h3>
+                        </div>
+                        <div class="space-y-2">
+                            <a href="/faq#orders" class="faq-link">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                <span class="text-sm text-zinc-400 font-light">How to track my order?</span>
+                            </a>
+                            <a href="mini-return.html" class="faq-link">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                <span class="text-sm text-zinc-400 font-light">How do I return an item?</span>
+                            </a>
+                            <a href="/faq#payments" class="faq-link">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                <span class="text-sm text-zinc-400 font-light">Payment not going through?</span>
+                            </a>
+                            <a href="mini-seller-agreement.html" class="faq-link">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                <span class="text-sm text-zinc-400 font-light">How to become a seller?</span>
+                            </a>
+                            <a href="/faq#security" class="faq-link">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                <span class="text-sm text-zinc-400 font-light">Secure my account (2FA)?</span>
+                            </a>
+                        </div>
+                        <a href="mini-faq.html" class="flex items-center justify-center gap-2 mt-5 text-xs font-medium text-[#c05621] hover:text-[#d4622a] transition-colors">
+                            View all FAQ
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-5 py-14 border-t" style="border-color:var(--border);background:#050505;">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="md:col-span-2">
+                    <span class="text-white font-semibold text-lg tracking-tight">GoGlobalMart</span>
+                    <span class="text-xs font-medium text-zinc-700 uppercase tracking-widest ml-2">Mini Store</span>
+                    <p class="text-sm text-zinc-700 font-light leading-relaxed mt-3 max-w-md">A global multi-vendor marketplace connecting sellers with buyers worldwide.</p>
+                </div>
+                <div>
+                    <p class="text-[0.6rem] font-semibold uppercase tracking-[0.15em] text-zinc-700 mb-4">Support</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="mini-faq.html" class="text-sm text-zinc-600 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="mini-help.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="mini-contact.html" class="text-sm text-zinc-500 hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-[0.6rem] font-semibold uppercase tracking-[0.15em] text-zinc-700 mb-4">Legal</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="mini-terms.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Terms of Use</a></li>
+                        <li><a href="mini-privacy.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="mini-return.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Returns Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-3" style="border-color:var(--border);">
+                <p class="text-xs text-zinc-800">© 2025 GoGlobalMart, Inc. All rights reserved.</p>
+                <p class="text-xs text-zinc-800">1000 Commerce Way, Suite 400, Wilmington, DE 19801</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastEl">
+        <div class="flex items-start gap-3">
+            <div id="toastIcon" class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(34,197,94,0.1);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+                <p id="toastTitle" class="text-sm font-medium text-white mb-0.5">Message Sent Successfully</p>
+                <p id="toastMsg" class="text-xs text-zinc-500 font-light leading-relaxed">We'll get back to you within 2 hours. Check your email for confirmation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    ============================================================
+    FIREBASE INTEGRATION
+    ============================================================
+    To connect this form to Firebase:
+    1. Add Firebase SDK scripts below (uncomment):-->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+    <!--2. Initialize Firebase (uncomment and add your config):-->
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAJBKu2kYbCD1KwI2xLargDauV_ftdoRQs",
+        authDomain: "goglobalmart-f227e.firebaseapp.com",
+        projectId: "goglobalmart-f227e",
+        storageBucket: "goglobalmart-f227e.firebasestorage.app",
+        messagingSenderId: "270002483993",
+        appId: "1:270002483993:web:089e322acf64ba73104b88"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    </script>
+
+    <!--3. Replace the submitForm() function's storage section with:-->
+    await db.collection("contact_submissions").add({
+        name: name,
+        email: email,
+        phone: phone,
+        subject: subject,
+        message: message,
+        consent: consent,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        status: "new"
+    });
+
+   <!-- 4. For email notifications, set up a Firebase Cloud Function:
+    - Use Firebase Functions with SendGrid/Mailgun trigger
+    - Trigger on Firestore document creation in "contact_submissions"
+    - Send notification to appropriate team based on subject
+    ============================================================
+    -->
+
+    <script>
+    // =============================================
+    // BUSINESS HOURS
+    // =============================================
+    const businessHours = [
+        { day: 'Monday',    open: '8:00 AM',  close: '10:00 PM' },
+        { day: 'Tuesday',   open: '8:00 AM',  close: '10:00 PM' },
+        { day: 'Wednesday', open: '8:00 AM',  close: '10:00 PM' },
+        { day: 'Thursday',  open: '8:00 AM',  close: '10:00 PM' },
+        { day: 'Friday',    open: '8:00 AM',  close: '10:00 PM' },
+        { day: 'Saturday',  open: '9:00 AM',  close: '8:00 PM' },
+        { day: 'Sunday',    open: '10:00 AM', close: '6:00 PM' },
+    ];
+
+    function renderHours() {
+        const container = document.getElementById('hoursContainer');
+        const now = new Date();
+        const etNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+        const currentDay = etNow.toLocaleDateString('en-US', { weekday: 'long' });
+        const currentMinutes = etNow.getHours() * 60 + etNow.getMinutes();
+
+        function timeToMinutes(str) {
+            const [time, period] = str.split(' ');
+            let [h, m] = time.split(':').map(Number);
+            if (period === 'PM' && h !== 12) h += 12;
+            if (period === 'AM' && h === 12) h = 0;
+            return h * 60 + m;
+        }
+
+        let isOpen = false;
+        businessHours.forEach(h => {
+            if (h.day === currentDay) {
+                const openMin = timeToMinutes(h.open);
+                const closeMin = timeToMinutes(h.close);
+                isOpen = currentMinutes >= openMin && currentMinutes < closeMin;
+            }
+        });
+
+        const badge = document.getElementById('openBadge');
+        badge.className = 'open-badge ' + (isOpen ? 'open' : 'closed');
+        badge.innerHTML = `<span class="dot"></span>${isOpen ? 'Open Now' : 'Closed'}`;
+
+        container.innerHTML = businessHours.map(h => {
+            const isToday = h.day === currentDay;
+            return `<div class="hours-row ${isToday ? 'today' : ''}">
+                <span class="day">${h.day}${isToday ? ' —' : ''}</span>
+                <span class="time">${h.open} – ${h.close}</span>
+            </div>`;
+        }).join('');
+    }
+    renderHours();
+
+    // =============================================
+    // FORM VALIDATION & SUBMISSION
+    // =============================================
+    const form = document.getElementById('contactForm');
+    const nameInput = document.getElementById('formName');
+    const emailInput = document.getElementById('formEmail');
+    const phoneInput = document.getElementById('formPhone');
+    const subjectInput = document.getElementById('formSubject');
+    const messageInput = document.getElementById('formMessage');
+    const consentInput = document.getElementById('formConsent');
+    const submitBtn = document.getElementById('submitBtn');
+    const charCount = document.getElementById('charCount');
+
+    // Consent checkbox styling
+    consentInput.addEventListener('change', function() {
+        if (this.checked) {
+            this.style.background = '#c05621';
+            this.style.borderColor = '#c05621';
+        } else {
+            this.style.background = 'transparent';
+            this.style.borderColor = 'rgba(255,255,255,0.18)';
+        }
+        updateSubmitState();
+    });
+
+    // Character counter
+    messageInput.addEventListener('input', () => {
+        const len = messageInput.value.length;
+        charCount.textContent = len + ' / 2000';
+        if (len > 2000) {
+            charCount.style.color = '#f87171';
+            messageInput.value = messageInput.value.substring(0, 2000);
+        } else if (len > 1800) {
+            charCount.style.color = '#fbbf24';
+        } else {
+            charCount.style.color = '#52525b';
+        }
+        clearFieldError('message');
+        updateSubmitState();
+    });
+
+    // Real-time validation on input
+    nameInput.addEventListener('input', () => { clearFieldError('name'); updateSubmitState(); });
+    emailInput.addEventListener('input', () => { clearFieldError('email'); updateSubmitState(); });
+    subjectInput.addEventListener('change', () => { clearFieldError('subject'); updateSubmitState(); });
+
+    function updateSubmitState() {
+        const valid = nameInput.value.trim() &&
+                      isValidEmail(emailInput.value.trim()) &&
+                      subjectInput.value &&
+                      messageInput.value.trim().length >= 10 &&
+                      consentInput.checked;
+        submitBtn.disabled = !valid;
+        if (valid) {
+            submitBtn.classList.remove('opacity-50');
+        }
+    }
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function showFieldError(field) {
+        const input = { name: nameInput, email: emailInput, subject: subjectInput, message: messageInput }[field];
+        const error = document.getElementById(field + 'Error');
+        if (input) input.classList.add('error');
+        if (error) error.classList.add('visible');
+    }
+
+    function clearFieldError(field) {
+        const input = { name: nameInput, email: emailInput, subject: subjectInput, message: messageInput }[field];
+        const error = document.getElementById(field + 'Error');
+        if (input) input.classList.remove('error');
+        if (error) error.classList.remove('visible');
+    }
+
+    function validateForm() {
+        let valid = true;
+
+        if (!nameInput.value.trim()) { showFieldError('name'); valid = false; }
+        else clearFieldError('name');
+
+        if (!isValidEmail(emailInput.value.trim())) { showFieldError('email'); valid = false; }
+        else clearFieldError('email');
+
+        if (!subjectInput.value) { showFieldError('subject'); valid = false; }
+        else clearFieldError('subject');
+
+        if (messageInput.value.trim().length < 10) { showFieldError('message'); valid = false; }
+        else clearFieldError('message');
+
+        if (!consentInput.checked) {
+            consentInput.style.borderColor = 'rgba(239,68,68,0.5)';
+            valid = false;
+        } else {
+            consentInput.style.borderColor = '#c05621';
+        }
+
+        return valid;
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const subject = subjectInput.value;
+        const message = messageInput.value.trim();
+        const consent = consentInput.checked;
+
+        // Loading state
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+
+        try {
+            // =============================================
+            // FIREBASE STORAGE (Replace with real config)
+            // =============================================
+            // Uncomment when Firebase is configured:
+            //
+            // await db.collection("contact_submissions").add({
+            //     name, email, phone, subject, message, consent,
+            //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            //     status: "new",
+            //     source: "contact_page"
+            // });
+
+            // Simulated API call (replace with Firebase call)
+            await new Promise(resolve => setTimeout(resolve, 1800));
+
+            // =============================================
+            // EMAIL NOTIFICATION TRIGGER
+            // =============================================
+            // Option 1: Firebase Cloud Function (recommended)
+            // - Set up an onCreate trigger on "contact_submissions"
+            // - Use SendGrid/Mailgun/Postmark to send emails
+            // - Route to correct team based on subject field
+            //
+            // Option 2: Direct API call to email service
+            // await fetch('https://api.your-email-service.com/send', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer YOUR_KEY' },
+            //     body: JSON.stringify({
+            //         to: getTeamEmail(subject),
+            //         replyTo: email,
+            //         subject: `[GoGlobalMart] ${getSubjectLabel(subject)} - from ${name}`,
+            //         html: buildEmailTemplate({ name, email, phone, subject, message })
+            //     })
+            // });
+
+            // Success
+            showToast('Message Sent Successfully', `Thank you, ${name}! We'll respond within 2 hours at ${email}.`, false);
+            form.reset();
+            charCount.textContent = '0 / 2000';
+            consentInput.style.background = 'transparent';
+            consentInput.style.borderColor = 'rgba(255,255,255,0.18)';
+            submitBtn.disabled = true;
+
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showToast('Submission Failed', 'Something went wrong. Please try again or email us directly at support@goglobalmart.com.', true);
+        } finally {
+            submitBtn.classList.remove('loading');
+            updateSubmitState();
+        }
+    });
+
+    // =============================================
+    // HELPER FUNCTIONS (for email routing)
+    // =============================================
+    function getTeamEmail(subject) {
+        const map = {
+            'seller-question': 'seller-support@goglobalmart.com',
+            'partnership': 'partnerships@goglobalmart.com',
+            'technical': 'technical@goglobalmart.com',
+        };
+        return map[subject] || 'support@goglobalmart.com';
+    }
+
+    function getSubjectLabel(subject) {
+        const map = {
+            'order-issue': 'Order Issue',
+            'return-refund': 'Return & Refund',
+            'payment-problem': 'Payment Problem',
+            'account-help': 'Account Help',
+            'seller-question': 'Seller Question',
+            'partnership': 'Business Partnership',
+            'technical': 'Technical Issue',
+            'feedback': 'Feedback & Suggestion',
+            'other': 'General Inquiry',
+        };
+        return map[subject] || subject;
+    }
+
+    // =============================================
+    // TOAST
+    // =============================================
+    const toastEl = document.getElementById('toastEl');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+
+    function showToast(title, msg, isError) {
+        toastTitle.textContent = title;
+        toastMsg.textContent = msg;
+        toastEl.classList.toggle('error', isError);
+        if (isError) {
+            toastIcon.style.background = 'rgba(239,68,68,0.1)';
+            toastIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+        } else {
+            toastIcon.style.background = 'rgba(34,197,94,0.1)';
+            toastIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>';
+        }
+        toastEl.classList.add('show');
+        setTimeout(() => toastEl.classList.remove('show'), 5500);
+    }
+
+    // =============================================
+    // SCROLL
+    // =============================================
+    const progressBar = document.getElementById('progressBar');
+    const backTop = document.getElementById('backTop');
+    let scrollTick = false;
+
+    window.addEventListener('scroll', () => {
+        if (!scrollTick) {
+            requestAnimationFrame(() => {
+                const st = window.scrollY;
+                const dh = document.documentElement.scrollHeight - window.innerHeight;
+                progressBar.style.width = dh > 0 ? (st / dh * 100) + '%' : '0%';
+                backTop.classList.toggle('show', st > 500);
+                scrollTick = false;
+            });
+            scrollTick = true;
+        }
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
