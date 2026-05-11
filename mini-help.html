@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | GoGlobalMart Mini Store</title>
+    <meta name="description" content="Get help with orders, payments, delivery, returns, and account issues on GoGlobalMart Mini Store. Search FAQs, browse help articles, or submit a support ticket.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.goglobalmart.me/mini-help.html">
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+
+    <meta property="og:title" content="Help Center | GoGlobalMart Mini Store">
+    <meta property="og:description" content="Find answers, browse help articles, or submit a support ticket. GoGlobalMart's Help Center is available 24/7.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.goglobalmart.me/mini-help.html">
+    <meta property="og:site_name" content="GoGlobalMart Mini Store">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Help Center",
+        "description": "GoGlobalMart Mini Store Help Center offering FAQ search, support categories, help articles, and ticket submission.",
+        "url": "https://www.goglobalmart.me/mini-help.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "GoGlobalMart Mini Store",
+            "url": "https://www.goglobalmart.me"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GoGlobalMart, Inc.",
+            "url": "https://www.goglobalmart.me",
+            "logo": { "@type": "ImageObject", "url": "https://www.goglobalmart.me/fevicon.png" },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "support@goglobalmart.me",
+                "availableLanguage": ["English"],
+                "hoursAvailable": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                    "opens": "00:00", "closes": "23:59"
+                }
+            }
+        },
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-07-10"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        geist: ['Geist', 'sans-serif'],
+                        newsreader: ['Newsreader', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-main: #0a0a0a;
+            --bg-alt: #111111;
+            --bg-card: #151515;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --text-dim: #52525b;
+            --accent: #c05621;
+            --accent-hover: #d4622a;
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Geist', sans-serif; background: var(--bg-main); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 10px; }
+
+        .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, #c05621, #e8773a); z-index: 200; width: 0%; transition: width 0.08s linear; }
+
+        /* Search */
+        .search-wrap { position: relative; max-width: 680px; margin: 0 auto; }
+        .search-input {
+            width: 100%; padding: 20px 56px 20px 56px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px; color: #fff; font-family: 'Geist', sans-serif;
+            font-size: 1.05rem; font-weight: 300; outline: none; transition: all 0.3s ease;
+        }
+        .search-input::placeholder { color: #3f3f46; }
+        .search-input:focus {
+            border-color: rgba(192,86,33,0.5); background: rgba(255,255,255,0.06);
+            box-shadow: 0 0 0 4px rgba(192,86,33,0.07), 0 20px 60px -15px rgba(192,86,33,0.15);
+        }
+        .search-suggestions {
+            position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+            background: #151515; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; overflow: hidden; z-index: 30;
+            opacity: 0; pointer-events: none; transform: translateY(-8px);
+            transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+            max-height: 380px; overflow-y: auto;
+        }
+        .search-suggestions.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .suggestion-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 20px; cursor: pointer; transition: background 0.2s;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .suggestion-item:last-child { border-bottom: none; }
+        .suggestion-item:hover { background: rgba(255,255,255,0.04); }
+        .suggestion-item .s-icon {
+            width: 32px; height: 32px; min-width: 32px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.04);
+        }
+        .suggestion-item .s-text { font-size: 0.88rem; font-weight: 400; color: #d4d4d8; }
+        .suggestion-item .s-cat { font-size: 0.65rem; color: #52525b; margin-top: 2px; }
+        .suggestion-item mark { background: rgba(192,86,33,0.3); color: #fff; border-radius: 2px; padding: 0 1px; }
+        .suggestions-empty { padding: 30px 20px; text-align: center; }
+        .suggestions-heading { padding: 10px 20px 6px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3f3f46; }
+
+        /* Category cards */
+        .cat-card {
+            padding: 28px 24px; border-radius: 16px;
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+            cursor: pointer; position: relative; overflow: hidden;
+            text-decoration: none; display: block;
+        }
+        .cat-card::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 2px; background: transparent; transition: background 0.4s;
+        }
+        .cat-card:hover {
+            border-color: var(--border-hover); background: rgba(255,255,255,0.04);
+            transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
+        }
+        .cat-card:hover::after { background: var(--accent); }
+        .cat-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px; transition: transform 0.4s;
+        }
+        .cat-card:hover .cat-icon { transform: scale(1.08); }
+        .cat-count {
+            font-size: 0.65rem; font-weight: 500; color: #52525b;
+            background: rgba(255,255,255,0.04); padding: 3px 8px;
+            border-radius: 100px; display: inline-block;
+        }
+
+        /* FAQ accordion */
+        .faq-item {
+            border: 1px solid var(--border); border-radius: 12px;
+            overflow: hidden; transition: all 0.3s; background: rgba(255,255,255,0.015);
+        }
+        .faq-item:hover { border-color: var(--border-hover); }
+        .faq-item.open { border-color: rgba(192,86,33,0.25); background: rgba(192,86,33,0.02); }
+        .faq-q {
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+            gap: 16px; padding: 18px 22px; background: none; border: none;
+            color: #e4e4e7; font-family: 'Geist', sans-serif;
+            font-size: 0.92rem; font-weight: 500; text-align: left;
+            cursor: pointer; transition: color 0.3s; line-height: 1.5;
+        }
+        .faq-q:hover { color: #fff; }
+        .faq-item.open .faq-q { color: #fff; }
+        .faq-chev {
+            width: 26px; height: 26px; min-width: 26px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.08); display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+        }
+        .faq-item.open .faq-chev { transform: rotate(180deg); border-color: rgba(192,86,33,0.35); background: rgba(192,86,33,0.08); }
+        .faq-chev svg { width: 13px; height: 13px; stroke: #52525b; transition: stroke 0.3s; }
+        .faq-item.open .faq-chev svg { stroke: #c05621; }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1); }
+        .faq-a-inner { padding: 0 22px 18px; font-size: 0.88rem; font-weight: 300; line-height: 1.8; color: #a1a1aa; }
+        .faq-a-inner a { color: #c05621; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(192,86,33,0.35); }
+        .faq-a-inner a:hover { text-decoration-color: #c05621; }
+        .faq-a-inner strong { color: #d4d4d8; font-weight: 500; }
+        .faq-cat-badge {
+            font-size: 0.58rem; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; color: #52525b; padding: 2px 8px;
+            border: 1px solid rgba(255,255,255,0.06); border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        /* Form */
+        .form-group { position: relative; margin-bottom: 18px; }
+        .form-label { display: block; font-size: 0.75rem; font-weight: 500; color: #a1a1aa; margin-bottom: 7px; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%; padding: 13px 16px;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px; color: #fff; font-family: 'Geist', sans-serif;
+            font-size: 0.88rem; font-weight: 300; outline: none; transition: all 0.3s;
+        }
+        .form-input::placeholder, .form-textarea::placeholder { color: #3f3f46; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: rgba(192,86,33,0.5); background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 0 3px rgba(192,86,33,0.06);
+        }
+        .form-input.error, .form-select.error, .form-textarea.error { border-color: rgba(239,68,68,0.5); }
+        .form-error { font-size: 0.7rem; color: #f87171; margin-top: 5px; display: none; align-items: center; gap: 4px; }
+        .form-error.visible { display: flex; }
+        .form-select {
+            appearance: none; cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2352525b' stroke-width='2' stroke-linecap='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px;
+        }
+        .form-select option { background: #111; color: #fff; }
+        .form-textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
+
+        /* File upload */
+        .file-drop {
+            border: 2px dashed rgba(255,255,255,0.08); border-radius: 12px;
+            padding: 28px 20px; text-align: center; cursor: pointer;
+            transition: all 0.3s; background: rgba(255,255,255,0.01);
+        }
+        .file-drop:hover, .file-drop.dragover {
+            border-color: rgba(192,86,33,0.35); background: rgba(192,86,33,0.03);
+        }
+        .file-drop.has-file { border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.02); }
+        .file-preview {
+            display: flex; align-items: center; gap: 10px; padding: 8px 0;
+        }
+        .file-remove {
+            width: 22px; height: 22px; border-radius: 50%;
+            background: rgba(239,68,68,0.1); border: none;
+            color: #f87171; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .file-remove:hover { background: rgba(239,68,68,0.2); }
+
+        .btn-submit {
+            width: 100%; padding: 16px 32px; background: #c05621; color: #fff;
+            font-family: 'Geist', sans-serif; font-size: 0.82rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; border-radius: 10px; cursor: pointer;
+            transition: all 0.3s; position: relative;
+        }
+        .btn-submit:hover:not(:disabled) { background: #d4622a; transform: translateY(-2px); box-shadow: 0 0 40px -10px rgba(192,86,33,0.5); }
+        .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-submit .spinner { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
+        .btn-submit.loading .spinner { display: inline-block; }
+        .btn-submit.loading .btn-text { display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Articles */
+        .article-card {
+            display: flex; gap: 16px; padding: 18px 20px;
+            border-radius: 12px; background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border); transition: all 0.3s;
+            cursor: pointer; text-decoration: none;
+        }
+        .article-card:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.04); transform: translateX(4px); }
+
+        /* Chat button */
+        .chat-btn {
+            position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px;
+            border-radius: 50%; background: #c05621; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; z-index: 50;
+            transition: all 0.3s; box-shadow: 0 8px 30px -8px rgba(192,86,33,0.5);
+        }
+        .chat-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 40px -8px rgba(192,86,33,0.6); }
+        .chat-window {
+            position: fixed; bottom: 100px; right: 28px; width: 380px; max-width: calc(100vw - 32px);
+            background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+            z-index: 50; transform: translateY(20px) scale(0.95); opacity: 0;
+            pointer-events: none; transition: all 0.4s cubic-bezier(0.22,1,0.36,1); overflow: hidden;
+        }
+        .chat-window.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+        .chat-input {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; font-family: 'Geist', sans-serif; font-size: 0.85rem;
+            font-weight: 300; padding: 14px 16px; width: 100%; border-radius: 10px;
+            outline: none; transition: border-color 0.3s;
+        }
+        .chat-input::placeholder { color: #3f3f46; }
+        .chat-input:focus { border-color: rgba(192,86,33,0.5); }
+
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 32px; right: 32px; background: #111;
+            border: 1px solid rgba(255,255,255,0.1); padding: 22px 28px;
+            border-radius: 14px; z-index: 100; transform: translateY(140%);
+            opacity: 0; transition: all 0.5s cubic-bezier(0.22,1,0.36,1); max-width: 420px;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        .back-top {
+            position: fixed; bottom: 28px; right: 96px; width: 46px; height: 46px;
+            border-radius: 50%; background: rgba(17,17,17,0.9);
+            border: 1px solid rgba(255,255,255,0.08); color: #71717a;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 40; opacity: 0; pointer-events: none; transition: all 0.3s;
+        }
+        .back-top.show { opacity: 1; pointer-events: auto; }
+        .back-top:hover { color: #fff; border-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+
+        @keyframes revealUp {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        .anim-in { animation: revealUp 1s cubic-bezier(0.16,1,0.3,1) both; }
+        .anim-d1 { animation-delay: 100ms; }
+        .anim-d2 { animation-delay: 200ms; }
+        .anim-d3 { animation-delay: 300ms; }
+        .anim-d4 { animation-delay: 400ms; }
+        .anim-d5 { animation-delay: 500ms; }
+
+        @keyframes typing-dot {
+            0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+            30% { opacity: 1; transform: translateY(-4px); }
+        }
+
+        @media (max-width: 1023px) {
+            .chat-window { right: 16px; bottom: 96px; }
+            .chat-btn { bottom: 20px; right: 20px; width: 54px; height: 54px; }
+            .back-top { right: 16px; bottom: 20px; width: 42px; height: 42px; }
+            .toast { right: 16px; bottom: 16px; left: 16px; max-width: none; }
+        }
+    </style>
+</head>
+<body class="font-geist antialiased">
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-5" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.07);">
+        <a href="/" class="flex items-center gap-2">
+            <span class="text-white font-semibold text-[1.05rem] tracking-tight">GoGlobalMart</span>
+            <span class="text-[0.65rem] font-medium text-zinc-600 uppercase tracking-widest hidden sm:inline">Mini Store</span>
+        </a>
+        <div class="flex items-center gap-5">
+            <a href="mini-faq.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-600 hover:text-white transition-colors hidden sm:inline">FAQ</a>
+            <a href="mini-contact.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-600 hover:text-white transition-colors hidden sm:inline">Contact</a>
+            <a href="https://www.goglobalmart.me/mini-help.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-500">Help</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pt-28 pb-6 lg:pt-36 lg:pb-8 px-5 relative overflow-hidden" style="background:linear-gradient(to bottom,#0a0a0a,#111111);">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full pointer-events-none opacity-10" style="background:radial-gradient(circle,rgba(192,86,33,0.12) 0%,transparent 70%);"></div>
+        <div class="max-w-[1200px] mx-auto relative text-center">
+            <div class="anim-in">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                    <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Help Center</span>
+                    <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[0.95] mb-5">
+                    How Can We<br class="sm:hidden"> Help You?
+                </h1>
+                <p class="text-base sm:text-lg font-light leading-relaxed text-zinc-400 max-w-xl mx-auto">
+                    Search our knowledge base, browse categories, or get direct support from our team.
+                </p>
+            </div>
+
+            <!-- Search -->
+            <div class="anim-in anim-d1 mt-10">
+                <div class="search-wrap" id="searchWrap">
+                    <svg class="absolute left-5 top-1/2 -translate-y-1/2 z-10" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" id="helpSearch" class="search-input" placeholder="Search for help articles, FAQs, topics..." autocomplete="off" aria-label="Search help center">
+                    <div id="searchClear" class="absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-700 hover:text-white transition-colors hidden z-10" aria-label="Clear">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                    </div>
+                    <div class="search-suggestions" id="suggestions"></div>
+                </div>
+                <div class="flex items-center justify-center flex-wrap gap-2 mt-4">
+                    <span class="text-[0.68rem] text-zinc-700">Popular:</span>
+                    <button class="quick-search text-[0.68rem] text-zinc-500 hover:text-white transition-colors cursor-pointer bg-transparent border-none font-geist" data-q="track my order">Track my order</button>
+                    <span class="text-zinc-800">·</span>
+                    <button class="quick-search text-[0.68rem] text-zinc-500 hover:text-white transition-colors cursor-pointer bg-transparent border-none font-geist" data-q="return an item">Return an item</button>
+                    <span class="text-zinc-800">·</span>
+                    <button class="quick-search text-[0.68rem] text-zinc-500 hover:text-white transition-colors cursor-pointer bg-transparent border-none font-geist" data-q="payment failed">Payment failed</button>
+                    <span class="text-zinc-800">·</span>
+                    <button class="quick-search text-[0.68rem] text-zinc-500 hover:text-white transition-colors cursor-pointer bg-transparent border-none font-geist" data-q="seller account">Seller account</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Support Categories -->
+    <section class="px-5 py-14" style="background:#111;">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="anim-in anim-d2 flex items-center gap-3 mb-8">
+                <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Browse by Topic</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="categoriesGrid">
+                <!-- Orders -->
+                <a href="#faq-section" class="cat-card anim-in anim-d2" data-cat="orders">
+                    <div class="cat-icon" style="background:rgba(192,86,33,0.08);border:1px solid rgba(192,86,33,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold tracking-tight mb-1">Orders</h3>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed mb-3">Tracking, cancellations, modifications, order history</p>
+                    <span class="cat-count">12 articles</span>
+                </a>
+                <!-- Payments -->
+                <a href="#faq-section" class="cat-card anim-in anim-d3" data-cat="payments">
+                    <div class="cat-icon" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold tracking-tight mb-1">Payments</h3>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed mb-3">Methods, declined payments, refunds, invoices</p>
+                    <span class="cat-count">9 articles</span>
+                </a>
+                <!-- Delivery -->
+                <a href="#faq-section" class="cat-card anim-in anim-d3" data-cat="delivery">
+                    <div class="cat-icon" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold tracking-tight mb-1">Delivery</h3>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed mb-3">Shipping times, international, lost packages</p>
+                    <span class="cat-count">8 articles</span>
+                </a>
+                <!-- Returns -->
+                <a href="#faq-section" class="cat-card anim-in anim-d4" data-cat="returns">
+                    <div class="cat-icon" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold tracking-tight mb-1">Returns</h3>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed mb-3">Return policy, refund status, exchanges</p>
+                    <span class="cat-count">7 articles</span>
+                </a>
+                <!-- Seller Support -->
+                <a href="#faq-section" class="cat-card anim-in anim-d4" data-cat="seller">
+                    <div class="cat-icon" style="background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold tracking-tight mb-1">Seller Support</h3>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed mb-3">Listings, payouts, performance, disputes</p>
+                    <span class="cat-count">11 articles</span>
+                </a>
+                <!-- Account Issues -->
+                <a href="#faq-section" class="cat-card anim-in anim-d5" data-cat="account">
+                    <div class="cat-icon" style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold tracking-tight mb-1">Account Issues</h3>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed mb-3">Login, password, 2FA, data, deletion</p>
+                    <span class="cat-count">6 articles</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular FAQs -->
+    <section id="faq-section" class="px-5 py-16" style="background:var(--bg-main);">
+        <div class="max-w-[900px] mx-auto">
+            <div class="anim-in flex items-center gap-3 mb-2">
+                <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Frequently Asked</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight mb-8">Popular Questions</h2>
+            <div class="space-y-3" id="faqContainer"></div>
+        </div>
+    </section>
+
+    <!-- Support Ticket + Articles -->
+    <section class="px-5 py-16" style="background:#111;">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10">
+
+                <!-- Ticket Form -->
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                        <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Submit a Ticket</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight mb-2">Need More Help?</h2>
+                    <p class="text-sm text-zinc-500 font-light leading-relaxed mb-8">Can't find what you're looking for? Submit a support ticket and our team will respond within 2 hours.</p>
+
+                    <form id="ticketForm" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5">
+                            <div class="form-group">
+                                <label class="form-label">Full Name <span class="text-[#c05621]">*</span></label>
+                                <input type="text" name="name" class="form-input" placeholder="John Doe" required>
+                                <div class="form-error"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Name is required</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address <span class="text-[#c05621]">*</span></label>
+                                <input type="email" name="email" class="form-input" placeholder="john@example.com" required>
+                                <div class="form-error"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Valid email required</span></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5">
+                            <div class="form-group">
+                                <label class="form-label">Order ID</label>
+                                <input type="text" name="orderId" class="form-input" placeholder="e.g., GGM-2025-12345" style="text-transform:uppercase;">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Issue Type <span class="text-[#c05621]">*</span></label>
+                                <select name="issueType" class="form-select" required>
+                                    <option value="" disabled selected>Select issue type</option>
+                                    <option value="order-not-received">Order Not Received</option>
+                                    <option value="wrong-item">Received Wrong Item</option>
+                                    <option value="damaged-item">Damaged / Defective Item</option>
+                                    <option value="refund-not-received">Refund Not Received</option>
+                                    <option value="payment-issue">Payment Issue</option>
+                                    <option value="account-problem">Account Problem</option>
+                                    <option value="seller-issue">Seller-Related Issue</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-error"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Select an issue type</span></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Description <span class="text-[#c05621]">*</span></label>
+                            <textarea name="description" class="form-textarea" placeholder="Please describe your issue in detail. Include relevant dates, what happened, and what you've already tried..." required></textarea>
+                            <div class="form-error"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Description required (min 20 characters)</span></div>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div class="form-group">
+                            <label class="form-label">Attachment (optional)</label>
+                            <div class="file-drop" id="fileDrop">
+                                <input type="file" id="fileInput" accept="image/*,.pdf,.doc,.docx" class="hidden">
+                                <div id="filePrompt">
+                                    <svg class="mx-auto mb-3" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3f3f46" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    <p class="text-sm text-zinc-500 font-light">Drag & drop or <span class="text-[#c05621] font-medium">browse files</span></p>
+                                    <p class="text-[0.68rem] text-zinc-700 mt-1">PNG, JPG, PDF, DOC up to 10MB</p>
+                                </div>
+                                <div id="fileInfo" class="file-preview" style="display:none;">
+                                    <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:rgba(34,197,94,0.1);">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p id="fileName" class="text-sm text-zinc-300 font-medium truncate"></p>
+                                        <p id="fileSize" class="text-[0.68rem] text-zinc-600"></p>
+                                    </div>
+                                    <button type="button" id="fileRemove" class="file-remove" aria-label="Remove file">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="ticketSubmit" class="btn-submit" disabled>
+                            <span class="btn-text">Submit Support Ticket</span>
+                            <span class="spinner"></span>
+                        </button>
+                        <p class="text-[0.68rem] text-zinc-700 text-center mt-4">You'll receive a ticket ID and confirmation email within minutes.</p>
+                    </form>
+                </div>
+
+                <!-- Help Articles Sidebar -->
+                <aside class="space-y-6">
+                    <div class="p-6 rounded-2xl" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
+                        <div class="flex items-center gap-2 mb-5">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            <h3 class="text-sm font-semibold tracking-tight">Help Articles</h3>
+                        </div>
+                        <div class="space-y-2" id="articlesList">
+                            <a href="#orders" class="article-card" onclick="event.preventDefault();">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(192,86,33,0.08);">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-sm text-zinc-300 font-medium leading-snug">How to Track Your Order Step by Step</p>
+                                    <p class="text-[0.68rem] text-zinc-700 mt-1">Orders · 3 min read</p>
+                                </div>
+                            </a>
+                            <a href="#payment" class="article-card" onclick="event.preventDefault();">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(59,130,246,0.08);">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-sm text-zinc-300 font-medium leading-snug">Understanding Your Payment Statement</p>
+                                    <p class="text-[0.68rem] text-zinc-700 mt-1">Payments · 4 min read</p>
+                                </div>
+                            </a>
+                            <a href="mini-return.html" class="article-card" onclick="event.preventDefault();">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(239,68,68,0.08);">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-sm text-zinc-300 font-medium leading-snug">Complete Return & Refund Guide</p>
+                                    <p class="text-[0.68rem] text-zinc-700 mt-1">Returns · 5 min read</p>
+                                </div>
+                            </a>
+                            <a href="mini-seller-agreement.html" class="article-card" onclick="event.preventDefault();">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(168,85,247,0.08);">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-sm text-zinc-300 font-medium leading-snug">Getting Started as a Seller</p>
+                                    <p class="text-[0.68rem] text-zinc-700 mt-1">Seller · 6 min read</p>
+                                </div>
+                            </a>
+                            <a href="mini-profile.html" class="article-card" onclick="event.preventDefault();">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(251,191,36,0.08);">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-sm text-zinc-300 font-medium leading-snug">Securing Your Account with 2FA</p>
+                                    <p class="text-[0.68rem] text-zinc-700 mt-1">Account · 2 min read</p>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="mini-faq.html" class="flex items-center justify-center gap-2 mt-5 text-xs font-medium text-[#c05621] hover:text-[#d4622a] transition-colors">
+                            Browse all articles
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Quick contact -->
+                    <div class="p-6 rounded-2xl" style="background:rgba(192,86,33,0.04);border:1px solid rgba(192,86,33,0.12);">
+                        <h3 class="text-sm font-semibold tracking-tight mb-2">Prefer to talk?</h3>
+                        <p class="text-xs text-zinc-500 font-light leading-relaxed mb-4">Our support team is available 24/7 via live chat or phone.</p>
+                        <div class="space-y-3">
+                            <button onclick="toggleChat()" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#c05621] text-white text-xs font-medium uppercase tracking-widest rounded-lg hover:bg-[#d4622a] transition-all">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                                Start Live Chat
+                            </button>
+                            <a href="tel:+918107747972" class="w-full flex items-center justify-center gap-2 px-4 py-3 text-zinc-400 text-xs font-medium uppercase tracking-widest rounded-lg border border-zinc-700 hover:border-zinc-500 hover:text-white transition-all">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                +1 (302) 555-0199
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-5 py-14 border-t" style="border-color:var(--border);background:#050505;">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="md:col-span-2">
+                    <span class="text-white font-semibold text-lg tracking-tight">GoGlobalMart</span>
+                    <span class="text-xs font-medium text-zinc-700 uppercase tracking-widest ml-2">Mini Store</span>
+                    <p class="text-sm text-zinc-700 font-light leading-relaxed mt-3 max-w-md">A global multi-vendor marketplace connecting sellers with buyers worldwide.</p>
+                </div>
+                <div>
+                    <p class="text-[0.6rem] font-semibold uppercase tracking-[0.15em] text-zinc-700 mb-4">Support</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="mini-help.html" class="text-sm text-zinc-500 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="mini-faq.html" class="text-sm text-zinc-600 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="mini-contact.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-[0.6rem] font-semibold uppercase tracking-[0.15em] text-zinc-700 mb-4">Legal</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="mini-terms.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Terms of Use</a></li>
+                        <li><a href="mini-privacy.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="mini-return.html" class="text-sm text-zinc-600 hover:text-white transition-colors">Returns Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-3" style="border-color:var(--border);">
+                <p class="text-xs text-zinc-800">© 2025 GoGlobalMart, Inc. All rights reserved.</p>
+                <p class="text-xs text-zinc-800">Help Center v2.1</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Button -->
+    <button class="chat-btn" id="chatBtn" aria-label="Open live chat">
+        <svg id="chatIconOpen" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <svg id="chatIconClose" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="display:none;"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+    </button>
+
+    <!-- Chat Window -->
+    <div class="chat-window" id="chatWindow">
+        <div class="px-5 py-4 flex items-center justify-between" style="background:rgba(192,86,33,0.08);border-bottom:1px solid rgba(255,255,255,0.06);">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(192,86,33,0.15);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-white">Live Support</p>
+                    <p class="text-[0.6rem] text-emerald-500 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>Online — avg. 2 min wait</p>
+                </div>
+            </div>
+        </div>
+        <div class="p-5 space-y-4" id="chatMessages" style="height:320px;overflow-y:auto;">
+            <div class="flex gap-3">
+                <div class="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background:rgba(192,86,33,0.12);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                <div class="rounded-xl rounded-tl-sm px-4 py-3 max-w-[85%]" style="background:rgba(255,255,255,0.04);">
+                    <p class="text-sm text-zinc-300 font-light leading-relaxed">Hi! 👋 Welcome to GoGlobalMart support. How can I help you today?</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2 pl-10" id="chatQuick">
+                <button class="chat-qbtn text-[0.68rem] font-medium text-zinc-400 px-3 py-1.5 rounded-full border border-zinc-700 hover:border-zinc-500 hover:text-white transition-all bg-transparent cursor-pointer" data-m="I need help with an order">Order Help</button>
+                <button class="chat-qbtn text-[0.68rem] font-medium text-zinc-400 px-3 py-1.5 rounded-full border border-zinc-700 hover:border-zinc-500 hover:text-white transition-all bg-transparent cursor-pointer" data-m="I want to return an item">Return Item</button>
+                <button class="chat-qbtn text-[0.68rem] font-medium text-zinc-400 px-3 py-1.5 rounded-full border border-zinc-700 hover:border-zinc-500 hover:text-white transition-all bg-transparent cursor-pointer" data-m="I have a payment issue">Payment Issue</button>
+            </div>
+        </div>
+        <div class="px-4 pb-4 pt-2">
+            <div class="flex gap-2">
+                <input type="text" id="chatInput" class="chat-input flex-1" placeholder="Type your message..." aria-label="Chat message">
+                <button id="chatSend" class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all hover:scale-105" style="background:#c05621;" aria-label="Send">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <!-- Toast -->
+    <div class="toast" id="toastEl">
+        <div class="flex items-start gap-3">
+            <div id="toastIcon" class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(34,197,94,0.1);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div>
+                <p id="toastTitle" class="text-sm font-medium text-white mb-0.5">Ticket Submitted</p>
+                <p id="toastMsg" class="text-xs text-zinc-500 font-light leading-relaxed">Your ticket ID is GGM-TK-48291. We'll respond within 2 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    ============================================================
+    FIREBASE INTEGRATION
+    ============================================================
+    1. Add SDKs:
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+
+    2. Initialize:
+    <script>
+    firebase.initializeApp({ apiKey:"...", authDomain:"...", projectId:"...", ... });
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+    </script>
+
+    3. Store tickets in Firestore:
+    await db.collection("support_tickets").add({
+        ticketId: "GGM-TK-" + Date.now().toString(36).toUpperCase(),
+        name, email, orderId, issueType, description,
+        attachmentUrl: fileUrl || null,
+        status: "open", priority: "normal",
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    4. Upload attachment to Firebase Storage:
+    const ref = storage.ref(`tickets/${ticketId}/${file.name}`);
+    await ref.put(file);
+    const fileUrl = await ref.getDownloadURL();
+
+    5. Admin dashboard: query tickets by status, filter, update.
+    ============================================================
+    -->
+
+    <script>
+    // =============================================
+    // DATA
+    // =============================================
+    const faqData = [
+        { cat: 'orders', q: 'How do I track my order?', a: 'Go to <strong>"My Orders"</strong> in your account and click <strong>"Track"</strong> next to your order. You\'ll see real-time tracking from the carrier. You\'ll also receive a tracking number via email once your order ships.', popular: true },
+        { cat: 'orders', q: 'Can I cancel or modify my order?', a: 'Orders can be canceled within <strong>1 hour</strong> of placement if not yet shipped. Go to "My Orders" → select the order → click "Cancel" or "Modify." After shipping, you\'ll need to initiate a return instead.', popular: true },
+        { cat: 'orders', q: 'What if I entered the wrong shipping address?', a: 'Contact support immediately with your order ID. If the order hasn\'t shipped, we can update the address. If it has already shipped, we\'ll work with the carrier to attempt a redirect, though this isn\'t always possible.', popular: false },
+        { cat: 'payments', q: 'Why was my payment declined?', a: 'Common reasons include insufficient funds, incorrect card details, your bank blocking international transactions, or our fraud prevention system flagging the order. Try a different payment method or contact your bank.', popular: true },
+        { cat: 'payments', q: 'Do you offer Buy Now Pay Later?', a: 'Yes! We support <strong>Klarna, Afterpay, and Affirm</strong> at checkout. Split purchases into 4 interest-free installments for orders under $1,000, or choose longer-term financing with applicable rates.', popular: false },
+        { cat: 'payments', q: 'When will my refund appear?', a: 'Refund timing varies: <strong>credit cards</strong> 5-10 days, <strong>PayPal</strong> 3-5 days, <strong>wallet/credit</strong> instant. The timeline starts after we receive and inspect your return.', popular: false },
+        { cat: 'delivery', q: 'How long does shipping take?', a: '<strong>Standard US:</strong> 5-10 business days. <strong>Express US:</strong> 2-3 business days. <strong>International:</strong> 10-25 business days. Processing adds 1-3 business days before shipping.', popular: true },
+        { cat: 'delivery', q: 'My package says delivered but I didn\'t receive it.', a: 'Check with neighbors, your building\'s front desk, and around your property. If still not found after 48 hours, go to "My Orders" → "Report a Problem" → "Package not received." We\'ll investigate and resolve within 5 business days.', popular: false },
+        { cat: 'returns', q: 'What is the return policy?', a: 'Most items can be returned within <strong>30 days</strong> of delivery in original, unused condition with all tags and packaging. Some categories (perishables, personalized items, opened cosmetics) are non-returnable.', popular: true },
+        { cat: 'returns', q: 'How do I start a return?', a: 'Go to <strong>"My Orders"</strong> → select the order → click <strong>"Return Item"</strong> → choose your reason → print the return label and ship the item back. Refunds are processed within 5-10 business days after we receive the return.', popular: false },
+        { cat: 'seller', q: 'How do I become a seller?', a: 'Click <strong>"Sell on GoGlobalMart"</strong> in the footer, complete registration with your business details and verification documents. Approval takes 2-3 business days. See our <a href="/seller-agreement">Seller Agreement</a> for full details.', popular: true },
+        { cat: 'seller', q: 'When do I receive my seller payouts?', a: '<strong>New sellers:</strong> every 14 days. <strong>Standard:</strong> every 7 days. <strong>Pro plan:</strong> every 3 days. Minimum withdrawal is $25. Bank transfers take 1-3 business days after release.', popular: false },
+        { cat: 'account', q: 'How do I enable two-factor authentication?', a: 'Go to <strong>Account Settings → Security → 2FA</strong> → click "Enable." We recommend using an authenticator app (Google Authenticator, Authy) over SMS for better security.', popular: true },
+        { cat: 'account', q: 'I think my account was hacked. What do I do?', a: '<strong>Immediately</strong> change your password, enable 2FA, review recent orders, check connected payment methods, and remove anything suspicious. Then contact <a href="mailto:security@goglobalmart.com">security@goglobalmart.com</a> right away.', popular: false },
+    ];
+
+    const catLabels = { orders:'Orders', payments:'Payments', delivery:'Delivery', returns:'Returns', seller:'Seller Support', account:'Account' };
+    const catColors = { orders:'#c05621', payments:'#3b82f6', delivery:'#22c55e', returns:'#ef4444', seller:'#a855f7', account:'#fbbf24' };
+
+    // =============================================
+    // RENDER FAQs
+    // =============================================
+    const faqContainer = document.getElementById('faqContainer');
+    const popularFaqs = faqData.filter(f => f.popular);
+
+    function renderFaqs(data) {
+        faqContainer.innerHTML = data.map(f => `
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                    <div class="flex items-center gap-3 min-w-0 flex-1">
+                        <span class="faq-cat-badge" style="color:${catColors[f.cat]};border-color:${catColors[f.cat]}33;">${catLabels[f.cat]}</span>
+                        <span class="min-w-0">${f.q}</span>
+                    </div>
+                    <span class="faq-chev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
+            </div>
+        `).join('');
+
+        faqContainer.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-q').addEventListener('click', () => toggleFaq(item));
+        });
+    }
+    renderFaqs(popularFaqs);
+
+    function toggleFaq(item) {
+        const isOpen = item.classList.contains('open');
+        const body = item.querySelector('.faq-a');
+        const inner = item.querySelector('.faq-a-inner');
+        faqContainer.querySelectorAll('.faq-item.open').forEach(o => {
+            if (o !== item) { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = '0'; o.querySelector('.faq-q').setAttribute('aria-expanded','false'); }
+        });
+        if (isOpen) { item.classList.remove('open'); body.style.maxHeight = '0'; item.querySelector('.faq-q').setAttribute('aria-expanded','false'); }
+        else { item.classList.add('open'); body.style.maxHeight = inner.scrollHeight + 32 + 'px'; item.querySelector('.faq-q').setAttribute('aria-expanded','true'); }
+    }
+
+    // Category card click → filter FAQs
+    document.querySelectorAll('.cat-card[data-cat]').forEach(card => {
+        card.addEventListener('click', e => {
+            e.preventDefault();
+            const cat = card.getAttribute('data-cat');
+            const filtered = faqData.filter(f => f.cat === cat);
+            renderFaqs(filtered);
+            document.getElementById('faq-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => { faqContainer.querySelectorAll('.faq-item').forEach((item, i) => { if (i === 0) toggleFaq(item); }); }, 400);
+        });
+    });
+
+    // =============================================
+    // SEARCH WITH SUGGESTIONS
+    // =============================================
+    const helpSearch = document.getElementById('helpSearch');
+    const suggestionsEl = document.getElementById('suggestions');
+    const searchClear = document.getElementById('searchClear');
+    let searchTimer;
+
+    function highlightMatch(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function showSuggestions(query) {
+        if (!query || query.length < 2) { suggestionsEl.classList.remove('open'); return; }
+        const q = query.toLowerCase();
+        const matches = faqData.filter(f => f.q.toLowerCase().includes(q) || f.a.toLowerCase().replace(/<[^>]*>/g,'').includes(q)).slice(0, 6);
+
+        if (matches.length === 0) {
+            suggestionsEl.innerHTML = `<div class="suggestions-empty"><p class="text-sm text-zinc-600">No results found</p><p class="text-xs text-zinc-700 mt-1">Try different keywords or browse categories below</p></div>`;
+        } else {
+            suggestionsEl.innerHTML = `<div class="suggestions-heading">Suggestions</div>` + matches.map(f => `
+                <div class="suggestion-item" data-q="${f.q}">
+                    <div class="s-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="${catColors[f.cat]}" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+                    <div class="min-w-0"><p class="s-text">${highlightMatch(f.q, query)}</p><p class="s-cat">${catLabels[f.cat]}</p></div>
+                </div>
+            `).join('');
+        }
+        suggestionsEl.classList.add('open');
+
+        suggestionsEl.querySelectorAll('.suggestion-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const q = item.getAttribute('data-q');
+                helpSearch.value = q;
+                suggestionsEl.classList.remove('open');
+                const matched = faqData.filter(f => f.q === q);
+                if (matched.length) {
+                    renderFaqs(matched);
+                    document.getElementById('faq-section').scrollIntoView({ behavior:'smooth', block:'start' });
+                    setTimeout(() => faqContainer.querySelectorAll('.faq-item').forEach(item => toggleFaq(item)), 400);
+                }
+            });
+        });
+    }
+
+    helpSearch.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        const v = helpSearch.value.trim();
+        searchClear.classList.toggle('hidden', !v);
+        searchTimer = setTimeout(() => showSuggestions(v), 200);
+    });
+    helpSearch.addEventListener('focus', () => { if (helpSearch.value.trim().length >= 2) showSuggestions(helpSearch.value.trim()); });
+    searchClear.addEventListener('click', () => { helpSearch.value = ''; searchClear.classList.add('hidden'); suggestionsEl.classList.remove('open'); helpSearch.focus(); });
+    helpSearch.addEventListener('keydown', e => { if (e.key === 'Escape') { helpSearch.value = ''; searchClear.classList.add('hidden'); suggestionsEl.classList.remove('open'); helpSearch.blur(); } });
+    document.addEventListener('click', e => { if (!document.getElementById('searchWrap').contains(e.target)) suggestionsEl.classList.remove('open'); });
+
+    document.querySelectorAll('.quick-search').forEach(btn => {
+        btn.addEventListener('click', () => { helpSearch.value = btn.dataset.q; helpSearch.focus(); showSuggestions(btn.dataset.q); });
+    });
+
+    // =============================================
+    // FILE UPLOAD
+    // =============================================
+    const fileDrop = document.getElementById('fileDrop');
+    const fileInput = document.getElementById('fileInput');
+    const filePrompt = document.getElementById('filePrompt');
+    const fileInfo = document.getElementById('fileInfo');
+    const fileName = document.getElementById('fileName');
+    const fileSize = document.getElementById('fileSize');
+    const fileRemove = document.getElementById('fileRemove');
+    let selectedFile = null;
+
+    fileDrop.addEventListener('click', () => fileInput.click());
+    fileDrop.addEventListener('dragover', e => { e.preventDefault(); fileDrop.classList.add('dragover'); });
+    fileDrop.addEventListener('dragleave', () => fileDrop.classList.remove('dragover'));
+    fileDrop.addEventListener('drop', e => { e.preventDefault(); fileDrop.classList.remove('dragover'); if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); });
+    fileRemove.addEventListener('click', e => { e.stopPropagation(); clearFile(); });
+
+    function handleFile(file) {
+        const allowed = ['image/png','image/jpeg','image/webp','application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        if (!allowed.includes(file.type)) { alert('Unsupported file type. Use PNG, JPG, PDF, or DOC.'); return; }
+        if (file.size > 10 * 1024 * 1024) { alert('File too large. Maximum size is 10MB.'); return; }
+        selectedFile = file;
+        fileName.textContent = file.name;
+        fileSize.textContent = (file.size < 1024*1024 ? (file.size/1024).toFixed(1)+' KB' : (file.size/1024/1024).toFixed(1)+' MB');
+        filePrompt.style.display = 'none';
+        fileInfo.style.display = 'flex';
+        fileDrop.classList.add('has-file');
+    }
+    function clearFile() {
+        selectedFile = null; fileInput.value = '';
+        filePrompt.style.display = ''; fileInfo.style.display = 'none';
+        fileDrop.classList.remove('has-file');
+    }
+
+    // =============================================
+    // TICKET FORM
+    // =============================================
+    const ticketForm = document.getElementById('ticketForm');
+    const ticketSubmit = document.getElementById('ticketSubmit');
+
+    // Live enable/disable
+    ticketForm.querySelectorAll('input, select, textarea').forEach(el => {
+        const check = () => {
+            const n = ticketForm.name.value.trim();
+            const e = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ticketForm.email.value.trim());
+            const t = ticketForm.issueType.value;
+            const d = ticketForm.description.value.trim().length >= 20;
+            ticketSubmit.disabled = !(n && e && t && d);
+        };
+        el.addEventListener('input', check);
+        el.addEventListener('change', check);
+    });
+
+    ticketForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        let valid = true;
+        const fields = ticketForm.querySelectorAll('[required]');
+        fields.forEach(f => {
+            const err = f.parentElement.querySelector('.form-error');
+            let ok = true;
+            if (f.name === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
+            else if (f.name === 'description') ok = f.value.trim().length >= 20;
+            else ok = f.value.trim();
+            if (!ok) { f.classList.add('error'); if (err) err.classList.add('visible'); valid = false; }
+            else { f.classList.remove('error'); if (err) err.classList.remove('visible'); }
+        });
+        if (!valid) return;
+
+        ticketSubmit.classList.add('loading'); ticketSubmit.disabled = true;
+        try {
+            // === FIREBASE: Replace with real call ===
+            // const ticketId = "GGM-TK-" + Date.now().toString(36).toUpperCase();
+            // let attachmentUrl = null;
+            // if (selectedFile) { const ref = storage.ref(`tickets/${ticketId}/${selectedFile.name}`); await ref.put(selectedFile); attachmentUrl = await ref.getDownloadURL(); }
+            // await db.collection("support_tickets").add({ ticketId, name:ticketForm.name.value.trim(), email:ticketForm.email.value.trim(), orderId:ticketForm.orderId.value.trim().toUpperCase(), issueType:ticketForm.issueType.value, description:ticketForm.description.value.trim(), attachmentUrl, status:"open", priority:"normal", createdAt:firebase.firestore.FieldValue.serverTimestamp() });
+
+            await new Promise(r => setTimeout(r, 1800));
+            const tid = 'GGM-TK-' + Math.random().toString(36).substring(2,8).toUpperCase();
+            showToast('Ticket Submitted Successfully', `Your ticket ID is <strong>${tid}</strong>. Check your email for confirmation. We'll respond within 2 hours.`, false);
+            ticketForm.reset(); clearFile(); ticketSubmit.disabled = true;
+        } catch (err) {
+            showToast('Submission Failed', 'Something went wrong. Please try again or email support@goglobalmart.com directly.', true);
+        } finally { ticketSubmit.classList.remove('loading'); }
+    });
+
+    // =============================================
+    // CHAT
+    // =============================================
+    let chatOpen = false;
+    function toggleChat() {
+        chatOpen = !chatOpen;
+        document.getElementById('chatWindow').classList.toggle('open', chatOpen);
+        document.getElementById('chatIconOpen').style.display = chatOpen ? 'none' : 'block';
+        document.getElementById('chatIconClose').style.display = chatOpen ? 'block' : 'none';
+        if (chatOpen) document.getElementById('chatInput').focus();
+    }
+    document.getElementById('chatBtn').addEventListener('click', toggleChat);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && chatOpen) toggleChat(); });
+
+    const chatResponses = {
+        'order': 'I can help with your order! Please provide your order ID (starts with GGM-) and I\'ll look up the details for you right away.',
+        'return': 'To start a return, go to My Orders → select the order → click "Return Item." Most items are eligible within 30 days. Need me to walk you through it?',
+        'payment': 'For payment issues, can you tell me: Which payment method did you use? Did you see a specific error message? This will help me diagnose the problem quickly.',
+    };
+
+    function sendChatMsg(text) {
+        const msgs = document.getElementById('chatMessages');
+        const quick = document.getElementById('chatQuick');
+        if (quick) quick.remove();
+        msgs.innerHTML += `<div class="flex gap-3 justify-end"><div class="bg-[#c05621] rounded-xl rounded-tr-sm px-4 py-3 max-w-[85%]"><p class="text-sm text-white font-light leading-relaxed">${text}</p></div></div>`;
+        msgs.scrollTop = msgs.scrollHeight;
+
+        // Typing
+        msgs.innerHTML += `<div class="flex gap-3" id="typingInd"><div class="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background:rgba(192,86,33,0.12);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="rounded-xl rounded-tl-sm px-5 py-4" style="background:rgba(255,255,255,0.04);"><div class="flex gap-1.5"><span class="w-2 h-2 rounded-full bg-zinc-500" style="animation:typing-dot 1.4s infinite 0s;"></span><span class="w-2 h-2 rounded-full bg-zinc-500" style="animation:typing-dot 1.4s infinite 0.2s;"></span><span class="w-2 h-2 rounded-full bg-zinc-500" style="animation:typing-dot 1.4s infinite 0.4s;"></span></div></div></div>`;
+        msgs.scrollTop = msgs.scrollHeight;
+
+        setTimeout(() => {
+            const ti = document.getElementById('typingInd');
+            if (ti) ti.remove();
+            const lower = text.toLowerCase();
+            let resp = 'Thanks for reaching out! For detailed assistance, I\'d recommend submitting a support ticket above, or I can connect you with a specialist. What would you prefer?';
+            for (const [key, val] of Object.entries(chatResponses)) { if (lower.includes(key)) { resp = val; break; } }
+            msgs.innerHTML += `<div class="flex gap-3"><div class="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background:rgba(192,86,33,0.12);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="rounded-xl rounded-tl-sm px-4 py-3 max-w-[85%]" style="background:rgba(255,255,255,0.04);"><p class="text-sm text-zinc-300 font-light leading-relaxed">${resp}</p></div></div>`;
+            msgs.scrollTop = msgs.scrollHeight;
+        }, 1200 + Math.random() * 800);
+    }
+
+    document.getElementById('chatSend').addEventListener('click', () => { const v = document.getElementById('chatInput').value.trim(); if (v) { sendChatMsg(v); document.getElementById('chatInput').value = ''; } });
+    document.getElementById('chatInput').addEventListener('keydown', e => { if (e.key === 'Enter') { const v = e.target.value.trim(); if (v) { sendChatMsg(v); e.target.value = ''; } } });
+    document.querySelectorAll('.chat-qbtn').forEach(b => b.addEventListener('click', () => { sendChatMsg(b.dataset.m); }));
+
+    // =============================================
+    // TOAST
+    // =============================================
+    function showToast(title, msg, isError) {
+        const el = document.getElementById('toastEl');
+        document.getElementById('toastTitle').textContent = title;
+        document.getElementById('toastMsg').innerHTML = msg;
+        el.classList.toggle('error', !!isError);
+        const icon = document.getElementById('toastIcon');
+        if (isError) { icon.style.background = 'rgba(239,68,68,0.1)'; icon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'; }
+        else { icon.style.background = 'rgba(34,197,94,0.1)'; icon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>'; }
+        el.classList.add('show');
+        setTimeout(() => el.classList.remove('show'), 6000);
+    }
+
+    // =============================================
+    // SCROLL
+    // =============================================
+    const progressBar = document.getElementById('progressBar');
+    const backTop = document.getElementById('backTop');
+    let scrollTick = false;
+    window.addEventListener('scroll', () => {
+        if (!scrollTick) { requestAnimationFrame(() => {
+            const st = window.scrollY, dh = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = dh > 0 ? (st / dh * 100) + '%' : '0%';
+            backTop.classList.toggle('show', st > 500);
+            scrollTick = false;
+        }); scrollTick = true; }
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>

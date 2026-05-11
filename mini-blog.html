@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | GoGlobalMart Mini Store — Shopping Trends & Marketplace Updates</title>
+    <meta name="description" content="Discover the latest shopping trends, seller guides, AI commerce insights, product reviews, and exclusive offers on the GoGlobalMart Mini Store blog.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.goglobalmart.me/mini-blog.html">
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+
+    <meta property="og:title" content="Blog | GoGlobalMart Mini Store">
+    <meta property="og:description" content="Shopping trends, seller guides, AI commerce insights, and marketplace updates from GoGlobalMart.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.goglobalmart.me/mini-blog.html">
+    <meta property="og:site_name" content="GoGlobalMart Mini Store">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "GoGlobalMart Blog",
+        "description": "Latest shopping trends, seller guides, AI commerce insights, product reviews, and marketplace updates.",
+        "url": "https://www.goglobalmart.me/mini-blog.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "GoGlobalMart, Inc.",
+            "url": "https://www.goglobalmart.me",
+            "logo": { "@type": "ImageObject", "url": "https://www.goglobalmart.me/fevicon.png" }
+        },
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "10 Must-Know Shopping Trends Reshaping E-Commerce in 2025",
+                "description": "From AI-powered recommendations to sustainable packaging, discover the trends defining the future of online shopping.",
+                "datePublished": "2025-07-08",
+                "author": { "@type": "Person", "name": "Sarah Chen" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Complete Seller's Guide: Launch Your Store on GoGlobalMart",
+                "description": "Step-by-step guide to setting up your seller account, listing products, and making your first sale on GoGlobalMart.",
+                "datePublished": "2025-07-05",
+                "author": { "@type": "Person", "name": "Marcus Rivera" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "How AI Is Transforming the Multi-Vendor Marketplace Experience",
+                "description": "Exploring the AI technologies behind smarter search, fraud detection, and personalized shopping on modern marketplaces.",
+                "datePublished": "2025-07-01",
+                "author": { "@type": "Person", "name": "Dr. Aisha Patel" }
+            }
+        ],
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-07-10"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { geist: ['Geist', 'sans-serif'], newsreader: ['Newsreader', 'serif'] } } }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-main:#0a0a0a;--bg-alt:#111111;--bg-card:#151515;
+            --text-primary:#ffffff;--text-secondary:#a1a1aa;--text-muted:#71717a;--text-dim:#52525b;
+            --accent:#c05621;--accent-hover:#d4622a;
+            --border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12);
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Geist',sans-serif;background:var(--bg-main);color:var(--text-primary);-webkit-font-smoothing:antialiased;}
+        ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:transparent;}
+        ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:10px;}
+
+        .reading-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#c05621,#e8773a);z-index:300;width:0%;transition:width 0.08s linear;display:none;}
+        .reading-progress.active{display:block;}
+
+        /* Cat pills */
+        .cat-pill{padding:9px 20px;font-size:0.78rem;font-weight:500;border:1px solid var(--border);border-radius:100px;background:transparent;color:#71717a;cursor:pointer;transition:all 0.3s;white-space:nowrap;user-select:none;}
+        .cat-pill:hover{border-color:var(--border-hover);color:#d4d4d8;background:rgba(255,255,255,0.03);}
+        .cat-pill.active{background:#c05621;border-color:#c05621;color:#fff;}
+
+        /* Blog card */
+        .blog-card{border-radius:16px;overflow:hidden;background:rgba(255,255,255,0.02);border:1px solid var(--border);transition:all 0.4s cubic-bezier(0.22,1,0.36,1);cursor:pointer;}
+        .blog-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.4);}
+        .blog-card .card-img{width:100%;height:220px;object-fit:cover;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+        .blog-card:hover .card-img{transform:scale(1.04);}
+        .blog-card .card-body{padding:24px;}
+        .blog-card .cat-tag{font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:100px;display:inline-block;}
+
+        /* Featured slider */
+        .slider-track{display:flex;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+        .slide{min-width:100%;position:relative;}
+        .slide img{width:100%;height:420px;object-fit:cover;}
+        @media(max-width:768px){.slide img{height:260px;}}
+        .slide-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.3) 50%,transparent 100%);}
+        .slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.3s;padding:0;}
+        .slider-dot.active{background:#c05621;width:24px;border-radius:4px;}
+
+        /* Reading view */
+        .reading-view{position:fixed;inset:0;z-index:200;background:var(--bg-main);overflow-y:auto;transform:translateY(100%);opacity:0;transition:all 0.5s cubic-bezier(0.22,1,0.36,1);pointer-events:none;}
+        .reading-view.open{transform:translateY(0);opacity:1;pointer-events:auto;}
+        .reading-content{font-family:'Newsreader',serif;font-size:1.1rem;font-weight:400;line-height:1.9;color:#a1a1aa;}
+        .reading-content p{margin-bottom:1.5rem;}
+        .reading-content h2{font-family:'Geist',sans-serif;font-size:1.5rem;font-weight:600;color:#e4e4e7;margin:2.5rem 0 1rem;letter-spacing:-0.02em;}
+        .reading-content blockquote{border-left:3px solid #c05621;padding:16px 24px;margin:2rem 0;background:rgba(192,86,33,0.04);border-radius:0 10px 10px 0;font-style:italic;color:#d4d4d8;}
+        .reading-content ul,.reading-content ol{margin:1rem 0;padding-left:1.5rem;}
+        .reading-content li{margin-bottom:0.6rem;}
+        .reading-content li::marker{color:#c05621;}
+        .reading-content strong{color:#e4e4e7;font-weight:600;}
+        .reading-content a{color:#c05621;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(192,86,33,0.3);}
+        .reading-content a:hover{text-decoration-color:#c05621;}
+        .reading-content img{width:100%;border-radius:12px;margin:2rem 0;border:1px solid var(--border);}
+
+        /* Share buttons */
+        .share-btn{width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:#71717a;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s;}
+        .share-btn:hover{border-color:var(--border-hover);color:#fff;background:rgba(255,255,255,0.06);}
+
+        /* Sidebar widgets */
+        .widget{padding:24px;border-radius:14px;background:rgba(255,255,255,0.02);border:1px solid var(--border);}
+        .widget-search{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);color:#fff;font-family:'Geist',sans-serif;font-size:0.85rem;font-weight:300;padding:12px 14px 12px 40px;width:100%;border-radius:10px;outline:none;transition:all 0.3s;}
+        .widget-search::placeholder{color:#3f3f46;}
+        .widget-search:focus{border-color:rgba(192,86,33,0.5);background:rgba(255,255,255,0.05);box-shadow:0 0 0 3px rgba(192,86,33,0.06);}
+
+        .trending-tag{display:inline-block;padding:6px 14px;border-radius:100px;font-size:0.72rem;font-weight:400;color:#71717a;background:rgba(255,255,255,0.03);border:1px solid var(--border);cursor:pointer;transition:all 0.25s;margin:3px;}
+        .trending-tag:hover{border-color:var(--border-hover);color:#d4d4d8;background:rgba(255,255,255,0.05);}
+
+        .recent-post{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:all 0.2s;}
+        .recent-post:last-child{border-bottom:none;}
+        .recent-post:hover .rp-title{color:#fff;}
+        .recent-post img{width:64px;height:48px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+
+        /* Newsletter */
+        .nl-input{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);color:#fff;font-family:'Geist',sans-serif;font-size:0.85rem;font-weight:300;padding:12px 16px;width:100%;border-radius:10px;outline:none;transition:all 0.3s;}
+        .nl-input::placeholder{color:#3f3f46;}
+        .nl-input:focus{border-color:rgba(192,86,33,0.5);}
+        .nl-btn{padding:12px 20px;background:#c05621;color:#fff;font-family:'Geist',sans-serif;font-size:0.75rem;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;border:none;border-radius:10px;cursor:pointer;transition:all 0.3s;white-space:nowrap;}
+        .nl-btn:hover{background:#d4622a;}
+
+        /* Admin panel */
+        .admin-overlay{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,0.8);backdrop-filter:blur(4px);display:none;opacity:0;transition:opacity 0.3s;}
+        .admin-overlay.open{display:block;opacity:1;}
+        .admin-panel{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.95);z-index:260;width:600px;max-width:95vw;max-height:90vh;overflow-y:auto;background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px;opacity:0;pointer-events:none;transition:all 0.4s cubic-bezier(0.22,1,0.36,1);}
+        .admin-panel.open{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto;}
+        .admin-input,.admin-textarea,.admin-select{width:100%;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#fff;font-family:'Geist',sans-serif;font-size:0.88rem;font-weight:300;outline:none;transition:border-color 0.3s;}
+        .admin-input:focus,.admin-textarea:focus,.admin-select:focus{border-color:rgba(192,86,33,0.5);}
+        .admin-textarea{resize:vertical;min-height:200px;line-height:1.7;}
+        .admin-select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2352525b' stroke-width='2' stroke-linecap='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;}
+        .admin-select option{background:#111;color:#fff;}
+
+        /* Back to top */
+        .back-top{position:fixed;bottom:28px;right:28px;width:46px;height:46px;border-radius:50%;background:rgba(17,17,17,0.9);border:1px solid rgba(255,255,255,0.08);color:#71717a;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:all 0.3s;}
+        .back-top.show{opacity:1;pointer-events:auto;}
+        .back-top:hover{color:#fff;border-color:rgba(255,255,255,0.2);transform:translateY(-3px);}
+
+        /* Toast */
+        .toast{position:fixed;bottom:32px;right:32px;background:#111;border:1px solid rgba(255,255,255,0.1);padding:20px 28px;border-radius:14px;z-index:280;transform:translateY(140%);opacity:0;transition:all 0.5s cubic-bezier(0.22,1,0.36,1);max-width:420px;}
+        .toast.show{transform:translateY(0);opacity:1;}
+
+        @keyframes revealUp{0%{opacity:0;transform:translateY(30px) scale(0.98);filter:blur(10px);}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}}
+        .anim-in{animation:revealUp 1s cubic-bezier(0.16,1,0.3,1) both;}
+        .anim-d1{animation-delay:100ms;}.anim-d2{animation-delay:200ms;}.anim-d3{animation-delay:300ms;}.anim-d4{animation-delay:400ms;}.anim-d5{animation-delay:500ms;}
+
+        @media(max-width:1023px){
+            .toast{right:16px;bottom:16px;left:16px;max-width:none;}
+            .back-top{right:16px;bottom:16px;width:42px;height:42px;}
+        }
+    </style>
+</head>
+<body class="font-geist antialiased">
+
+    <!-- Reading Progress (for article view) -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-5" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.07);">
+        <a href="/" class="flex items-center gap-2">
+            <span class="text-white font-semibold text-[1.05rem] tracking-tight">GoGlobalMart</span>
+            <span class="text-[0.65rem] font-medium text-zinc-600 uppercase tracking-widest hidden sm:inline">Mini Store</span>
+        </a>
+        <div class="flex items-center gap-5">
+            <button id="adminToggle" class="text-[0.6rem] font-medium uppercase tracking-widest text-zinc-700 hover:text-zinc-400 transition-colors cursor-pointer bg-transparent border-none font-geist hidden" title="Admin Panel">Admin</button>
+            <a href="mini-help.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-600 hover:text-white transition-colors hidden sm:inline">Help</a>
+            <a href="https://www.goglobalmart.me/mini-blog.html" class="text-[0.65rem] font-medium uppercase tracking-widest text-zinc-500">Blog</a>
+        </div>
+    </nav>
+
+    <!-- ============================== -->
+    <!-- BLOG LISTING VIEW -->
+    <!-- ============================== -->
+    <div id="listingView">
+
+        <!-- Hero -->
+        <header class="pt-28 pb-10 lg:pt-36 lg:pb-14 px-5 relative overflow-hidden" style="background:linear-gradient(to bottom,#0a0a0a,#111111);">
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none opacity-10" style="background:radial-gradient(circle,rgba(192,86,33,0.12) 0%,transparent 70%);"></div>
+            <div class="max-w-[1200px] mx-auto relative">
+                <div class="anim-in">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                        <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Blog & Insights</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[0.95] mb-5 max-w-3xl">
+                        Latest Shopping Trends &<br>Marketplace Updates
+                    </h1>
+                    <p class="text-base sm:text-lg font-light leading-relaxed text-zinc-400 max-w-xl">Expert insights, seller guides, product reviews, and the future of AI-powered commerce — all in one place.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Featured Slider -->
+        <section class="px-5 pb-14 anim-in anim-d1" style="background:#111;">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-6 h-[1px] bg-[#c05621]"></span>
+                    <span class="text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-zinc-600">Featured</span>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden" style="border:1px solid var(--border);">
+                    <div class="overflow-hidden">
+                        <div class="slider-track" id="sliderTrack"></div>
+                    </div>
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="sliderDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories + Blog Grid + Sidebar -->
+        <section class="px-5 pb-20" style="background:var(--bg-main);">
+            <div class="max-w-[1200px] mx-auto">
+                <!-- Category pills -->
+                <div class="flex items-center gap-3 overflow-x-auto pb-6 mb-8 anim-in anim-d2" style="-ms-overflow-style:none;scrollbar-width:none;">
+                    <button class="cat-pill active" data-cat="all">All Posts</button>
+                    <button class="cat-pill" data-cat="shopping">Shopping Tips</button>
+                    <button class="cat-pill" data-cat="seller">Seller Guides</button>
+                    <button class="cat-pill" data-cat="technology">Technology</button>
+                    <button class="cat-pill" data-cat="ai">AI Commerce</button>
+                    <button class="cat-pill" data-cat="reviews">Product Reviews</button>
+                    <button class="cat-pill" data-cat="offers">Offers</button>
+                </div>
+
+                <div class="flex gap-10">
+                    <!-- Blog Grid -->
+                    <main class="flex-1 min-w-0">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="blogGrid"></div>
+                        <div id="noPosts" class="text-center py-16 hidden">
+                            <p class="text-lg text-zinc-600 font-semibold mb-2">No articles found</p>
+                            <p class="text-sm text-zinc-700">Try a different category or search term.</p>
+                        </div>
+                    </main>
+
+                    <!-- Sidebar -->
+                    <aside class="hidden lg:block w-[300px] flex-shrink-0 space-y-5 anim-in anim-d4">
+                        <!-- Sidebar Search -->
+                        <div class="widget">
+                            <p class="text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-zinc-700 mb-3">Search Articles</p>
+                            <div class="relative">
+                                <svg class="absolute left-3 top-1/2 -translate-y-1/2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3f3f46" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                <input type="text" id="sidebarSearch" class="widget-search" placeholder="Search blog..." aria-label="Search blog">
+                            </div>
+                        </div>
+
+                        <!-- Recent Posts -->
+                        <div class="widget">
+                            <p class="text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-zinc-700 mb-3">Recent Posts</p>
+                            <div id="recentPosts"></div>
+                        </div>
+
+                        <!-- Trending Topics -->
+                        <div class="widget">
+                            <p class="text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-zinc-700 mb-3">Trending Topics</p>
+                            <div class="flex flex-wrap">
+                                <span class="trending-tag">#AICommerce</span>
+                                <span class="trending-tag">#Dropshipping2025</span>
+                                <span class="trending-tag">#SellerTips</span>
+                                <span class="trending-tag">#SustainableShopping</span>
+                                <span class="trending-tag">#MarketplaceUX</span>
+                                <span class="trending-tag">#ProductReviews</span>
+                                <span class="trending-tag">#GoGlobalMart</span>
+                                <span class="trending-tag">#EcomTech</span>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter -->
+                        <div class="widget" style="background:rgba(192,86,33,0.04);border-color:rgba(192,86,33,0.12);">
+                            <div class="flex items-center gap-2 mb-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                <p class="text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-[#c05621]">Newsletter</p>
+                            </div>
+                            <p class="text-sm text-zinc-400 font-light leading-relaxed mb-4">Get weekly insights delivered to your inbox. No spam, ever.</p>
+                            <div class="flex gap-2">
+                                <input type="email" id="nlEmail" class="nl-input flex-1" placeholder="Your email" aria-label="Newsletter email">
+                                <button id="nlBtn" class="nl-btn">Join</button>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================== -->
+    <!-- ARTICLE READING VIEW -->
+    <!-- ============================== -->
+    <div class="reading-view" id="readingView">
+        <div class="fixed top-0 left-0 right-0 z-[210] h-14 flex items-center justify-between px-5" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.07);">
+            <button id="backToList" class="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors bg-transparent border-none cursor-pointer font-geist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                Back to Blog
+            </button>
+            <div class="flex items-center gap-2" id="shareButtons">
+                <button class="share-btn" title="Share on X/Twitter" onclick="shareArticle('twitter')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>
+                <button class="share-btn" title="Share on LinkedIn" onclick="shareArticle('linkedin')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></button>
+                <button class="share-btn" title="Copy link" onclick="shareArticle('copy')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></button>
+            </div>
+        </div>
+        <article class="max-w-[780px] mx-auto px-5 pt-24 pb-20" id="articleContent"></article>
+        <!-- Related articles -->
+        <div class="max-w-[780px] mx-auto px-5 pb-20">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="w-8 h-[1px] bg-[#c05621]"></span>
+                <span class="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-[#c05621]">Related Articles</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="relatedArticles"></div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- ADMIN PANEL -->
+    <!-- ============================== -->
+    <div class="admin-overlay" id="adminOverlay"></div>
+    <div class="admin-panel" id="adminPanel">
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h3 class="text-xl font-semibold tracking-tight">New Blog Post</h3>
+                <p class="text-xs text-zinc-600 mt-1">Firebase Firestore connected</p>
+            </div>
+            <button id="adminClose" class="w-9 h-9 rounded-lg flex items-center justify-center text-zinc-500 hover:text-white transition-colors bg-transparent border border-zinc-800 cursor-pointer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <form id="adminForm" novalidate>
+            <div class="form-group mb-4">
+                <label class="text-[0.7rem] font-medium text-zinc-500 uppercase tracking-wider mb-1.5 block">Title *</label>
+                <input type="text" name="title" class="admin-input" placeholder="Article headline..." required>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="text-[0.7rem] font-medium text-zinc-500 uppercase tracking-wider mb-1.5 block">Author *</label>
+                    <input type="text" name="author" class="admin-input" placeholder="Author name" required>
+                </div>
+                <div>
+                    <label class="text-[0.7rem] font-medium text-zinc-500 uppercase tracking-wider mb-1.5 block">Category *</label>
+                    <select name="category" class="admin-select" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="shopping">Shopping Tips</option>
+                        <option value="seller">Seller Guides</option>
+                        <option value="technology">Technology</option>
+                        <option value="ai">AI Commerce</option>
+                        <option value="reviews">Product Reviews</option>
+                        <option value="offers">Offers</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="text-[0.7rem] font-medium text-zinc-500 uppercase tracking-wider mb-1.5 block">Excerpt *</label>
+                <input type="text" name="excerpt" class="admin-input" placeholder="Short description for card..." required>
+            </div>
+            <div class="mb-4">
+                <label class="text-[0.7rem] font-medium text-zinc-500 uppercase tracking-wider mb-1.5 block">Thumbnail URL</label>
+                <input type="url" name="thumbnail" class="admin-input" placeholder="https://picsum.photos/seed/example/800/500">
+            </div>
+            <div class="mb-4">
+                <label class="text-[0.7rem] font-medium text-zinc-500 uppercase tracking-wider mb-1.5 block">Content * (HTML supported)</label>
+                <textarea name="content" class="admin-textarea" placeholder="Write your article content here..." required></textarea>
+            </div>
+            <div class="mb-6">
+                <label class="text-[0.7rem] font-medium text-zinc-500 uppercase tracking-wider mb-1.5 block">Tags (comma-separated)</label>
+                <input type="text" name="tags" class="admin-input" placeholder="AI, ecommerce, trends">
+            </div>
+            <div class="flex items-center gap-2 mb-4">
+                <input type="checkbox" name="featured" id="adminFeatured" style="accent-color:#c05621;width:16px;height:16px;cursor:pointer;">
+                <label for="adminFeatured" class="text-sm text-zinc-400 cursor-pointer">Mark as featured article</label>
+            </div>
+            <button type="submit" id="adminSubmit" class="w-full py-3.5 bg-[#c05621] text-white text-[0.8rem] font-medium uppercase tracking-widest rounded-lg border-none cursor-pointer transition-all hover:bg-[#d4622a]" style="box-shadow:0 0 30px -8px rgba(192,86,33,0.3);">
+                Publish Article
+            </button>
+        </form>
+        <!--
+        ============================================================
+        FIREBASE ADMIN INTEGRATION
+        ============================================================
+        Add Firebase SDKs, then replace the form submit handler:
+
+        document.getElementById('adminForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fd = new FormData(e.target);
+            const slug = fd.get('title').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+            await db.collection("blog_posts").add({
+                title: fd.get('title'),
+                slug: slug,
+                author: fd.get('author'),
+                category: fd.get('category'),
+                excerpt: fd.get('excerpt'),
+                thumbnail: fd.get('thumbnail') || `https://picsum.photos/seed/${slug}/800/500`,
+                content: fd.get('content'),
+                tags: fd.get('tags') ? fd.get('tags').split(',').map(t => t.trim()) : [],
+                featured: !!fd.get('featured'),
+                status: 'published',
+                views: 0,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            // To upload thumbnail to Firebase Storage:
+            // const fileInput = document.querySelector('input[type="file"]');
+            // if (fileInput.files[0]) {
+            //     const ref = storage.ref(`blog/${slug}/${fileInput.files[0].name}`);
+            //     await ref.put(fileInput.files[0]);
+            //     const url = await ref.getDownloadURL();
+            // }
+
+            // Admin dashboard query:
+            // db.collection("blog_posts").orderBy("createdAt", "desc").get()
+            // db.collection("blog_posts").where("status", "==", "published").get()
+            // db.collection("blog_posts").where("featured", "==", true).get()
+        });
+        ============================================================
+        -->
+    </div>
+
+    <!-- Footer (listing view) -->
+    <footer id="listingFooter" class="px-5 py-14 border-t" style="border-color:var(--border);background:#050505;">
+        <div class="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="text-xs text-zinc-800">© 2025 GoGlobalMart, Inc. All rights reserved.</p>
+            <p class="text-xs text-zinc-800">Blog · v2.1 · Sitemap ready: /sitemap.xml</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <!-- Toast -->
+    <div class="toast" id="toastEl">
+        <div class="flex items-start gap-3">
+            <div id="toastIcon" class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(34,197,94,0.1);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><p id="toastTitle" class="text-sm font-medium text-white mb-0.5">Success</p><p id="toastMsg" class="text-xs text-zinc-500 font-light"></p></div>
+        </div>
+    </div>
+
+
+    <script>
+    // =============================================
+    // BLOG DATA (replace with Firestore fetch)
+    // =============================================
+    /*
+    FIREBASE: Replace this array with:
+    const blogPosts = [];
+    await db.collection("blog_posts")
+        .where("status", "==", "published")
+        .orderBy("createdAt", "desc")
+        .get()
+        .then(snap => snap.forEach(doc => blogPosts.push({ id: doc.id, ...doc.data() })));
+    */
+    const blogPosts = [
+        {
+            id: '1', slug: 'shopping-trends-2025', cat: 'shopping', featured: true,
+            title: '10 Must-Know Shopping Trends Reshaping E-Commerce in 2025',
+            excerpt: 'From AI-powered recommendations to sustainable packaging, discover the trends defining the future of online shopping this year.',
+            author: 'Sarah Chen', date: 'Jul 8, 2025', readTime: '8 min',
+            thumb: 'https://picsum.photos/seed/trends2025/800/500',
+            tags: ['trends', 'ecommerce', '2025'],
+            content: `<p>The e-commerce landscape is evolving at breakneck speed. What worked last year may already be obsolete. As we move through 2025, several key trends are reshaping how consumers discover, evaluate, and purchase products online.</p>
+            <h2>1. AI-Powered Personalization</h2>
+            <p>Modern marketplaces like GoGlobalMart are leveraging sophisticated AI algorithms to deliver hyper-personalized product recommendations. These systems analyze browsing patterns, purchase history, and even the time of day to surface products you're most likely to love.</p>
+            <blockquote>"AI doesn't just recommend products — it anticipates needs before the customer even articulates them." — Industry Analyst Report, 2025</blockquote>
+            <h2>2. Sustainable Commerce</h2>
+            <p>Consumers are increasingly prioritizing sustainability. Over 67% of shoppers now consider environmental impact when making purchase decisions. Marketplaces are responding with eco-friendly packaging options, carbon offset programs, and sustainability scores on product listings.</p>
+            <h2>3. Social Commerce Integration</h2>
+            <p>The line between social media and e-commerce continues to blur. Shoppable posts, live-stream shopping events, and community-driven product discovery are becoming standard features of modern marketplace platforms.</p>
+            <h2>4. Voice and Visual Search</h2>
+            <p>Voice-activated shopping and image-based search are moving from novelty to necessity. With improvements in NLP and computer vision, shoppers can now find products by describing them verbally or snapping a photo.</p>
+            <h2>5. Flexible Payment Innovations</h2>
+            <ul><li>Buy Now Pay Later (BNPL) adoption has grown 340% year-over-year</li><li>Cryptocurrency payments gaining mainstream acceptance</li><li>Subscription-based purchasing models expanding beyond digital goods</li><li>Real-time currency conversion for international shoppers</li></ul>
+            <p>The retailers and marketplaces that embrace these trends early will capture disproportionate market share. Those that don't risk falling behind in an increasingly competitive landscape.</p>`
+        },
+        {
+            id: '2', slug: 'seller-guide-launch', cat: 'seller', featured: true,
+            title: "Complete Seller's Guide: Launch Your Store on GoGlobalMart",
+            excerpt: 'Step-by-step guide to setting up your seller account, listing products, optimizing for visibility, and making your first sale.',
+            author: 'Marcus Rivera', date: 'Jul 5, 2025', readTime: '12 min',
+            thumb: 'https://picsum.photos/seed/sellerguide/800/500',
+            tags: ['seller', 'guide', 'tutorial'],
+            content: `<p>Starting your journey as a seller on GoGlobalMart? This comprehensive guide walks you through every step — from registration to your first profitable month.</p>
+            <h2>Step 1: Registration & Verification</h2>
+            <p>Begin by clicking "Sell on GoGlobalMart" in the footer. You'll need your business registration documents, tax ID, and a valid bank account. The verification process typically completes within 2-3 business days.</p>
+            <h2>Step 2: Setting Up Your Store</h2>
+            <p>Your store is your brand's home on the marketplace. Invest time in creating a compelling store banner, writing a clear store description, and uploading a professional logo. Stores with complete profiles see 40% more traffic.</p>
+            <h2>Step 3: Creating Winning Listings</h2>
+            <p>Product listings are your sales pages. Follow these best practices:</p>
+            <ul><li>Use high-resolution images from at least 3 angles</li><li>Write keyword-rich titles that include brand, model, size, and key features</li><li>Create detailed descriptions that address common buyer questions</li><li>Price competitively — research similar products before setting your price</li><li>Use all available attributes (size, color, material) for better search visibility</li></ul>
+            <h2>Step 4: Fulfillment Excellence</h2>
+            <p>Fast, reliable fulfillment is the foundation of a strong seller reputation. Aim to ship within 24 hours of order placement and always provide valid tracking information. Sellers who maintain a 98%+ on-time shipping rate qualify for GoGlobalMart's Premium Seller badge.</p>
+            <blockquote>"The first 30 days are critical. Focus on getting 10+ positive reviews — they'll compound into sustainable growth for months to come."</blockquote>
+            <h2>Step 5: Marketing & Growth</h2>
+            <p>Once established, leverage GoGlobalMart's promotional tools: sponsored listings, flash sale participation, and the affiliate program. Combined with external marketing (social media, email lists), these can drive significant growth.</p>`
+        },
+        {
+            id: '3', slug: 'ai-marketplace-transformation', cat: 'ai', featured: true,
+            title: 'How AI Is Transforming the Multi-Vendor Marketplace Experience',
+            excerpt: 'Exploring the AI technologies behind smarter search, fraud detection, personalized shopping, and automated seller tools.',
+            author: 'Dr. Aisha Patel', date: 'Jul 1, 2025', readTime: '10 min',
+            thumb: 'https://picsum.photos/seed/aimarketplace/800/500',
+            tags: ['AI', 'technology', 'marketplace'],
+            content: `<p>Artificial intelligence isn't just a buzzword for marketplaces — it's the foundational technology driving the next generation of e-commerce experiences. Here's how AI is being deployed across the GoGlobalMart platform.</p>
+            <h2>Intelligent Search & Discovery</h2>
+            <p>Traditional keyword search is giving way to semantic understanding. Our AI search engine understands intent, not just words. Search for "something comfortable for working from home" and it surfaces ergonomic chairs, standing desks, and noise-canceling headphones — without matching any of those exact words.</p>
+            <h2>Fraud Prevention at Scale</h2>
+            <p>With millions of transactions daily, manual fraud detection is impossible. Our machine learning models analyze 200+ signals per transaction in real-time, identifying patterns of fraudulent behavior that human reviewers would miss. The system blocks 99.7% of fraudulent transactions while maintaining a false positive rate below 0.1%.</p>
+            <h2>Automated Seller Tools</h2>
+            <p>Sellers on GoGlobalMart now have access to AI-powered tools that automatically generate product descriptions, suggest optimal pricing based on market data, predict demand fluctuations, and identify the best times to run promotions.</p>
+            <h2>Customer Service Augmentation</h2>
+            <p>Our AI assistant handles over 60% of customer inquiries without human intervention, providing instant, accurate responses 24/7. Complex issues are automatically routed to specialized agents with full context, reducing resolution time by an average of 40%.</p>
+            <blockquote>"AI doesn't replace the human touch in commerce — it amplifies it. By handling routine tasks, it frees up people to focus on what matters: building relationships and solving complex problems."</blockquote>`
+        },
+        {
+            id: '4', slug: 'product-review-guide', cat: 'reviews', featured: false,
+            title: 'The Ultimate Guide to Reading Product Reviews Like a Pro',
+            excerpt: 'Learn how to spot fake reviews, evaluate genuine feedback, and make informed purchasing decisions every time.',
+            author: 'James Okonkwo', date: 'Jun 28, 2025', readTime: '6 min',
+            thumb: 'https://picsum.photos/seed/reviews2025/800/500',
+            tags: ['reviews', 'shopping', 'tips'],
+            content: `<p>Product reviews are one of the most powerful tools for making informed purchases — but only if you know how to read them correctly. Here's your guide to separating signal from noise.</p>
+            <h2>Red Flags of Fake Reviews</h2>
+            <ul><li>Vague, generic praise without specific product details</li><li>Multiple reviews posted on the same day with similar language</li><li>Reviewers who only leave 5-star reviews across many different product categories</li><li>Overly promotional language that reads like marketing copy</li><li>No verified purchase badge</li></ul>
+            <h2>What to Look For</h2>
+            <p>The most helpful reviews share specific details: how the product fits, how it compares to alternatives, how it performed over time, and any unexpected pros or cons. Look for reviews that mention the exact use case you have in mind.</p>
+            <h2>GoGlobalMart's Review System</h2>
+            <p>Our platform uses a verified purchase system, AI-powered fake review detection, and a helpfulness voting mechanism. Reviews flagged as potentially fraudulent are investigated and removed, protecting both buyers and sellers.</p>`
+        },
+        {
+            id: '5', slug: 'sustainable-packaging', cat: 'technology', featured: false,
+            title: 'Sustainable Packaging: How GoGlobalMart Sellers Are Going Green',
+            excerpt: 'How marketplace sellers are adopting eco-friendly packaging solutions and why it matters for your bottom line.',
+            author: 'Elena Vasquez', date: 'Jun 25, 2025', readTime: '7 min',
+            thumb: 'https://picsum.photos/seed/greenpack/800/500',
+            tags: ['sustainability', 'seller', 'packaging'],
+            content: `<p>Sustainable packaging is no longer optional — it's a competitive advantage. Here's how GoGlobalMart sellers are leading the charge and why you should consider making the switch.</p>
+            <h2>The Business Case for Green Packaging</h2>
+            <p>Contrary to popular belief, eco-friendly packaging often costs the same or less than traditional alternatives when you factor in reduced shipping weight, lower waste disposal costs, and increased customer loyalty. Studies show that 73% of consumers are willing to pay more for sustainable packaging.</p>
+            <h2>Options Available to Sellers</h2>
+            <ul><li>Recycled cardboard and kraft paper mailers</li><li>Biodegradable packing peanuts (cornstarch-based)</li><li>Compostable poly mailers</li><li>Right-sized packaging to reduce void fill</li><li>Plant-based inks for custom branding</li></ul>
+            <h2>GoGlobalMart's Sustainability Program</h2>
+            <p>Sellers enrolled in our Green Seller program receive a sustainability badge on their listings, priority placement in eco-conscious search filters, and access to bulk purchasing discounts on approved sustainable packaging materials through our partner network.</p>`
+        },
+        {
+            id: '6', slug: 'summer-deals-2025', cat: 'offers', featured: false,
+            title: 'Summer 2025: The Biggest Deals on GoGlobalMart This Season',
+            excerpt: 'Exclusive round-up of the best summer deals, flash sales, and limited-time offers across all categories.',
+            author: 'Sarah Chen', date: 'Jun 22, 2025', readTime: '4 min',
+            thumb: 'https://picsum.photos/seed/summerdeals/800/500',
+            tags: ['deals', 'summer', 'offers', 'shopping'],
+            content: `<p>Summer 2025 is here, and with it comes some of the best deals we've seen all year on GoGlobalMart. Here's your curated guide to the can't-miss offers.</p>
+            <h2>Tech & Electronics</h2>
+            <p>Up to 40% off on wireless earbuds, smart home devices, and portable chargers from top brands. Look for the "Summer Tech" badge on eligible listings.</p>
+            <h2>Fashion & Accessories</h2>
+            <p>Seasonal clearance on spring collections means up to 60% off on clothing, shoes, and accessories. New summer arrivals are also launching with early-bird pricing.</p>
+            <h2>Home & Garden</h2>
+            <p>Outdoor furniture, grilling equipment, and garden tools are seeing price drops of 25-45%. Perfect timing to upgrade your outdoor space for summer entertaining.</p>
+            <h2>How to Maximize Savings</h2>
+            <ul><li>Stack coupons with sale prices for additional 10-15% off</li><li>Set deal alerts for your wishlist items</li><li>Check the Flash Sale section daily — new drops at noon ET</li><li>GoGlobalMart Pro members get an extra 5% on all purchases</li></ul>`
+        },
+        {
+            id: '7', slug: 'mobile-commerce-future', cat: 'technology', featured: false,
+            title: 'Mobile Commerce in 2025: Why Your Store Must Be Mobile-First',
+            excerpt: 'Mobile now accounts for 72% of all e-commerce traffic. Here\'s how to ensure your marketplace store is optimized for mobile shoppers.',
+            author: 'Dr. Aisha Patel', date: 'Jun 18, 2025', readTime: '9 min',
+            thumb: 'https://picsum.photos/seed/mobilecommerce/800/500',
+            tags: ['mobile', 'technology', 'UX'],
+            content: `<p>The shift to mobile isn't new — but the degree to which mobile dominates e-commerce continues to accelerate. In 2025, mobile devices account for 72% of e-commerce traffic and 58% of all online purchases.</p>
+            <h2>Key Mobile UX Principles</h2>
+            <ul><li>Thumb-friendly navigation: critical actions within reach of the thumb zone</li><li>Fast loading: target under 3 seconds on 4G connections</li><li>Large tap targets: minimum 44x44px for all interactive elements</li><li>Streamlined checkout: fewer steps, autofill support, digital wallet integration</li><li>High-quality mobile images: optimized file sizes without sacrificing clarity</li></ul>
+            <h2>GoGlobalMart's Mobile Experience</h2>
+            <p>Our mobile app and responsive website are designed mobile-first. Features like one-tap purchasing, barcode scanning for price comparison, and augmented reality product preview are available exclusively on mobile devices.</p>
+            <blockquote>"If your marketplace store isn't optimized for mobile, you're invisible to over 70% of potential customers."</blockquote>`
+        },
+        {
+            id: '8', slug: 'pricing-strategy-guide', cat: 'seller', featured: false,
+            title: 'Pricing Psychology: Strategies That Boost Sales on Marketplaces',
+            excerpt: 'Learn the pricing strategies top marketplace sellers use to increase conversion rates and maximize revenue per sale.',
+            author: 'Marcus Rivera', date: 'Jun 15, 2025', readTime: '8 min',
+            thumb: 'https://picsum.photos/seed/pricingpsych/800/500',
+            tags: ['pricing', 'seller', 'strategy', 'psychology'],
+            content: `<p>Pricing isn't just about covering costs and adding a margin — it's about perception. Understanding pricing psychology can dramatically improve your conversion rates.</p>
+            <h2>Charm Pricing</h2>
+            <p>Ending prices in .99 or .95 remains effective. Products priced at $49.99 outsell those priced at $50 by an average of 24%, even though the difference is one cent.</p>
+            <h2>Anchor Pricing</h2>
+            <p>Show a higher "original" price next to your sale price to create a sense of value. GoGlobalMart's "Was/Now" display increases click-through rates by an average of 35%.</p>
+            <h2>Tiered Pricing</h2>
+            <p>Offer three options: Good, Better, Best. Most buyers choose the middle option, which is typically your highest-margin product. This works exceptionally well for product variants (Basic, Standard, Premium).</p>
+            <h2>Bundling</h2>
+            <p>Create product bundles that offer a perceived discount. A "Complete Kit" priced at $89 that includes items totaling $105 individually feels like a steal — even if your margin on the bundle is higher than selling items separately.</p>`
+        },
+        {
+            id: '9', slug: 'cross-border-shopping', cat: 'shopping', featured: false,
+            title: 'Cross-Border Shopping: Your Guide to Buying Internationally',
+            excerpt: 'Everything you need to know about ordering from international sellers — duties, shipping, returns, and buyer protection.',
+            author: 'James Okonkwo', date: 'Jun 12, 2025', readTime: '7 min',
+            thumb: 'https://picsum.photos/seed/crossborder/800/500',
+            tags: ['international', 'shipping', 'guide'],
+            content: `<p>Shopping internationally opens up a world of products at competitive prices. Here's what you need to know before placing your first cross-border order on GoGlobalMart.</p>
+            <h2>Understanding Import Duties</h2>
+            <p>Depending on your country, imported goods may be subject to customs duties and taxes. GoGlobalMart displays estimated duty charges at checkout where available. In the EU, UK, Australia, and Canada, duties are typically collected at checkout through our marketplace facilitator program.</p>
+            <h2>Shipping Times & Costs</h2>
+            <p>International standard shipping takes 10-25 business days. Express options (5-10 days) are available for most destinations. Shipping costs are calculated dynamically based on package weight, dimensions, and destination.</p>
+            <h2>Buyer Protection</h2>
+            <p>All international orders on GoGlobalMart are covered by our Buyer Protection program. If your item doesn't arrive, arrives damaged, or doesn't match the description, you're entitled to a full refund including shipping costs.</p>`
+        }
+    ];
+
+    const catMeta = {
+        shopping: { label: 'Shopping Tips', color: '#c05621' },
+        seller: { label: 'Seller Guides', color: '#a855f7' },
+        technology: { label: 'Technology', color: '#3b82f6' },
+        ai: { label: 'AI Commerce', color: '#22c55e' },
+        reviews: { label: 'Product Reviews', color: '#f59e0b' },
+        offers: { label: 'Offers', color: '#ef4444' }
+    };
+
+    // =============================================
+    // FEATURED SLIDER
+    // =============================================
+    const featured = blogPosts.filter(p => p.featured);
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderDots = document.getElementById('sliderDots');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function buildSlider() {
+        sliderTrack.innerHTML = featured.map((p, i) => `
+            <div class="slide" data-index="${i}">
+                <img src="${p.thumb}" alt="${p.title}" loading="lazy">
+                <div class="slide-overlay"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12 z-10">
+                    <span class="cat-tag mb-3" style="color:${catMeta[p.cat].color};background:${catMeta[p.cat].color}18;">${catMeta[p.cat].label}</span>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight leading-[1.1] mb-3 max-w-2xl cursor-pointer hover:text-[#c05621] transition-colors" onclick="openArticle('${p.id}')">${p.title}</h2>
+                    <div class="flex items-center gap-4 text-sm text-zinc-400">
+                        <span class="font-medium text-zinc-300">${p.author}</span>
+                        <span class="text-zinc-700">·</span>
+                        <span>${p.date}</span>
+                        <span class="text-zinc-700">·</span>
+                        <span>${p.readTime} read</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        sliderDots.innerHTML = featured.map((_, i) => `<button class="slider-dot ${i === 0 ? 'active' : ''}" data-i="${i}" aria-label="Slide ${i+1}"></button>`).join('');
+        sliderDots.querySelectorAll('.slider-dot').forEach(d => d.addEventListener('click', () => goToSlide(+d.dataset.i)));
+    }
+    buildSlider();
+
+    function goToSlide(i) {
+        currentSlide = i;
+        sliderTrack.style.transform = `translateX(-${i * 100}%)`;
+        sliderDots.querySelectorAll('.slider-dot').forEach((d, j) => d.classList.toggle('active', j === i));
+    }
+    function nextSlide() { goToSlide((currentSlide + 1) % featured.length); }
+    function startSlider() { slideInterval = setInterval(nextSlide, 5000); }
+    function stopSlider() { clearInterval(slideInterval); }
+    startSlider();
+    document.querySelector('.slider-track').parentElement.addEventListener('mouseenter', stopSlider);
+    document.querySelector('.slider-track').parentElement.addEventListener('mouseleave', startSlider);
+
+    // =============================================
+    // BLOG GRID
+    // =============================================
+    const blogGrid = document.getElementById('blogGrid');
+    const noPosts = document.getElementById('noPosts');
+    let activeCat = 'all';
+    let searchQuery = '';
+
+    function renderGrid() {
+        let posts = blogPosts;
+        if (activeCat !== 'all') posts = posts.filter(p => p.cat === activeCat);
+        if (searchQuery) {
+            const q = searchQuery.toLowerCase();
+            posts = posts.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.tags.some(t => t.includes(q)));
+        }
+
+        if (posts.length === 0) { blogGrid.innerHTML = ''; noPosts.classList.remove('hidden'); return; }
+        noPosts.classList.add('hidden');
+
+        blogGrid.innerHTML = posts.map((p, i) => `
+            <div class="blog-card anim-in" style="animation-delay:${Math.min(i * 0.06, 0.4)}s;" onclick="openArticle('${p.id}')">
+                <div class="overflow-hidden"><img class="card-img" src="${p.thumb}" alt="${p.title}" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="cat-tag" style="color:${catMeta[p.cat].color};background:${catMeta[p.cat].color}15;">${catMeta[p.cat].label}</span>
+                        <span class="text-[0.65rem] text-zinc-700">${p.readTime} read</span>
+                    </div>
+                    <h3 class="text-[1.05rem] font-semibold tracking-tight leading-snug mb-2 line-clamp-2" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${p.title}</h3>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed mb-4 line-clamp-2" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${p.excerpt}</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-full flex items-center justify-center text-[0.6rem] font-bold" style="background:${catMeta[p.cat].color}20;color:${catMeta[p.cat].color};">${p.author.split(' ').map(n=>n[0]).join('')}</div>
+                            <span class="text-xs text-zinc-600">${p.author}</span>
+                        </div>
+                        <span class="text-xs text-zinc-700">${p.date}</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+    renderGrid();
+
+    // Category pills
+    document.querySelectorAll('.cat-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            activeCat = pill.dataset.cat;
+            renderGrid();
+        });
+    });
+
+    // Sidebar search
+    document.getElementById('sidebarSearch').addEventListener('input', e => {
+        searchQuery = e.target.value.trim();
+        renderGrid();
+    });
+
+    // Trending tags click
+    document.querySelectorAll('.trending-tag').forEach(tag => {
+        tag.addEventListener('click', () => {
+            document.getElementById('sidebarSearch').value = tag.textContent.replace('#','');
+            searchQuery = tag.textContent.replace('#','').toLowerCase();
+            renderGrid();
+        });
+    });
+
+    // =============================================
+    // RECENT POSTS SIDEBAR
+    // =============================================
+    const recentPosts = document.getElementById('recentPosts');
+    blogPosts.slice(0, 5).forEach(p => {
+        recentPosts.innerHTML += `
+            <div class="recent-post" onclick="openArticle('${p.id}')">
+                <img src="${p.thumb}" alt="${p.title}" loading="lazy">
+                <div class="min-w-0">
+                    <p class="rp-title text-sm text-zinc-400 font-medium leading-snug transition-colors line-clamp-2" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${p.title}</p>
+                    <p class="text-[0.65rem] text-zinc-700 mt-1">${p.date}</p>
+                </div>
+            </div>`;
+    });
+
+    // =============================================
+    // NEWSLETTER
+    // =============================================
+    document.getElementById('nlBtn').addEventListener('click', () => {
+        const email = document.getElementById('nlEmail').value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+        /* Firebase: await db.collection("newsletter").add({ email, subscribedAt: firebase.firestore.FieldValue.serverTimestamp() }); */
+        showToast('Subscribed!', `We'll send weekly insights to ${email}.`, false);
+        document.getElementById('nlEmail').value = '';
+    });
+
+    // =============================================
+    // ARTICLE READING VIEW
+    // =============================================
+    const readingView = document.getElementById('readingView');
+    const readingProgress = document.getElementById('readingProgress');
+    const articleContent = document.getElementById('articleContent');
+    const relatedArticles = document.getElementById('relatedArticles');
+    let currentArticle = null;
+
+    function openArticle(id) {
+        const post = blogPosts.find(p => p.id === id);
+        if (!post) return;
+        currentArticle = post;
+
+        articleContent.innerHTML = `
+            <div class="mb-6">
+                <span class="cat-tag mb-4" style="color:${catMeta[post.cat].color};background:${catMeta[post.cat].color}15;">${catMeta[post.cat].label}</span>
+                <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tighter leading-[1.05] mb-5">${post.title}</h1>
+                <div class="flex items-center gap-4 text-sm text-zinc-500">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background:${catMeta[post.cat].color}20;color:${catMeta[post.cat].color};">${post.author.split(' ').map(n=>n[0]).join('')}</div>
+                        <span class="font-medium text-zinc-300">${post.author}</span>
+                    </div>
+                    <span class="text-zinc-700">·</span>
+                    <span>${post.date}</span>
+                    <span class="text-zinc-700">·</span>
+                    <span>${post.readTime} read</span>
+                </div>
+            </div>
+            <img src="${post.thumb}" alt="${post.title}" loading="lazy">
+            <div class="reading-content">${post.content}</div>
+            <div class="mt-12 pt-8" style="border-top:1px solid var(--border);">
+                <div class="flex flex-wrap gap-2">
+                    ${post.tags.map(t => `<span class="trending-tag cursor-default">#${t}</span>`).join('')}
+                </div>
+            </div>
+        `;
+
+        // Related
+        const related = blogPosts.filter(p => p.id !== id && (p.cat === post.cat || p.tags.some(t => post.tags.includes(t)))).slice(0, 3);
+        relatedArticles.innerHTML = related.map(r => `
+            <div class="blog-card" onclick="openArticle('${r.id}')">
+                <div class="overflow-hidden"><img class="card-img" style="height:140px;" src="${r.thumb}" alt="${r.title}" loading="lazy"></div>
+                <div class="card-body" style="padding:16px;">
+                    <h4 class="text-sm font-semibold leading-snug line-clamp-2 mb-1" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${r.title}</h4>
+                    <p class="text-[0.65rem] text-zinc-700">${r.date} · ${r.readTime}</p>
+                </div>
+            </div>
+        `).join('');
+
+        readingView.classList.add('open');
+        readingProgress.classList.add('active');
+        readingView.scrollTop = 0;
+        document.body.style.overflow = 'hidden';
+    }
+
+    document.getElementById('backToList').addEventListener('click', closeReading);
+    function closeReading() {
+        readingView.classList.remove('open');
+        readingProgress.classList.remove('active');
+        document.body.style.overflow = '';
+        currentArticle = null;
+    }
+
+    // Reading progress
+    readingView.addEventListener('scroll', () => {
+        if (!currentArticle) return;
+        const st = readingView.scrollTop;
+        const dh = readingView.scrollHeight - readingView.clientHeight;
+        readingProgress.style.width = dh > 0 ? (st / dh * 100) + '%' : '0%';
+    });
+
+    // Share
+    function shareArticle(type) {
+        if (!currentArticle) return;
+        const url = `https://www.goglobalmart.com/blog/${currentArticle.slug}`;
+        const title = currentArticle.title;
+        if (type === 'twitter') window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
+        else if (type === 'linkedin') window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank');
+        else if (type === 'copy') { navigator.clipboard.writeText(url); showToast('Link Copied!', url, false); }
+    }
+
+    // =============================================
+    // ADMIN PANEL
+    // =============================================
+    // Show admin button (double-click navbar logo area)
+    let adminClicks = 0;
+    document.querySelector('nav a').addEventListener('dblclick', () => {
+        adminClicks++;
+        if (adminClicks >= 2) { document.getElementById('adminToggle').classList.remove('hidden'); adminClicks = 0; }
+    });
+
+    const adminOverlay = document.getElementById('adminOverlay');
+    const adminPanel = document.getElementById('adminPanel');
+    document.getElementById('adminToggle').addEventListener('click', () => { adminOverlay.classList.add('open'); adminPanel.classList.add('open'); });
+    document.getElementById('adminClose').addEventListener('click', closeAdmin);
+    adminOverlay.addEventListener('click', closeAdmin);
+    function closeAdmin() { adminOverlay.classList.remove('open'); adminPanel.classList.remove('open'); }
+
+    document.getElementById('adminForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        if (!fd.get('title') || !fd.get('author') || !fd.get('category') || !fd.get('excerpt') || !fd.get('content')) return;
+
+        const btn = document.getElementById('adminSubmit');
+        btn.textContent = 'Publishing...'; btn.disabled = true;
+
+        // === FIREBASE: Replace with real Firestore call ===
+        // const slug = fd.get('title').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+        // await db.collection("blog_posts").add({ title:fd.get('title'), slug, author:fd.get('author'), category:fd.get('category'), excerpt:fd.get('excerpt'), thumbnail:fd.get('thumbnail')||`https://picsum.photos/seed/${slug}/800/500`, content:fd.get('content'), tags:fd.get('tags')?fd.get('tags').split(',').map(t=>t.trim()):[], featured:!!fd.get('featured'), status:'published', views:0, createdAt:firebase.firestore.FieldValue.serverTimestamp(), updatedAt:firebase.firestore.FieldValue.serverTimestamp() });
+
+        await new Promise(r => setTimeout(r, 1500));
+
+        // Add locally for demo
+        const newPost = {
+            id: 'local-' + Date.now(),
+            slug: fd.get('title').toLowerCase().replace(/[^a-z0-9]+/g,'-'),
+            cat: fd.get('category'),
+            featured: !!fd.get('featured'),
+            title: fd.get('title'),
+            excerpt: fd.get('excerpt'),
+            author: fd.get('author'),
+            date: new Date().toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'}),
+            readTime: Math.max(3, Math.round(fd.get('content').split(' ').length / 200)) + ' min',
+            thumb: fd.get('thumbnail') || `https://picsum.photos/seed/${Date.now()}/800/500`,
+            tags: fd.get('tags') ? fd.get('tags').split(',').map(t=>t.trim()) : [],
+            content: fd.get('content')
+        };
+        blogPosts.unshift(newPost);
+        renderGrid();
+        closeAdmin();
+        e.target.reset();
+        btn.textContent = 'Publish Article'; btn.disabled = false;
+        showToast('Article Published!', `"${newPost.title}" is now live.`, false);
+    });
+
+    // =============================================
+    // TOAST
+    // =============================================
+    function showToast(title, msg, isError) {
+        const el = document.getElementById('toastEl');
+        document.getElementById('toastTitle').textContent = title;
+        document.getElementById('toastMsg').textContent = msg;
+        el.classList.toggle('error', !!isError);
+        const icon = document.getElementById('toastIcon');
+        if (isError) { icon.style.background='rgba(239,68,68,0.1)'; icon.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'; }
+        else { icon.style.background='rgba(34,197,94,0.1)'; icon.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>'; }
+        el.classList.add('show');
+        setTimeout(() => el.classList.remove('show'), 5000);
+    }
+
+    // =============================================
+    // SCROLL
+    // =============================================
+    const backTop = document.getElementById('backTop');
+    let scrollTick = false;
+    window.addEventListener('scroll', () => {
+        if (!scrollTick) { requestAnimationFrame(() => {
+            const st = window.scrollY, dh = document.documentElement.scrollHeight - window.innerHeight;
+            backTop.classList.toggle('show', st > 500);
+            scrollTick = false;
+        }); scrollTick = true; }
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
