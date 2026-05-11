@@ -1271,6 +1271,20 @@
 
             .ad-placeholder { font-size: 0.75rem; padding: 16px; }
         }
+        .profile-link .iconify{
+          font-size:32px;
+            transition:0.3s;
+          }
+
+          /* Logout = Red */
+             .profile-offline{
+           color:#ef4444;
+         }
+
+         /* Login = Green */
+         .profile-online{
+         color:#22c55e;
+          }
     </style>
 </head>
 <body>
@@ -1307,8 +1321,8 @@
                     <span class="iconify" data-icon="mdi:heart-outline"></span> Wishlist
                     <span class="badge" id="wishlistCount">0</span>
                 </a>
-                <a href="login.html" class="nav-link" onclick="login()">
-                    <span class="iconify" data-icon="mdi:login"></span> Login
+                <a href="login.html" class="nav-link profile-link" onclick="login()">
+                    <span class="iconify profile-offline" id="profileIcon" data-icon="mdi:account-circle"></span>
                 </a>
             </div>
 
@@ -2471,11 +2485,16 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // ✅ check login
+const profileIcon=document.getElementById("profileIcon");
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    document.getElementById("userInfo").innerText = "Welcome: " + user.email;
+    profileIcon.classList.remove("profile-offline");
+    profileIcon.classList.add("profile-online");
+    document.getElementById("userInfo").innerText=
+    "Welcome: "+ user.email;
   } else {
-    // ❗ agar login nahi hai to wapas bhej
+    profileIcon.classList.remove("profile-online");
+    profileIcon.classList.add("profile-offline");
     window.location.href = "#";
   }
 });
