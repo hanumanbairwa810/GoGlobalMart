@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoGlobalMart — Seller Authentication</title>
+<meta name="description" content="GoGlobalMart Seller Authentication & KYC Verification System">
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060d0a;--bg2:#0c1a14;--bg3:#122820;
+  --card:rgba(12,26,20,0.72);--card-border:rgba(0,200,150,0.08);
+  --accent:#00c896;--accent-l:#00e6ac;--accent-d:#009e76;--accent-glow:rgba(0,200,150,0.12);
+  --gold:#d4a843;--gold-l:#e8c36a;
+  --t1:#eaf2ee;--t2:#7a9488;--t3:#4a6458;
+  --bdr:rgba(0,200,150,0.12);--bdr-f:rgba(0,200,150,0.4);
+  --danger:#ff4757;--danger-bg:rgba(255,71,87,0.1);
+  --success:#00c896;--success-bg:rgba(0,200,150,0.1);
+  --warn:#d4a843;--warn-bg:rgba(212,168,67,0.1);
+  --info:#4da6ff;--info-bg:rgba(77,166,255,0.1);
+  --r-sm:8px;--r-md:12px;--r-lg:20px;--r-xl:28px;
+  --sh:0 8px 32px rgba(0,0,0,0.4);--sh-lg:0 16px 64px rgba(0,0,0,0.5);
+  --tr:all .3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.2}
+a{color:var(--accent);text-decoration:none;transition:var(--tr)}
+a:hover{color:var(--accent-l)}
+input,select,textarea,button{font-family:inherit;font-size:inherit}
+::selection{background:var(--accent);color:var(--bg)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--t3);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--t2)}
+
+/* Background */
+.bg-scene{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg-blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.12;will-change:transform}
+.blob-1{width:600px;height:600px;background:var(--accent);top:-10%;left:-10%;animation:bfloat 25s ease-in-out infinite}
+.blob-2{width:500px;height:500px;background:var(--gold);bottom:-15%;right:-10%;animation:bfloat 30s ease-in-out infinite reverse}
+.blob-3{width:400px;height:400px;background:#006b5a;top:50%;left:50%;transform:translate(-50%,-50%);animation:bfloat 20s ease-in-out infinite 5s}
+@keyframes bfloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(50px,-30px) scale(1.05)}50%{transform:translate(-20px,40px) scale(.95)}75%{transform:translate(-40px,-20px) scale(1.02)}}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,150,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,150,.03) 1px,transparent 1px);background-size:60px 60px}
+
+/* Loading Screen */
+#loading-screen{position:fixed;inset:0;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);transition:opacity .5s,visibility .5s}
+#loading-screen.hide{opacity:0;visibility:hidden}
+.loader-brand{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--t1);margin-bottom:30px;letter-spacing:-0.5px}
+.loader-brand span{color:var(--accent)}
+.loader-ring{width:48px;height:48px;border:3px solid var(--bdr);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Main Container */
+#main-container{position:relative;z-index:1;min-height:100vh;display:none;align-items:center;justify-content:center;padding:20px}
+#main-container.show{display:flex}
+
+/* Sections */
+.section{width:100%;max-width:520px;animation:fadeUp .5s ease}
+.section.hidden{display:none!important}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* Glass Card */
+.glass{background:var(--card);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--card-border);border-radius:var(--r-xl);box-shadow:var(--sh);padding:36px;position:relative;overflow:hidden}
+.glass::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,200,150,.2),transparent)}
+
+/* Brand Header */
+.brand{text-align:center;margin-bottom:28px}
+.brand h1{font-size:26px;font-weight:700;letter-spacing:-.5px}
+.brand h1 span{color:var(--accent)}
+.brand p{color:var(--t2);font-size:14px;margin-top:4px}
+.brand-divider{width:40px;height:3px;background:var(--accent);border-radius:2px;margin:12px auto 0}
+
+/* Forms */
+.form-group{margin-bottom:18px;position:relative}
+.form-label{display:block;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px}
+.form-input-wrap{position:relative}
+.form-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid var(--bdr);border-radius:var(--r-md);color:var(--t1);font-size:15px;transition:var(--tr);outline:none}
+.form-input::placeholder{color:var(--t3)}
+.form-input:focus{border-color:var(--bdr-f);box-shadow:0 0 0 3px var(--accent-glow)}
+.form-input.err{border-color:var(--danger);box-shadow:0 0 0 3px var(--danger-bg)}
+.form-input:disabled{opacity:.5;cursor:not-allowed}
+select.form-input{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a9488' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+select.form-input option{background:var(--bg2);color:var(--t1)}
+.err-text{font-size:12px;color:var(--danger);margin-top:4px;display:none;align-items:center;gap:4px}
+.err-text.show{display:flex}
+.err-text i{font-size:11px}
+.pw-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--t3);cursor:pointer;padding:4px;font-size:15px;transition:var(--tr)}
+.pw-toggle:hover{color:var(--t2)}
+.phone-row{display:flex;gap:8px}
+.phone-code{width:100px;flex-shrink:0;text-align:center;font-weight:600;color:var(--t2);padding:12px 8px;background:rgba(0,0,0,.4);border:1px solid var(--bdr);border-radius:var(--r-md);font-size:14px;cursor:default}
+.phone-code+.form-input{flex:1}
+.checkbox-group{display:flex;align-items:flex-start;gap:10px;margin-top:20px}
+.checkbox-group input[type="checkbox"]{width:18px;height:18px;accent-color:var(--accent);margin-top:2px;flex-shrink:0;cursor:pointer}
+.checkbox-group label{font-size:13px;color:var(--t2);cursor:pointer;line-height:1.5}
+.checkbox-group label a{color:var(--accent);text-decoration:underline}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:var(--r-md);font-weight:600;font-size:15px;border:none;cursor:pointer;transition:var(--tr);position:relative;overflow:hidden}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--accent);color:var(--bg);width:100%}
+.btn-primary:hover:not(:disabled){background:var(--accent-l);box-shadow:0 4px 20px rgba(0,200,150,.3)}
+.btn-secondary{background:transparent;color:var(--t2);border:1px solid var(--bdr)}
+.btn-secondary:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-danger:hover:not(:disabled){background:#ff6b7a}
+.btn-ghost{background:none;border:none;color:var(--t2);padding:8px;font-size:13px}
+.btn-ghost:hover{color:var(--accent)}
+.btn .spinner{width:18px;height:18px;border:2px solid rgba(0,0,0,.2);border-top-color:currentColor;border-radius:50%;animation:spin .6s linear infinite}
+.btn-full{width:100%}
+.btn-row{display:flex;gap:12px;margin-top:24px}
+.btn-row .btn{flex:1}
+.remember-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;font-size:13px}
+.remember-row label{display:flex;align-items:center;gap:6px;color:var(--t2);cursor:pointer}
+.remember-row input{accent-color:var(--accent);cursor:pointer}
+.forgot-link{color:var(--accent);font-size:13px;cursor:pointer;background:none;border:none;font-family:inherit;transition:var(--tr)}
+.forgot-link:hover{color:var(--accent-l)}
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--t3);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.switch-text{font-size:14px;color:var(--t2);text-align:center;margin-top:20px}
+.switch-text a{font-weight:600}
+
+/* Step Indicator */
+.step-bar{display:flex;align-items:center;justify-content:center;margin-bottom:30px;padding:0 10px}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;z-index:1}
+.step-dot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;border:2px solid var(--bdr);color:var(--t3);background:var(--bg2);transition:var(--tr);font-family:'Space Grotesk',sans-serif}
+.step-item.active .step-dot{border-color:var(--accent);color:var(--bg);background:var(--accent);box-shadow:0 0 20px rgba(0,200,150,.3)}
+.step-item.done .step-dot{border-color:var(--accent);color:#fff;background:var(--accent-d)}
+.step-item.done .step-dot .num{display:none}
+.step-item.done .step-dot .chk{display:block}
+.step-dot .chk{display:none;font-size:14px}
+.step-lbl{font-size:11px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
+.step-item.active .step-lbl{color:var(--accent)}
+.step-item.done .step-lbl{color:var(--t2)}
+.step-line{flex:1;height:2px;background:var(--bdr);margin:0 4px;margin-bottom:22px;transition:var(--tr);min-width:20px}
+.step-line.done{background:var(--accent)}
+.step-content{display:none;animation:fadeUp .35s ease}
+.step-content.active{display:block}
+
+/* Upload Zone */
+.uploads-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.upload-item{position:relative}
+.upload-label{display:block;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px}
+.upload-zone{border:2px dashed var(--bdr);border-radius:var(--r-md);padding:18px 10px;text-align:center;cursor:pointer;transition:var(--tr);min-height:130px;display:flex;align-items:center;justify-content:center;position:relative}
+.upload-zone:hover{border-color:var(--accent);background:var(--accent-glow)}
+.upload-zone.has-file{border-color:var(--accent);border-style:solid;background:rgba(0,200,150,.04)}
+.upload-zone.uploading{pointer-events:none;opacity:.7}
+.upload-zone.error{border-color:var(--danger)}
+.upload-ph{display:flex;flex-direction:column;align-items:center;gap:6px}
+.upload-ph i{font-size:24px;color:var(--t3);transition:var(--tr)}
+.upload-zone:hover .upload-ph i{color:var(--accent)}
+.upload-ph p{font-size:12px;color:var(--t3)}
+.upload-ph span{font-size:10px;color:var(--t3);opacity:.7}
+.upload-prev{display:none;flex-direction:column;align-items:center;gap:8px;width:100%}
+.upload-prev.show{display:flex}
+.upload-prev img{max-width:100%;max-height:70px;border-radius:var(--r-sm);object-fit:cover}
+.upload-prev .pdf-icon{font-size:32px;color:var(--danger)}
+.upload-prev .fname{font-size:11px;color:var(--t2);word-break:break-all;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upload-prev .fcheck{color:var(--accent);font-size:16px}
+.upload-prog{width:100%;height:4px;background:rgba(0,0,0,.3);border-radius:2px;overflow:hidden;margin-top:4px}
+.upload-prog-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .2s;width:0}
+.upload-remove{position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:50%;background:rgba(255,71,87,.9);border:none;color:#fff;font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:var(--tr);z-index:2}
+.upload-remove.show{display:flex}
+.upload-remove:hover{background:var(--danger);transform:scale(1.1)}
+.upload-status{position:absolute;bottom:6px;right:8px;font-size:10px;font-weight:600}
+.upload-status.ok{color:var(--accent)}
+.upload-status.fail{color:var(--danger)}
+
+/* Modal Overlay */
+.modal-overlay{position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;animation:mfade .25s ease}
+.modal-overlay.show{display:flex}
+@keyframes mfade{from{opacity:0}to{opacity:1}}
+.modal{background:var(--bg2);border:1px solid var(--card-border);border-radius:var(--r-xl);box-shadow:var(--sh-lg);width:100%;max-width:420px;max-height:90vh;overflow-y:auto;padding:32px;animation:mslide .3s ease}
+@keyframes mslide{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--t3);font-size:18px;cursor:pointer;padding:4px;transition:var(--tr)}
+.modal-close:hover{color:var(--t1)}
+.modal-header{text-align:center;margin-bottom:24px}
+.modal-header h2{font-size:20px;font-weight:700}
+.modal-header p{font-size:13px;color:var(--t2);margin-top:4px}
+.otp-inputs{display:flex;gap:8px;justify-content:center;margin:20px 0}
+.otp-inputs input{width:48px;height:54px;text-align:center;font-size:22px;font-weight:700;font-family:'Space Grotesk',sans-serif;background:rgba(0,0,0,.3);border:2px solid var(--bdr);border-radius:var(--r-md);color:var(--t1);outline:none;transition:var(--tr)}
+.otp-inputs input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.otp-timer{text-align:center;font-size:13px;color:var(--t2);margin:12px 0}
+.otp-timer span{color:var(--accent);font-weight:700;font-family:'Space Grotesk',sans-serif}
+.resend-btn{background:none;border:none;color:var(--t3);font-size:13px;cursor:pointer;font-family:inherit;transition:var(--tr);margin:0 auto;display:block}
+.resend-btn:not(:disabled):hover{color:var(--accent)}
+.resend-btn:disabled{cursor:not-allowed}
+
+/* Toast */
+#toast-container{position:fixed;top:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none;max-width:380px;width:calc(100% - 40px)}
+.toast{padding:14px 18px;border-radius:var(--r-md);color:var(--t1);font-size:13px;display:flex;align-items:flex-start;gap:10px;animation:tslide .3s ease;box-shadow:0 4px 24px rgba(0,0,0,.4);pointer-events:auto;backdrop-filter:blur(10px);border-left:4px solid transparent}
+.toast.success{background:rgba(13,79,60,.9);border-left-color:var(--success)}
+.toast.error{background:rgba(79,13,26,.9);border-left-color:var(--danger)}
+.toast.warning{background:rgba(79,61,13,.9);border-left-color:var(--warn)}
+.toast.info{background:rgba(13,42,79,.9);border-left-color:var(--info)}
+.toast i{font-size:16px;margin-top:1px;flex-shrink:0}
+.toast.success i{color:var(--success)}
+.toast.error i{color:var(--danger)}
+.toast.warning i{color:var(--warn)}
+.toast.info i{color:var(--info)}
+.toast-msg{flex:1;line-height:1.5}
+.toast-close{background:none;border:none;color:var(--t3);cursor:pointer;font-size:14px;padding:0;flex-shrink:0;transition:var(--tr)}
+.toast-close:hover{color:var(--t1)}
+@keyframes tslide{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+.toast.removing{animation:tremove .25s ease forwards}
+@keyframes tremove{to{transform:translateX(100%);opacity:0}}
+
+/* Status Sections */
+.status-section{text-align:center;padding:40px 20px}
+.status-icon{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px}
+.status-icon.pending{background:var(--warn-bg);color:var(--warn);animation:pulse 2s ease-in-out infinite}
+.status-icon.rejected{background:var(--danger-bg);color:var(--danger)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,168,67,.3)}50%{box-shadow:0 0 0 16px rgba(212,168,67,0)}}
+.status-title{font-size:22px;font-weight:700;margin-bottom:8px}
+.status-desc{color:var(--t2);font-size:14px;max-width:360px;margin:0 auto 20px;line-height:1.7}
+.status-reason{background:var(--danger-bg);border:1px solid rgba(255,71,87,.2);border-radius:var(--r-md);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--danger);text-align:left}
+.status-reason strong{display:block;margin-bottom:4px}
+.status-details{background:rgba(0,0,0,.2);border-radius:var(--r-md);padding:16px;margin-bottom:24px;text-align:left}
+.status-details .row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;border-bottom:1px solid rgba(255,255,255,.04)}
+.status-details .row:last-child{border:none}
+.status-details .row .lbl{color:var(--t3)}
+.status-details .row .val{color:var(--t2);font-weight:500}
+.realtime-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:6px;animation:rdot 1.5s ease-in-out infinite}
+@keyframes rdot{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Responsive */
+@media(max-width:560px){
+  .glass{padding:24px 18px;border-radius:var(--r-lg)}
+  .brand h1{font-size:22px}
+  .form-row{grid-template-columns:1fr}
+  .uploads-grid{grid-template-columns:1fr}
+  .step-lbl{display:none}
+  .step-dot{width:34px;height:34px;font-size:13px}
+  .otp-inputs input{width:42px;height:48px;font-size:20px}
+  .modal{padding:24px 18px}
+  #toast-container{right:10px;left:10px;max-width:none;width:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Background Scene -->
+<div class="bg-scene">
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+  <div class="bg-grid"></div>
+</div>
+
+<!-- Loading Screen -->
+<div id="loading-screen">
+  <div class="loader-brand">GoGlobal<span>Mart</span></div>
+  <div class="loader-ring"></div>
+</div>
+
+<!-- Main Container -->
+<div id="main-container">
+
+  <!-- LOGIN SECTION -->
+  <section id="login-section" class="section hidden">
+    <div class="glass">
+      <div class="brand">
+        <h1>GoGlobal<span>Mart</span></h1>
+        <p>Seller Sign In</p>
+        <div class="brand-divider"></div>
+      </div>
+      <form id="login-form" onsubmit="handleLogin(event)" novalidate>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="login-email" class="form-input" placeholder="seller@example.com" autocomplete="email" required>
+          <div class="err-text" id="login-email-err"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="form-input-wrap">
+            <input type="password" id="login-password" class="form-input" placeholder="Enter your password" autocomplete="current-password" required style="padding-right:44px">
+            <button type="button" class="pw-toggle" onclick="togglePw('login-password',this)" aria-label="Toggle password visibility"><i class="fas fa-eye"></i></button>
+          </div>
+          <div class="err-text" id="login-password-err"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="remember-row">
+          <label><input type="checkbox" id="login-remember"> Remember me</label>
+          <button type="button" class="forgot-link" onclick="openModal('forgot-modal')">Forgot password?</button>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="login-btn">
+          <span>Sign In</span>
+        </button>
+      </form>
+      <div class="switch-text">Don't have a seller account? <a href="#" onclick="showSection('signup-section')">Register now</a></div>
+    </div>
+  </section>
+
+  <!-- SIGNUP SECTION -->
+  <section id="signup-section" class="section hidden">
+    <div class="glass">
+      <div class="brand">
+        <h1>GoGlobal<span>Mart</span></h1>
+        <p>Seller Registration</p>
+        <div class="brand-divider"></div>
+      </div>
+
+      <!-- Step Bar -->
+      <div class="step-bar" id="step-bar">
+        <div class="step-item active" data-step="1"><div class="step-dot"><span class="num">1</span><i class="fas fa-check chk"></i></div><span class="step-lbl">Basic</span></div>
+        <div class="step-line" data-line="1"></div>
+        <div class="step-item" data-step="2"><div class="step-dot"><span class="num">2</span><i class="fas fa-check chk"></i></div><span class="step-lbl">Business</span></div>
+        <div class="step-line" data-line="2"></div>
+        <div class="step-item" data-step="3"><div class="step-dot"><span class="num">3</span><i class="fas fa-check chk"></i></div><span class="step-lbl">Bank</span></div>
+        <div class="step-line" data-line="3"></div>
+        <div class="step-item" data-step="4"><div class="step-dot"><span class="num">4</span><i class="fas fa-check chk"></i></div><span class="step-lbl">Documents</span></div>
+      </div>
+
+      <!-- STEP 1: Basic Details -->
+      <div id="step-1" class="step-content active">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="s-fullname" class="form-input" placeholder="John Doe" autocomplete="name">
+          <div class="err-text" id="err-fullname"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Store Name</label>
+          <input type="text" id="s-storename" class="form-input" placeholder="My Awesome Store">
+          <div class="err-text" id="err-storename"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="s-email" class="form-input" placeholder="seller@example.com" autocomplete="email">
+          <div class="err-text" id="err-email"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="form-input-wrap">
+              <input type="password" id="s-password" class="form-input" placeholder="Min 8 chars" autocomplete="new-password" style="padding-right:44px">
+              <button type="button" class="pw-toggle" onclick="togglePw('s-password',this)"><i class="fas fa-eye"></i></button>
+            </div>
+            <div class="err-text" id="err-password"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Password</label>
+            <div class="form-input-wrap">
+              <input type="password" id="s-cpassword" class="form-input" placeholder="Repeat password" autocomplete="new-password" style="padding-right:44px">
+              <button type="button" class="pw-toggle" onclick="togglePw('s-cpassword',this)"><i class="fas fa-eye"></i></button>
+            </div>
+            <div class="err-text" id="err-cpassword"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mobile Number</label>
+          <div class="phone-row">
+            <select id="s-country" class="form-input phone-code" onchange="updatePhoneCode()" style="font-size:13px;padding:12px 6px;text-align:center"></select>
+            <input type="tel" id="s-phone" class="form-input" placeholder="9876543210" autocomplete="tel" maxlength="15">
+          </div>
+          <div class="err-text" id="err-phone"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="s-terms">
+          <label for="s-terms">I agree to the <a href="mini-terms.html" onclick="event.preventDefault()">Terms of Service</a> and <a href="mini-seller-agreement.html" onclick="event.preventDefault()">Seller Agreement</a></label>
+        </div>
+        <div class="err-text" id="err-terms" style="margin-top:6px"><i class="fas fa-exclamation-circle"></i><span></span></div>
+      </div>
+
+      <!-- STEP 2: Business Details -->
+      <div id="step-2" class="step-content">
+        <div class="form-group">
+          <label class="form-label">Business Type</label>
+          <select id="s-btype" class="form-input">
+            <option value="">Select business type</option>
+            <option value="Individual">Individual</option>
+            <option value="Sole Proprietor">Sole Proprietor</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Pvt Ltd">Pvt Ltd</option>
+          </select>
+          <div class="err-text" id="err-btype"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">GST Number</label>
+            <input type="text" id="s-gst" class="form-input" placeholder="22AAAAA0000A1Z5" maxlength="15" style="text-transform:uppercase">
+            <div class="err-text" id="err-gst"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PAN Number</label>
+            <input type="text" id="s-pan" class="form-input" placeholder="AAAAA0000A" maxlength="10" style="text-transform:uppercase">
+            <div class="err-text" id="err-pan"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pickup Address</label>
+          <input type="text" id="s-address" class="form-input" placeholder="Street address, warehouse, etc.">
+          <div class="err-text" id="err-address"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">City</label>
+            <input type="text" id="s-city" class="form-input" placeholder="Mumbai">
+            <div class="err-text" id="err-city"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">State</label>
+            <input type="text" id="s-state" class="form-input" placeholder="Maharashtra">
+            <div class="err-text" id="err-state"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+        </div>
+        <div class="form-group" style="max-width:200px">
+          <label class="form-label">Pincode</label>
+          <input type="text" id="s-pincode" class="form-input" placeholder="400001" maxlength="6">
+          <div class="err-text" id="err-pincode"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Bank Details -->
+      <div id="step-3" class="step-content">
+        <div class="form-group">
+          <label class="form-label">Account Holder Name</label>
+          <input type="text" id="s-bankname" class="form-input" placeholder="Name as per bank records">
+          <div class="err-text" id="err-bankname"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Account Number</label>
+          <input type="text" id="s-accnum" class="form-input" placeholder="Enter account number" maxlength="18">
+          <div class="err-text" id="err-accnum"><i class="fas fa-exclamation-circle"></i><span></span></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">IFSC Code</label>
+            <input type="text" id="s-ifsc" class="form-input" placeholder="SBIN0001234" maxlength="11" style="text-transform:uppercase">
+            <div class="err-text" id="err-ifsc"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bank Name</label>
+            <input type="text" id="s-bank" class="form-input" placeholder="State Bank of India">
+            <div class="err-text" id="err-bank"><i class="fas fa-exclamation-circle"></i><span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Document Uploads -->
+      <div id="step-4" class="step-content">
+        <p style="font-size:13px;color:var(--t2);margin-bottom:16px">Upload clear, legible documents. Accepted formats: JPG, PNG, PDF. Max 5MB each.</p>
+        <div class="uploads-grid" id="uploads-grid">
+          <!-- Generated by JS -->
+        </div>
+      </div>
+
+      <!-- Step Navigation -->
+      <div class="btn-row" id="step-nav">
+        <button type="button" class="btn btn-secondary" id="prev-btn" onclick="prevStep()" style="display:none"><i class="fas fa-arrow-left"></i> Back</button>
+        <button type="button" class="btn btn-primary" id="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="switch-text" style="margin-top:16px">Already registered? <a href="#" onclick="showSection('login-section')">Sign in</a></div>
+    </div>
+  </section>
+
+  <!-- APPROVAL PENDING SECTION -->
+  <section id="approval-pending-section" class="section hidden">
+    <div class="glass">
+      <div class="status-section">
+        <div class="status-icon pending"><i class="fas fa-clock"></i></div>
+        <h2 class="status-title">Application Under Review</h2>
+        <p class="status-desc">Your seller account is being verified by our team. This usually takes 24-48 hours. You'll be redirected automatically once approved.</p>
+        <div class="status-details" id="pending-details"></div>
+        <p style="font-size:13px;color:var(--t2)"><span class="realtime-dot"></span>Checking status in real-time...</p>
+        <div style="margin-top:20px">
+          <button class="btn btn-secondary" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REJECTED SECTION -->
+  <section id="rejected-section" class="section hidden">
+    <div class="glass">
+      <div class="status-section">
+        <div class="status-icon rejected"><i class="fas fa-times-circle"></i></div>
+        <h2 class="status-title">Application Rejected</h2>
+        <p class="status-desc">Unfortunately, your seller application could not be approved at this time.</p>
+        <div class="status-reason" id="rejection-reason" style="display:none"><strong>Reason:</strong><span id="rejection-text"></span></div>
+        <div class="status-details" id="rejected-details"></div>
+        <div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-secondary" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- OTP MODAL -->
+<div class="modal-overlay" id="otp-modal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('otp-modal')"><i class="fas fa-times"></i></button>
+    <div class="modal-header">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--accent-glow);display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><i class="fas fa-mobile-alt" style="font-size:22px;color:var(--accent)"></i></div>
+      <h2>Verify Phone Number</h2>
+      <p id="otp-phone-display">OTP sent to +91 XXXXXXXXXX</p>
+    </div>
+    <div id="otp-send-section">
+      <button class="btn btn-primary btn-full" id="send-otp-btn" onclick="sendOTP()"><i class="fas fa-paper-plane"></i> Send OTP</button>
+    </div>
+    <div id="otp-verify-section" style="display:none">
+      <div class="otp-inputs" id="otp-inputs">
+        <input type="text" maxlength="1" inputmode="numeric" data-idx="0" autocomplete="one-time-code">
+        <input type="text" maxlength="1" inputmode="numeric" data-idx="1">
+        <input type="text" maxlength="1" inputmode="numeric" data-idx="2">
+        <input type="text" maxlength="1" inputmode="numeric" data-idx="3">
+        <input type="text" maxlength="1" inputmode="numeric" data-idx="4">
+        <input type="text" maxlength="1" inputmode="numeric" data-idx="5">
+      </div>
+      <div class="otp-timer" id="otp-timer">Resend OTP in <span id="otp-countdown">60</span>s</div>
+      <button class="resend-btn" id="resend-otp-btn" disabled onclick="resendOTP()">Resend OTP</button>
+      <div style="margin-top:20px">
+        <button class="btn btn-primary btn-full" id="verify-otp-btn" onclick="verifyOTP()"><span>Verify OTP</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMAIL VERIFICATION MODAL -->
+<div class="modal-overlay" id="email-modal">
+  <div class="modal" style="position:relative">
+    <div class="modal-header">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--info-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><i class="fas fa-envelope-open-text" style="font-size:22px;color:var(--info)"></i></div>
+      <h2>Verify Your Email</h2>
+      <p id="email-modal-desc">We've sent a verification link to your email address. Please check your inbox and spam folder.</p>
+    </div>
+    <div style="background:var(--info-bg);border:1px solid rgba(77,166,255,.15);border-radius:var(--r-md);padding:14px;margin-bottom:20px;font-size:13px;color:var(--info);text-align:center">
+      <i class="fas fa-info-circle"></i> You must verify your email before accessing the seller dashboard.
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button class="btn btn-primary btn-full" id="check-email-btn" onclick="checkEmailVerification()"><i class="fas fa-sync-alt"></i> I've Verified My Email</button>
+      <button class="btn btn-secondary btn-full" id="resend-email-btn" onclick="resendEmailVerification()"><i class="fas fa-redo"></i> Resend Verification Email</button>
+      <button class="btn btn-ghost btn-full" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+    </div>
+    <div class="otp-timer" id="email-timer" style="margin-top:12px;display:none">Resend available in <span id="email-countdown">60</span>s</div>
+  </div>
+</div>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div class="modal-overlay" id="forgot-modal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('forgot-modal')"><i class="fas fa-times"></i></button>
+    <div class="modal-header">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--warn-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><i class="fas fa-lock" style="font-size:22px;color:var(--warn)"></i></div>
+      <h2>Reset Password</h2>
+      <p>Enter your email and we'll send you a password reset link.</p>
+    </div>
+    <form onsubmit="handleForgotPassword(event)" novalidate>
+      <div class="form-group">
+        <input type="email" id="forgot-email" class="form-input" placeholder="seller@example.com" required>
+        <div class="err-text" id="err-forgot-email"><i class="fas fa-exclamation-circle"></i><span></span></div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full" id="forgot-btn"><span>Send Reset Link</span></button>
+    </form>
+    <div id="forgot-success" style="display:none;text-align:center;padding:10px 0">
+      <i class="fas fa-check-circle" style="font-size:40px;color:var(--accent);margin-bottom:12px"></i>
+      <p style="font-size:14px;color:var(--t2)">Password reset email sent. Check your inbox.</p>
+      <button class="btn btn-secondary btn-full" style="margin-top:16px" onclick="closeModal('forgot-modal')">Back to Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- reCAPTCHA Container (invisible) -->
+<div id="recaptcha-container" style="position:absolute;left:-9999px;top:-9999px;visibility:hidden"></div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+/* =========================================================
+   FIRESTORE SECURITY RULES (Paste in Firebase Console)
+   =========================================================
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /sellers/{sellerId} {
+         allow read: if request.auth != null && request.auth.uid == sellerId;
+         allow create: if request.auth != null && request.auth.uid == sellerId;
+         allow update: if request.auth != null && request.auth.uid == sellerId
+           && !request.resource.data.diff(resource.data).affectedKeys()
+             .hasAny(['approvalStatus','verifiedSeller','blocked','sellerRole','sellerLevel']);
+       }
+       match /{document=**} {
+         allow read, write: if false;
+       }
+     }
+   }
+   ========================================================= */
+
+// ============================================================
+// CONFIGURATION — Replace these 3 values with your own keys
+// ============================================================
+const FIREBASE_CONFIG = {
+            apiKey: "AIzaSyAJBKu2kYbCD1KwI2xLargDauV_ftdoRQs",
+            authDomain: "goglobalmart-f227e.firebaseapp.com",
+            projectId: "goglobalmart-f227e",
+            storageBucket: "goglobalmart-f227e.firebasestorage.app",
+            messagingSenderId: "270002483993",
+            appId: "1:270002483993:web:089e322acf64ba73104b88"
+};
+
+const CLOUDINARY_CLOUD_NAME = "dkgztyu90";
+const CLOUDINARY_UPLOAD_PRESET = "goglobalmart_upload";
+// ============================================================
+
+// Initialize Firebase
+firebase.initializeApp(FIREBASE_CONFIG);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Enable Firestore offline persistence
+db.enablePersistence({ synchronizeTabs: true }).catch(() => {});
+
+// ============================================================
+// STATE
+// ============================================================
+let currentStep = 1;
+let uploadedDocs = {};
+let uploadedFiles = {};
+let phoneVerified = false;
+let confirmationResult = null;
+let recaptchaVerifier = null;
+let otpTimerInterval = null;
+let emailTimerInterval = null;
+let unsubscribeSeller = null;
+let isSigningUp = false;
+let signupFormData = {};
+
+// Document upload fields configuration
+const DOC_FIELDS = [
+  { key: 'aadhaarFront', label: 'Aadhaar Front', icon: 'fa-id-card' },
+  { key: 'aadhaarBack', label: 'Aadhaar Back', icon: 'fa-id-card' },
+  { key: 'panCard', label: 'PAN Card', icon: 'fa-file-invoice' },
+  { key: 'gstCertificate', label: 'GST Certificate', icon: 'fa-file-contract' },
+  { key: 'storeLogo', label: 'Store Logo', icon: 'fa-store' },
+  { key: 'storeBanner', label: 'Store Banner', icon: 'fa-image' }
+];
+
+// Countries with phone codes
+const COUNTRIES = [
+  { name: 'India', code: '+91' },
+  { name: 'United States', code: '+1' },
+  { name: 'United Kingdom', code: '+44' },
+  { name: 'UAE', code: '+971' },
+  { name: 'Saudi Arabia', code: '+966' },
+  { name: 'Australia', code: '+61' },
+  { name: 'Canada', code: '+1' },
+  { name: 'Germany', code: '+49' },
+  { name: 'France', code: '+33' },
+  { name: 'Japan', code: '+81' },
+  { name: 'South Korea', code: '+82' },
+  { name: 'Singapore', code: '+65' },
+  { name: 'Malaysia', code: '+60' },
+  { name: 'Thailand', code: '+66' },
+  { name: 'Indonesia', code: '+62' },
+  { name: 'Philippines', code: '+63' },
+  { name: 'Vietnam', code: '+84' },
+  { name: 'China', code: '+86' },
+  { name: 'Hong Kong', code: '+852' },
+  { name: 'South Africa', code: '+27' },
+  { name: 'Nigeria', code: '+234' },
+  { name: 'Kenya', code: '+254' },
+  { name: 'Brazil', code: '+55' },
+  { name: 'Mexico', code: '+52' },
+  { name: 'Argentina', code: '+54' },
+  { name: 'Turkey', code: '+90' },
+  { name: 'Egypt', code: '+20' },
+  { name: 'Bangladesh', code: '+880' },
+  { name: 'Pakistan', code: '+92' },
+  { name: 'Sri Lanka', code: '+94' },
+  { name: 'Nepal', code: '+977' },
+  { name: 'New Zealand', code: '+64' },
+  { name: 'Italy', code: '+39' },
+  { name: 'Spain', code: '+34' },
+  { name: 'Netherlands', code: '+31' },
+  { name: 'Switzerland', code: '+41' },
+  { name: 'Sweden', code: '+46' },
+  { name: 'Norway', code: '+47' },
+  { name: 'Denmark', code: '+45' },
+  { name: 'Poland', code: '+48' },
+  { name: 'Russia', code: '+7' },
+  { name: 'Israel', code: '+972' },
+  { name: 'Qatar', code: '+974' },
+  { name: 'Kuwait', code: '+965' },
+  { name: 'Bahrain', code: '+973' },
+  { name: 'Oman', code: '+968' },
+  { name: 'Myanmar', code: '+95' },
+  { name: 'Cambodia', code: '+855' },
+  { name: 'Taiwan', code: '+886' }
+];
+
+// ============================================================
+// UTILITY FUNCTIONS
+// ============================================================
+
+// XSS-safe text sanitization
+function sanitize(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// Show a specific section, hide all others
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.remove('hidden');
+    // Re-trigger animation
+    target.style.animation = 'none';
+    target.offsetHeight; // force reflow
+    target.style.animation = '';
+  }
+  // Update page title
+  const titles = {
+    'login-section': 'Sign In — GoGlobalMart Seller',
+    'signup-section': 'Register — GoGlobalMart Seller',
+    'approval-pending-section': 'Approval Pending — GoGlobalMart Seller',
+    'rejected-section': 'Application Rejected — GoGlobalMart Seller'
+  };
+  document.title = titles[id] || 'GoGlobalMart — Seller Authentication';
+}
+
+// Toggle password visibility
+function togglePw(inputId, btn) {
+  const input = document.getElementById(inputId);
+  const icon = btn.querySelector('i');
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.className = 'fas fa-eye-slash';
+  } else {
+    input.type = 'password';
+    icon.className = 'fas fa-eye';
+  }
+}
+
+// Show field error
+function showErr(id, msg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.querySelector('span').textContent = msg;
+  el.classList.add('show');
+  // Also mark the input
+  const input = el.previousElementSibling;
+  if (input) {
+    const inp = input.querySelector('.form-input') || input;
+    if (inp.classList) inp.classList.add('err');
+  }
+}
+
+// Clear field error
+function clearErr(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('show');
+  const input = el.previousElementSibling;
+  if (input) {
+    const inp = input.querySelector('.form-input') || input;
+    if (inp.classList) inp.classList.remove('err');
+  }
+}
+
+// Clear all errors
+function clearAllErrors() {
+  document.querySelectorAll('.err-text').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.form-input.err').forEach(e => e.classList.remove('err'));
+  document.querySelectorAll('.upload-zone.error').forEach(e => e.classList.remove('error'));
+}
+
+// Toast notification system
+function showToast(message, type = 'info', duration = 4500) {
+  const container = document.getElementById('toast-container');
+  const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle', info: 'fa-info-circle' };
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `<i class="fas ${icons[type] || icons.info}"></i><span class="toast-msg">${sanitize(message)}</span><button class="toast-close" onclick="removeToast(this.parentElement)"><i class="fas fa-times"></i></button>`;
+  container.appendChild(toast);
+  setTimeout(() => removeToast(toast), duration);
+}
+
+function removeToast(el) {
+  if (!el || el.classList.contains('removing')) return;
+  el.classList.add('removing');
+  setTimeout(() => el.remove(), 250);
+}
+
+// Set button loading state
+function setBtnLoading(btn, loading, text) {
+  if (loading) {
+    btn.dataset.originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="spinner"></span> ${text || 'Processing...'}`;
+    btn.disabled = true;
+  } else {
+    btn.innerHTML = btn.dataset.originalText || text || btn.innerHTML;
+    btn.disabled = false;
+    delete btn.dataset.originalText;
+  }
+}
+
+// Modal open/close
+function openModal(id) {
+  document.getElementById(id).classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('show');
+  document.body.style.overflow = '';
+  // Cleanup OTP if closing OTP modal
+  if (id === 'otp-modal') {
+    cleanupOTP();
+  }
+}
+
+// Validate email format
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Validate Indian GST (15 chars, alphanumeric)
+function isValidGST(gst) {
+  if (!gst) return true; // optional for non-Indian
+  return /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/.test(gst);
+}
+
+// Validate PAN (10 chars, AAAAA0000A format)
+function isValidPAN(pan) {
+  return /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(pan);
+}
+
+// Validate IFSC (4 letters + 0 + 6 chars)
+function isValidIFSC(ifsc) {
+  return /^[A-Z]{4}0[A-Z0-9]{6}$/.test(ifsc);
+}
+
+// Validate phone (digits only, reasonable length)
+function isValidPhone(phone) {
+  return /^[0-9]{7,15}$/.test(phone);
+}
+
+// Validate pincode (6 digits)
+function isValidPincode(pin) {
+  return /^[0-9]{6}$/.test(pin);
+}
+
+// Mask phone number for display
+function maskPhone(phone) {
+  if (phone.length <= 4) return phone;
+  return phone.slice(0, -4).replace(/[0-9]/g, 'X') + phone.slice(-4);
+}
+
+// ============================================================
+// COUNTRY SELECTOR
+// ============================================================
+function initCountrySelector() {
+  const sel = document.getElementById('s-country');
+  COUNTRIES.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.code;
+    opt.textContent = `${c.code}`;
+    opt.title = c.name;
+    sel.appendChild(opt);
+  });
+  // Default to India
+  sel.value = '+91';
+}
+
+function updatePhoneCode() {
+  // Visual only, code is read from select on submit
+}
+
+function getFullPhone() {
+  const code = document.getElementById('s-country').value;
+  const phone = document.getElementById('s-phone').value.trim();
+  return code + phone;
+}
+
+// ============================================================
+// UPLOAD SYSTEM
+// ============================================================
+function initUploadGrid() {
+  const grid = document.getElementById('uploads-grid');
+  grid.innerHTML = '';
+  DOC_FIELDS.forEach(field => {
+    const item = document.createElement('div');
+    item.className = 'upload-item';
+    item.innerHTML = `
+      <label class="upload-label">${field.label}</label>
+      <div class="upload-zone" id="zone-${field.key}" onclick="triggerUpload('${field.key}')">
+        <input type="file" id="file-${field.key}" accept=".jpg,.jpeg,.png,.pdf" hidden onchange="handleFileSelect('${field.key}', this)">
+        <div class="upload-ph" id="ph-${field.key}">
+          <i class="fas ${field.icon}"></i>
+          <p>Click to upload</p>
+          <span>JPG, PNG or PDF (max 5MB)</span>
+        </div>
+        <div class="upload-prev" id="prev-${field.key}">
+          <img class="preview-img" id="img-${field.key}" src="" alt="" style="display:none">
+          <div class="pdf-icon" id="pdf-${field.key}" style="display:none"><i class="fas fa-file-pdf"></i></div>
+          <span class="fname" id="fname-${field.key}"></span>
+          <i class="fas fa-check-circle fcheck" id="fcheck-${field.key}" style="display:none"></i>
+          <div class="upload-prog" id="prog-${field.key}" style="display:none"><div class="upload-prog-fill" id="progfill-${field.key}"></div></div>
+          <span class="upload-status ok" id="fstatus-${field.key}" style="display:none">Uploaded</span>
+        </div>
+        <button class="upload-remove" id="remove-${field.key}" onclick="event.stopPropagation();removeUpload('${field.key}')"><i class="fas fa-times"></i></button>
+      </div>
+    `;
+    grid.appendChild(item);
+  });
+}
+
+function triggerUpload(key) {
+  // Don't trigger if already uploaded
+  if (uploadedDocs[key]) return;
+  document.getElementById(`file-${key}`).click();
+}
+
+function handleFileSelect(key, input) {
+  const file = input.files[0];
+  if (!file) return;
+
+  // Validate file type
+  const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+  if (!validTypes.includes(file.type)) {
+    showToast(`Invalid file type for ${key}. Use JPG, PNG or PDF.`, 'error');
+    input.value = '';
+    return;
+  }
+
+  // Validate file size (5MB)
+  if (file.size > 5 * 1024 * 1024) {
+    showToast(`File too large for ${key}. Maximum size is 5MB.`, 'error');
+    input.value = '';
+    return;
+  }
+
+  uploadedFiles[key] = file;
+  showUploadPreview(key, file);
+  uploadFileToCloudinary(key, file);
+}
+
+function showUploadPreview(key, file) {
+  const zone = document.getElementById(`zone-${key}`);
+  const ph = document.getElementById(`ph-${key}`);
+  const prev = document.getElementById(`prev-${key}`);
+  const img = document.getElementById(`img-${key}`);
+  const pdf = document.getElementById(`pdf-${key}`);
+  const fname = document.getElementById(`fname-${key}`);
+  const fcheck = document.getElementById(`fcheck-${key}`);
+  const prog = document.getElementById(`prog-${key}`);
+  const remove = document.getElementById(`remove-${key}`);
+  const fstatus = document.getElementById(`fstatus-${key}`);
+
+  zone.classList.add('has-file', 'uploading');
+  ph.style.display = 'none';
+  prev.classList.add('show');
+  fcheck.style.display = 'none';
+  fstatus.style.display = 'none';
+  prog.style.display = 'block';
+  fname.textContent = file.name;
+
+  if (file.type === 'application/pdf') {
+    img.style.display = 'none';
+    pdf.style.display = 'block';
+  } else {
+    pdf.style.display = 'none';
+    img.style.display = 'block';
+    const reader = new FileReader();
+    reader.onload = (e) => { img.src = e.target.result; };
+    reader.readAsDataURL(file);
+  }
+}
+
+function uploadFileToCloudinary(key, file) {
+  const progFill = document.getElementById(`progfill-${key}`);
+  const zone = document.getElementById(`zone-${key}`);
+  const fcheck = document.getElementById(`fcheck-${key}`);
+  const fstatus = document.getElementById(`fstatus-${key}`);
+  const prog = document.getElementById(`prog-${key}`);
+
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.upload.addEventListener('progress', (e) => {
+    if (e.lengthComputable) {
+      const pct = Math.round((e.loaded / e.total) * 100);
+      progFill.style.width = pct + '%';
+    }
+  });
+
+  xhr.addEventListener('load', () => {
+    zone.classList.remove('uploading');
+    prog.style.display = 'none';
+
+    try {
+      const data = JSON.parse(xhr.responseText);
+      if (data.secure_url) {
+        uploadedDocs[key] = data.secure_url;
+        fcheck.style.display = 'block';
+        fstatus.style.display = 'block';
+        document.getElementById(`remove-${key}`).classList.add('show');
+      } else {
+        throw new Error(data.error?.message || 'Upload failed');
+      }
+    } catch (err) {
+      zone.classList.add('error');
+      zone.classList.remove('has-file');
+      showToast(`Failed to upload ${key}: ${err.message}`, 'error');
+      resetUploadZone(key);
+    }
+  });
+
+  xhr.addEventListener('error', () => {
+    zone.classList.remove('uploading');
+    zone.classList.add('error');
+    prog.style.display = 'none';
+    showToast(`Network error uploading ${key}.`, 'error');
+    resetUploadZone(key);
+  });
+
+  xhr.open('POST', `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`);
+  xhr.send(formData);
+}
+
+function removeUpload(key) {
+  delete uploadedDocs[key];
+  delete uploadedFiles[key];
+  document.getElementById(`file-${key}`).value = '';
+  resetUploadZone(key);
+}
+
+function resetUploadZone(key) {
+  const zone = document.getElementById(`zone-${key}`);
+  const ph = document.getElementById(`ph-${key}`);
+  const prev = document.getElementById(`prev-${key}`);
+  zone.classList.remove('has-file', 'uploading', 'error');
+  ph.style.display = '';
+  prev.classList.remove('show');
+  document.getElementById(`remove-${key}`).classList.remove('show');
+  document.getElementById(`progfill-${key}`).style.width = '0%';
+}
+
+// ============================================================
+// STEP NAVIGATION & VALIDATION
+// ============================================================
+function updateStepUI() {
+  // Update step items
+  document.querySelectorAll('.step-item').forEach(item => {
+    const step = parseInt(item.dataset.step);
+    item.classList.remove('active', 'done');
+    if (step === currentStep) item.classList.add('active');
+    else if (step < currentStep) item.classList.add('done');
+  });
+
+  // Update step lines
+  document.querySelectorAll('.step-line').forEach(line => {
+    const lineNum = parseInt(line.dataset.line);
+    line.classList.toggle('done', lineNum < currentStep);
+  });
+
+  // Show/hide step content
+  document.querySelectorAll('.step-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  const activeStep = document.getElementById(`step-${currentStep}`);
+  if (activeStep) activeStep.classList.add('active');
+
+  // Show/hide prev button
+  document.getElementById('prev-btn').style.display = currentStep === 1 ? 'none' : '';
+
+  // Update next button text
+  const nextBtn = document.getElementById('next-btn');
+  if (currentStep === 4) {
+    nextBtn.innerHTML = '<i class="fas fa-shield-alt"></i> Submit & Verify Phone';
+  } else {
+    nextBtn.innerHTML = 'Continue <i class="fas fa-arrow-right"></i>';
+  }
+
+  clearAllErrors();
+}
+
+function nextStep() {
+  if (!validateStep(currentStep)) return;
+
+  if (currentStep === 4) {
+    submitSignup();
+    return;
+  }
+
+  // Save form data before moving
+  saveFormData();
+
+  // Check duplicates before moving to step 2
+  if (currentStep === 1) {
+    // Will check duplicates on final submit
+  }
+
+  currentStep++;
+  updateStepUI();
+}
+
+function prevStep() {
+  if (currentStep <= 1) return;
+  saveFormData();
+  currentStep--;
+  updateStepUI();
+}
+
+function saveFormData() {
+  signupFormData = {
+    fullName: document.getElementById('s-fullname').value.trim(),
+    storeName: document.getElementById('s-storename').value.trim(),
+    email: document.getElementById('s-email').value.trim().toLowerCase(),
+    password: document.getElementById('s-password').value,
+    phone: getFullPhone(),
+    countryCode: document.getElementById('s-country').value,
+    phoneLocal: document.getElementById('s-phone').value.trim(),
+    businessType: document.getElementById('s-btype').value,
+    gstNumber: document.getElementById('s-gst').value.trim().toUpperCase(),
+    panNumber: document.getElementById('s-pan').value.trim().toUpperCase(),
+    pickupAddress: document.getElementById('s-address').value.trim(),
+    city: document.getElementById('s-city').value.trim(),
+    state: document.getElementById('s-state').value.trim(),
+    pincode: document.getElementById('s-pincode').value.trim(),
+    bankHolderName: document.getElementById('s-bankname').value.trim(),
+    accountNumber: document.getElementById('s-accnum').value.trim(),
+    ifscCode: document.getElementById('s-ifsc').value.trim().toUpperCase(),
+    bankName: document.getElementById('s-bank').value.trim()
+  };
+}
+
+function validateStep(step) {
+  clearAllErrors();
+  let valid = true;
+
+  if (step === 1) {
+    const fn = document.getElementById('s-fullname').value.trim();
+    const sn = document.getElementById('s-storename').value.trim();
+    const em = document.getElementById('s-email').value.trim().toLowerCase();
+    const pw = document.getElementById('s-password').value;
+    const cpw = document.getElementById('s-cpassword').value;
+    const ph = document.getElementById('s-phone').value.trim();
+    const terms = document.getElementById('s-terms').checked;
+
+    if (!fn || fn.length < 2) { showErr('err-fullname', 'Full name is required (min 2 characters)'); valid = false; }
+    if (!sn || sn.length < 2) { showErr('err-storename', 'Store name is required (min 2 characters)'); valid = false; }
+    if (!em) { showErr('err-email', 'Email is required'); valid = false; }
+    else if (!isValidEmail(em)) { showErr('err-email', 'Enter a valid email address'); valid = false; }
+    if (!pw) { showErr('err-password', 'Password is required'); valid = false; }
+    else if (pw.length < 8) { showErr('err-password', 'Password must be at least 8 characters'); valid = false; }
+    else if (!/[A-Z]/.test(pw) || !/[0-9]/.test(pw)) { showErr('err-password', 'Must include uppercase letter and number'); valid = false; }
+    if (!cpw) { showErr('err-cpassword', 'Please confirm your password'); valid = false; }
+    else if (pw !== cpw) { showErr('err-cpassword', 'Passwords do not match'); valid = false; }
+    if (!ph) { showErr('err-phone', 'Phone number is required'); valid = false; }
+    else if (!isValidPhone(ph)) { showErr('err-phone', 'Enter a valid phone number (7-15 digits)'); valid = false; }
+    if (!terms) { showErr('err-terms', 'You must agree to the terms'); valid = false; }
+
+  } else if (step === 2) {
+    const bt = document.getElementById('s-btype').value;
+    const gst = document.getElementById('s-gst').value.trim().toUpperCase();
+    const pan = document.getElementById('s-pan').value.trim().toUpperCase();
+    const addr = document.getElementById('s-address').value.trim();
+    const city = document.getElementById('s-city').value.trim();
+    const state = document.getElementById('s-state').value.trim();
+    const pin = document.getElementById('s-pincode').value.trim();
+
+    if (!bt) { showErr('err-btype', 'Select a business type'); valid = false; }
+    if (gst && !isValidGST(gst)) { showErr('err-gst', 'Enter a valid 15-character GST number'); valid = false; }
+    if (!pan) { showErr('err-pan', 'PAN number is required'); valid = false; }
+    else if (!isValidPAN(pan)) { showErr('err-pan', 'Enter a valid PAN (e.g. AAAAA0000A)'); valid = false; }
+    if (!addr || addr.length < 5) { showErr('err-address', 'Enter a valid pickup address'); valid = false; }
+    if (!city) { showErr('err-city', 'City is required'); valid = false; }
+    if (!state) { showErr('err-state', 'State is required'); valid = false; }
+    if (!pin) { showErr('err-pincode', 'Pincode is required'); valid = false; }
+    else if (!isValidPincode(pin)) { showErr('err-pincode', 'Enter a valid 6-digit pincode'); valid = false; }
+
+  } else if (step === 3) {
+    const bn = document.getElementById('s-bankname').value.trim();
+    const acc = document.getElementById('s-accnum').value.trim();
+    const ifsc = document.getElementById('s-ifsc').value.trim().toUpperCase();
+    const bank = document.getElementById('s-bank').value.trim();
+
+    if (!bn) { showErr('err-bankname', 'Account holder name is required'); valid = false; }
+    if (!acc) { showErr('err-accnum', 'Account number is required'); valid = false; }
+    else if (!/^[0-9]{8,18}$/.test(acc)) { showErr('err-accnum', 'Enter a valid account number (8-18 digits)'); valid = false; }
+    if (!ifsc) { showErr('err-ifsc', 'IFSC code is required'); valid = false; }
+    else if (!isValidIFSC(ifsc)) { showErr('err-ifsc', 'Enter a valid IFSC code (e.g. SBIN0001234)'); valid = false; }
+    if (!bank) { showErr('err-bank', 'Bank name is required'); valid = false; }
+
+  } else if (step === 4) {
+    const requiredDocs = ['aadhaarFront', 'aadhaarBack', 'panCard', 'gstCertificate', 'storeLogo'];
+    let missing = [];
+    requiredDocs.forEach(key => {
+      if (!uploadedDocs[key]) {
+        missing.push(DOC_FIELDS.find(d => d.key === key).label);
+        document.getElementById(`zone-${key}`).classList.add('error');
+      }
+    });
+    if (missing.length > 0) {
+      showToast(`Missing required documents: ${missing.join(', ')}`, 'error');
+      valid = false;
+    }
+  }
+
+  if (!valid) {
+    showToast('Please fix the errors above', 'warning');
+  }
+  return valid;
+}
+
+// ============================================================
+// PHONE OTP VERIFICATION
+// ============================================================
+function initOTPInputs() {
+  const inputs = document.querySelectorAll('#otp-inputs input');
+  inputs.forEach((input, idx) => {
+    input.addEventListener('input', (e) => {
+      const val = e.target.value.replace(/[^0-9]/g, '');
+      e.target.value = val;
+      if (val && idx < inputs.length - 1) {
+        inputs[idx + 1].focus();
+      }
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+        inputs[idx - 1].focus();
+      }
+    });
+    input.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '');
+      pasted.split('').slice(0, 6).forEach((char, i) => {
+        if (inputs[i]) inputs[i].value = char;
+      });
+      if (pasted.length > 0) inputs[Math.min(pasted.length, 5)].focus();
+    });
+  });
+}
+
+function getOTPValue() {
+  const inputs = document.querySelectorAll('#otp-inputs input');
+  return Array.from(inputs).map(i => i.value).join('');
+}
+
+function clearOTPInputs() {
+  document.querySelectorAll('#otp-inputs input').forEach(i => { i.value = ''; });
+  if (document.querySelectorAll('#otp-inputs input')[0]) {
+    document.querySelectorAll('#otp-inputs input')[0].focus();
+  }
+}
+
+async function sendOTP() {
+  saveFormData();
+  const phone = signupFormData.phone;
+  if (!phone || !isValidPhone(signupFormData.phoneLocal)) {
+    showToast('Please enter a valid phone number first', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('send-otp-btn');
+  setBtnLoading(btn, true, 'Sending OTP...');
+
+  try {
+    // Cleanup previous reCAPTCHA
+    cleanupRecaptcha();
+
+    recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+      size: 'invisible',
+      callback: () => { /* reCAPTCHA solved */ }
+    });
+
+    confirmationResult = await auth.signInWithPhoneNumber(phone, recaptchaVerifier);
+
+    // Show verify section
+    document.getElementById('otp-send-section').style.display = 'none';
+    document.getElementById('otp-verify-section').style.display = 'block';
+    document.getElementById('otp-phone-display').textContent = `OTP sent to ${maskPhone(phone)}`;
+    clearOTPInputs();
+    startOTPTimer();
+    setBtnLoading(btn, false, '<i class="fas fa-paper-plane"></i> Send OTP');
+
+    showToast('OTP sent successfully', 'success');
+  } catch (err) {
+    setBtnLoading(btn, false, '<i class="fas fa-paper-plane"></i> Send OTP');
+    cleanupRecaptcha();
+    console.error('Send OTP error:', err);
+
+    let msg = 'Failed to send OTP. ';
+    if (err.code === 'auth/invalid-phone-number') msg += 'Invalid phone number format.';
+    else if (err.code === 'auth/too-many-requests') msg += 'Too many attempts. Try again later.';
+    else if (err.code === 'auth/captcha-check-failed') msg += 'reCAPTCHA verification failed. Try again.';
+    else msg += err.message;
+
+    showToast(msg, 'error', 6000);
+  }
+}
+
+async function verifyOTP() {
+  const otp = getOTPValue();
+  if (otp.length !== 6) {
+    showToast('Enter the complete 6-digit OTP', 'warning');
+    return;
+  }
+
+  const btn = document.getElementById('verify-otp-btn');
+  setBtnLoading(btn, true, 'Verifying...');
+
+  try {
+    await confirmationResult.confirm(otp);
+    phoneVerified = true;
+    stopOTPTimer();
+    setBtnLoading(btn, false, '<span>Verify OTP</span>');
+    showToast('Phone number verified successfully', 'success');
+    closeModal('otp-modal');
+
+    // Now proceed with account creation
+    createSellerAccount();
+  } catch (err) {
+    setBtnLoading(btn, false, '<span>Verify OTP</span>');
+    console.error('Verify OTP error:', err);
+
+    let msg = 'OTP verification failed. ';
+    if (err.code === 'auth/invalid-verification-code') msg += 'Incorrect OTP. Please try again.';
+    else if (err.code === 'auth/code-expired') msg += 'OTP has expired. Please resend.';
+    else msg += err.message;
+
+    showToast(msg, 'error');
+    clearOTPInputs();
+  }
+}
+
+function startOTPTimer() {
+  stopOTPTimer();
+  let seconds = 60;
+  const countdown = document.getElementById('otp-countdown');
+  const timer = document.getElementById('otp-timer');
+  const resendBtn = document.getElementById('resend-otp-btn');
+  timer.style.display = '';
+  resendBtn.disabled = true;
+
+  otpTimerInterval = setInterval(() => {
+    seconds--;
+    countdown.textContent = seconds;
+    if (seconds <= 0) {
+      stopOTPTimer();
+      timer.style.display = 'none';
+      resendBtn.disabled = false;
+    }
+  }, 1000);
+}
+
+function stopOTPTimer() {
+  if (otpTimerInterval) {
+    clearInterval(otpTimerInterval);
+    otpTimerInterval = null;
+  }
+}
+
+async function resendOTP() {
+  const resendBtn = document.getElementById('resend-otp-btn');
+  resendBtn.disabled = true;
+  try {
+    // Clear previous confirmation result and reCAPTCHA
+    cleanupRecaptcha();
+    recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+      size: 'invisible',
+      callback: () => {}
+    });
+    confirmationResult = await auth.signInWithPhoneNumber(signupFormData.phone, recaptchaVerifier);
+    clearOTPInputs();
+    startOTPTimer();
+    showToast('New OTP sent', 'success');
+  } catch (err) {
+    cleanupRecaptcha();
+    resendBtn.disabled = false;
+    showToast('Failed to resend OTP: ' + err.message, 'error');
+  }
+}
+
+function cleanupRecaptcha() {
+  if (recaptchaVerifier) {
+    try { recaptchaVerifier.clear(); } catch(e) {}
+    recaptchaVerifier = null;
+  }
+}
+
+function cleanupOTP() {
+  stopOTPTimer();
+  cleanupRecaptcha();
+  confirmationResult = null;
+  // Reset modal UI
+  document.getElementById('otp-send-section').style.display = '';
+  document.getElementById('otp-verify-section').style.display = 'none';
+  clearOTPInputs();
+  const btn = document.getElementById('send-otp-btn');
+  btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send OTP';
+  btn.disabled = false;
+}
+
+// ============================================================
+// SELLER ACCOUNT CREATION
+// ============================================================
+async function submitSignup() {
+  saveFormData();
+
+  // Check for duplicate GST
+  if (signupFormData.gstNumber) {
+    const gstDuplicate = await checkDuplicateGST(signupFormData.gstNumber);
+    if (gstDuplicate) {
+      showErr('err-gst', 'This GST number is already registered with another seller');
+      showToast('Duplicate GST number detected', 'error');
+      currentStep = 2;
+      updateStepUI();
+      return;
+    }
+  }
+
+  // Check for duplicate PAN
+  const panDuplicate = await checkDuplicatePAN(signupFormData.panNumber);
+  if (panDuplicate) {
+    showErr('err-pan', 'This PAN number is already registered with another seller');
+    showToast('Duplicate PAN number detected', 'error');
+    currentStep = 2;
+    updateStepUI();
+    return;
+  }
+
+  // Open OTP modal for phone verification
+  phoneVerified = false;
+  openModal('otp-modal');
+}
+
+async function createSellerAccount() {
+  isSigningUp = true;
+  const btn = document.getElementById('next-btn');
+  setBtnLoading(btn, true, 'Creating account...');
+
+  try {
+    // Sign out the temporary phone auth session
+    await auth.signOut();
+
+    // Create the real email/password account
+    const userCredential = await auth.createUserWithEmailAndPassword(signupFormData.email, signupFormData.password);
+
+    // Send email verification
+    await userCredential.user.sendEmailVerification({
+      url: window.location.origin + window.location.pathname
+    });
+
+    // Save seller data to Firestore
+    await db.collection('sellers').doc(userCredential.user.uid).set({
+      uid: userCredential.user.uid,
+      fullName: sanitize(signupFormData.fullName),
+      storeName: sanitize(signupFormData.storeName),
+      email: signupFormData.email,
+      phone: signupFormData.phone,
+      phoneVerified: true,
+      emailVerified: false,
+      businessType: signupFormData.businessType,
+      gstNumber: signupFormData.gstNumber,
+      panNumber: signupFormData.panNumber,
+      pickupAddress: sanitize(signupFormData.pickupAddress),
+      city: sanitize(signupFormData.city),
+      state: sanitize(signupFormData.state),
+      pincode: signupFormData.pincode,
+      bankHolderName: sanitize(signupFormData.bankHolderName),
+      accountNumber: signupFormData.accountNumber,
+      ifscCode: signupFormData.ifscCode,
+      bankName: sanitize(signupFormData.bankName),
+      aadhaarFront: uploadedDocs.aadhaarFront || '',
+      aadhaarBack: uploadedDocs.aadhaarBack || '',
+      panCard: uploadedDocs.panCard || '',
+      gstCertificate: uploadedDocs.gstCertificate || '',
+      storeLogo: uploadedDocs.storeLogo || '',
+      storeBanner: uploadedDocs.storeBanner || '',
+      approvalStatus: 'pending',
+      sellerRole: 'seller',
+      sellerLevel: 'basic',
+      verifiedSeller: false,
+      joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
+      lastLogin: firebase.firestore.FieldValue.serverTimestamp(),
+      blocked: false,
+      rejectionReason: ''
+    });
+
+    isSigningUp = false;
+    setBtnLoading(btn, false, '<i class="fas fa-shield-alt"></i> Submit & Verify Phone');
+    showToast('Account created successfully! Please verify your email.', 'success', 6000);
+
+    // Show email verification modal
+    document.getElementById('email-modal-desc').textContent =
+      `We've sent a verification link to ${signupFormData.email}. Please check your inbox and spam folder.`;
+    openModal('email-modal');
+    startEmailTimer();
+
+  } catch (err) {
+    isSigningUp = false;
+    setBtnLoading(btn, false, '<i class="fas fa-shield-alt"></i> Submit & Verify Phone');
+    console.error('Account creation error:', err);
+
+    let msg = 'Account creation failed. ';
+    if (err.code === 'auth/email-already-in-use') msg += 'This email is already registered.';
+    else if (err.code === 'auth/weak-password') msg += 'Password is too weak.';
+    else if (err.code === 'auth/invalid-email') msg += 'Invalid email address.';
+    else msg += err.message;
+
+    showToast(msg, 'error', 6000);
+
+    // Clean up: if account was partially created, delete it
+    if (auth.currentUser) {
+      try { await auth.currentUser.delete(); } catch(e) {}
+    }
+  }
+}
+
+// ============================================================
+// DUPLICATE CHECKS
+// ============================================================
+async function checkDuplicateGST(gst) {
+  if (!gst) return false;
+  try {
+    const snap = await db.collection('sellers').where('gstNumber', '==', gst).limit(1).get();
+    return !snap.empty;
+  } catch (err) {
+    console.error('GST check error:', err);
+    return false; // On error, allow to proceed (don't block)
+  }
+}
+
+async function checkDuplicatePAN(pan) {
+  if (!pan) return false;
+  try {
+    const snap = await db.collection('sellers').where('panNumber', '==', pan).limit(1).get();
+    return !snap.empty;
+  } catch (err) {
+    console.error('PAN check error:', err);
+    return false;
+  }
+}
+
+// ============================================================
+// EMAIL VERIFICATION
+// ============================================================
+function startEmailTimer() {
+  stopEmailTimer();
+  let seconds = 60;
+  const countdown = document.getElementById('email-countdown');
+  const timer = document.getElementById('email-timer');
+  const resendBtn = document.getElementById('resend-email-btn');
+  timer.style.display = '';
+  resendBtn.disabled = true;
+
+  emailTimerInterval = setInterval(() => {
+    seconds--;
+    countdown.textContent = seconds;
+    if (seconds <= 0) {
+      stopEmailTimer();
+      timer.style.display = 'none';
+      resendBtn.disabled = false;
+    }
+  }, 1000);
+}
+
+function stopEmailTimer() {
+  if (emailTimerInterval) {
+    clearInterval(emailTimerInterval);
+    emailTimerInterval = null;
+  }
+}
+
+async function checkEmailVerification() {
+  const btn = document.getElementById('check-email-btn');
+  setBtnLoading(btn, true, 'Checking...');
+
+  try {
+    await auth.currentUser.reload();
+    const user = auth.currentUser;
+
+    if (user.emailVerified) {
+      // Update Firestore
+      await db.collection('sellers').doc(user.uid).update({
+        emailVerified: true
+      });
+
+      setBtnLoading(btn, false, '<i class="fas fa-sync-alt"></i> I\'ve Verified My Email');
+      stopEmailTimer();
+      closeModal('email-modal');
+      showToast('Email verified! Checking approval status...', 'success');
+
+      // Now check approval status and route
+      await routeAfterAuth(user);
+    } else {
+      setBtnLoading(btn, false, '<i class="fas fa-sync-alt"></i> I\'ve Verified My Email');
+      showToast('Email not yet verified. Please check your inbox and click the verification link.', 'warning', 5000);
+    }
+  } catch (err) {
+    setBtnLoading(btn, false, '<i class="fas fa-sync-alt"></i> I\'ve Verified My Email');
+    showToast('Error checking verification: ' + err.message, 'error');
+  }
+}
+
+async function resendEmailVerification() {
+  const btn = document.getElementById('resend-email-btn');
+  setBtnLoading(btn, true, 'Sending...');
+
+  try {
+    await auth.currentUser.sendEmailVerification({
+      url: window.location.origin + window.location.pathname
+    });
+    setBtnLoading(btn, false, '<i class="fas fa-redo"></i> Resend Verification Email');
+    startEmailTimer();
+    showToast('Verification email resent successfully', 'success');
+  } catch (err) {
+    setBtnLoading(btn, false, '<i class="fas fa-redo"></i> Resend Verification Email');
+    showToast('Failed to resend: ' + err.message, 'error');
+  }
+}
+
+// ============================================================
+// LOGIN
+// ============================================================
+async function handleLogin(e) {
+  e.preventDefault();
+  clearAllErrors();
+
+  const email = document.getElementById('login-email').value.trim().toLowerCase();
+  const password = document.getElementById('login-password').value;
+  const remember = document.getElementById('login-remember').checked;
+
+  let valid = true;
+  if (!email) { showErr('login-email-err', 'Email is required'); valid = false; }
+  else if (!isValidEmail(email)) { showErr('login-email-err', 'Enter a valid email'); valid = false; }
+  if (!password) { showErr('login-password-err', 'Password is required'); valid = false; }
+  if (!valid) return;
+
+  const btn = document.getElementById('login-btn');
+  setBtnLoading(btn, true, 'Signing in...');
+
+  try {
+    // Set persistence
+    if (remember) {
+      await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+    } else {
+      await auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+    }
+
+    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+    // Auth state listener will handle routing
+  } catch (err) {
+    setBtnLoading(btn, false, '<span>Sign In</span>');
+    console.error('Login error:', err);
+
+    let msg = 'Login failed. ';
+    if (err.code === 'auth/user-not-found') msg += 'No account found with this email.';
+    else if (err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') msg += 'Incorrect email or password.';
+    else if (err.code === 'auth/too-many-requests') msg += 'Too many failed attempts. Try again later.';
+    else if (err.code === 'auth/user-disabled') msg += 'This account has been disabled.';
+    else if (err.code === 'auth/invalid-email') msg += 'Invalid email format.';
+    else msg += err.message;
+
+    showToast(msg, 'error', 5000);
+  }
+}
+
+// ============================================================
+// FORGOT PASSWORD
+// ============================================================
+async function handleForgotPassword(e) {
+  e.preventDefault();
+  clearAllErrors();
+
+  const email = document.getElementById('forgot-email').value.trim().toLowerCase();
+  if (!email || !isValidEmail(email)) {
+    showErr('err-forgot-email', 'Enter a valid email address');
+    return;
+  }
+
+  const btn = document.getElementById('forgot-btn');
+  setBtnLoading(btn, true, 'Sending...');
+
+  try {
+    await auth.sendPasswordResetEmail(email, {
+      url: window.location.origin + window.location.pathname
+    });
+    setBtnLoading(btn, false, '<span>Send Reset Link</span>');
+    document.getElementById('forgot-modal').querySelector('form').style.display = 'none';
+    document.getElementById('forgot-success').style.display = 'block';
+    showToast('Password reset email sent', 'success');
+  } catch (err) {
+    setBtnLoading(btn, false, '<span>Send Reset Link</span>');
+    let msg = 'Failed to send reset email. ';
+    if (err.code === 'auth/user-not-found') msg += 'No account found with this email.';
+    else msg += err.message;
+    showToast(msg, 'error');
+  }
+}
+
+// Reset forgot password modal when reopened
+const forgotModalObserver = new MutationObserver(() => {
+  const modal = document.getElementById('forgot-modal');
+  if (modal.classList.contains('show')) {
+    const form = modal.querySelector('form');
+    const success = document.getElementById('forgot-success');
+    if (form) form.style.display = '';
+    if (success) success.style.display = 'none';
+    document.getElementById('forgot-email').value = '';
+    clearErr('err-forgot-email');
+  }
+});
+forgotModalObserver.observe(document.getElementById('forgot-modal'), { attributes: true, attributeFilter: ['class'] });
+
+// ============================================================
+// LOGOUT
+// ============================================================
+async function handleLogout() {
+  try {
+    if (unsubscribeSeller) {
+      unsubscribeSeller();
+      unsubscribeSeller = null;
+    }
+    await auth.signOut();
+    stopOTPTimer();
+    stopEmailTimer();
+    closeModal('email-modal');
+    showToast('Signed out successfully', 'info');
+  } catch (err) {
+    showToast('Error signing out: ' + err.message, 'error');
+  }
+}
+
+// ============================================================
+// ROUTING AFTER AUTHENTICATION
+// ============================================================
+async function routeAfterAuth(user) {
+  if (!user) {
+    showSection('login-section');
+    return;
+  }
+
+  // Reload user to get latest emailVerified status
+  try { await user.reload(); } catch(e) {}
+
+  // Check email verification
+  if (!user.emailVerified) {
+    document.getElementById('email-modal-desc').textContent =
+      `We've sent a verification link to ${user.email || 'your email'}. Please check your inbox and spam folder.`;
+    openModal('email-modal');
+    startEmailTimer();
+    return;
+  }
+
+  // Get seller document from Firestore
+  let sellerDoc;
+  try {
+    sellerDoc = await db.collection('sellers').doc(user.uid).get();
+  } catch (err) {
+    showToast('Error fetching seller data. Please try again.', 'error');
+    return;
+  }
+
+  if (!sellerDoc.exists) {
+    // User exists in Auth but not in Firestore (shouldn't happen normally)
+    showToast('Seller profile not found. Please register again.', 'error');
+    await auth.signOut();
+    return;
+  }
+
+  const data = sellerDoc.data();
+
+  // Check if blocked
+  if (data.blocked) {
+    await auth.signOut();
+    showToast('Your account has been blocked. Contact support.', 'error', 8000);
+    return;
+  }
+
+  // Update last login
+  try {
+    await db.collection('sellers').doc(user.uid).update({
+      lastLogin: firebase.firestore.FieldValue.serverTimestamp()
+    });
+  } catch(e) {}
+
+  // Route based on approval status
+  switch (data.approvalStatus) {
+    case 'approved':
+      // Redirect to seller dashboard
+      window.location.href = '/seller-dashboard.html';
+      break;
+
+    case 'pending':
+      showApprovalPending(data);
+      break;
+
+    case 'rejected':
+      showRejected(data);
+      break;
+
+    default:
+      showSection('login-section');
+      break;
+  }
+}
+
+function showApprovalPending(data) {
+  showSection('approval-pending-section');
+  const details = document.getElementById('pending-details');
+  details.innerHTML = `
+    <div class="row"><span class="lbl">Store Name</span><span class="val">${sanitize(data.storeName || '')}</span></div>
+    <div class="row"><span class="lbl">Email</span><span class="val">${sanitize(data.email || '')}</span></div>
+    <div class="row"><span class="lbl">Phone</span><span class="val">${sanitize(data.phone || '')}</span></div>
+    <div class="row"><span class="lbl">Business Type</span><span class="val">${sanitize(data.businessType || '')}</span></div>
+    <div class="row"><span class="lbl">Applied On</span><span class="val">${data.joinedAt ? formatDate(data.joinedAt) : 'N/A'}</span></div>
+    <div class="row"><span class="lbl">Status</span><span class="val" style="color:var(--warn);font-weight:600">Pending Review</span></div>
+  `;
+  setupRealtimeListener(auth.currentUser.uid);
+}
+
+function showRejected(data) {
+  showSection('rejected-section');
+  const reasonEl = document.getElementById('rejection-reason');
+  const reasonText = document.getElementById('rejection-text');
+
+  if (data.rejectionReason && data.rejectionReason.trim()) {
+    reasonEl.style.display = 'block';
+    reasonText.textContent = data.rejectionReason;
+  } else {
+    reasonEl.style.display = 'none';
+  }
+
+  const details = document.getElementById('rejected-details');
+  details.innerHTML = `
+    <div class="row"><span class="lbl">Store Name</span><span class="val">${sanitize(data.storeName || '')}</span></div>
+    <div class="row"><span class="lbl">Email</span><span class="val">${sanitize(data.email || '')}</span></div>
+    <div class="row"><span class="lbl">Phone</span><span class="val">${sanitize(data.phone || '')}</span></div>
+    <div class="row"><span class="lbl">Business Type</span><span class="val">${sanitize(data.businessType || '')}</span></div>
+    <div class="row"><span class="lbl">Applied On</span><span class="val">${data.joinedAt ? formatDate(data.joinedAt) : 'N/A'}</span></div>
+    <div class="row"><span class="lbl">Status</span><span class="val" style="color:var(--danger);font-weight:600">Rejected</span></div>
+  `;
+  setupRealtimeListener(auth.currentUser.uid);
+}
+
+function formatDate(timestamp) {
+  if (!timestamp) return 'N/A';
+  let date;
+  if (timestamp.seconds) {
+    date = new Date(timestamp.seconds * 1000);
+  } else if (timestamp.toDate) {
+    date = timestamp.toDate();
+  } else {
+    date = new Date(timestamp);
+  }
+  return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+
+// ============================================================
+// REALTIME FIRESTORE LISTENER
+// ============================================================
+function setupRealtimeListener(uid) {
+  // Cleanup previous listener
+  if (unsubscribeSeller) {
+    unsubscribeSeller();
+    unsubscribeSeller = null;
+  }
+
+  unsubscribeSeller = db.collection('sellers').doc(uid).onSnapshot((doc) => {
+    if (!doc.exists) return;
+    const data = doc.data();
+
+    if (data.blocked) {
+      // Auto logout if blocked
+      if (unsubscribeSeller) { unsubscribeSeller(); unsubscribeSeller = null; }
+      showToast('Your account has been blocked by admin.', 'error', 10000);
+      setTimeout(() => handleLogout(), 1500);
+      return;
+    }
+
+    if (data.approvalStatus === 'approved') {
+      if (unsubscribeSeller) { unsubscribeSeller(); unsubscribeSeller = null; }
+      showToast('Your seller account has been approved! Redirecting...', 'success', 4000);
+      setTimeout(() => {
+        window.location.href = '/seller-dashboard.html';
+      }, 1500);
+      return;
+    }
+
+    // If status changed from pending to rejected while on pending screen
+    if (data.approvalStatus === 'rejected') {
+      const currentSection = document.querySelector('.section:not(.hidden)');
+      if (currentSection && currentSection.id === 'approval-pending-section') {
+        showRejected(data);
+        showToast('Your application has been rejected.', 'error', 6000);
+      }
+    }
+
+    // If status changed from rejected to approved while on rejected screen
+    if (data.approvalStatus === 'pending') {
+      const currentSection = document.querySelector('.section:not(.hidden)');
+      if (currentSection && currentSection.id === 'rejected-section') {
+        showApprovalPending(data);
+        showToast('Your application is under review again.', 'info');
+      }
+    }
+  }, (err) => {
+    console.error('Realtime listener error:', err);
+  });
+}
+
+// ============================================================
+// AUTH STATE OBSERVER
+// ============================================================
+auth.onAuthStateChanged(async (user) => {
+  // Hide loading screen
+  const loadingScreen = document.getElementById('loading-screen');
+  const mainContainer = document.getElementById('main-container');
+  loadingScreen.classList.add('hide');
+  setTimeout(() => { loadingScreen.style.display = 'none'; }, 500);
+  mainContainer.classList.add('show');
+
+  // If we're in the middle of signup (phone auth temp session), don't interfere
+  if (isSigningUp) return;
+
+  if (!user) {
+    // Not logged in — show login
+    if (unsubscribeSeller) { unsubscribeSeller(); unsubscribeSeller = null; }
+    showSection('login-section');
+    return;
+  }
+
+  // User is logged in — route based on status
+  await routeAfterAuth(user);
+});
+
+// ============================================================
+// INITIALIZATION
+// ============================================================
+function init() {
+  initCountrySelector();
+  initUploadGrid();
+  initOTPInputs();
+  updateStepUI();
+
+  // Add input event listeners to clear errors on typing
+  document.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('input', () => {
+      input.classList.remove('err');
+      const errEl = input.closest('.form-group')?.querySelector('.err-text');
+      if (errEl) errEl.classList.remove('show');
+    });
+  });
+}
+
+// Run initialization when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+</script>
+</body>
+</html>
