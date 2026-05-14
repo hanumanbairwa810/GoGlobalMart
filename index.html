@@ -12,6 +12,9 @@
 
     gtag('config', 'G-6VH3Q7YTQQ');
     </script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="google9fe1f91e61a57242"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2530,6 +2533,13 @@ onAuthStateChanged(auth, (user) => {
      }
    }
  ]
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+
+  navigator.serviceWorker.register('/sw.js');
+
 }
 </script>
 </body>
