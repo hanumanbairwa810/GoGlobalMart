@@ -1655,7 +1655,7 @@ applyTheme(savedTheme);
   onAuthStateChanged(auth, async (user) => {
     if (!user) {
       // Redirect to login
-      window.location.href = '/login.html';
+      bindUI(null);
       return;
     }
     await loadUserData(user);
