@@ -546,7 +546,7 @@
         </div>
 
         <footer class="foot">
-            <p>By continuing, you agree to our <a href="#">Terms of Service</a><span class="foot-dot">·</span><a href="privacy.html">Privacy Policy</a></p>
+            <p>By continuing, you agree to our <a href="terms.html">Terms of Service</a><span class="foot-dot">·</span><a href="privacy.html">Privacy Policy</a></p>
         </footer>
     </main>
 
@@ -883,6 +883,7 @@
                 .then(() => {
                     toast('Signed in with Google! Redirecting...', 'ok');
                     bGoogle.classList.remove('loading-google');
+                    window.location.href = "goglobalmart://login";
                     goHome();
                 })
                 .catch(err => {
