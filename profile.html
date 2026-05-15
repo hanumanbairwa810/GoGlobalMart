@@ -1677,11 +1677,11 @@ applyTheme(savedTheme);
     }
 
     $('auth-btn').addEventListener('click', async () => {
-      if (auth.currentUser) {
+      if (window._ggmAuth.currentUser) {
 
     if (!window._ggmDemoMode) {
 
-        await signOut(auth).catch(()=>{});
+        await signOut(window._ggmAuth).catch(()=>{});
 
     } else {
 
