@@ -1664,6 +1664,18 @@ applyTheme(savedTheme);
   });
 
   function bindUI(user) {
+    const authBtn = document.getElementById("auth-btn");
+
+    if (user) {
+
+        authBtn.innerHTML = "↪ Sign Out";
+
+    } else {
+
+        authBtn.innerHTML = "🔐 Login";
+
+    }
+
     $('auth-btn').addEventListener('click', async () => {
       if (auth.currentUser) {
 
