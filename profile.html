@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>GoGlobalMart — My Profile</title>
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  // ── REPLACE WITH YOUR FIREBASE CONFIG ──────────────────────────────────────
+  const firebaseConfig = {
+            apiKey: "AIzaSyAJBKu2kYbCD1KwI2xLargDauV_ftdoRQs",
+            authDomain: "goglobalmart-f227e.firebaseapp.com",
+            projectId: "goglobalmart-f227e",
+            storageBucket: "goglobalmart-f227e.firebasestorage.app",
+            messagingSenderId: "270002483993",
+            appId: "1:270002483993:web:089e322acf64ba73104b88",
+  };
+  // ───────────────────────────────────────────────────────────────────────────
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  window._ggmAuth = auth;
+  window._ggmDb = db;
+  window._ggmFirestore = { doc, getDoc, setDoc, updateDoc, serverTimestamp };
+  window._ggmAuthFns = { onAuthStateChanged, signOut };
+
+  // Demo mode fallback (remove in production)
+  window._ggmDemoMode = firebaseConfig.apiKey === "AIzaSyAJBKu2kYbCD1KwI2xLargDauV_ftdoRQs";
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════════════════ */
+:root {
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Light theme */
+  --bg-page:       #F4F6FB;
+  --bg-card:       #FFFFFF;
+  --bg-card2:      #F8F9FE;
+  --bg-glass:      rgba(255,255,255,0.72);
+  --bg-overlay:    rgba(8,10,30,0.56);
+  --bg-input:      #F0F2F9;
+
+  --text-primary:  #0B0E1E;
+  --text-secondary:#5A5F7A;
+  --text-muted:    #9298B5;
+  --text-inverse:  #FFFFFF;
+
+  --border:        rgba(180,188,220,0.45);
+  --border-strong: rgba(120,130,180,0.3);
+
+  --accent1:       #4F46E5;   /* indigo */
+  --accent2:       #06B6D4;   /* cyan */
+  --accent3:       #F59E0B;   /* amber */
+  --accent4:       #10B981;   /* emerald */
+  --accent5:       #F43F5E;   /* rose */
+
+  --grad-brand:    linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  --grad-gold:     linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+  --grad-green:    linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+  --grad-rose:     linear-gradient(135deg, #F43F5E 0%, #EC4899 100%);
+
+  --shadow-sm:     0 2px 10px rgba(79,70,229,0.06);
+  --shadow-md:     0 8px 32px rgba(79,70,229,0.12);
+  --shadow-lg:     0 20px 60px rgba(79,70,229,0.18);
+  --shadow-float:  0 12px 40px rgba(6,182,212,0.2);
+
+  --radius-sm:     10px;
+  --radius-md:     16px;
+  --radius-lg:     24px;
+  --radius-xl:     32px;
+  --radius-full:   9999px;
+
+  --header-h:      56px;
+  --bottom-bar:    72px;
+  --transition:    0.22s cubic-bezier(.4,0,.2,1);
+}
+
+[data-theme="dark"] {
+  --bg-page:       #0B0E1E;
+  --bg-card:       #141728;
+  --bg-card2:      #1A1F38;
+  --bg-glass:      rgba(20,23,40,0.82);
+  --bg-overlay:    rgba(0,0,0,0.7);
+  --bg-input:      #1E2240;
+
+  --text-primary:  #EDF0FF;
+  --text-secondary:#8890B8;
+  --text-muted:    #505880;
+
+  --border:        rgba(80,88,128,0.35);
+  --border-strong: rgba(100,110,160,0.4);
+
+  --shadow-sm:     0 2px 10px rgba(0,0,0,0.3);
+  --shadow-md:     0 8px 32px rgba(0,0,0,0.45);
+  --shadow-lg:     0 20px 60px rgba(0,0,0,0.55);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overscroll-behavior: none;
+  transition: background var(--transition), color var(--transition);
+}
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   LOADING SCREEN
+═══════════════════════════════════════════════════════════ */
+#loading-screen {
+  position: fixed; inset: 0;
+  background: var(--bg-page);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+#loading-screen.hidden { opacity: 0; visibility: hidden; }
+.loader-logo {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 800;
+  background: var(--grad-brand); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 32px; letter-spacing: -0.5px;
+}
+.loader-ring {
+  width: 44px; height: 44px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent1);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ═══════════════════════════════════════════════════════════
+   TOP NAV BAR
+═══════════════════════════════════════════════════════════ */
+.topbar {
+  position: sticky; top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  z-index: 100;
+  transition: background var(--transition);
+}
+.topbar-logo {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 800;
+  background: var(--grad-brand); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -0.3px; flex: 1;
+}
+.topbar-actions { display: flex; align-items: center; gap: 6px; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  transition: background var(--transition), color var(--transition), transform 0.15s;
+  position: relative;
+}
+.icon-btn:hover { background: var(--bg-input); color: var(--accent1); }
+.icon-btn:active { transform: scale(0.92); }
+.notif-dot {
+  position: absolute; top: 6px; right: 6px;
+  width: 8px; height: 8px;
+  background: var(--accent5); border-radius: 50%;
+  border: 2px solid var(--bg-glass);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE WRAPPER
+═══════════════════════════════════════════════════════════ */
+.page-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 0 calc(var(--bottom-bar) + 24px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO BANNER + PROFILE HEADER
+═══════════════════════════════════════════════════════════ */
+.profile-hero {
+  position: relative;
+  padding: 0 20px 24px;
+  overflow: visible;
+}
+.hero-banner {
+  height: 140px; border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  background: var(--grad-brand);
+  position: relative; overflow: hidden;
+  margin: 0 -20px;
+}
+.hero-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='400' height='140' viewBox='0 0 400 140' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='320' cy='-20' r='110' fill='rgba(255,255,255,0.06)'/%3E%3Ccircle cx='60' cy='160' r='90' fill='rgba(255,255,255,0.04)'/%3E%3Ccircle cx='200' cy='70' r='60' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") center/cover;
+}
+.hero-banner-actions {
+  position: absolute; top: 14px; right: 14px;
+  display: flex; gap: 8px;
+}
+.hero-btn {
+  width: 34px; height: 34px; border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  color: white; transition: background var(--transition), transform 0.15s;
+}
+.hero-btn:hover { background: rgba(255,255,255,0.3); }
+.hero-btn:active { transform: scale(0.9); }
+
+.profile-avatar-wrap {
+  position: relative;
+  width: 88px; height: 88px;
+  margin-top: -44px;
+  z-index: 10;
+}
+.profile-avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  border: 4px solid var(--bg-card);
+  object-fit: cover;
+  background: var(--bg-input);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s;
+}
+.profile-avatar:hover { transform: scale(1.04); }
+.avatar-edit-btn {
+  position: absolute; bottom: 0; right: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--grad-brand);
+  display: flex; align-items: center; justify-content: center;
+  color: white; box-shadow: 0 2px 8px rgba(79,70,229,0.4);
+  transition: transform 0.15s, box-shadow var(--transition);
+}
+.avatar-edit-btn:hover { transform: scale(1.12); box-shadow: 0 4px 14px rgba(79,70,229,0.5); }
+.avatar-edit-btn svg { width: 13px; height: 13px; }
+
+.profile-info-row {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 10px; gap: 12px;
+}
+.profile-info-left { flex: 1; min-width: 0; }
+.profile-name-row {
+  display: flex; align-items: center; gap: 6px;
+  flex-wrap: wrap;
+}
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 21px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 200px;
+}
+.verified-badge {
+  display: flex; align-items: center; gap: 3px;
+  background: rgba(79,70,229,0.1);
+  color: var(--accent1);
+  font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.verified-badge svg { width: 12px; height: 12px; }
+
+.profile-email {
+  font-size: 13px; color: var(--text-secondary);
+  margin-top: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.profile-meta {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 8px; flex-wrap: wrap;
+}
+.meta-chip {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--text-muted);
+}
+.meta-chip svg { width: 13px; height: 13px; color: var(--accent2); }
+
+.edit-profile-btn {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: var(--grad-brand);
+  color: white;
+  font-size: 13px; font-weight: 600;
+  box-shadow: 0 4px 16px rgba(79,70,229,0.35);
+  transition: transform 0.15s, box-shadow var(--transition);
+  letter-spacing: 0.2px;
+}
+.edit-profile-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,0.45); }
+.edit-profile-btn:active { transform: scale(0.96); }
+
+/* User ID copy row */
+.uid-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 12px;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+.uid-label { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+.uid-value {
+  flex: 1; font-size: 12px; color: var(--text-secondary);
+  font-family: monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.copy-btn {
+  padding: 4px 10px; border-radius: var(--radius-full);
+  background: var(--bg-input); font-size: 11px;
+  color: var(--accent1); font-weight: 600;
+  transition: background var(--transition), transform 0.12s;
+}
+.copy-btn:hover { background: rgba(79,70,229,0.12); }
+.copy-btn:active { transform: scale(0.92); }
+
+/* ═══════════════════════════════════════════════════════════
+   ACCOUNT STATUS STRIP
+═══════════════════════════════════════════════════════════ */
+.status-strip {
+  margin: 0 20px 20px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex; align-items: center; gap: 10px;
+}
+.status-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent4);
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(16,185,129,0.2); }
+  50%       { box-shadow: 0 0 0 6px rgba(16,185,129,0.08); }
+}
+.status-text { flex: 1; font-size: 13px; color: var(--text-secondary); }
+.status-text strong { color: var(--text-primary); font-weight: 600; }
+.status-badge {
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: var(--radius-full);
+  background: rgba(16,185,129,0.12); color: var(--accent4);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STATS GRID
+═══════════════════════════════════════════════════════════ */
+.section { margin: 0 20px 20px; }
+.section-label {
+  font-size: 12px; font-weight: 700;
+  color: var(--text-muted); letter-spacing: 0.8px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 10px 12px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--card-accent, var(--grad-brand));
+  border-radius: 2px 2px 0 0;
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.stat-icon {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 8px;
+  font-size: 17px;
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 700;
+  color: var(--text-primary); line-height: 1;
+}
+.stat-label {
+  font-size: 11px; color: var(--text-muted);
+  margin-top: 4px; font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TRAVELER LEVEL BAR
+═══════════════════════════════════════════════════════════ */
+.level-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.level-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 10px;
+}
+.level-badge {
+  display: flex; align-items: center; gap: 8px;
+}
+.level-icon {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  background: var(--grad-gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.level-name {
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 700;
+  color: var(--text-primary);
+}
+.level-sub { font-size: 12px; color: var(--text-muted); }
+.level-pts {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  color: var(--accent3);
+}
+.progress-track {
+  height: 8px; background: var(--bg-input);
+  border-radius: var(--radius-full); overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--grad-gold);
+  border-radius: var(--radius-full);
+  transition: width 1s cubic-bezier(.34,1.56,.64,1);
+  width: 0;
+}
+.progress-labels {
+  display: flex; justify-content: space-between;
+  margin-top: 5px; font-size: 11px; color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MENU GRID
+═══════════════════════════════════════════════════════════ */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.menu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex; align-items: center; gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: var(--shadow-sm);
+  position: relative; overflow: hidden;
+}
+.menu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+.menu-card:active { transform: scale(0.97); }
+.menu-icon {
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.menu-text { flex: 1; min-width: 0; }
+.menu-title {
+  font-size: 13px; font-weight: 600;
+  color: var(--text-primary); line-height: 1.3;
+}
+.menu-sub {
+  font-size: 11px; color: var(--text-muted); margin-top: 2px;
+}
+.menu-arrow {
+  color: var(--text-muted);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+.menu-card:hover .menu-arrow { transform: translateX(3px); color: var(--accent1); }
+.menu-badge {
+  position: absolute; top: 8px; right: 8px;
+  background: var(--accent5); color: white;
+  font-size: 10px; font-weight: 700;
+  padding: 1px 6px; border-radius: var(--radius-full);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UPGRADE CARDS (Seller / Traveler)
+═══════════════════════════════════════════════════════════ */
+.upgrade-card {
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  color: white; position: relative; overflow: hidden;
+  cursor: pointer; margin-bottom: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.upgrade-card:hover { transform: translateY(-3px); }
+.upgrade-card:active { transform: scale(0.98); }
+.upgrade-card::after {
+  content: '';
+  position: absolute; top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  background: rgba(255,255,255,0.1); border-radius: 50%;
+}
+.upgrade-card::before {
+  content: '';
+  position: absolute; bottom: -40px; left: 20px;
+  width: 80px; height: 80px;
+  background: rgba(255,255,255,0.06); border-radius: 50%;
+}
+.upgrade-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 10px; border-radius: var(--radius-full);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.5px; margin-bottom: 10px;
+}
+.upgrade-title {
+  font-family: var(--font-display);
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 6px;
+}
+.upgrade-sub { font-size: 13px; opacity: 0.85; margin-bottom: 14px; }
+.upgrade-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: white;
+  padding: 8px 18px; border-radius: var(--radius-full);
+  font-size: 13px; font-weight: 700;
+  transition: transform 0.15s;
+}
+.upgrade-cta:hover { transform: scale(1.04); }
+
+/* ═══════════════════════════════════════════════════════════
+   ACTIVITY TIMELINE
+═══════════════════════════════════════════════════════════ */
+.timeline { position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 19px; top: 10px; bottom: 10px;
+  width: 2px; background: var(--border);
+}
+.timeline-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 10px 0;
+  position: relative;
+}
+.timeline-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--accent1);
+  flex-shrink: 0; margin-top: 3px;
+  z-index: 1;
+  transition: transform 0.2s;
+}
+.timeline-item:hover .timeline-dot { transform: scale(1.3); background: var(--accent1); }
+.timeline-content { flex: 1; }
+.timeline-title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.timeline-time { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.timeline-chip {
+  display: inline-block; margin-top: 5px;
+  font-size: 11px; font-weight: 600;
+  padding: 2px 10px; border-radius: var(--radius-full);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RECENT LOGINS
+═══════════════════════════════════════════════════════════ */
+.login-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.login-item:last-child { border-bottom: none; }
+.login-device {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.login-info { flex: 1; }
+.login-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.login-meta { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.login-status {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 10px; border-radius: var(--radius-full);
+}
+.login-status.active { background: rgba(16,185,129,0.1); color: var(--accent4); }
+.login-status.past   { background: var(--bg-input); color: var(--text-muted); }
+
+/* ═══════════════════════════════════════════════════════════
+   QR CODE SECTION
+═══════════════════════════════════════════════════════════ */
+.qr-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.qr-canvas-wrap {
+  width: 160px; height: 160px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 16px auto;
+  background: white;
+  padding: 10px;
+  box-shadow: var(--shadow-md);
+}
+canvas#qr-canvas { width: 140px; height: 140px; }
+.qr-title {
+  font-family: var(--font-display);
+  font-size: 16px; font-weight: 700;
+  color: var(--text-primary);
+}
+.qr-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.qr-share-btn {
+  margin-top: 16px;
+  padding: 10px 28px;
+  background: var(--grad-brand);
+  color: white; border-radius: var(--radius-full);
+  font-size: 13px; font-weight: 600;
+  box-shadow: 0 4px 14px rgba(79,70,229,0.35);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: transform 0.15s, box-shadow var(--transition);
+}
+.qr-share-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79,70,229,0.45); }
+
+/* ═══════════════════════════════════════════════════════════
+   REFER & EARN
+═══════════════════════════════════════════════════════════ */
+.refer-card {
+  background: var(--grad-green);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  color: white; position: relative; overflow: hidden;
+}
+.refer-card::after {
+  content: '';
+  position: absolute; top: -20px; right: -20px;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.1); border-radius: 50%;
+}
+.refer-code-row {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  margin: 12px 0;
+}
+.refer-code {
+  font-family: monospace; font-size: 18px; font-weight: 700;
+  letter-spacing: 2px; flex: 1;
+}
+.refer-copy-btn {
+  background: white; color: var(--accent4);
+  padding: 5px 12px; border-radius: var(--radius-full);
+  font-size: 12px; font-weight: 700;
+  transition: transform 0.12s;
+}
+.refer-copy-btn:active { transform: scale(0.92); }
+
+/* ═══════════════════════════════════════════════════════════
+   SIGN OUT BUTTON
+═══════════════════════════════════════════════════════════ */
+.signout-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--accent5); font-size: 14px; font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition), transform 0.15s;
+}
+.signout-btn:hover { background: rgba(244,63,94,0.06); }
+.signout-btn:active { transform: scale(0.98); }
+
+/* ═══════════════════════════════════════════════════════════
+   BOTTOM NAV BAR
+═══════════════════════════════════════════════════════════ */
+/*.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: var(--bottom-bar);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 4px env(safe-area-inset-bottom, 0px);
+  z-index: 100;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.nav-item {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; gap: 3px;
+  padding: 8px 0;
+  color: var(--text-muted); font-size: 10px; font-weight: 600;
+  transition: color var(--transition), transform 0.15s;
+  cursor: pointer; border-radius: var(--radius-sm);
+  letter-spacing: 0.2px;
+}
+.nav-item:hover { color: var(--accent1); }
+.nav-item:active { transform: scale(0.9); }
+.nav-item.active { color: var(--accent1); }
+.nav-item svg { width: 22px; height: 22px; }
+.nav-indicator {
+  position: absolute; bottom: 0;
+  width: 20%; height: 2px;
+  background: var(--grad-brand);
+  border-radius: 2px 2px 0 0;
+  transition: left var(--transition);
+}
+
+ ═══════════════════════════════════════════════════════════
+   EDIT MODAL
+═══════════════════════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(6px);
+  z-index: 500;
+  display: flex; align-items: flex-end;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-sheet {
+  width: 100%; max-width: 480px; margin: 0 auto;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: 0 0 env(safe-area-inset-bottom, 20px);
+  max-height: 92vh; overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+}
+.modal-overlay.open .modal-sheet { transform: translateY(0); }
+.modal-drag {
+  width: 40px; height: 4px; background: var(--border);
+  border-radius: 2px; margin: 12px auto 0;
+}
+.modal-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 700;
+}
+.modal-close {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--bg-input);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  transition: background var(--transition), color var(--transition), transform 0.12s;
+}
+.modal-close:hover { background: var(--border); color: var(--text-primary); }
+.modal-close:active { transform: scale(0.88); }
+.modal-body { padding: 20px; }
+
+/* Avatar upload in modal */
+.avatar-upload-zone {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  padding: 20px;
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  cursor: pointer; margin-bottom: 20px;
+  transition: border-color var(--transition), background var(--transition);
+}
+.avatar-upload-zone:hover {
+  border-color: var(--accent1);
+  background: rgba(79,70,229,0.04);
+}
+.avatar-preview {
+  width: 72px; height: 72px; border-radius: 50%;
+  object-fit: cover; border: 3px solid var(--border);
+}
+.upload-text { font-size: 13px; color: var(--text-muted); }
+#avatar-file-input { display: none; }
+
+/* Form fields */
+.field-group { margin-bottom: 16px; }
+.field-label {
+  font-size: 12px; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 6px;
+  letter-spacing: 0.3px; text-transform: uppercase;
+}
+.field-input {
+  width: 100%; padding: 12px 14px;
+  background: var(--bg-input);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 14px; color: var(--text-primary);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+.field-input:focus {
+  border-color: var(--accent1);
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
+}
+.field-input::placeholder { color: var(--text-muted); }
+textarea.field-input { resize: vertical; min-height: 80px; }
+.field-error {
+  font-size: 11px; color: var(--accent5);
+  margin-top: 4px; display: none;
+}
+.field-error.show { display: block; }
+
+.save-btn {
+  width: 100%; padding: 14px;
+  background: var(--grad-brand);
+  color: white; border-radius: var(--radius-md);
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 6px 20px rgba(79,70,229,0.35);
+  transition: transform 0.15s, box-shadow var(--transition), opacity var(--transition);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 8px;
+}
+.save-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 26px rgba(79,70,229,0.45); }
+.save-btn:active { transform: scale(0.97); }
+.save-btn:disabled { opacity: 0.6; pointer-events: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════════════════════ */
+.toast {
+  position: fixed; bottom: calc(var(--bottom-bar) + 16px); left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--text-primary); color: var(--text-inverse);
+  padding: 10px 20px; border-radius: var(--radius-full);
+  font-size: 13px; font-weight: 600;
+  z-index: 999; white-space: nowrap;
+  opacity: 0; transition: opacity 0.25s, transform 0.25s;
+  max-width: calc(100vw - 40px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.toast.show {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PULL TO REFRESH
+═══════════════════════════════════════════════════════════ */
+.ptr-indicator {
+  height: 0; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--text-muted);
+  gap: 8px; transition: height 0.2s;
+}
+.ptr-indicator.active { height: 44px; }
+.ptr-spinner {
+  width: 16px; height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent1);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.45s cubic-bezier(.22,1,.36,1) both;
+}
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.10s; }
+.d3 { animation-delay: 0.15s; }
+.d4 { animation-delay: 0.20s; }
+.d5 { animation-delay: 0.25s; }
+.d6 { animation-delay: 0.30s; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — desktop side padding
+═══════════════════════════════════════════════════════════ */
+@media (min-width: 480px) {
+  .page-wrapper { border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .bottom-nav { left: 50%; transform: translateX(-50%); width: 480px; }
+}
+
+/* Dark mode toggle (in topbar) */
+.theme-toggle {
+  width: 38px; height: 38px; border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  transition: background var(--transition), color var(--transition), transform 0.15s;
+}
+.theme-toggle:hover { background: var(--bg-input); color: var(--accent3); }
+.theme-toggle:active { transform: scale(0.88) rotate(20deg); }
+</style>
+</head>
+
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+  <div class="loader-logo">GoGlobalMart</div>
+  <div class="loader-ring"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-logo">GoGlobalMart</div>
+  <div class="topbar-actions">
+    <button class="icon-btn theme-toggle" id="theme-toggle" title="Toggle theme">
+      <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn" title="Notifications">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span class="notif-dot"></span>
+    </button>
+    <button class="icon-btn" title="Settings">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- PULL TO REFRESH -->
+<div class="ptr-indicator" id="ptr">
+  <div class="ptr-spinner"></div>
+  <span>Refreshing…</span>
+</div>
+
+<!-- MAIN PAGE -->
+<main class="page-wrapper" id="profile-page">
+
+  <!-- PROFILE HERO -->
+  <div class="profile-hero fade-in-up d1">
+    <div class="hero-banner">
+      <div class="hero-banner-actions">
+        <button class="hero-btn" id="share-btn" title="Share profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="profile-avatar-wrap">
+      <img id="profile-avatar-img" class="profile-avatar" src="" alt="Profile" loading="lazy">
+      <button class="avatar-edit-btn" id="open-edit-btn" title="Edit profile">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      </button>
+    </div>
+
+    <div class="profile-info-row">
+      <div class="profile-info-left">
+        <div class="profile-name-row">
+          <span class="profile-name" id="user-name">—</span>
+          <span class="verified-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            Verified
+          </span>
+        </div>
+        <div class="profile-email" id="user-email">—</div>
+        <div class="profile-meta">
+          <span class="meta-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span id="user-joindate">—</span>
+          </span>
+          <span class="meta-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span id="user-country">India</span>
+          </span>
+        </div>
+      </div>
+      <button class="edit-profile-btn" id="open-edit-btn2">Edit Profile</button>
+    </div>
+
+    <div class="uid-row">
+      <span class="uid-label">UID</span>
+      <span class="uid-value" id="user-uid">—</span>
+      <button class="copy-btn" id="copy-uid-btn">Copy</button>
+    </div>
+  </div>
+
+  <!-- ACCOUNT STATUS -->
+  <div class="status-strip fade-in-up d2">
+    <div class="status-dot"></div>
+    <div class="status-text">Account Status: <strong>Active & Verified</strong></div>
+    <span class="status-badge">Premium</span>
+  </div>
+
+  <!-- STATS -->
+  <div class="section fade-in-up d2">
+    <div class="section-label">Your Statistics</div>
+    <div class="stats-grid">
+      <div class="stat-card" style="--card-accent: var(--grad-brand)">
+        <div class="stat-icon" style="background:rgba(79,70,229,0.1)">🛍️</div>
+        <div class="stat-value" id="stat-orders">0</div>
+        <div class="stat-label">Orders</div>
+      </div>
+      <div class="stat-card" style="--card-accent: var(--grad-rose)">
+        <div class="stat-icon" style="background:rgba(244,63,94,0.1)">❤️</div>
+        <div class="stat-value" id="stat-wishlist">0</div>
+        <div class="stat-label">Wishlist</div>
+      </div>
+      <div class="stat-card" style="--card-accent: var(--grad-green)">
+        <div class="stat-icon" style="background:rgba(16,185,129,0.1)">🛒</div>
+        <div class="stat-value" id="stat-cart">0</div>
+        <div class="stat-label">Cart</div>
+      </div>
+      <div class="stat-card" style="--card-accent: var(--grad-gold)">
+        <div class="stat-icon" style="background:rgba(245,158,11,0.1)">🪙</div>
+        <div class="stat-value" id="stat-coins">0</div>
+        <div class="stat-label">Coins</div>
+      </div>
+      <div class="stat-card" style="--card-accent: linear-gradient(135deg,#F59E0B,#FCD34D)">
+        <div class="stat-icon" style="background:rgba(245,158,11,0.1)">⭐</div>
+        <div class="stat-value" id="stat-rating">0.0</div>
+        <div class="stat-label">Rating</div>
+      </div>
+      <div class="stat-card" style="--card-accent: var(--grad-green)">
+        <div class="stat-icon" style="background:rgba(6,182,212,0.1)">✈️</div>
+        <div class="stat-value" id="stat-trips">0</div>
+        <div class="stat-label">Trips</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAVELER LEVEL -->
+  <div class="section fade-in-up d3">
+    <div class="section-label">Traveler Level</div>
+    <div class="level-card">
+      <div class="level-top">
+        <div class="level-badge">
+          <div class="level-icon">🌍</div>
+          <div>
+            <div class="level-name" id="level-name">Explorer</div>
+            <div class="level-sub">Next: Globetrotter</div>
+          </div>
+        </div>
+        <div class="level-pts"><span id="level-xp">320</span> XP</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="level-progress" style="width:0%"></div>
+      </div>
+      <div class="progress-labels">
+        <span>0 XP</span>
+        <span>500 XP to next level</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MENU -->
+  <div class="section fade-in-up d3">
+    <div class="section-label">Account</div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(79,70,229,0.1)">📦</div>
+        <div class="menu-text">
+          <div class="menu-title">My Orders</div>
+          <div class="menu-sub">Track & returns</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="menu-badge" id="badge-orders"></span>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(244,63,94,0.1)">❤️</div>
+        <div class="menu-text">
+          <div class="menu-title">Wishlist</div>
+          <div class="menu-sub">Saved items</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(16,185,129,0.1)">📍</div>
+        <div class="menu-text">
+          <div class="menu-title">Addresses</div>
+          <div class="menu-sub">Saved locations</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(245,158,11,0.1)">💳</div>
+        <div class="menu-text">
+          <div class="menu-title">Payments</div>
+          <div class="menu-sub">Cards & wallets</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(6,182,212,0.1)">🔔</div>
+        <div class="menu-text">
+          <div class="menu-title">Notifications</div>
+          <div class="menu-sub">Alerts & updates</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="menu-badge">3</span>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(99,102,241,0.1)">🔒</div>
+        <div class="menu-text">
+          <div class="menu-title">Security</div>
+          <div class="menu-sub">2FA & password</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(139,92,246,0.1)">🌐</div>
+        <div class="menu-text">
+          <div class="menu-title">Language</div>
+          <div class="menu-sub">App language</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon" style="background:rgba(20,184,166,0.1)">💬</div>
+        <div class="menu-text">
+          <div class="menu-title">Help & Support</div>
+          <div class="menu-sub">Chat & FAQ</div>
+        </div>
+        <svg class="menu-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPGRADE: SELLER -->
+  <div class="section fade-in-up d4">
+    <div class="section-label">Grow with Us</div>
+    <div class="upgrade-card" style="background: var(--grad-brand)">
+      <div class="upgrade-tag">🏪 NEW OPPORTUNITY</div>
+      <div class="upgrade-title">Become a Seller</div>
+      <div class="upgrade-sub">List your products and reach millions of global shoppers.</div>
+      <button class="upgrade-cta" style="color:var(--accent1)">
+        Start Selling
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="upgrade-card" style="background: var(--grad-gold)">
+      <div class="upgrade-tag">✈️ ADVENTURE AWAITS</div>
+      <div class="upgrade-title">Become a Traveler</div>
+      <div class="upgrade-sub">Offer unique travel experiences and earn on every booking.</div>
+      <button class="upgrade-cta" style="color:var(--accent3)">
+        Start Hosting
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- REFER & EARN -->
+  <div class="section fade-in-up d4">
+    <div class="section-label">Refer & Earn</div>
+    <div class="refer-card">
+      <div style="font-size:15px;font-weight:700;">🎁 Invite Friends, Earn Coins</div>
+      <div style="font-size:13px;opacity:0.85;margin-top:5px;">Share your code and earn 200 coins per referral</div>
+      <div class="refer-code-row">
+        <span class="refer-code" id="refer-code">GGM-XXXX</span>
+        <button class="refer-copy-btn" id="copy-refer-btn">Copy</button>
+      </div>
+      <div style="font-size:12px;opacity:0.75;">0 friends joined · 0 coins earned</div>
+    </div>
+  </div>
+
+  <!-- ACTIVITY TIMELINE -->
+  <div class="section fade-in-up d5">
+    <div class="section-label">Recent Activity</div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 16px 8px;box-shadow:var(--shadow-sm)">
+      <div class="timeline" id="activity-timeline">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- RECENT LOGINS -->
+  <div class="section fade-in-up d5">
+    <div class="section-label">Recent Logins</div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:4px 16px;box-shadow:var(--shadow-sm)">
+      <div class="login-item">
+        <div class="login-device">📱</div>
+        <div class="login-info">
+          <div class="login-name">Android · Chrome</div>
+          <div class="login-meta">Jaipur, India · Just now</div>
+        </div>
+        <span class="login-status active">Active</span>
+      </div>
+      <div class="login-item">
+        <div class="login-device">💻</div>
+        <div class="login-info">
+          <div class="login-name">Windows · Edge</div>
+          <div class="login-meta">Delhi, India · 2 days ago</div>
+        </div>
+        <span class="login-status past">Past</span>
+      </div>
+      <div class="login-item">
+        <div class="login-device">📱</div>
+        <div class="login-info">
+          <div class="login-name">iOS · Safari</div>
+          <div class="login-meta">Mumbai, India · 5 days ago</div>
+        </div>
+        <span class="login-status past">Past</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR CODE -->
+  <div class="section fade-in-up d5">
+    <div class="section-label">My GoGlobalMart QR</div>
+    <div class="qr-card">
+      <div class="qr-title">Scan to Visit My Profile</div>
+      <div class="qr-sub">Share your unique profile link instantly</div>
+      <div class="qr-canvas-wrap">
+        <canvas id="qr-canvas" width="140" height="140"></canvas>
+      </div>
+      <button class="qr-share-btn" id="qr-share-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share Profile
+      </button>
+    </div>
+  </div>
+
+  <!-- SIGN OUT -->
+  <div class="section fade-in-up d6">
+    <button class="signout-btn" id="signout-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Sign Out
+    </button>
+    <div style="text-align:center;font-size:11px;color:var(--text-muted);margin-top:14px;">
+      GoGlobalMart v3.2.1 · <a href="#" style="color:var(--accent1)">Privacy</a> · <a href="#" style="color:var(--accent1)">Terms</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- BOTTOM NAV 
+<nav class="bottom-nav">
+  <div class="nav-indicator" id="nav-indicator"></div>
+  <div class="nav-item" onclick="navTo(0,this)">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Home
+  </div>
+  <div class="nav-item" onclick="navTo(1,this)">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    Explore
+  </div>
+  <div class="nav-item" onclick="navTo(2,this)">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    Orders
+  </div>
+  <div class="nav-item" onclick="navTo(3,this)">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    Wishlist
+  </div>
+  <div class="nav-item active" onclick="navTo(4,this)">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    Profile
+  </div>
+</nav>
+
+- EDIT PROFILE MODAL -->
+<div class="modal-overlay" id="edit-modal">
+  <div class="modal-sheet">
+    <div class="modal-drag"></div>
+    <div class="modal-header">
+      <span class="modal-title">Edit Profile</span>
+      <button class="modal-close" id="close-modal-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Avatar upload -->
+      <div class="avatar-upload-zone" id="avatar-zone" onclick="document.getElementById('avatar-file-input').click()">
+        <img id="modal-avatar-preview" class="avatar-preview" src="" alt="">
+        <span class="upload-text">Tap to change profile photo</span>
+        <input type="file" id="avatar-file-input" accept="image/*">
+      </div>
+
+      <!-- Fields -->
+      <div class="field-group">
+        <div class="field-label">Full Name</div>
+        <input class="field-input" id="edit-name" type="text" placeholder="Your full name" maxlength="60">
+        <div class="field-error" id="err-name">Name is required.</div>
+      </div>
+      <div class="field-group">
+        <div class="field-label">Bio</div>
+        <textarea class="field-input" id="edit-bio" placeholder="Tell the world about yourself…" maxlength="160"></textarea>
+      </div>
+      <div class="field-group">
+        <div class="field-label">Phone Number</div>
+        <input class="field-input" id="edit-phone" type="tel" placeholder="+91 XXXXX XXXXX" maxlength="20">
+        <div class="field-error" id="err-phone">Enter a valid phone number.</div>
+      </div>
+      <div class="field-group">
+        <div class="field-label">Country</div>
+        <input class="field-input" id="edit-country" type="text" placeholder="India" maxlength="60">
+      </div>
+      <div class="field-group">
+        <div class="field-label">Address</div>
+        <textarea class="field-input" id="edit-address" placeholder="Street, City, State, ZIP" maxlength="200"></textarea>
+      </div>
+
+      <button class="save-btn" id="save-profile-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Save Profile
+      </button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+/* ═══════════════════════════════════════════════════════════
+   WAIT FOR FIREBASE TO INITIALISE
+═══════════════════════════════════════════════════════════ */
+async function waitForFirebase(retries = 20) {
+  for (let i = 0; i < retries; i++) {
+    if (window._ggmAuth) return true;
+    await new Promise(r => setTimeout(r, 150));
+  }
+  return false;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DEMO DATA (used when Firebase not configured)
+═══════════════════════════════════════════════════════════ */
+const DEMO_USER = {
+  uid: "demo-user-ggm-001",
+  displayName: "Vicky jaani",
+  email: "classy.vicky@example.com",
+  photoURL: "https://api.dicebear.com/8.x/adventurer/svg?seed=ArjunSharma&backgroundColor=b6e3f4",
+  metadata: { creationTime: "Thu, 12 Jan 2023 08:30:00 GMT" }
+};
+const DEMO_PROFILE = {
+  displayName: "Vicky",
+  bio: "Globetrotter 🌍 | Online Shopper | Tech Enthusiast",
+  phone: "+91 98765 43210",
+  country: "India",
+  address: "12, Amer Road, Jaipur, Rajasthan 302001",
+  stats: { orders: 47, wishlist: 23, cart: 5, coins: 1240, rating: 4.8, trips: 9 },
+  level: { name: "Explorer", xp: 320, maxXp: 500 }
+};
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════════════ */
+const $ = id => document.getElementById(id);
+function showToast(msg, duration = 2600) {
+  const t = $('toast'); t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+function hideLoader() {
+  const ls = $('loading-screen');
+  ls.classList.add('hidden');
+  setTimeout(() => ls.remove(), 500);
+}
+function formatDate(d) {
+  if (!d) return '—';
+  try { return new Date(d).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' }); }
+  catch { return '—'; }
+}
+function generateReferCode(uid) {
+  return 'GGM-' + (uid || 'XXXX').slice(-4).toUpperCase();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   QR CODE — simple canvas-based renderer
+═══════════════════════════════════════════════════════════ */
+function drawSimpleQR(canvas, text) {
+  // Minimal visual QR-like pattern for demo
+  const ctx = canvas.getContext('2d');
+  const sz = canvas.width;
+  ctx.fillStyle = '#fff'; ctx.fillRect(0,0,sz,sz);
+  ctx.fillStyle = '#000';
+
+  // Generate deterministic pattern from text hash
+  let h = 0;
+  for (let c of text) h = ((h << 5) - h) + c.charCodeAt(0) | 0;
+
+  const cell = sz / 21;
+  // Draw finder patterns
+  function finder(x, y) {
+    ctx.fillStyle = '#000';
+    ctx.fillRect(x*cell, y*cell, 7*cell, 7*cell);
+    ctx.fillStyle = '#fff';
+    ctx.fillRect((x+1)*cell, (y+1)*cell, 5*cell, 5*cell);
+    ctx.fillStyle = '#000';
+    ctx.fillRect((x+2)*cell, (y+2)*cell, 3*cell, 3*cell);
+  }
+  finder(0,0); finder(14,0); finder(0,14);
+
+  // Fill data area with hash-seeded pattern
+  let seed = Math.abs(h);
+  for (let r = 0; r < 21; r++) {
+    for (let c2 = 0; c2 < 21; c2++) {
+      // Skip finder zones
+      if ((r<8&&c2<8)||(r<8&&c2>12)||(r>12&&c2<8)) continue;
+      seed = (seed * 1664525 + 1013904223) & 0xffffffff;
+      if ((seed >>> 0) % 2 === 0) {
+        ctx.fillStyle = '#000';
+        ctx.fillRect(c2*cell, r*cell, cell, cell);
+      }
+    }
+  }
+  // Logo in center
+  ctx.fillStyle = '#4F46E5';
+  ctx.beginPath();
+  ctx.roundRect(sz/2-14, sz/2-14, 28, 28, 5);
+  ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.font = `bold ${Math.round(cell*1.2)}px sans-serif`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('GG', sz/2, sz/2);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ACTIVITY TIMELINE
+═══════════════════════════════════════════════════════════ */
+function renderTimeline(activities) {
+  const container = $('activity-timeline');
+  const colors = { order:'rgba(79,70,229,0.12)', wishlist:'rgba(244,63,94,0.12)', trip:'rgba(16,185,129,0.12)', coins:'rgba(245,158,11,0.12)' };
+  const textColors = { order:'var(--accent1)', wishlist:'var(--accent5)', trip:'var(--accent4)', coins:'var(--accent3)' };
+  container.innerHTML = activities.map(a => `
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title">${a.title}</div>
+        <div class="timeline-time">${a.time}</div>
+        <span class="timeline-chip" style="background:${colors[a.type]||'var(--bg-input)'};color:${textColors[a.type]||'var(--text-muted)'}">${a.tag}</span>
+      </div>
+    </div>`).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   POPULATE UI
+═══════════════════════════════════════════════════════════ */
+function populateProfile(user, profile) {
+  // Avatar
+  const avatarSrc = profile.photoURL || user.photoURL
+    || `https://api.dicebear.com/8.x/initials/svg?seed=${encodeURIComponent(user.displayName||'U')}`;
+  $('profile-avatar-img').src = avatarSrc;
+  $('modal-avatar-preview').src = avatarSrc;
+  $('profile-avatar-img').onerror = function(){ this.src = `https://api.dicebear.com/8.x/initials/svg?seed=User`; };
+
+  // Name, email, meta
+  $('user-name').textContent = profile.displayName || user.displayName || 'User';
+  $('user-email').textContent = user.email || '—';
+  $('user-joindate').textContent = 'Joined ' + formatDate(user.metadata?.creationTime);
+  $('user-country').textContent = profile.country || 'India';
+  $('user-uid').textContent = user.uid;
+
+  // Stats
+  const s = profile.stats || {};
+  $('stat-orders').textContent  = s.orders  ?? 0;
+  $('stat-wishlist').textContent= s.wishlist ?? 0;
+  $('stat-cart').textContent    = s.cart     ?? 0;
+  $('stat-coins').textContent   = s.coins    ?? 0;
+  $('stat-rating').textContent  = (s.rating  ?? 5.0).toFixed(1);
+  $('stat-trips').textContent   = s.trips    ?? 0;
+
+  // Badge on orders menu card
+  if (s.orders > 0) $('badge-orders').textContent = s.orders;
+
+  // Level
+  const lvl = profile.level || {};
+  $('level-name').textContent = lvl.name || 'Explorer';
+  $('level-xp').textContent   = lvl.xp   || 0;
+  const pct = Math.min(100, Math.round(((lvl.xp||0) / (lvl.maxXp||500)) * 100));
+  setTimeout(() => { $('level-progress').style.width = pct + '%'; }, 400);
+
+  // Refer code
+  $('refer-code').textContent = generateReferCode(user.uid);
+
+  // Pre-fill edit form
+  $('edit-name').value    = profile.displayName || user.displayName || '';
+  $('edit-bio').value     = profile.bio     || '';
+  $('edit-phone').value   = profile.phone   || '';
+  $('edit-country').value = profile.country || '';
+  $('edit-address').value = profile.address || '';
+
+  // QR
+  drawSimpleQR($('qr-canvas'), `https://goglobalmart.com/profile/${user.uid}`);
+
+  // Timeline
+  renderTimeline([
+    { title: 'Ordered Wireless Earbuds', time: '2 hours ago', type: 'order', tag: '📦 Order #GGM4782' },
+    { title: 'Added 3 items to Wishlist', time: 'Yesterday', type: 'wishlist', tag: '❤️ Wishlist' },
+    { title: 'Completed Trip to Goa', time: '3 days ago', type: 'trip', tag: '✈️ Trip Verified' },
+    { title: 'Earned 200 GoCoins', time: 'Last week', type: 'coins', tag: '🪙 +200 Coins' },
+    { title: 'Left a 5★ Review', time: '10 days ago', type: 'order', tag: '⭐ Review' },
+  ]);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FIREBASE LOAD
+═══════════════════════════════════════════════════════════ */
+async function loadUserData(user) {
+  if (window._ggmDemoMode) {
+    // Demo mode: use mock data
+    populateProfile(DEMO_USER, DEMO_PROFILE);
+    hideLoader();
+    return;
+  }
+  try {
+    const { doc, getDoc } = window._ggmFirestore;
+    const db = window._ggmDb;
+    const ref = doc(db, 'users', user.uid);
+    const snap = await getDoc(ref);
+    const profile = snap.exists() ? snap.data() : {};
+    populateProfile(user, profile);
+  } catch (err) {
+    console.error('Firestore load error:', err);
+    populateProfile(user, {});
+    showToast('⚠️ Could not load full profile');
+  } finally {
+    hideLoader();
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SAVE PROFILE
+═══════════════════════════════════════════════════════════ */
+async function saveProfile(user) {
+  // Validate
+  const name = $('edit-name').value.trim();
+  const phone = $('edit-phone').value.trim();
+  let valid = true;
+  if (!name) { $('err-name').classList.add('show'); valid = false; }
+  else $('err-name').classList.remove('show');
+  if (phone && !/^\+?[\d\s\-()]{7,20}$/.test(phone)) {
+    $('err-phone').classList.add('show'); valid = false;
+  } else $('err-phone').classList.remove('show');
+  if (!valid) return;
+
+  const saveBtn = $('save-profile-btn');
+  saveBtn.disabled = true;
+  saveBtn.innerHTML = `<div class="loader-ring" style="width:20px;height:20px;border-width:2px"></div> Saving…`;
+
+  const data = {
+    displayName: name,
+    bio:     $('edit-bio').value.trim(),
+    phone,
+    country: $('edit-country').value.trim(),
+    address: $('edit-address').value.trim(),
+    updatedAt: window._ggmDemoMode ? new Date().toISOString() : window._ggmFirestore.serverTimestamp()
+  };
+
+  if (window._ggmDemoMode) {
+    await new Promise(r => setTimeout(r, 900)); // simulate network
+    $('user-name').textContent = name || $('user-name').textContent;
+    $('user-country').textContent = data.country || 'India';
+    $('edit-name').value = name;
+    closeModal();
+    showToast('✅ Profile updated! (Demo mode)');
+  } else {
+    try {
+      const { doc, setDoc, serverTimestamp } = window._ggmFirestore;
+      data.updatedAt = serverTimestamp();
+      await setDoc(window._ggmFirestore.doc(window._ggmDb, 'users', user.uid), data, { merge: true });
+      $('user-name').textContent = name;
+      $('user-country').textContent = data.country || 'India';
+      closeModal();
+      showToast('✅ Profile saved successfully!');
+    } catch (err) {
+      console.error('Save error:', err);
+      showToast('❌ Save failed. Please retry.');
+    }
+  }
+
+  saveBtn.disabled = false;
+  saveBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Save Profile`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODAL HELPERS
+═══════════════════════════════════════════════════════════ */
+function openModal() { $('edit-modal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal() { $('edit-modal').classList.remove('open'); document.body.style.overflow=''; }
+
+/* ═══════════════════════════════════════════════════════════
+   THEME
+═══════════════════════════════════════════════════════════ */
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  $('theme-icon-light').style.display = theme==='dark' ? 'none' : 'block';
+  $('theme-icon-dark').style.display  = theme==='dark' ? 'block': 'none';
+  localStorage.setItem('ggm-theme', theme);
+}
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  applyTheme(cur === 'dark' ? 'light' : 'dark');
+}
+// Auto dark mode
+const savedTheme = localStorage.getItem('ggm-theme')
+  || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+applyTheme(savedTheme);
+
+/* ═══════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════ */
+(async () => {
+  const ok = await waitForFirebase();
+  if (!ok || window._ggmDemoMode) {
+    populateProfile(DEMO_USER, DEMO_PROFILE);
+    hideLoader();
+    // Bind save for demo
+    $('save-profile-btn').addEventListener('click', () => saveProfile(DEMO_USER));
+    bindUI(DEMO_USER);
+    return;
+  }
+
+  const { onAuthStateChanged, signOut } = window._ggmAuthFns;
+  const auth = window._ggmAuth;
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      // Redirect to login
+      window.location.href = '/login.html';
+      return;
+    }
+    await loadUserData(user);
+    $('save-profile-btn').addEventListener('click', () => saveProfile(user));
+    bindUI(user);
+  });
+
+  function bindUI(user) {
+    $('signout-btn').addEventListener('click', async () => {
+      if (!window._ggmDemoMode) {
+        await signOut(auth).catch(()=>{});
+        window.location.href = '/login.html';
+      } else {
+        showToast('Demo mode: Sign-out redirects to /login.html');
+      }
+    });
+  }
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   AVATAR PREVIEW
+═══════════════════════════════════════════════════════════ */
+$('avatar-file-input').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) { showToast('Image too large (max 5MB)'); return; }
+  const reader = new FileReader();
+  reader.onload = ev => {
+    $('modal-avatar-preview').src = ev.target.result;
+    $('profile-avatar-img').src   = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTON BINDS
+═══════════════════════════════════════════════════════════ */
+['open-edit-btn','open-edit-btn2'].forEach(id =>
+  $(id)?.addEventListener('click', openModal));
+$('close-modal-btn').addEventListener('click', closeModal);
+$('edit-modal').addEventListener('click', e => {
+  if (e.target === $('edit-modal')) closeModal();
+});
+
+$('theme-toggle').addEventListener('click', toggleTheme);
+
+$('copy-uid-btn').addEventListener('click', () => {
+  const uid = $('user-uid').textContent;
+  navigator.clipboard?.writeText(uid).then(() => showToast('User ID copied!')).catch(() => showToast('Copy failed'));
+});
+
+$('copy-refer-btn').addEventListener('click', () => {
+  const code = $('refer-code').textContent;
+  navigator.clipboard?.writeText(code).then(() => showToast('Referral code copied!')).catch(() => showToast('Copy failed'));
+});
+
+$('share-btn').addEventListener('click', async () => {
+  if (navigator.share) {
+    await navigator.share({ title:'GoGlobalMart Profile', url: window.location.href }).catch(()=>{});
+  } else {
+    navigator.clipboard?.writeText(window.location.href);
+    showToast('Profile link copied!');
+  }
+});
+
+$('qr-share-btn').addEventListener('click', async () => {
+  if (navigator.share) {
+    await navigator.share({ title:'My GoGlobalMart Profile', url: window.location.href }).catch(()=>{});
+  } else {
+    navigator.clipboard?.writeText(window.location.href);
+    showToast('Profile link copied!');
+  }
+});
+
+/* ═══════════════════════════════════════════════════════════
+   BOTTOM NAV
+═══════════════════════════════════════════════════════════ */
+/*window.navTo = function(idx, el) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+  const tabs = ['/', '/explore', '/orders', '/wishlist', '/profile'];
+  if (idx !== 4) showToast(`Navigating to ${tabs[idx]}…`);
+};
+
+ ═══════════════════════════════════════════════════════════
+   PULL TO REFRESH
+═══════════════════════════════════════════════════════════ */
+let ptrStart = 0; let ptrActive = false;
+document.addEventListener('touchstart', e => { ptrStart = e.touches[0].clientY; }, { passive: true });
+document.addEventListener('touchmove', e => {
+  const delta = e.touches[0].clientY - ptrStart;
+  if (window.scrollY === 0 && delta > 60 && !ptrActive) {
+    ptrActive = true; $('ptr').classList.add('active');
+  }
+}, { passive: true });
+document.addEventListener('touchend', () => {
+  if (!ptrActive) return;
+  ptrActive = false;
+  setTimeout(() => { $('ptr').classList.remove('active'); showToast('✅ Page refreshed'); }, 1200);
+});
+</script>
+
+</body>
+</html>
