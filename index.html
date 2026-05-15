@@ -1324,7 +1324,7 @@
                     <span class="iconify" data-icon="mdi:heart-outline"></span> Wishlist
                     <span class="badge" id="wishlistCount">0</span>
                 </a>
-                <a href="profile.html" class="nav-link profile-link">
+                <a href="profile.html" class="nav-link profile-link" id="profile-link">
                     <span class="iconify profile-offline" id="profileIcon" data-icon="mdi:account-circle"></span>
                 </a>
             </div>
@@ -1344,7 +1344,7 @@
             <span class="iconify" data-icon="mdi:heart-outline"></span> Wishlist
             <span class="badge" id="wishlistCountMobile">0</span>
         </a>
-        <a href="profile.html" class="nav-link profile-link"; closeMobileMenu();">
+        <a href="profile.html" class="nav-link profile-link" id="profile-link"; closeMobileMenu();">
             <span class="iconify profile-offline" id="profileIcon" data-icon="mdi:account-circle"></span>
         </a>
     </div>
@@ -2498,7 +2498,7 @@ onAuthStateChanged(auth, (user) => {
   } else {
     profileIcon.classList.remove("profile-online");
     profileIcon.classList.add("profile-offline");
-    window.location.href = "#";
+    document.getElementById("profile-link").href="profile.html"
   }
 });
 </script>
