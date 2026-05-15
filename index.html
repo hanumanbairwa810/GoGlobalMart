@@ -2489,16 +2489,18 @@ const auth = getAuth(app);
 
 // ✅ check login
 const profileIcon=document.getElementById("profileIcon");
+const profileLink=document.getElementById("profile-link");
 onAuthStateChanged(auth, (user) => {
+    profileLink.href="profile.html";
   if (user) {
     profileIcon.classList.remove("profile-offline");
     profileIcon.classList.add("profile-online");
+      
     document.getElementById("userInfo").innerText=
     "Welcome: "+ user.email;
   } else {
     profileIcon.classList.remove("profile-online");
     profileIcon.classList.add("profile-offline");
-    document.getElementById("profile-link").href="profile.html"
   }
 });
 </script>
