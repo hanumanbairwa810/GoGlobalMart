@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Disclosure | GoGlobalMart</title>
+<meta name="description" content="How GoGlobalMart earns money from affiliate links, and how to tell affiliate links from direct purchases.">
+<link rel="canonical" href="https://goglobalmart.me/affiliate-disclosure.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15140f; --panel:#1d1b15; --line:#3a3526;
+  --text:#f3eee2; --muted:#b9b2a0; --gold:#cfa95a; --gold-dim:#8f7640;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.7 var(--sans)}
+a{color:var(--gold)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#15140f;padding:8px 14px;z-index:99}
+.skip:focus{left:8px}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(21,20,15,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{font:600 1.55rem/1 var(--serif);color:var(--text);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:6px 22px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--gold)}
+
+/* hero: the disclosure itself is the first thing seen */
+.hero{max-width:1120px;margin:0 auto;padding:72px 24px 40px}
+.hero h1{font:500 clamp(2.4rem,6vw,4.2rem)/1.08 var(--serif);margin:0 0 28px;max-width:16ch}
+.statement{border-left:3px solid var(--gold);background:var(--panel);padding:22px 26px;max-width:720px;font-size:1.15rem;line-height:1.65;margin:0;animation:rise .7s ease both}
+.statement strong{color:var(--gold);font-weight:600}
+.meta{color:var(--muted);font-size:.9rem;margin-top:18px}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* layout */
+.wrap{max-width:1120px;margin:0 auto;padding:24px;display:grid;grid-template-columns:240px 1fr;gap:56px}
+.toc{position:sticky;top:96px;align-self:start;font-size:.95rem}
+.toc p{margin:0 0 10px;color:var(--muted)}
+.toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.toc a{display:block;padding:5px 0 5px 16px;color:var(--muted);text-decoration:none;margin-left:-1px;border-left:1px solid transparent}
+.toc a:hover,.toc a:focus-visible{color:var(--gold);border-left-color:var(--gold)}
+article section{padding:34px 0;border-top:1px solid var(--line)}
+article section:first-child{border-top:0;padding-top:8px}
+h2{font:600 clamp(1.7rem,3.2vw,2.1rem)/1.2 var(--serif);margin:0 0 14px}
+article p,article li{max-width:68ch}
+ul{padding-left:1.2rem}
+li{margin:.35rem 0}
+
+/* the one memorable device: three-way comparison */
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+.compare div{background:var(--panel);border:1px solid var(--line);padding:20px}
+.compare h3{font:600 1.3rem/1.2 var(--serif);margin:0 0 8px;color:var(--gold)}
+.compare p{margin:0;font-size:.97rem;color:var(--muted)}
+
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:1px 10px;font-size:.85rem;border-radius:999px}
+.example{background:var(--panel);border:1px solid var(--line);padding:16px 20px;margin:18px 0}
+.example small{display:block;color:var(--muted);margin-top:6px}
+.confirm{background:#2a2412;border:1px dashed var(--gold-dim);padding:2px 8px;color:#f0d9a0;font-size:.95em}
+.note{border-top:1px solid var(--line);margin-top:30px;padding-top:20px;color:var(--muted);font-size:.95rem}
+
+footer{border-top:1px solid var(--line);margin-top:48px}
+.foot{max-width:1120px;margin:0 auto;padding:30px 24px 48px;color:var(--muted);font-size:.93rem}
+.foot nav{margin-bottom:14px}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr;gap:8px}
+  .toc{position:static;border:1px solid var(--line);padding:16px 18px;background:var(--panel)}
+  .compare{grid-template-columns:1fr}
+  .hero{padding-top:44px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">GoGlobal<span>Mart</span></a>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="sports.html">Sports</a>
+      <a href="books.html">Books</a>
+      <a href="deals.html">Deals</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero">
+    <h1>Affiliate Disclosure</h1>
+    <p class="statement">
+      <strong>The short version:</strong> some links on GoGlobalMart are affiliate links. If you buy through one,
+      we may earn a commission from the seller. The price you pay is not meant to change because of it.
+    </p>
+    <p class="meta">Last updated: <span class="confirm">[CONFIRM DATE]</span></p>
+  </div>
+
+  <div class="wrap">
+    <aside class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#what">What affiliate links are</a></li>
+        <li><a href="#earn">How we may earn money</a></li>
+        <li><a href="#price">Does it change your price?</a></li>
+        <li><a href="#direct">Affiliate vs direct purchases</a></li>
+        <li><a href="#sellers">Third-party sellers</a></li>
+        <li><a href="#info">Prices and product details</a></li>
+        <li><a href="#editorial">Recommendations</a></li>
+        <li><a href="#spot">How to spot affiliate links</a></li>
+        <li><a href="#updates">Updates to this page</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </aside>
+
+    <article>
+      <section id="what">
+        <h2>What affiliate links are</h2>
+        <p>An affiliate link is a web address that carries a tracking code. When you click it and buy something from the seller's website, the seller can see that you arrived from GoGlobalMart. If the purchase qualifies under that seller's rules, they may pay us a commission.</p>
+        <p>Not every link on our site is an affiliate link. Whether a link earns us money depends on the seller and on the arrangement we have with them.</p>
+      </section>
+
+      <section id="earn">
+        <h2>How GoGlobalMart may earn commissions</h2>
+        <p>We may earn a commission when you click a product or deal link and complete a qualifying purchase on the seller's website. Qualifying rules, commission rates, and time limits are set by each seller or affiliate network, and they can change. A click does not guarantee that we earn anything.</p>
+        <p>Our affiliate relationships are with: <span class="confirm">[CONFIRM: list each program or network you have actually joined, e.g. Amazon, Flipkart, Myntra, Meesho, or none]</span>. We do not publish commission rates.</p>
+        <p>These links are the main way this site pays for itself.</p>
+      </section>
+
+      <section id="price">
+        <h2>Whether commissions affect your price</h2>
+        <p>The commission is paid by the seller, not added by us. In general, you pay the same price whether you use our link or go to the seller directly. The seller sets its own prices, and offers can differ by app, account, location, or time, so we cannot promise a price match in every case.</p>
+      </section>
+
+      <section id="direct">
+        <h2>How affiliate links differ from direct Mini Store purchases</h2>
+        <div class="compare">
+          <div>
+            <h3>Affiliate Shopping</h3>
+            <p>You leave GoGlobalMart and buy on the seller's website. We may earn a commission. The seller handles payment, delivery, and returns.</p>
+          </div>
+          <div>
+            <h3>Mini Store</h3>
+            <p>You buy from GoGlobalMart directly. These purchases are not affiliate transactions. <span class="confirm">[CONFIRM: Mini Store live? Who ships and handles returns?]</span></p>
+          </div>
+          <div>
+            <h3>Food Restro</h3>
+            <p><span class="confirm">[CONFIRM: describe only real arrangements. If there are no referral or commission arrangements, say so here.]</span></p>
+          </div>
+        </div>
+        <p>If you are unsure which kind of purchase you are making, check the web address and checkout page. A purchase on a seller's own site is theirs; a purchase completed on goglobalmart.me is ours.</p>
+      </section>
+
+      <section id="sellers">
+        <h2>Third-party sellers and external websites</h2>
+        <p>When you follow an affiliate link, you leave GoGlobalMart. The seller controls its own checkout, pricing, shipping, returns, refunds, warranties, and customer support. We do not control those websites, and their policies and privacy practices apply once you are there. Please read them before you buy.</p>
+      </section>
+
+      <section id="info">
+        <h2>Product information, pricing, availability, and seller policies</h2>
+        <p>Prices, discounts, stock, delivery times, and product details can change at any moment and may be out of date on our pages. The price and details shown on the seller's checkout page are the ones that apply. Product descriptions and images may come from the seller or its feeds.</p>
+      </section>
+
+      <section id="editorial">
+        <h2>Editorial opinions, recommendations, and sponsored content</h2>
+        <p>Because we may earn commission on some links, that financial interest can influence which products or deals we feature and how we show them. <span class="confirm">[CONFIRM: describe how products are actually chosen. Do not state a review or testing process unless it exists.]</span></p>
+        <p>Sponsored content: <span class="confirm">[CONFIRM: "We do not currently publish paid sponsored listings" OR describe how sponsored items are labelled.]</span></p>
+      </section>
+
+      <section id="spot">
+        <h2>How to identify affiliate links</h2>
+        <p>Where we label affiliate links, look for this next to the product or deal:</p>
+        <div class="example">
+          <span class="tag">Affiliate link</span> We may earn a commission from qualifying purchases.
+          <small>Short or redirect-style web addresses (for example amzn.to, fktr.in, or myntr.it) are often affiliate links, but a label on the product is the more reliable guide.</small>
+        </div>
+        <p>The platform buttons in our footer and homepage (Amazon, Flipkart, Myntra, Meesho) may also be affiliate links.</p>
+      </section>
+
+      <section id="updates">
+        <h2>Updates to this disclosure</h2>
+        <p>We may update this page when our affiliate relationships or the way we work changes. The date at the top shows the latest revision.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact information</h2>
+        <p>Questions about this disclosure? Reach us through our <a href="contact.html">contact page</a> or at <span class="confirm">[CONFIRM EMAIL]</span>.</p>
+        <p>Site operator: <span class="confirm">[CONFIRM legal name and location of the operator]</span></p>
+        <p class="note">This page explains our affiliate relationships. It does not replace our <a href="privacy-policy.html">Privacy Policy</a>, <a href="terms-service.html">Terms of Service</a>, or any disclaimer, which also apply to your use of GoGlobalMart.</p>
+      </section>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <nav aria-label="Legal">
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-service.html">Terms of Service</a>
+      <a href="affiliate-disclosure.html" aria-current="page">Affiliate Disclosure</a>
+    </nav>
+    <div>&copy; <span id="yr">2026</span> GoGlobalMart. Some links on this site are affiliate links; we may earn from qualifying purchases.</div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

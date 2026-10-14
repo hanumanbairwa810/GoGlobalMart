@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Track Order | GoGlobal Mart (Demo)</title>
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
+<link rel="canonical" href="https://goglobalmart.me/track-order.html">
+<style>
+:root{--bg:#f6f2ea;--card:#fff;--tx:#1a1a1a;--mut:#6b655a;--gold:#9a7424;--line:#e2d9c6;--ok:#2f7d4f;--bad:#b3392f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0e0f;--card:#171718;--tx:#f3eee3;--mut:#a39d90;--gold:#c9a45c;--line:#2c2a26;--ok:#6fbf8b;--bad:#e07b70}}
+:root[data-theme="dark"]{--bg:#0e0e0f;--card:#171718;--tx:#f3eee3;--mut:#a39d90;--gold:#c9a45c;--line:#2c2a26;--ok:#6fbf8b;--bad:#e07b70}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Helvetica Neue",Arial,sans-serif}
+.serif{font-family:Georgia,"Times New Roman",serif}
+header,footer{max-width:760px;margin:0 auto;padding:20px 20px}
+header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.logo{font-size:20px;letter-spacing:.04em;color:var(--gold)}
+nav a{color:var(--mut);text-decoration:none;margin-left:16px;font-size:14px}
+main{max-width:760px;margin:0 auto;padding:28px 20px}
+.demo{border:1px dashed var(--gold);color:var(--gold);padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:24px}
+h1{font-size:clamp(28px,6vw,40px);margin:0 0 6px;font-weight:400}
+.sub{color:var(--mut);margin:0 0 24px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.tab{background:var(--card);border:1px solid var(--line);color:var(--mut);padding:12px 6px;border-radius:10px;font:inherit;font-size:14px;cursor:pointer;min-height:44px}
+.tab[aria-selected=true]{border-color:var(--gold);color:var(--gold)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+label{display:block;font-size:13px;color:var(--mut);margin:14px 0 6px}
+input{width:100%;padding:13px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--tx);font:inherit;min-height:44px}
+input:focus,.tab:focus,button:focus,a:focus{outline:2px solid var(--gold);outline-offset:2px}
+.err{color:var(--bad);font-size:13px;min-height:18px;margin-top:4px}
+.btn{display:inline-block;margin-top:18px;width:100%;padding:14px;border:0;border-radius:10px;background:var(--gold);color:#111;font:inherit;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;min-height:44px}
+.btn.alt{background:transparent;border:1px solid var(--gold);color:var(--gold);margin-top:10px}
+.hint{font-size:12.5px;color:var(--mut);margin-top:14px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row span:first-child{color:var(--mut)}.row span:last-child{text-align:right}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;border:1px solid var(--gold);color:var(--gold);font-size:12px}
+.badge.bad{border-color:var(--bad);color:var(--bad)}
+ol.tl{list-style:none;margin:22px 0 4px;padding:0}
+.tl li{position:relative;padding:0 0 22px 34px;color:var(--mut)}
+.tl li::before{content:"";position:absolute;left:7px;top:20px;bottom:-2px;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl li::after{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;border:2px solid var(--line);background:var(--bg)}
+.tl li.done{color:var(--tx)}.tl li.done::after{background:var(--gold);border-color:var(--gold)}.tl li.done::before{background:var(--gold)}
+.tl li.cur::after{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,164,92,.25)}.tl li.cur{color:var(--gold);font-weight:600}
+.tl li.x::after{background:var(--bad);border-color:var(--bad)}.tl li.x{color:var(--bad)}
+.tl small{display:block;color:var(--mut);font-weight:400;font-size:12px}
+.plat{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.plat a{padding:12px;border:1px solid var(--line);border-radius:10px;color:var(--tx);text-decoration:none;text-align:center;font-size:14px;min-height:44px}
+.fade{animation:f .35s ease}@keyframes f{from{opacity:0;transform:translateY(6px)}}
+@media(prefers-reduced-motion:reduce){.fade{animation:none}}
+footer{color:var(--mut);font-size:12.5px;border-top:1px solid var(--line)}
+footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+<header><span class="logo serif">GoGlobal Mart</span><nav><a href="https://goglobalmart.me/">Home</a><a href="contact.html">Contact</a></nav></header>
+<main>
+<div class="demo"><strong>Demo page.</strong> All orders below are sample data. This page is not connected to any real order database, and no real customer order can be retrieved from it.</div>
+<h1 class="serif">Track Your Order</h1>
+<p class="sub">Choose where you ordered, then verify with the details used at checkout.</p>
+
+<div class="tabs" role="tablist" aria-label="Order type">
+<button class="tab" role="tab" data-t="mini" aria-selected="true">Mini Store</button>
+<button class="tab" role="tab" data-t="food" aria-selected="false">Food Restro</button>
+<button class="tab" role="tab" data-t="aff" aria-selected="false">Affiliate</button>
+</div>
+
+<section class="card" id="formCard">
+<form id="f" novalidate>
+<label for="oid">Order number</label>
+<input id="oid" autocomplete="off" placeholder="e.g. GGM-DEMO-1001">
+<div class="err" id="e1" role="alert"></div>
+<label for="ver" id="verL">Email or phone used for the order</label>
+<input id="ver" autocomplete="off" placeholder="e.g. demo@example.com">
+<div class="err" id="e2" role="alert"></div>
+<button class="btn" type="submit">Track Order</button>
+<p class="hint" id="hint"></p>
+</form>
+<div id="aff" hidden>
+<p><strong>Orders on Amazon, Flipkart, Myntra or Meesho are tracked on that seller's site.</strong></p>
+<p class="hint" style="margin-top:0">GoGlobal Mart is an affiliate partner. The purchase, payment, shipping and delivery are handled entirely by the seller, so we have no tracking data for these orders and cannot show a status. We never ask for your seller account password.</p>
+<div class="plat">
+<a href="https://www.amazon.in/gp/css/order-history" target="_blank" rel="noopener">Amazon orders</a>
+<a href="https://www.flipkart.com/account/orders" target="_blank" rel="noopener">Flipkart orders</a>
+<a href="https://www.myntra.com/my/orders" target="_blank" rel="noopener">Myntra orders</a>
+<a href="https://www.meesho.com/" target="_blank" rel="noopener">Meesho (open app/site)</a>
+</div>
+<p class="hint">These open each platform's own orders area, where you sign in yourself. A direct "Track on Seller's Website" button per order would only be shown when a verified tracking URL exists.</p>
+</div>
+</section>
+
+<section id="res" class="card fade" hidden aria-live="polite" style="margin-top:18px"></section>
+</main>
+<footer>Sample tracking information is for demonstration only. We do not store payment details here. <a href="privacy-policy.html">Privacy</a> · <a href="terms-service.html">Terms</a></footer>
+
+<script>
+(function(){
+var MINI=["Order Placed","Order Confirmed","Processing","Packed","Shipped","Out for Delivery","Delivered"];
+var FOOD=["Order Placed","Restaurant Confirmed","Preparing","Ready for Pickup","Picked Up","Out for Delivery","Delivered"];
+// SAMPLE DATA ONLY. Replace with an authenticated backend call.
+var DB={
+mini:{"GGM-DEMO-1001":{v:"demo@example.com",date:"Sample: 02 Jan 2026",items:"Sample Leather Wallet × 1",method:"Standard shipping",ship:{carrier:"Sample Carrier",no:"SAMPLE-000000"},steps:MINI,hist:[["Order Placed","02 Jan, 10:05"],["Order Confirmed","02 Jan, 10:20"],["Processing","02 Jan, 15:40"],["Packed","03 Jan, 09:10"],["Shipped","03 Jan, 17:30"]]},
+"GGM-DEMO-1002":{v:"demo@example.com",date:"Sample: 05 Jan 2026",items:"Sample Cotton Shirt × 2",method:"Standard shipping",steps:MINI,hist:[["Order Placed","05 Jan, 11:00"],["Order Confirmed","05 Jan, 11:12"]],cancel:["Cancelled","05 Jan, 12:45"],note:"Refunds, if applicable, follow the seller's stated policy. Contact support for help."}},
+food:{"FOOD-DEMO-2001":{v:"9000000000",date:"Sample: 10 Jan 2026, 19:02",items:"Sample Paneer Wrap × 1, Sample Lassi × 1",method:"Delivery",steps:FOOD,hist:[["Order Placed","19:02"],["Restaurant Confirmed","19:05"],["Preparing","19:09"]]}}};
+var type="mini",$=function(i){return document.getElementById(i)};
+var hints={mini:"Try the sample order GGM-DEMO-1001 with demo@example.com (or GGM-DEMO-1002 for a cancelled sample).",food:"Try the sample order FOOD-DEMO-2001 with phone 9000000000.",aff:""};
+function setTab(t){type=t;document.querySelectorAll(".tab").forEach(function(b){b.setAttribute("aria-selected",b.dataset.t===t)});
+$("f").hidden=t==="aff";$("aff").hidden=t!=="aff";$("res").hidden=true;$("e1").textContent=$("e2").textContent="";
+$("hint").textContent=hints[t];$("verL").textContent=t==="food"?"Phone number used for the order":"Email or phone used for the order";}
+document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){setTab(b.dataset.t)}});
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+$("f").onsubmit=function(e){e.preventDefault();
+var id=$("oid").value.trim(),v=$("ver").value.trim().toLowerCase(),bad=false;
+$("e1").textContent=$("e2").textContent="";
+if(!id){$("e1").textContent="Please enter your order number.";bad=true}
+else if(!/^[A-Za-z0-9-]{4,30}$/.test(id)){$("e1").textContent="Order numbers use letters, numbers and hyphens only.";bad=true}
+if(!v){$("e2").textContent="Please enter the email or phone used for the order.";bad=true}
+else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)&&!/^\+?[0-9]{8,15}$/.test(v)){$("e2").textContent="Enter a valid email address or phone number.";bad=true}
+if(bad)return;
+var o=DB[type][id.toUpperCase()];var r=$("res");r.hidden=false;
+if(!o||o.v!==v){r.innerHTML="<p style='margin:0'><strong>We couldn't find an order matching those details.</strong> Please check your information and try again.</p>";return}
+var h=o.hist,last=h.length-1,html="<span class='badge'>SAMPLE DATA</span> ";
+var status=o.cancel?o.cancel[0]:h[last][0];
+html+="<span class='badge"+(o.cancel?" bad":"")+"'>"+esc(status)+"</span>";
+html+="<div style='margin-top:12px'>";
+[["Order number",id.toUpperCase()],["Order type",type==="food"?"Food Restro":"Mini Store"],["Order date",o.date],["Items",o.items],[type==="food"?"Fulfilment":"Delivery method",o.method]].forEach(function(p){html+="<div class='row'><span>"+p[0]+"</span><span>"+esc(p[1])+"</span></div>"});
+if(type==="mini"){html+="<div class='row'><span>Shipment</span><span>"+(o.ship?esc(o.ship.carrier)+" · "+esc(o.ship.no):"Not yet shipped")+"</span></div>"}
+html+="<div class='row'><span>Estimated delivery</span><span>Not available</span></div></div>";
+html+="<ol class='tl'>";
+o.steps.forEach(function(s,i){var h2=o.hist.filter(function(x){return x[0]===s})[0],c="";
+if(h2){c=(i===last&&!o.cancel)?"cur":"done"}
+html+="<li class='"+c+"'>"+s+(h2?"<small>"+esc(h2[1])+"</small>":"")+"</li>"});
+if(o.cancel)html+="<li class='x'>"+o.cancel[0]+"<small>"+esc(o.cancel[1])+"</small></li>";
+html+="</ol>";
+if(o.note)html+="<p class='hint'>"+esc(o.note)+"</p>";
+html+="<a class='btn alt' href='contact.html'>Need help? Contact support</a>";
+r.innerHTML=html;r.scrollIntoView({behavior:"smooth",block:"start"});};
+setTab("mini");
+})();
+</script>
+</body>
+</html>

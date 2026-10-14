@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoGlobalMart Help Center</title>
+<meta name="description" content="Find help with affiliate shopping, orders, payments, accounts and policies on GoGlobalMart.">
+<link rel="canonical" href="https://goglobalmart.me/help-center.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#16171a; --char2:#212329; --ivory:#f6f3ec; --paper:#fffdf8; --ink:#1d1e22; --muted:#5d5f66;
+  --gold:#b8913a; --gold-soft:#e6d4a6; --line:#e3ddcc; --warn-bg:#fbf1d6; --warn-ink:#5b4300;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font:16px/1.6 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#111;padding:8px 14px;z-index:99}
+.skip:focus{left:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* header */
+.top{background:var(--char);color:#eee}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--serif);font-size:1.25rem;text-decoration:none;color:#fff}
+.brand span{color:var(--gold-soft)}
+.top nav a{color:#cfcfd2;text-decoration:none;margin-left:20px;font-size:.92rem}
+.top nav a:hover{color:#fff}
+
+/* hero */
+.hero{background:var(--char);color:#fff;padding:56px 0 64px;border-bottom:3px solid var(--gold)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;margin:0 0 14px;letter-spacing:-.01em}
+.hero p{max-width:56ch;color:#c9c9cd;margin:0 0 28px}
+.search{position:relative;max-width:640px}
+.search input{width:100%;padding:16px 92px 16px 48px;font:inherit;border-radius:10px;border:1px solid #444;background:#fff;color:#111}
+.search svg{position:absolute;left:16px;top:17px;width:20px;height:20px;stroke:#666;fill:none;stroke-width:2}
+.search button{position:absolute;right:8px;top:8px;bottom:8px;padding:0 14px;border:0;border-radius:7px;background:var(--char2);color:#fff;font:inherit;font-size:.9rem;cursor:pointer}
+.search button[hidden]{display:none}
+
+main{padding:40px 0 72px;min-height:50vh}
+h2{font-family:var(--serif);font-weight:500;font-size:1.75rem;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 22px}
+section{margin-bottom:48px}
+
+/* topics: a plain list, not a card grid */
+.topics{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));border-top:1px solid var(--line)}
+.topics li{border-bottom:1px solid var(--line)}
+.topics a{display:block;padding:14px 8px;text-decoration:none;font-weight:500}
+.topics a:hover{background:var(--paper);color:#000}
+.topics small{display:block;color:var(--muted);font-weight:400}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.cat{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px 22px;display:flex;flex-direction:column}
+.cat h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:0 0 6px}
+.cat p{margin:0 0 12px;color:var(--muted);font-size:.95rem}
+.cat ul{margin:0 0 14px;padding-left:18px;font-size:.93rem}
+.cat a.more{margin-top:auto;font-weight:600;color:#7a5c14}
+.tag{display:inline-block;font-size:.78rem;background:var(--warn-bg);color:var(--warn-ink);padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle;font-family:var(--sans);font-weight:500}
+
+/* filters + results */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.chip{border:1px solid var(--line);background:var(--paper);padding:6px 14px;border-radius:99px;font:inherit;font-size:.9rem;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--char);color:#fff;border-color:var(--char)}
+.results{list-style:none;margin:0;padding:0}
+.results li{border-bottom:1px solid var(--line)}
+.results a{display:block;padding:14px 8px;text-decoration:none}
+.results a:hover,.results a:focus-visible{background:var(--paper)}
+.results b{display:block;font-weight:600}
+.results span{color:var(--muted);font-size:.9rem}
+.empty{background:var(--paper);border:1px dashed var(--gold);border-radius:6px;padding:28px;text-align:center}
+
+/* article */
+.crumbs{font-size:.9rem;color:var(--muted);margin-bottom:18px}
+.crumbs a{color:#7a5c14}
+article h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;margin:0 0 10px}
+article .lede{font-size:1.1rem;color:var(--muted);max-width:62ch;margin:0 0 24px}
+.notice{background:var(--warn-bg);color:var(--warn-ink);border-left:4px solid var(--gold);padding:14px 18px;border-radius:4px;margin:0 0 24px;max-width:70ch}
+details{background:var(--paper);border:1px solid var(--line);border-radius:6px;margin-bottom:10px;max-width:760px}
+summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details .ans{padding:0 18px 16px;max-width:66ch}
+details .ans p{margin:0 0 10px}
+.ans ul,.ans ol{padding-left:20px;margin:0 0 10px}
+.related{margin-top:36px;max-width:760px}
+.related ul{padding-left:18px}
+.contact{margin-top:36px;padding:22px;background:var(--char);color:#eee;border-radius:6px;max-width:760px}
+.contact h2{color:#fff;font-size:1.3rem}
+.contact p{margin:0 0 14px;color:#c9c9cd}
+.btn{display:inline-block;background:var(--gold);color:#16171a;font-weight:600;text-decoration:none;padding:10px 20px;border-radius:7px}
+.btn:hover{background:var(--gold-soft)}
+.safe{font-size:.88rem;color:#a9a9ae;margin-top:12px}
+
+footer{background:var(--char);color:#a9a9ae;padding:28px 0;font-size:.9rem}
+footer a{color:#d8d8dc}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:560px){.top nav a:not(:last-child){display:none}.hero{padding:40px 0 48px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero h1{animation:rise .5s ease-out both}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#/">GoGlobal<span>Mart</span> Help</a>
+    <nav aria-label="Site"><a href="https://goglobalmart.me/">Back to store</a><a href="contact.html">Contact Us</a></nav>
+  </div>
+</header>
+
+<div class="hero" id="hero">
+  <div class="wrap">
+    <h1>How can we help you?</h1>
+    <p>Find guidance on shopping through our partner platforms, orders, payments, accounts and policies.</p>
+    <form class="search" role="search" id="searchForm" autocomplete="off">
+      <label class="sr" for="q">Search the Help Center</label>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search for orders, payments, returns, or other help…" aria-controls="view">
+      <button type="button" id="clear" hidden>Clear</button>
+    </form>
+  </div>
+</div>
+
+<main id="main" tabindex="-1"><div class="wrap" id="view" aria-live="polite"></div></main>
+
+<footer>
+  <div class="wrap">
+    <span>© GoGlobal Mart. We earn from qualifying purchases.</span>
+    <span><a href="privacy-policy.html">Privacy</a> · <a href="terms-service.html">Terms</a> · <a href="affiliate-disclosure.html">Affiliate Disclosure</a> · <a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG — edit this block. Everything below renders from it.
+   Links point to pages that were verified on goglobalmart.me.
+   ============================================================ */
+const SITE = "https://goglobalmart.me/";
+const L = {
+  contact: SITE + "contact.html",
+  track:   SITE + "track-order.html",
+  privacy: SITE + "privacy-policy.html",
+  terms:   SITE + "terms-service.html",
+  affiliate: SITE + "affiliate-disclosure.html",
+  profile: SITE + "profile.html"
+};
+/* Set to true ONLY after the section is live and you have filled in its answers. */
+const LIVE = { miniStore: false, food: false };
+
+const a = (href, text) => `<a href="${href}">${text}</a>`;
+const NOT_LIVE = name => `<p>${name} is not available on goglobalmart.me yet, so there are no ordering, payment or support steps to follow. This page will be updated when it launches.</p>`;
+
+const CATEGORIES = [
+ { slug:"getting-started", title:"Getting Started", blurb:"What GoGlobalMart is and how to find your way around.",
+   summary:"A short guide to GoGlobalMart and where to find things.",
+   items:[
+   {q:"What is GoGlobalMart?", k:"about overview compare prices amazon flipkart meesho myntra",
+    a:`<p>GoGlobalMart is a deal-discovery website. It lists products and offers from Amazon, Flipkart, Meesho and Myntra in one place so you can compare before you buy.</p>`},
+   {q:"How do the three sections work?", k:"affiliate mini store food restro sections",
+    a:`<p>GoGlobalMart is organised into three sections, and each works differently:</p><ul><li><b>Affiliate Shopping</b> – you browse here and buy on a partner platform. This is the section live on the website today.</li><li><b>Mini Store</b> – a direct store run by GoGlobalMart. Not available yet.</li><li><b>Food Restro</b> – food and restaurant services. Not available yet.</li></ul>`},
+   {q:"How can I navigate the website?", k:"menu wishlist categories fashion trending under 500",
+    a:`<p>Use the home page sections (Trending, Under ₹500, Electronics, Fashion) to browse. Tap the heart on a product to save it to your Wishlist. The footer has quick links to Track Order, Address Helper and Fashion.</p>`},
+   {q:"Where can I find the policies?", k:"policy privacy terms affiliate disclosure legal",
+    a:`<p>Policies live in the footer under Legal: ${a(L.privacy,"Privacy Policy")}, ${a(L.terms,"Terms of Service")} and ${a(L.affiliate,"Affiliate Disclosure")}. See also <a href="#/policies">Website Policies</a>.</p>`},
+   {q:"How do I contact support?", k:"contact help email form support",
+    a:`<p>Use the ${a(L.contact,"Contact Us page")}. Tell us which section your question is about (Affiliate Shopping or General) so we can help faster.</p>`}
+ ]},
+ { slug:"affiliate-shopping", title:"Affiliate Shopping", blurb:"Buying through Amazon, Flipkart, Meesho and Myntra links.",
+   summary:"How buying through partner platforms works, and who to contact for what.",
+   items:[
+   {q:"How do affiliate links work?", k:"commission earn partner link",
+    a:`<p>Many products on GoGlobalMart link to a partner platform. If you buy after clicking, GoGlobalMart may earn a commission. Read the ${a(L.affiliate,"Affiliate Disclosure")} for details.</p>`},
+   {q:"Why am I redirected to another seller?", k:"redirect external website amazon flipkart",
+    a:`<p>GoGlobalMart does not sell these products. When you tap Buy, you are taken to the seller's own website or app, where you complete the purchase.</p>`},
+   {q:"Who handles an affiliate order?", k:"order seller responsible shipping payment",
+    a:`<p>The platform you bought from handles payment, shipping, order tracking, returns and refunds. GoGlobalMart cannot see or change those orders.</p>`},
+   {q:"How do I track an external purchase?", k:"track order status external",
+    a:`<p>Open the order in your account on the platform where you bought it (for example the Amazon or Flipkart app). Their tracking is the accurate source.</p>`},
+   {q:"Who handles returns and refunds?", k:"return refund replace affiliate",
+    a:`<p>The seller or platform. Follow the return steps in your order on that platform. GoGlobalMart cannot issue refunds for purchases it did not process.</p>`},
+   {q:"Why might a seller's price differ from the price shown on GoGlobalMart?", k:"price different mismatch offer discount changed",
+    a:`<p>Sellers change prices and offers often, and GoGlobalMart may show an older price. The price on the seller's checkout page is the one you pay. Check it before you confirm.</p>`}
+ ]},
+ { slug:"mini-store", title:"Mini Store", blurb:"GoGlobalMart's own direct store.", live:"miniStore", name:"Mini Store",
+   summary:"Direct orders from GoGlobalMart. Availability is not confirmed yet.",
+   items:[]},
+ { slug:"food-restro", title:"Food Restro", blurb:"Food and restaurant services.", live:"food", name:"Food Restro",
+   summary:"Food ordering on GoGlobalMart. Availability is not confirmed yet.",
+   items:[]},
+ { slug:"payments-refunds", title:"Payments and Refunds", blurb:"Failed payments, duplicate charges and refund timing.",
+   summary:"What to do about payment problems, based on who processed the payment.",
+   items:[
+   {q:"What if payment succeeds but the order is not confirmed?", k:"payment deducted not confirmed failed money",
+    a:`<p>Check which site took the payment. For an affiliate purchase, contact that platform's support with your payment details. If the amount was debited and the order did not appear, your bank or payment app can also trace it.</p>`},
+   {q:"How do I report a duplicate charge?", k:"duplicate double charge twice",
+    a:`<p>Contact the platform or bank that processed the payment. GoGlobalMart does not process affiliate payments, so it cannot see these charges.</p>`},
+   {q:"How can I request a refund?", k:"refund request money back",
+    a:`<p>Request it from the platform where you paid, through the order page in your account there.</p>`},
+   {q:"Who processes refunds for external affiliate purchases?", k:"affiliate refund who",
+    a:`<p>The external seller or platform. GoGlobalMart is not involved in affiliate refunds.</p>`},
+   {q:"Why might a refund take time to appear?", k:"refund delay slow days bank",
+    a:`<p>Refund timing depends on the seller's review and your bank or payment method. The platform's refund page usually shows the expected timeline.</p>`}
+ ]},
+ { slug:"orders-delivery", title:"Orders and Delivery", blurb:"Order references, tracking and delays.",
+   summary:"Finding order details, tracking and handling delays.",
+   items:[
+   {q:"How do I find my order reference?", k:"order id number reference confirmation email",
+    a:`<p>The order number is in the confirmation email or SMS from the platform where you bought, and on its Orders page.</p>`},
+   {q:"How does order tracking work?", k:"track tracking order status",
+    a:`<p>For affiliate purchases, tracking is provided by the seller. GoGlobalMart also has a ${a(L.track,"Track Order page")} in the footer.</p>`},
+   {q:"Why has an order status not updated?", k:"status stuck not updating",
+    a:`<p>Statuses update when the seller or courier scans the parcel, which can lag. Check again later, then contact the seller if there is no change after their stated delivery window.</p>`},
+   {q:"What should I do if an order is delayed?", k:"delay late delivery not arrived",
+    a:`<p>Contact the seller through your order page. They control shipping and can raise it with the courier.</p>`},
+   {q:"How do affiliate orders differ from direct orders?", k:"difference direct affiliate mini store",
+    a:`<p>Affiliate orders are placed and fulfilled by external platforms. Direct orders would be placed with GoGlobalMart itself, which is not available yet.</p>`}
+ ]},
+ { slug:"account-privacy", title:"Accounts, Privacy and Security", blurb:"Personal information and keeping your account safe.",
+   summary:"How personal data is handled and how to report a concern.",
+   items:[
+   {q:"How does GoGlobalMart handle personal information?", k:"privacy data personal information",
+    a:`<p>The ${a(L.privacy,"Privacy Policy")} explains what is collected and how it is used. Read it for the authoritative answer.</p>`},
+   {q:"How do I manage cookie preferences?", k:"cookies preferences consent",
+    a:`<p>No separate Cookies Policy or preference page is published yet. Check the ${a(L.privacy,"Privacy Policy")}, and use your browser's cookie settings in the meantime.</p>`},
+   {q:"How can I get help with my account?", k:"account profile login help",
+    a:`<p>Open your ${a(L.profile,"profile page")}. If you cannot resolve the problem, use ${a(L.contact,"Contact Us")}.</p>`},
+   {q:"How can I report a privacy or security concern?", k:"report security privacy breach phishing scam",
+    a:`<p>Use ${a(L.contact,"Contact Us")} and describe what happened. Never include passwords, OTPs, full card numbers or CVV codes.</p>`}
+ ]},
+ { slug:"policies", title:"Website Policies", blurb:"Terms, privacy and disclosures.",
+   summary:"Links to the policies published on goglobalmart.me.",
+   items:[
+   {q:"Privacy Policy", k:"privacy policy data", a:`<p>${a(L.privacy,"Read the Privacy Policy")}.</p>`},
+   {q:"Terms of Service", k:"terms conditions service", a:`<p>${a(L.terms,"Read the Terms of Service")}.</p>`},
+   {q:"Affiliate Disclosure", k:"affiliate disclosure commission", a:`<p>${a(L.affiliate,"Read the Affiliate Disclosure")}.</p>`},
+   {q:"Cookies Policy, Disclaimer, and Return & Refund Policy", k:"cookies disclaimer return refund policy",
+    a:`<p>These pages are not published on the website yet. For returns and refunds on affiliate purchases, the seller's policy applies.</p>`}
+ ]}
+];
+
+const TOPICS = [
+ ["Track an Order","Seller tracking and the Track Order page","orders-delivery"],
+ ["Payment Problems","Failed or duplicate charges","payments-refunds"],
+ ["Returns and Refunds","Who handles what","payments-refunds"],
+ ["Affiliate Shopping","How buying through partners works","affiliate-shopping"],
+ ["Mini Store Orders","Not available yet","mini-store"],
+ ["Food Restro Orders","Not available yet","food-restro"],
+ ["Account and Privacy","Your data and security","account-privacy"],
+ ["Contact Support","Opens the Contact Us page",null]
+];
+
+/* ---------- build index ---------- */
+function itemsOf(c){
+  if(c.live && !LIVE[c.live]) return [];
+  return c.items;
+}
+const INDEX = [];
+CATEGORIES.forEach(c=>{
+  itemsOf(c).forEach((it,i)=>{
+    INDEX.push({cat:c.slug,catTitle:c.title,i,q:it.q,text:(it.a.replace(/<[^>]+>/g," ")),k:it.k||""});
+  });
+  if(c.live && !LIVE[c.live]) INDEX.push({cat:c.slug,catTitle:c.title,i:-1,q:c.title+": availability",text:c.name+" not available yet",k:c.title.toLowerCase()+" order orders"});
+});
+
+const $ = s => document.querySelector(s);
+const view = $("#view"), q = $("#q"), clearBtn = $("#clear");
+const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let activeCat = "all";
+
+/* ---------- search ---------- */
+function search(term,cat){
+  const words = term.toLowerCase().split(/\s+/).filter(Boolean);
+  return INDEX.map(r=>{
+    if(cat!=="all" && r.cat!==cat) return null;
+    const title=r.q.toLowerCase(), body=(r.text+" "+r.k).toLowerCase();
+    let score=0;
+    for(const w of words){
+      if(title.includes(w)) score+=3; else if(body.includes(w)) score+=1; else return null;
+    }
+    return {r,score};
+  }).filter(Boolean).sort((x,y)=>y.score-x.score).map(x=>x.r);
+}
+
+function renderResults(){
+  const term=q.value.trim();
+  const res = term||activeCat!=="all" ? (term?search(term,activeCat):INDEX.filter(r=>r.cat===activeCat)) : [];
+  const chips = `<div class="filters" role="group" aria-label="Filter by category">
+    <button class="chip" type="button" data-cat="all" aria-pressed="${activeCat==="all"}">All</button>
+    ${CATEGORIES.map(c=>`<button class="chip" type="button" data-cat="${c.slug}" aria-pressed="${activeCat===c.slug}">${c.title}</button>`).join("")}</div>`;
+  let html = `<h2>${term?`Results for “${esc(term)}”`:"Browse by category"}</h2>${chips}`;
+  if(!res.length){
+    html += `<div class="empty"><p><b>No help articles match${term?` “${esc(term)}”`:""}.</b></p>
+      <p>Try fewer words, such as “refund” or “tracking”, or clear the category filter.</p>
+      <p><button class="chip" type="button" id="resetBtn">Clear search and filters</button> ${a(L.contact,"Contact Us")}</p></div>`;
+  } else {
+    html += `<p class="sub">${res.length} result${res.length>1?"s":""}</p><ul class="results" id="resList">` +
+      res.map(r=>`<li><a href="#/${r.cat}${r.i>=0?"?open="+r.i:""}"><b>${esc(r.q)}</b><span>${esc(r.catTitle)}</span></a></li>`).join("")+`</ul>`;
+  }
+  view.innerHTML = html;
+}
+
+/* ---------- views ---------- */
+function renderHome(){
+  view.innerHTML = `
+  <section aria-labelledby="pt"><h2 id="pt">Popular help topics</h2><p class="sub">Common questions, answered.</p>
+   <ul class="topics">${TOPICS.map(t=>`<li><a href="${t[2]?"#/"+t[2]:L.contact}">${t[0]}<small>${t[1]}</small></a></li>`).join("")}</ul></section>
+  <section aria-labelledby="ct"><h2 id="ct">Help categories</h2><p class="sub">Pick a section to see all its questions.</p>
+   <div class="cats">${CATEGORIES.map(c=>{
+     const live=!c.live||LIVE[c.live];
+     return `<div class="cat"><h3>${c.title}${live?"":'<span class="tag">Not available yet</span>'}</h3><p>${c.blurb}</p>
+      ${live?`<ul>${c.items.slice(0,3).map(it=>`<li>${esc(it.q)}</li>`).join("")}</ul>`:""}
+      <a class="more" href="#/${c.slug}">${live?"View all "+c.items.length+" questions":"See availability"}</a></div>`;}).join("")}</div></section>`;
+}
+
+function renderArticle(slug,open){
+  const c = CATEGORIES.find(x=>x.slug===slug);
+  if(!c){ view.innerHTML=`<div class="empty"><p><b>That page does not exist.</b></p><p><a href="#/">Back to Help Center</a></p></div>`; return; }
+  const live=!c.live||LIVE[c.live];
+  document.title = c.title+" – GoGlobalMart Help Center";
+  const related = CATEGORIES.filter(x=>x.slug!==slug && (!x.live||LIVE[x.live])).slice(0,3);
+  view.innerHTML = `<article>
+   <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Help Center</a> / ${c.title}</nav>
+   <h1>${c.title}</h1><p class="lede">${c.summary}</p>
+   ${live?"":`<div class="notice" role="note"><b>Not available yet.</b> ${c.name} is not currently offered on goglobalmart.me, so we have not published ordering, payment or tracking steps. They will be added here once the section is live and verified.</div>`}
+   ${live?c.items.map((it,i)=>`<details id="q${i}" ${open===String(i)?"open":""}><summary>${it.q}</summary><div class="ans">${it.a}</div></details>`).join(""):""}
+   <div class="related"><h2>Related help</h2><ul>${related.map(r=>`<li><a href="#/${r.slug}">${r.title}</a></li>`).join("")}</ul></div>
+   <div class="contact"><h2>Still need help?</h2><p>If this page did not solve your problem, contact us.</p>
+     <a class="btn" href="${L.contact}">Contact Support</a>
+     <p class="safe">Never send passwords, OTPs, full card numbers or CVV codes.</p></div>
+  </article>`;
+  if(open!=null){ const el=document.getElementById("q"+open); if(el) el.scrollIntoView({block:"center"}); }
+}
+
+/* ---------- router ---------- */
+function route(){
+  const h = location.hash.replace(/^#\/?/,"");
+  const [path,qs] = h.split("?");
+  const open = new URLSearchParams(qs||"").get("open");
+  document.title = "GoGlobalMart Help Center";
+  $("#hero").hidden = !!path;
+  if(path){ renderArticle(path,open); window.scrollTo(0,0); if(open!=null) document.getElementById("q"+open)?.scrollIntoView({block:"center"}); }
+  else if(q.value.trim()||activeCat!=="all") renderResults();
+  else renderHome();
+}
+window.addEventListener("hashchange",route);
+
+q.addEventListener("input",()=>{
+  clearBtn.hidden=!q.value;
+  if(location.hash.replace(/^#\/?/,"")){ history.replaceState(null,"",location.pathname+location.search); $("#hero").hidden=false; }
+  q.value.trim()||activeCat!=="all" ? renderResults() : renderHome();
+});
+$("#searchForm").addEventListener("submit",e=>{e.preventDefault();renderResults();});
+function resetAll(){ q.value=""; activeCat="all"; clearBtn.hidden=true; renderHome(); q.focus(); }
+clearBtn.addEventListener("click",resetAll);
+
+view.addEventListener("click",e=>{
+  const chip=e.target.closest("[data-cat]");
+  if(chip){ activeCat=chip.dataset.cat; renderResults(); view.querySelector(`[data-cat="${activeCat}"]`)?.focus(); }
+  if(e.target.id==="resetBtn") resetAll();
+});
+
+/* keyboard: ArrowDown from search into results, arrows within, "/" focuses search, Escape clears */
+document.addEventListener("keydown",e=>{
+  const tag=document.activeElement.tagName;
+  if(e.key==="/" && tag!=="INPUT"){ e.preventDefault(); q.focus(); return; }
+  if(e.key==="Escape" && document.activeElement===q && q.value){ resetAll(); return; }
+  const links=[...view.querySelectorAll("#resList a")];
+  if(!links.length) return;
+  const i=links.indexOf(document.activeElement);
+  if(e.key==="ArrowDown"){
+    if(document.activeElement===q){ e.preventDefault(); links[0].focus(); }
+    else if(i>-1 && i<links.length-1){ e.preventDefault(); links[i+1].focus(); }
+  } else if(e.key==="ArrowUp" && i>-1){ e.preventDefault(); (i===0?q:links[i-1]).focus(); }
+});
+
+route();
+</script>
+</body>
+</html>

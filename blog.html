@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The GoGlobalMart Journal — Luxury Insights in Shopping, Retail & Dining</title>
+    <meta name="description" content="Discover curated insights, price comparison strategies, verified direct retail guides, and culinary stories across GoGlobalMart: Affiliate Deals, Mini Store, and Food Restro.">
+    <meta name="keywords" content="GoGlobalMart blog, luxury shopping guide, price comparison india, mini store guide, food restro reviews, smart shopping tips">
+    <meta name="author" content="GoGlobalMart Editorial Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goglobalmart.me/blog.html">
+    <meta property="og:title" content="The GoGlobalMart Journal — Editorial Insights & Shopping Wisdom">
+    <meta property="og:description" content="Explore expert buying guides, dining stories, and smart multi-platform deal strategies across GoGlobalMart.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The GoGlobalMart Journal — Editorial Insights & Shopping Wisdom">
+    <meta name="twitter:description" content="Explore expert buying guides, dining stories, and smart multi-platform deal strategies across GoGlobalMart.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop">
+
+    <link rel="canonical" href="https://goglobalmart.me/blog.html">
+    <link rel="icon" type="image/png" href="fevicon.png">
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+
+    <!-- Typography: Playfair Display + Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "The GoGlobalMart Journal",
+      "description": "Editorial guides, shopping analysis, and dining insights across GoGlobalMart's three distinct business pillars.",
+      "url": "https://goglobalmart.me/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GoGlobalMart",
+        "url": "https://goglobalmart.me",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://goglobalmart.me/fevicon.png"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           LUXURY THEME DESIGN TOKENS & RESET
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-deep: #07090E;
+            --bg-card: #0F131C;
+            --bg-card-hover: #161C28;
+            --bg-surface: #141824;
+            --bg-glass: rgba(15, 19, 28, 0.85);
+
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-muted: #997A23;
+            --gold-border: rgba(212, 175, 55, 0.28);
+            --gold-gradient: linear-gradient(135deg, #ECC870 0%, #D4AF37 50%, #A67C1E 100%);
+            --gold-glow: 0 0 35px rgba(212, 175, 55, 0.15);
+
+            --text-ivory: #FAF8F5;
+            --text-secondary: #B8BCC8;
+            --text-muted: #7A8194;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-pill: 9999px;
+            --container-max: 1240px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-deep);
+            color: var(--text-ivory);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(circle at 50% 0%, #151A27 0%, var(--bg-deep) 65%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==========================================================================
+           TOP STRIP: THREE PILLARS EXPERIENCE NAVIGATION
+           ========================================================================== */
+        .utility-strip {
+            background: rgba(11, 14, 21, 0.95);
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 8px 0;
+            letter-spacing: 0.04em;
+        }
+
+        .utility-strip .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .experience-pills {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .experience-pills a {
+            color: var(--text-secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .experience-pills a:hover {
+            color: var(--gold-primary);
+        }
+
+        .experience-pills a.active-exp {
+            color: var(--gold-light);
+            border-bottom: 1px solid var(--gold-primary);
+        }
+
+        /* ==========================================================================
+           MAIN LUXURY HEADER
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .site-header.scrolled {
+            background: rgba(7, 9, 14, 0.96);
+            border-bottom-color: var(--gold-border);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 78px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-emblem {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #07090E;
+            font-size: 1.35rem;
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-ivory);
+            line-height: 1.1;
+        }
+
+        .logo-title span {
+            color: var(--gold-primary);
+        }
+
+        .logo-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-item {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--text-ivory);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold-gradient);
+            border-radius: 2px;
+        }
+
+        .gold-btn {
+            background: var(--gold-gradient);
+            color: #07090E;
+            padding: 9px 22px;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
+        }
+
+        .gold-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
+            color: #07090E;
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .journal-hero {
+            padding: 60px 0 35px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            border-radius: var(--radius-pill);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-border);
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text-ivory);
+            margin-bottom: 18px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            max-width: 680px;
+            margin: 0 auto 36px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* LIVE SEARCH BAR */
+        .search-wrapper {
+            max-width: 580px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            height: 54px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-pill);
+            padding: 0 54px 0 24px;
+            font-size: 0.95rem;
+            color: var(--text-ivory);
+            outline: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .search-bar:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .search-bar::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ==========================================================================
+           CATEGORY FILTER NAVIGATION
+           ========================================================================== */
+        .category-nav-section {
+            margin: 30px 0 45px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: thin;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: nowrap;
+            min-width: max-content;
+            margin: 0 auto;
+        }
+
+        .cat-tab {
+            padding: 9px 20px;
+            border-radius: var(--radius-pill);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cat-tab:hover {
+            color: var(--text-ivory);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .cat-tab.active {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           FEATURED LEAD EDITORIAL
+           ========================================================================== */
+        .featured-editorial {
+            margin-bottom: 60px;
+        }
+
+        .lead-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .lead-card:hover {
+            border-color: var(--gold-border);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), var(--gold-glow);
+        }
+
+        .lead-image-wrap {
+            position: relative;
+            overflow: hidden;
+            min-height: 380px;
+        }
+
+        .lead-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .lead-card:hover .lead-image-wrap img {
+            transform: scale(1.04);
+        }
+
+        .lead-content {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge-pill {
+            align-self: flex-start;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-border);
+            color: var(--gold-light);
+            margin-bottom: 16px;
+        }
+
+        .lead-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+            line-height: 1.25;
+            color: var(--text-ivory);
+            margin-bottom: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .lead-title:hover {
+            color: var(--gold-light);
+        }
+
+        .lead-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .meta-strip {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .meta-strip span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ==========================================================================
+           LATEST ARTICLES GRID
+           ========================================================================== */
+        .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-ivory);
+        }
+
+        .articles-count {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-border);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-thumbnail {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .card-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .article-card:hover .card-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-category-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            line-height: 1.35;
+            color: var(--text-ivory);
+            margin-bottom: 12px;
+            transition: color 0.2s ease;
+        }
+
+        .article-card:hover .card-title {
+            color: var(--gold-light);
+        }
+
+        .card-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer-meta {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 14px;
+        }
+
+        .read-link {
+            color: var(--gold-primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .read-link:hover {
+            color: var(--gold-light);
+        }
+
+        /* EMPTY SEARCH STATE */
+        .empty-state {
+            text-align: center;
+            padding: 70px 20px;
+            grid-column: 1 / -1;
+            display: none;
+        }
+
+        .empty-state.show {
+            display: block;
+        }
+
+        .empty-icon {
+            font-size: 3rem;
+            color: var(--gold-muted);
+            margin-bottom: 16px;
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* ==========================================================================
+           ARTICLE DETAIL / READER VIEW (SPA VIEW)
+           ========================================================================== */
+        #articleDetailView {
+            display: none;
+            padding: 40px 0 80px;
+        }
+
+        #articleDetailView.active {
+            display: block;
+        }
+
+        #journalFeedView.hidden {
+            display: none;
+        }
+
+        .reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gold-gradient);
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .detail-breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .detail-breadcrumbs a:hover {
+            color: var(--gold-primary);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding: 8px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-pill);
+        }
+
+        .back-btn:hover {
+            background: var(--bg-surface);
+            border-color: var(--gold-border);
+            color: var(--gold-light);
+        }
+
+        .detail-hero-header {
+            max-width: 860px;
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+
+        .detail-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.2;
+            color: var(--text-ivory);
+            margin: 16px 0 20px;
+        }
+
+        .detail-cover-img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 48px;
+        }
+
+        .article-layout-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            height: fit-content;
+        }
+
+        .toc-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .toc-box h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+
+        .toc-list a {
+            color: var(--text-secondary);
+            line-height: 1.4;
+            display: block;
+        }
+
+        .toc-list a:hover {
+            color: var(--gold-primary);
+        }
+
+        .share-box {
+            margin-top: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+
+        .share-box h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .share-btn:hover {
+            color: var(--gold-primary);
+            border-color: var(--gold-border);
+        }
+
+        .article-body-content {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: #D3D7E2;
+        }
+
+        .lead-paragraph {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-ivory);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .lead-paragraph::first-letter {
+            font-family: var(--font-serif);
+            font-size: 3.8rem;
+            float: left;
+            line-height: 0.8;
+            margin: 6px 14px 0 0;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+
+        .article-body-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--text-ivory);
+            margin: 40px 0 16px;
+            scroll-margin-top: 100px;
+        }
+
+        .article-body-content p {
+            margin-bottom: 22px;
+        }
+
+        .editorial-callout {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 3px solid var(--gold-primary);
+            padding: 22px 26px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 32px 0;
+            font-style: italic;
+            color: var(--text-ivory);
+        }
+
+        /* ==========================================================================
+           NEWSLETTER SUBSCRIPTION SECTION
+           ========================================================================== */
+        .newsletter-section {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-border);
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
+            margin: 40px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--gold-glow);
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .nl-title {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--text-ivory);
+            margin-bottom: 12px;
+        }
+
+        .nl-desc {
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto 30px;
+            font-size: 0.95rem;
+        }
+
+        .nl-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 12px;
+        }
+
+        .nl-input {
+            flex: 1;
+            height: 48px;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-pill);
+            padding: 0 20px;
+            color: var(--text-ivory);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .nl-input:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .nl-disclaimer {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+        }
+
+        /* ==========================================================================
+           COMMON LUXURY FOOTER
+           ========================================================================== */
+        .site-footer {
+            background: #040609;
+            border-top: 1px solid var(--border-subtle);
+            padding: 70px 0 30px;
+            margin-top: auto;
+            color: var(--text-secondary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 48px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand-col p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin: 18px 0 22px;
+            line-height: 1.7;
+            max-width: 340px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+
+        .social-link:hover {
+            color: var(--gold-primary);
+            border-color: var(--gold-border);
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-ivory);
+            margin-bottom: 20px;
+            letter-spacing: 0.03em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--gold-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast-notify {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--bg-surface);
+            border: 1px solid var(--gold-border);
+            color: var(--text-ivory);
+            padding: 14px 22px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .toast-notify.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .lead-card {
+                grid-template-columns: 1fr;
+            }
+            .lead-content {
+                padding: 32px;
+            }
+            .article-layout-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-sidebar {
+                position: static;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav, .experience-pills {
+                display: none;
+            }
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .nl-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Reading Progress Indicator -->
+    <div id="readingProgress" class="reading-progress-bar"></div>
+
+    <!-- Top Utility Experience Switcher -->
+    <div class="utility-strip">
+        <div class="container">
+            <span>The GoGlobalMart Ecosystem & Journal</span>
+            <div class="experience-pills">
+                <a href="index.html" title="Affiliate shopping across Amazon, Flipkart, Myntra, Meesho">
+                    <span class="iconify" data-icon="mdi:shopping-outline"></span> Affiliate Shopping
+                </a>
+                <a href="mini-home.html" title="Direct e-commerce retail store">
+                    <span class="iconify" data-icon="mdi:storefront-outline"></span> Mini Store
+                </a>
+                <a href="food-home.html" title="Food ordering & restaurant discovery">
+                    <span class="iconify" data-icon="mdi:silverware-fork-knife"></span> Food Restro
+                </a>
+                <a href="blog.html" class="active-exp" title="Shared luxury blog">
+                    <span class="iconify" data-icon="mdi:newspaper-variant-outline"></span> The Journal
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Luxury Navigation Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="blog.html" class="brand-logo" onclick="showFeedView(event)">
+                    <div class="logo-emblem">
+                        <span class="iconify" data-icon="mdi:feather"></span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">GoGlobal<span>Mart</span></span>
+                        <span class="logo-tag">The Journal</span>
+                    </div>
+                </a>
+
+                <nav class="desktop-nav">
+                    <a href="#" class="nav-item active" onclick="filterArticles('all', event)">All Stories</a>
+                    <a href="#" class="nav-item" onclick="filterArticles('Affiliate Shopping', event)">Affiliate Deals</a>
+                    <a href="#" class="nav-item" onclick="filterArticles('Mini Store', event)">Mini Store</a>
+                    <a href="#" class="nav-item" onclick="filterArticles('Food Restro', event)">Food Restro</a>
+                    <a href="#" class="nav-item" onclick="filterArticles('Shopping Guides', event)">Buying Guides</a>
+                </nav>
+
+                <div class="nav-actions">
+                    <a href="#newsletterSection" class="gold-btn">
+                        <span class="iconify" data-icon="mdi:email-outline"></span> Subscribe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container Content -->
+    <main class="container">
+
+        <!-- ==========================================================================
+             VIEW 1: JOURNAL FEED VIEW
+             ========================================================================== -->
+        <div id="journalFeedView">
+            
+            <!-- Hero Editorial Section -->
+            <section class="journal-hero">
+                <div class="hero-badge">
+                    <span class="iconify" data-icon="mdi:compass-rose"></span> Curated Editorial Edition
+                </div>
+                <h1 class="hero-title">The GoGlobalMart <em>Journal</em></h1>
+                <p class="hero-subtitle">
+                    Discover ideas, insights, and inspiration for smarter shopping, better living, and memorable food experiences.
+                </p>
+
+                <!-- Search Input -->
+                <div class="search-wrapper">
+                    <input type="text" id="journalSearchInput" class="search-bar" placeholder="Search guides, comparison strategies, culinary stories..." oninput="handleSearch(this.value)">
+                    <button class="search-icon-btn" aria-label="Search articles">
+                        <span class="iconify" data-icon="mdi:magnify"></span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Sticky Category Filter Navigation -->
+            <nav class="category-nav-section" aria-label="Blog categories">
+                <div class="category-tabs" id="categoryTabs">
+                    <button class="cat-tab active" data-cat="all" onclick="filterArticles('all', event)">
+                        <span class="iconify" data-icon="mdi:view-grid-outline"></span> All Articles
+                    </button>
+                    <button class="cat-tab" data-cat="Affiliate Shopping" onclick="filterArticles('Affiliate Shopping', event)">
+                        <span class="iconify" data-icon="mdi:tag-outline"></span> Affiliate Shopping
+                    </button>
+                    <button class="cat-tab" data-cat="Mini Store" onclick="filterArticles('Mini Store', event)">
+                        <span class="iconify" data-icon="mdi:store-outline"></span> Mini Store
+                    </button>
+                    <button class="cat-tab" data-cat="Food Restro" onclick="filterArticles('Food Restro', event)">
+                        <span class="iconify" data-icon="mdi:silverware-clean"></span> Food Restro
+                    </button>
+                    <button class="cat-tab" data-cat="Shopping Guides" onclick="filterArticles('Shopping Guides', event)">
+                        <span class="iconify" data-icon="mdi:book-open-page-variant-outline"></span> Shopping Guides
+                    </button>
+                    <button class="cat-tab" data-cat="Lifestyle & Tips" onclick="filterArticles('Lifestyle & Tips', event)">
+                        <span class="iconify" data-icon="mdi:white-balance-sunny"></span> Lifestyle & Tips
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Featured Editorial Lead Article -->
+            <section class="featured-editorial" id="featuredSection"></section>
+
+            <!-- Latest Articles Grid -->
+            <section>
+                <div class="section-header-row">
+                    <h2 class="section-title" id="gridHeading">Latest Editorial Dispatches</h2>
+                    <span class="articles-count" id="articlesCount">Showing stories</span>
+                </div>
+
+                <div class="articles-grid" id="articlesGrid"></div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">
+                        <span class="iconify" data-icon="mdi:text-box-search-outline"></span>
+                    </div>
+                    <h3>No Articles Found</h3>
+                    <p>We could not find any journal entries matching your search. Try another keyword or reset the filter.</p>
+                    <button class="gold-btn" onclick="resetFilters()">Reset All Filters</button>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ==========================================================================
+             VIEW 2: ARTICLE DETAIL / READER VIEW (SPA MODAL / PAGE)
+             ========================================================================== -->
+        <article id="articleDetailView">
+            
+            <button class="back-btn" onclick="showFeedView()">
+                <span class="iconify" data-icon="mdi:arrow-left"></span> Back to Journal Feed
+            </button>
+
+            <nav class="detail-breadcrumbs" aria-label="Breadcrumb">
+                <a href="blog.html" onclick="showFeedView(event)">The Journal</a>
+                <span>/</span>
+                <span id="detailBreadcrumbCategory">Category</span>
+                <span>/</span>
+                <span id="detailBreadcrumbTitle" style="color:var(--text-ivory)">Article</span>
+            </nav>
+
+            <header class="detail-hero-header">
+                <span class="badge-pill" id="detailCategoryBadge">Category</span>
+                <h1 class="detail-title" id="detailHeading">Article Title</h1>
+                <div class="meta-strip" style="justify-content: center;">
+                    <span id="detailAuthor"><span class="iconify" data-icon="mdi:account-circle-outline"></span> By Editorial Desk</span>
+                    <span id="detailDate"><span class="iconify" data-icon="mdi:calendar-blank-outline"></span> Date</span>
+                    <span id="detailReadTime"><span class="iconify" data-icon="mdi:clock-outline"></span> 5 min read</span>
+                </div>
+            </header>
+
+            <img id="detailCoverImage" class="detail-cover-img" src="" alt="Article Banner">
+
+            <div class="article-layout-grid">
+                <!-- Sticky Sidebar with Table of Contents & Sharing -->
+                <aside class="article-sidebar">
+                    <div class="toc-box">
+                        <h4><span class="iconify" data-icon="mdi:format-list-bulleted"></span> In This Story</h4>
+                        <ul class="toc-list" id="detailTocList"></ul>
+                    </div>
+
+                    <div class="share-box">
+                        <h4>Share Dispatch</h4>
+                        <div class="share-buttons">
+                            <button class="share-btn" onclick="copyArticleLink()" title="Copy Link">
+                                <span class="iconify" data-icon="mdi:link-variant"></span>
+                            </button>
+                            <button class="share-btn" onclick="shareTwitter()" title="Share on X / Twitter">
+                                <span class="iconify" data-icon="mdi:twitter"></span>
+                            </button>
+                            <button class="share-btn" onclick="shareWhatsApp()" title="Share on WhatsApp">
+                                <span class="iconify" data-icon="mdi:whatsapp"></span>
+                            </button>
+                            <button class="share-btn" onclick="shareLinkedIn()" title="Share on LinkedIn">
+                                <span class="iconify" data-icon="mdi:linkedin"></span>
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Full Story Body -->
+                <div class="article-body-content" id="detailBodyContent"></div>
+            </div>
+
+            <!-- Related Articles Row -->
+            <section style="margin-top: 80px; border-top: 1px solid var(--border-subtle); padding-top: 48px;">
+                <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 24px;">Recommended Reading in This Section</h3>
+                <div class="articles-grid" id="relatedArticlesGrid"></div>
+            </section>
+
+        </article>
+
+        <!-- Newsletter Subscription Box (Interactive Demo) -->
+        <section class="newsletter-section" id="newsletterSection">
+            <h2 class="nl-title">Subscribe to The GoGlobalMart Gazette</h2>
+            <p class="nl-desc">
+                Receive weekly deal intelligence, product inspection protocols, and culinary restaurant secrets directly to your inbox.
+            </p>
+            <form class="nl-form" onsubmit="handleNewsletterSubmit(event)">
+                <input type="email" id="nlEmailInput" class="nl-input" placeholder="Enter your preferred email address..." required>
+                <button type="submit" class="gold-btn">Join Readers</button>
+            </form>
+            <p class="nl-disclaimer">
+                Frontend preview: Ready for Mailchimp, Brevo, or Supabase backend. We respect privacy. Unsubscribe anytime.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Unified GoGlobalMart Luxury Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand-col">
+                    <div class="brand-logo">
+                        <div class="logo-emblem">
+                            <span class="iconify" data-icon="mdi:shopping"></span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">GoGlobal<span>Mart</span></span>
+                            <span class="logo-tag">The Journal</span>
+                        </div>
+                    </div>
+                    <p>
+                        Your trusted Indian companion for cross-platform price intelligence, direct lifestyle goods, and authentic regional culinary discoveries.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/classy.vicky21?stkn=MTVrbnAxZzBzMzdsbA==" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+                            <span class="iconify" data-icon="mdi:instagram"></span>
+                        </a>
+                        <a href="https://youtube.com/@codingclub81?si=PsHvNhzRtcXCfSHD" target="_blank" rel="noopener noreferrer" class="social-link" title="YouTube">
+                            <span class="iconify" data-icon="mdi:youtube"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Three Experiences</h4>
+                    <ul>
+                        <li><a href="index.html">Affiliate Deals Hub</a></li>
+                        <li><a href="mini-home.html">GoGlobal Mini Store</a></li>
+                        <li><a href="food-home.html">Food Restro & Dining</a></li>
+                        <li><a href="fashions.html">Trending Fashion</a></li>
+                        <li><a href="blog.html" style="color:var(--gold-primary)">The Shared Journal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        
+                        <li><a href="contact.html">Contact Support</a></li>
+                        <li><a href="https://goglobalmart.me/#under500">Under ₹500 Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Transparency & Legal</h4>
+                    <ul>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GoGlobalMart.me. All rights reserved. Designed with luxury editorial aesthetics.</p>
+                <div class="footer-bottom-links">
+                    <a href="affiliate-disclosure.html">Affiliate Transparency</a>
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-service.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div id="toastNotify" class="toast-notify">
+        <span class="iconify" data-icon="mdi:check-circle" style="color:var(--gold-primary); font-size:1.3rem;"></span>
+        <span id="toastMsg">Notification message</span>
+    </div>
+
+    <!-- ==========================================================================
+         CLIENT JAVASCRIPT & STATE MANAGEMENT
+         ========================================================================== -->
+    <script>
+        const articles = [
+          {
+            "id": "art-1",
+            "slug": "smart-price-tracking-tactics",
+            "category": "Affiliate Shopping",
+            "title": "The Art of Multi-Platform Price Tracking: Uncovering True Online Discounts",
+            "excerpt": "Why a 70% off banner is rarely what it seems, and how to verify real historical price drops across Amazon, Flipkart, Myntra, and Meesho before you buy.",
+            "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop",
+            "date": "October 8, 2026",
+            "readTime": "6 min read",
+            "author": "GoGlobalMart Editorial",
+            "featured": true,
+            "toc": [
+              {"id": "sec-1", "title": "The Illusion of Artificial Markups"},
+              {"id": "sec-2", "title": "Tracking Platform Price Fluctuations"},
+              {"id": "sec-3", "title": "Comparing Return Windows & Delivery Fees"},
+              {"id": "sec-4", "title": "Affiliate Disclosure & Transparency"}
+            ],
+            "content": `
+              <p class="lead-paragraph">In modern e-commerce, the flashiest discounts are often crafted illusions. A product marked down from ₹3,999 to ₹999 may have never actually retailed at the higher figure. For savvy shoppers, navigating India's vibrant multi-platform retail space requires a systematic eye for genuine price trends.</p>
+              <h3 id="sec-1">1. The Illusion of Artificial Markups</h3>
+              <p>Major annual sales events like Amazon Great Indian Festival and Flipkart Big Billion Days bring genuine volume savings, but individual third-party marketplace sellers occasionally adjust reference prices upwards before applying discounts. By tracking SKU numbers and product variations across competing storefronts, buyers can identify genuine baseline valuations.</p>
+              <div class="editorial-callout">
+                <strong>Key Strategy:</strong> Always compare the same model number across at least two independent marketplaces. If a seller lists an earbud at ₹1,299 with a ₹4,000 crossed-out price on one portal, check whether another platform lists the baseline retail at ₹1,499. The real savings margin is ₹200, not ₹3,000.
+              </div>
+              <h3 id="sec-2">2. Tracking Platform Price Fluctuations</h3>
+              <p>Different platforms have distinct fee structures for merchants. Myntra specializes in curated apparel and frequently runs tier-based coupon codes, while Meesho operates on a low-commission direct-seller paradigm suited for unbranded daily essentials. Amazon and Flipkart compete fiercely on consumer electronics, smart watches, and home appliances, often algorithmically matching each other within hours.</p>
+              <h3 id="sec-3">3. Comparing Return Windows & Delivery Fees</h3>
+              <p>A ₹50 price difference between portals can be quickly negated if one platform charges mandatory shipping for orders under ₹500 or restricts return logistics. When using GoGlobalMart deal comparisons, we urge buyers to verify shipping eligibility and warranty registration before finalizing external checkouts.</p>
+              <h3 id="sec-4">4. Affiliate Disclosure & Transparency</h3>
+              <p>As part of our commitment to transparent shopping, GoGlobalMart features external affiliate links. When you click through and complete a purchase on Amazon, Flipkart, Myntra, or Meesho, we may earn an affiliate commission at no extra cost to you. We do not sell these affiliate items directly or fulfill shipments—all payments and fulfillment occur directly on the respective merchant platforms.</p>
+            `
+          },
+          {
+            "id": "art-2",
+            "slug": "mini-store-quality-checklist",
+            "category": "Mini Store",
+            "title": "Direct E-Commerce Essentials: How to Inspect & Care for Daily Lifestyle Goods",
+            "excerpt": "A practical unboxing and maintenance handbook for direct-store gadgets, smart stands, daily accessories, and home organization essentials.",
+            "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
+            "date": "October 5, 2026",
+            "readTime": "5 min read",
+            "author": "Retail Desk",
+            "featured": false,
+            "toc": [
+              {"id": "sec-1", "title": "The Unboxing Protocol"},
+              {"id": "sec-2", "title": "Prolonging Cable and Electronics Lifespan"},
+              {"id": "sec-3", "title": "Direct Store vs Third-Party Marketplaces"}
+            ],
+            "content": `
+              <p class="lead-paragraph">Shopping directly through the GoGlobalMart Mini Store brings curated daily products into your home. Making the most of direct retail purchases begins with an organized inspection routine upon arrival.</p>
+              <h3 id="sec-1">1. The Unboxing Protocol</h3>
+              <p>When your direct order arrives, record a 30-second continuous unboxing video while opening the outer packaging. This simple step provides indisputable documentation in the rare instance of transit damage or missing sub-components.</p>
+              <h3 id="sec-2">2. Prolonging Cable and Electronics Lifespan</h3>
+              <p>Compact multi-cables, phone docks, and USB hubs endure frequent stress at connection collars. To extend product life, avoid pulling directly from the silicone cord—always grip the reinforced connector body. Store retractable cables in their resting spool position rather than leaving them taut under tension.</p>
+              <h3 id="sec-3">3. Direct Store vs Third-Party Marketplaces</h3>
+              <p>Unlike third-party affiliate recommendations where orders are routed externally, products ordered through direct mini-store operations are cataloged for reliable domestic distribution, transparent order tracking, and centralized customer assistance.</p>
+            `
+          },
+          {
+            "id": "art-3",
+            "slug": "food-restro-hygiene-flavor-guide",
+            "category": "Food Restro",
+            "title": "The Culinary Compass: Finding Authentic Regional Flavors with High Kitchen Standards",
+            "excerpt": "From regional Rajasthani thalis to cloud kitchen safety protocols: how to discover delicious food experiences without compromising on quality.",
+            "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
+            "date": "September 30, 2026",
+            "readTime": "7 min read",
+            "author": "Culinary Editor",
+            "featured": false,
+            "toc": [
+              {"id": "sec-1", "title": "Demystifying Cloud Kitchen Hygiene"},
+              {"id": "sec-2", "title": "Preserving Heritage Flavors"},
+              {"id": "sec-3", "title": "Delivery Packaging Innovation"}
+            ],
+            "content": `
+              <p class="lead-paragraph">Food delivery in 2026 has evolved from simple convenience into a curated culinary journey. Discerning diners now expect both authentic local spice craftsmanship and restaurant-grade safety verification.</p>
+              <h3 id="sec-1">1. Demystifying Cloud Kitchen Hygiene</h3>
+              <p>Modern delivery-first eateries utilize commercial stainless steel preparation zones, temperature-monitored holding stations, and tamper-evident sealing labels. When choosing a delivery partner through GoGlobalMart Food Restro, look for partner kitchens that uphold food safety certifications and transparent kitchen practices.</p>
+              <h3 id="sec-2">2. Preserving Heritage Flavors</h3>
+              <p>Regional specialties such as slow-cooked daal, wood-fired breads, and traditional gravies require distinct packaging techniques. Quality restaurants separate piping hot curries from delicate breads to prevent steam sogginess during transit.</p>
+              <h3 id="sec-3">3. Delivery Packaging Innovation</h3>
+              <p>Eco-friendly bagasse boxes and biodegradable containers not only reduce environmental footprint but also retain culinary heat without leaching microplastics into warm curries and gravies.</p>
+            `
+          },
+          {
+            "id": "art-4",
+            "slug": "budget-electronics-under-500-guide",
+            "category": "Shopping Guides",
+            "title": "High Utility Under ₹500: Everyday Tech Accessories That Outperform Their Price Tag",
+            "excerpt": "Our curated breakdown of multi-angle smartphone stands, braided fast-charging cables, and compact LED study lamps that deliver genuine daily reliability.",
+            "image": "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?q=80&w=1200&auto=format&fit=crop",
+            "date": "September 24, 2026",
+            "readTime": "4 min read",
+            "author": "Gear Reviewer",
+            "featured": false,
+            "toc": [
+              {"id": "sec-1", "title": "The Under ₹500 Philosophy"},
+              {"id": "sec-2", "title": "Top 3 Daily Workhorse Gadgets"},
+              {"id": "sec-3", "title": "What to Avoid Under ₹500"}
+            ],
+            "content": `
+              <p class="lead-paragraph">Finding reliable electronics on a strict budget is a craft. You don't need to spend thousands on high-end desktop gear when a few thoughtfully designed everyday accessories can elevate your productivity.</p>
+              <h3 id="sec-1">1. The Under ₹500 Philosophy</h3>
+              <p>In our tests of affordable tech, simplicity wins. Products that perform a single mechanical function exceptionally well—such as multi-angle aluminum/ABS phone stands and modular cable organizers—consistently outlast complex unbranded electronics with too many moving parts.</p>
+              <h3 id="sec-2">2. Top 3 Daily Workhorse Gadgets</h3>
+              <p><strong>1. Double-Hold Desktop Phone Stands:</strong> Ergonomic screen elevation prevents neck strain during long video calls.<br><strong>2. 4-in-1 Retractable Charging Wires:</strong> Reduces bag clutter when commuting between college, office, and home.<br><strong>3. Eye-Caring Dimmable LED Lamps:</strong> USB-powered illumination with warm/cool lighting modes provides dedicated study light without disturbing roommates.</p>
+              <h3 id="sec-3">3. What to Avoid Under ₹500</h3>
+              <p>Be skeptical of unbranded Bluetooth audio gear or external battery power banks selling under ₹300 with exaggerated battery claims. Acoustic drivers and lithium polymer cells require safe manufacturing tolerances that are economically impossible at rock-bottom prices.</p>
+            `
+          },
+          {
+            "id": "art-5",
+            "slug": "capsule-wardrobe-indian-climates",
+            "category": "Lifestyle & Tips",
+            "title": "Building a Minimalist Capsule Wardrobe for All-Season Indian Living",
+            "excerpt": "How to curate 15 timeless, breathable essentials across cotton shirts, linen trousers, and ethnic fusion pieces that adapt effortlessly to any occasion.",
+            "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop",
+            "date": "September 18, 2026",
+            "readTime": "5 min read",
+            "author": "Style Editor",
+            "featured": false,
+            "toc": [
+              {"id": "sec-1", "title": "The Capsule Philosophy"},
+              {"id": "sec-2", "title": "Breathable Fabrics for Warm Climates"},
+              {"id": "sec-3", "title": "Smart Accessorizing"}
+            ],
+            "content": `
+              <p class="lead-paragraph">Fast fashion often leads to overflowing closets and persistent morning indecision. A capsule wardrobe cuts through the noise with versatile garments that pair effortlessly together.</p>
+              <h3 id="sec-1">1. The Capsule Philosophy</h3>
+              <p>A capsule wardrobe focuses on neutral palettes—charcoal, crisp white, deep navy, earthy olive, and subtle beige—allowing every shirt, trouser, and layering garment to interchange seamlessly.</p>
+              <h3 id="sec-2">2. Breathable Fabrics for Warm Climates</h3>
+              <p>Prioritize pure combed cotton, linen blends, and rayon fabrics that allow heat dissipation. Micro-checked cotton casual shirts and relaxed pleated trousers balance professional dignity with all-day comfort.</p>
+              <h3 id="sec-3">3. Smart Accessorizing</h3>
+              <p>Minimal jewelry—such as anti-tarnish stainless steel pendants, clean leather belts, and understated watches—transforms everyday casual wear into evening-ready attire with zero effort.</p>
+            `
+          },
+          {
+            "id": "art-6",
+            "slug": "festival-sale-preparation-guide",
+            "category": "Shopping Guides",
+            "title": "The Pre-Sale Masterplan: How to Prepare Your Wishlist Before Big E-Commerce Sales",
+            "excerpt": "Why adding items to your wishlist 7 days early, pre-registering payment methods, and setting price alerts prevents impulsive overspending.",
+            "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
+            "date": "September 12, 2026",
+            "readTime": "6 min read",
+            "author": "GoGlobalMart Editorial",
+            "featured": false,
+            "toc": [
+              {"id": "sec-1", "title": "The Wishlist Lock Strategy"},
+              {"id": "sec-2", "title": "Bank Discounts & Card Stacking"},
+              {"id": "sec-3", "title": "Flash Deals vs Sustained Discounts"}
+            ],
+            "content": `
+              <p class="lead-paragraph">Festival sale seasons can be disorienting. High-pressure countdown clocks and limited-quantity flash deals trigger fear of missing out. A disciplined pre-sale strategy ensures you extract real value.</p>
+              <h3 id="sec-1">1. The Wishlist Lock Strategy</h3>
+              <p>One week before any announced sale event, lock in your exact wishlist. Note down the baseline prices before sale teasers commence. This benchmark allows you to evaluate midnight lightning deals with calm clarity.</p>
+              <h3 id="sec-2">2. Bank Discounts & Card Stacking</h3>
+              <p>The deepest discounts often materialize through bank credit/debit card partnerships. Verify which banking partners offer 10% instant checkout deductions and ensure transaction limits are adjusted on your banking app in advance.</p>
+              <h3 id="sec-3">3. Flash Deals vs Sustained Discounts</h3>
+              <p>Midnight launch hours usually offer the highest availability for high-demand consumer electronics. Apparel and home decor, by contrast, frequently see additional coupon drops during the middle days of the festival period.</p>
+            `
+          }
+        ];
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFeaturedLead();
+            renderArticles();
+            initRouting();
+
+            // Header scroll & reading bar
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('siteHeader');
+                if (window.scrollY > 30) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                const detailView = document.getElementById('articleDetailView');
+                if (detailView.classList.contains('active')) {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (scrollTop / docHeight) * 100;
+                    document.getElementById('readingProgress').style.width = scrolled + '%';
+                }
+            });
+        });
+
+        // Single-Page Hash Routing
+        function initRouting() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#read-')) {
+                const slug = hash.replace('#read-', '');
+                openArticle(slug, false);
+            } else {
+                showFeedView(null, false);
+            }
+
+            window.addEventListener('popstate', () => {
+                const newHash = window.location.hash;
+                if (newHash && newHash.startsWith('#read-')) {
+                    openArticle(newHash.replace('#read-', ''), false);
+                } else {
+                    showFeedView(null, false);
+                }
+            });
+        }
+
+        function renderFeaturedLead() {
+            const leadContainer = document.getElementById('featuredSection');
+            const lead = articles.find(a => a.featured) || articles[0];
+            if (!lead) return;
+
+            leadContainer.innerHTML = `
+                <div class="lead-card">
+                    <div class="lead-image-wrap">
+                        <img src="${lead.image}" alt="${lead.title}" loading="lazy">
+                    </div>
+                    <div class="lead-content">
+                        <span class="badge-pill">${lead.category}</span>
+                        <h2 class="lead-title" onclick="openArticle('${lead.slug}')" style="cursor:pointer">${lead.title}</h2>
+                        <p class="lead-excerpt">${lead.excerpt}</p>
+                        <div class="meta-strip">
+                            <span><span class="iconify" data-icon="mdi:account-outline"></span> ${lead.author}</span>
+                            <span><span class="iconify" data-icon="mdi:calendar-blank"></span> ${lead.date}</span>
+                            <span><span class="iconify" data-icon="mdi:clock-outline"></span> ${lead.readTime}</span>
+                        </div>
+                        <div>
+                            <button class="gold-btn" onclick="openArticle('${lead.slug}')">
+                                Read Full Dispatch <span class="iconify" data-icon="mdi:arrow-right"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function filterArticles(category, event) {
+            if (event) event.preventDefault();
+            currentCategory = category;
+
+            document.querySelectorAll('.cat-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.getAttribute('data-cat') === category);
+            });
+
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                const text = nav.textContent.trim();
+                const isActive = (category === 'all' && text === 'All Stories') ||
+                                 (category === 'Affiliate Shopping' && text === 'Affiliate Deals') ||
+                                 (category === text);
+                nav.classList.toggle('active', isActive);
+            });
+
+            renderArticles();
+        }
+
+        function handleSearch(val) {
+            searchQuery = val.trim().toLowerCase();
+            renderArticles();
+        }
+
+        function resetFilters() {
+            currentCategory = 'all';
+            searchQuery = '';
+            document.getElementById('journalSearchInput').value = '';
+            filterArticles('all');
+        }
+
+        function renderArticles() {
+            const grid = document.getElementById('articlesGrid');
+            const empty = document.getElementById('emptyState');
+            const countLabel = document.getElementById('articlesCount');
+            const featuredSec = document.getElementById('featuredSection');
+
+            if (searchQuery || currentCategory !== 'all') {
+                featuredSec.style.display = 'none';
+            } else {
+                featuredSec.style.display = 'block';
+            }
+
+            const filtered = articles.filter(art => {
+                const matchCategory = currentCategory === 'all' || art.category === currentCategory;
+                const matchSearch = !searchQuery ||
+                    art.title.toLowerCase().includes(searchQuery) ||
+                    art.excerpt.toLowerCase().includes(searchQuery) ||
+                    art.category.toLowerCase().includes(searchQuery);
+                return matchCategory && matchSearch;
+            });
+
+            countLabel.textContent = `Showing ${filtered.length} ${filtered.length === 1 ? 'story' : 'stories'}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                empty.classList.add('show');
+                return;
+            }
+
+            empty.classList.remove('show');
+
+            grid.innerHTML = filtered.map(art => `
+                <article class="article-card" onclick="openArticle('${art.slug}')">
+                    <div class="card-thumbnail">
+                        <img src="${art.image}" alt="${art.title}" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category-badge">${art.category}</span>
+                        <h3 class="card-title">${art.title}</h3>
+                        <p class="card-excerpt">${art.excerpt}</p>
+                        <div class="card-footer-meta">
+                            <span>${art.date} • ${art.readTime}</span>
+                            <span class="read-link">Read Story <span class="iconify" data-icon="mdi:arrow-right"></span></span>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function openArticle(slug, pushHistory = true) {
+            const article = articles.find(a => a.slug === slug);
+            if (!article) return;
+
+            if (pushHistory) {
+                window.location.hash = `read-${slug}`;
+            }
+
+            document.getElementById('journalFeedView').classList.add('hidden');
+            const detailView = document.getElementById('articleDetailView');
+            detailView.classList.add('active');
+
+            document.getElementById('detailBreadcrumbCategory').textContent = article.category;
+            document.getElementById('detailBreadcrumbTitle').textContent = article.title;
+            document.getElementById('detailCategoryBadge').textContent = article.category;
+            document.getElementById('detailHeading').textContent = article.title;
+            document.getElementById('detailCoverImage').src = article.image;
+            document.getElementById('detailCoverImage').alt = article.title;
+            document.getElementById('detailAuthor').innerHTML = `<span class="iconify" data-icon="mdi:account-circle-outline"></span> By ${article.author}`;
+            document.getElementById('detailDate').innerHTML = `<span class="iconify" data-icon="mdi:calendar-blank-outline"></span> ${article.date}`;
+            document.getElementById('detailReadTime').innerHTML = `<span class="iconify" data-icon="mdi:clock-outline"></span> ${article.readTime}`;
+            document.getElementById('detailBodyContent').innerHTML = article.content;
+
+            const tocList = document.getElementById('detailTocList');
+            tocList.innerHTML = article.toc.map(item => `
+                <li><a href="#${item.id}">${item.title}</a></li>
+            `).join('');
+
+            const related = articles.filter(a => a.category === article.category && a.id !== article.id).slice(0, 3);
+            const relatedGrid = document.getElementById('relatedArticlesGrid');
+            if (related.length > 0) {
+                relatedGrid.innerHTML = related.map(a => `
+                    <div class="article-card" onclick="openArticle('${a.slug}')">
+                        <div class="card-thumbnail">
+                            <img src="${a.image}" alt="${a.title}" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-category-badge">${a.category}</span>
+                            <h4 class="card-title">${a.title}</h4>
+                            <div class="card-footer-meta">
+                                <span>${a.readTime}</span>
+                                <span class="read-link">Read <span class="iconify" data-icon="mdi:arrow-right"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                relatedGrid.innerHTML = `<p style="color:var(--text-muted); grid-column:1/-1;">Explore other stories across our journal feed.</p>`;
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showFeedView(event, pushHistory = true) {
+            if (event) event.preventDefault();
+            if (pushHistory) {
+                history.pushState(null, null, ' ');
+            }
+            document.getElementById('articleDetailView').classList.remove('active');
+            document.getElementById('journalFeedView').classList.remove('hidden');
+            document.getElementById('readingProgress').style.width = '0%';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function copyArticleLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast("Article link copied to clipboard!");
+            });
+        }
+
+        function shareTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.getElementById('detailHeading').textContent);
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        }
+
+        function shareWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.getElementById('detailHeading').textContent + " - ");
+            window.open(`https://api.whatsapp.com/send?text=${text}${url}`, '_blank');
+        }
+
+        function shareLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        }
+
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('nlEmailInput').value;
+            showToast(`Thank you! Subscription confirmed for ${email} (Frontend Demo).`);
+            document.getElementById('nlEmailInput').value = '';
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotify');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.add('active');
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>

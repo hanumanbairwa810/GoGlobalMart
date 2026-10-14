@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer & Compliance Disclosure | GoGlobalMart</title>
+    <meta name="description" content="Official Disclaimer for GoGlobalMart, covering Affiliate Shopping, Mini Store Direct E-Commerce, and Food Restro services.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://goglobalmart.me/disclaimer.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+    <link rel="shortcut icon" href="/fevicon.png">
+    <link rel="apple-touch-icon" href="/fevicon.png">
+    <meta name="theme-color" content="#0B0F17">
+
+    <!-- Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-deep: #0B0F17;
+            --bg-surface: #111726;
+            --bg-card: #161F33;
+            --bg-highlight: rgba(212, 175, 55, 0.06);
+            --text-primary: #F8FAFC;
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-border: rgba(212, 175, 55, 0.22);
+            --gold-border-subtle: rgba(212, 175, 55, 0.12);
+            --gold-gradient: linear-gradient(135deg, #DFBA54 0%, #C59B27 50%, #9E7B15 100%);
+            --badge-affiliate: #FF9900;
+            --badge-affiliate-bg: rgba(255, 153, 0, 0.12);
+            --badge-store: #10B981;
+            --badge-store-bg: rgba(16, 185, 129, 0.12);
+            --badge-food: #F43F5E;
+            --badge-food-bg: rgba(244, 63, 94, 0.12);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --shadow-card: 0 12px 36px rgba(0, 0, 0, 0.45);
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-deep);
+            color: var(--text-secondary);
+            line-height: 1.75;
+            overflow-x: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at 85% 60%, rgba(30, 58, 138, 0.07) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        a { color: inherit; text-decoration: none; transition: var(--transition); }
+        ul, ol { padding-left: 1.25rem; }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 15, 23, 0.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .header.scrolled {
+            border-bottom-color: var(--gold-border-subtle);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-wrap { display: flex; align-items: center; gap: 12px; }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0B0F17;
+            font-size: 1.35rem;
+        }
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .logo-text span {
+            color: var(--gold-primary);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.95rem;
+            margin-left: 4px;
+        }
+        .nav-sections { display: flex; align-items: center; gap: 8px; }
+        .nav-link {
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: var(--radius-full);
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 9px 18px;
+            border-radius: var(--radius-full);
+            color: #0B0F17;
+            background: var(--gold-gradient);
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+        .back-home-btn:hover { transform: translateY(-2px); }
+
+        /* Hero */
+        .hero {
+            padding: 64px 24px 44px;
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--gold-border);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .hero h1 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-desc {
+            max-width: 760px;
+            margin: 0 auto 28px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        /* 3 Sections Matrix */
+        .wings-bar {
+            max-width: 1040px;
+            margin: 36px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            text-align: left;
+        }
+        .wing-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .wing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+        }
+        .wing-card.affiliate::before { background: var(--badge-affiliate); }
+        .wing-card.store::before { background: var(--badge-store); }
+        .wing-card.food::before { background: var(--badge-food); }
+        .wing-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .wing-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .wing-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+        }
+        .wing-card.affiliate .wing-tag { background: var(--badge-affiliate-bg); color: var(--badge-affiliate); }
+        .wing-card.store .wing-tag { background: var(--badge-store-bg); color: var(--badge-store); }
+        .wing-card.food .wing-tag { background: var(--badge-food-bg); color: var(--badge-food); }
+        .wing-desc { font-size: 0.82rem; color: var(--text-muted); }
+
+        /* Main Layout */
+        .main-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Sidebar Table of Contents */
+        .sidebar {
+            position: sticky;
+            top: 96px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+        .sidebar-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            max-height: calc(100vh - 220px);
+            overflow-y: auto;
+        }
+        .toc-item a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+        }
+        .toc-item a:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .toc-item.active a {
+            color: var(--gold-light);
+            background: var(--bg-highlight);
+            border-left: 3px solid var(--gold-primary);
+            font-weight: 600;
+        }
+
+        /* Legal Cards */
+        .content-area { display: flex; flex-direction: column; gap: 32px; }
+        .legal-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 36px 40px;
+            box-shadow: var(--shadow-card);
+            scroll-margin-top: 100px;
+        }
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .card-title-group { display: flex; align-items: center; gap: 14px; }
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--gold-border-subtle);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+        .card-heading {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .card-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            white-space: nowrap;
+        }
+        .card-badge.gold { background: rgba(212, 175, 55, 0.12); color: var(--gold-light); border: 1px solid var(--gold-border-subtle); }
+        .card-badge.affiliate { background: var(--badge-affiliate-bg); color: var(--badge-affiliate); border: 1px solid rgba(255, 153, 0, 0.25); }
+        .card-badge.store { background: var(--badge-store-bg); color: var(--badge-store); border: 1px solid rgba(16, 185, 129, 0.25); }
+        .card-badge.food { background: var(--badge-food-bg); color: var(--badge-food); border: 1px solid rgba(244, 63, 94, 0.25); }
+        .legal-body {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .legal-body strong { color: var(--text-primary); font-weight: 600; }
+        .legal-body ul, .legal-body ol {
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .callout-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin: 8px 0;
+            font-size: 0.9rem;
+        }
+        .callout-box.warning { border-left-color: #EF4444; background: rgba(239, 68, 68, 0.04); }
+        .callout-box.info { border-left-color: #3B82F6; background: rgba(59, 130, 246, 0.04); }
+        .callout-title { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .contact-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 18px;
+        }
+        .contact-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .contact-val { font-size: 0.92rem; font-weight: 600; color: var(--text-primary); word-break: break-word; }
+
+        /* Footer */
+        .footer {
+            background: #080B10;
+            border-top: 1px solid var(--border-subtle);
+            padding: 60px 24px 32px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+        .footer-inner { max-width: 1280px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        .footer-brand .logo-text { color: var(--text-primary); margin-bottom: 12px; }
+        .footer-col h4 {
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+        .footer-col ul { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 10px; }
+        .footer-col a:hover { color: var(--gold-primary); padding-left: 4px; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.8rem;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            background: var(--bg-card);
+            border: 1px solid var(--gold-border-subtle);
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .scroll-top.visible { opacity: 1; visibility: visible; }
+
+        @media (max-width: 1024px) {
+            .main-wrapper { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .wings-bar { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-sections { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 40px 16px 32px; }
+            .legal-card { padding: 24px 20px; }
+            .card-header { flex-direction: column; align-items: flex-start; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="https://goglobalmart.me/" class="logo-wrap" title="GoGlobalMart Home">
+                <div class="logo-icon"><span class="iconify" data-icon="mdi:shield-check"></span></div>
+                <div class="logo-text">GoGlobal <span>Mart</span></div>
+            </a>
+            <nav class="nav-sections" aria-label="Section Navigation">
+                <a href="https://goglobalmart.me/" class="nav-link"><span class="iconify" data-icon="mdi:shopping"></span> Affiliate</a>
+                <a href="https://goglobalmart.me/mini-home.html" class="nav-link"><span class="iconify" data-icon="mdi:store"></span> Mini Store</a>
+                <a href="https://goglobalmart.me/food-home.html" class="nav-link"><span class="iconify" data-icon="mdi:silverware-fork-knife"></span> Food Restro</a>
+                <a href="#section-12" class="nav-link"><span class="iconify" data-icon="mdi:email-outline"></span> Contact</a>
+            </nav>
+            <a href="https://goglobalmart.me/" class="back-home-btn">
+                <span class="iconify" data-icon="mdi:arrow-left"></span>
+                <span>Back to Store</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="iconify" data-icon="mdi:scale-balance"></span>
+            Compliance & Transparency Disclosure
+        </div>
+        <h1>Comprehensive Platform <span>Disclaimer</span></h1>
+        <p class="hero-desc">
+            This disclaimer sets forth the operating boundaries, commission structures, external merchant relationships, and user responsibilities governing the three distinct sections of <strong>GoGlobalMart.me</strong>.
+        </p>
+
+        <!-- 3-Wing Architecture Overview -->
+        <div class="wings-bar">
+            <div class="wing-card affiliate">
+                <div class="wing-header">
+                    <span class="wing-title"><span class="iconify" data-icon="mdi:tag-search" style="color:var(--badge-affiliate);"></span> Affiliate Shopping</span>
+                    <span class="wing-tag">Section A</span>
+                </div>
+                <p class="wing-desc">Deals and price comparisons across Amazon, Flipkart, Meesho, and Myntra. Fulfilled exclusively by third-party sellers.</p>
+            </div>
+            <div class="wing-card store">
+                <div class="wing-header">
+                    <span class="wing-title"><span class="iconify" data-icon="mdi:storefront" style="color:var(--badge-store);"></span> Mini Store</span>
+                    <span class="wing-tag">Section B</span>
+                </div>
+                <p class="wing-desc">Direct e-commerce and seller marketplace. Orders, fulfillment, and returns governed by individual product policies.</p>
+            </div>
+            <div class="wing-card food">
+                <div class="wing-header">
+                    <span class="wing-title"><span class="iconify" data-icon="mdi:food-drumstick" style="color:var(--badge-food);"></span> Food Restro</span>
+                    <span class="wing-tag">Section C</span>
+                </div>
+                <p class="wing-desc">Restaurant discovery and food ordering portal. Food preparation, hygiene, menus, and allergens managed by partner kitchens.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Layout -->
+    <main class="main-wrapper">
+        <!-- Table of Contents Sidebar -->
+        <aside class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-title"><span class="iconify" data-icon="mdi:format-list-bulleted"></span> Sections</div>
+            <ul class="toc-list" id="tocList">
+                <li class="toc-item active"><a href="#section-1">1. Purpose & Scope</a></li>
+                <li class="toc-item"><a href="#section-2">2. General Information</a></li>
+                <li class="toc-item"><a href="#section-3">3. Affiliate Shopping</a></li>
+                <li class="toc-item"><a href="#section-4">4. Third-Party Links</a></li>
+                <li class="toc-item"><a href="#section-5">5. Mini Store E-Commerce</a></li>
+                <li class="toc-item"><a href="#section-6">6. Food Restro Services</a></li>
+                <li class="toc-item"><a href="#section-7">7. Pricing & Availability</a></li>
+                <li class="toc-item"><a href="#section-8">8. Food Allergens & Diet</a></li>
+                <li class="toc-item"><a href="#section-9">9. No Professional Advice</a></li>
+                <li class="toc-item"><a href="#section-10">10. Limitation of Liability</a></li>
+                <li class="toc-item"><a href="#section-11">11. Disclaimer Updates</a></li>
+                <li class="toc-item"><a href="#section-12">12. Contact & Grievance</a></li>
+            </ul>
+        </aside>
+
+        <!-- 12 Legal Sections -->
+        <div class="content-area">
+            <!-- 1 -->
+            <article class="legal-card" id="section-1">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:shield-outline"></span></div>
+                        <h2 class="card-heading">1. Introduction & Operational Scope</h2>
+                    </div>
+                    <span class="card-badge gold">Universal Scope</span>
+                </div>
+                <div class="legal-body">
+                    <p>Welcome to <strong>GoGlobalMart</strong> (<a href="https://goglobalmart.me/" style="color:var(--gold-primary); text-decoration:underline;">https://goglobalmart.me/</a>). This Disclaimer governs your use of our platform and establishes the legal boundaries across our three distinct operational wings:</p>
+                    <ol>
+                        <li><strong>Affiliate Shopping & Comparison Hub:</strong> An aggregation interface discovering deals and directing users to external partner stores.</li>
+                        <li><strong>GoGlobalMart Mini Store:</strong> A direct e-commerce marketplace facilitating catalog browsing, shopping carts, and store checkout.</li>
+                        <li><strong>Food Restro:</strong> A culinary ordering interface connecting consumers with local partner restaurants and food vendors.</li>
+                    </ol>
+                    <p>By visiting or utilizing any portion of GoGlobalMart, you acknowledge and agree to this Disclaimer in its entirety.</p>
+                    <div class="callout-box info">
+                        <div class="callout-title"><span class="iconify" data-icon="mdi:information-outline"></span> Complementary Policies</div>
+                        This Disclaimer operates in conjunction with our <a href="privacy-policy.html" style="color:var(--text-primary); text-decoration:underline;">Privacy Policy</a> and <a href="terms-service.html" style="color:var(--text-primary); text-decoration:underline;">Terms of Service</a>. It does not replace specific shipping, cancellation, or refund terms governing direct transactions.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="legal-card" id="section-2">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:information-variant"></span></div>
+                        <h2 class="card-heading">2. General Information & Website Accuracy</h2>
+                    </div>
+                    <span class="card-badge gold">Platform Baseline</span>
+                </div>
+                <div class="legal-body">
+                    <p>All content, product descriptions, pricing comparisons, and promotional roundups on GoGlobalMart are provided for <strong>general informational and shopping assistance purposes only</strong>.</p>
+                    <p>While we strive to keep information accurate and up to date, we make no express or implied warranties regarding:</p>
+                    <ul>
+                        <li>The absolute accuracy, completeness, or timeliness of product specifications or images.</li>
+                        <li>The uninterrupted, secure, or error-free availability of the Website.</li>
+                        <li>The merchantability, durability, or fitness for a particular purpose of any items listed.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 3 -->
+            <article class="legal-card" id="section-3">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:handshake-outline"></span></div>
+                        <h2 class="card-heading">3. Affiliate Shopping & Commission Disclosure</h2>
+                    </div>
+                    <span class="card-badge affiliate">Section A: Affiliate</span>
+                </div>
+                <div class="legal-body">
+                    <p>In full compliance with advertising standards and e-commerce transparency guidelines, <strong>GoGlobalMart discloses participation in affiliate marketing programs</strong>.</p>
+                    <p>Throughout our Affiliate Shopping section, certain product links lead to external partner platforms—specifically <strong>Amazon India</strong>, <strong>Flipkart</strong>, <strong>Meesho</strong>, and <strong>Myntra</strong>.</p>
+                    <div class="callout-box">
+                        <div class="callout-title"><span class="iconify" data-icon="mdi:cash-multiple"></span> Transparent Commission Policy</div>
+                        When you click through an affiliate link and make an eligible purchase, GoGlobalMart may earn a referral commission from the merchant platform. <strong>This incurs zero additional cost to you.</strong> You pay the exact same price as visiting the merchant directly.
+                    </div>
+                    <p><strong>Independent Status:</strong> GoGlobalMart is an independent search and price comparison aggregator. We are not an agent, representative, or employee of Amazon, Flipkart, Myntra, or Meesho. All third-party logos and trademarks remain the property of their respective owners.</p>
+                </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="legal-card" id="section-4">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:open-in-new"></span></div>
+                        <h2 class="card-heading">4. Third-Party Websites & External Outbound Links</h2>
+                    </div>
+                    <span class="card-badge affiliate">Outbound Terms</span>
+                </div>
+                <div class="legal-body">
+                    <p>Our platform contains links directing you away from GoGlobalMart.me to independent external websites. Once you navigate away from our Website:</p>
+                    <ul>
+                        <li>GoGlobalMart has no control over the privacy policies, cookies, data practices, or transaction terms of external websites.</li>
+                        <li>Product availability, shipping, warranties, returns, and payments are managed solely by the external merchant.</li>
+                        <li>We strongly recommend reading the seller's specific terms and customer feedback before finalizing purchases.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 5 -->
+            <article class="legal-card" id="section-5">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:cart-outline"></span></div>
+                        <h2 class="card-heading">5. GoGlobalMart Mini Store E-Commerce & Transactions</h2>
+                    </div>
+                    <span class="card-badge store">Section B: Mini Store</span>
+                </div>
+                <div class="legal-body">
+                    <p>The <strong>GoGlobalMart Mini Store</strong> (`mini-home.html`) provides direct e-commerce catalog shopping and marketplace vendor listings.</p>
+                    <ul>
+                        <li><strong>Distinction from Affiliate Shopping:</strong> Direct orders made within the Mini Store are governed by Mini Store product specifications, published shipping timetables, and store return policies.</li>
+                        <li><strong>Marketplace Sellers:</strong> Certain items may be listed and fulfilled by registered independent vendors. Product warranties and initial packaging may be handled by the seller directly.</li>
+                        <li><strong>Returns & Refunds:</strong> Return windows (e.g., 7-day policy where stated) and refund rights are governed strictly by the published <a href="return-refund-policy.html" style="color:var(--badge-store); text-decoration:underline;">Mini Store Return Policy</a>.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 6 -->
+            <article class="legal-card" id="section-6">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:silverware-variant"></span></div>
+                        <h2 class="card-heading">6. Food Restro & Restaurant Discovery Services</h2>
+                    </div>
+                    <span class="card-badge food">Section C: Food Restro</span>
+                </div>
+                <div class="legal-body">
+                    <p>The <strong>Food Restro</strong> section (`food-home.html`) connects customers with independent local dining partners and food vendors.</p>
+                    <ul>
+                        <li><strong>Intermediary Role:</strong> Unless verified as a proprietary culinary facility, GoGlobalMart acts as a digital intermediary connecting consumers with partner restaurants. We do not cook, prepare, or package food items.</li>
+                        <li><strong>Partner Responsibilities:</strong> Ingredient quality, hygiene standards, compliance with Food Safety and Standards (FSSAI) guidelines, and portion sizes are the sole responsibility of the preparing restaurant.</li>
+                        <li><strong>Delivery Estimates:</strong> Delivery windows (e.g., 20-30 mins) and travel distances are automated estimates subject to live traffic, weather, and kitchen preparation speed.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 7 -->
+            <article class="legal-card" id="section-7">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:tag-outline"></span></div>
+                        <h2 class="card-heading">7. Pricing, Discounts, Deals & Real-Time Availability</h2>
+                    </div>
+                    <span class="card-badge gold">Dynamic Pricing</span>
+                </div>
+                <div class="legal-body">
+                    <p>Prices, discounts (such as "70% off"), promotional coupons, and inventory levels change dynamically across external marketplaces and food vendors.</p>
+                    <div class="callout-box warning">
+                        <div class="callout-title"><span class="iconify" data-icon="mdi:alert-circle-outline"></span> Price Variance Notice</div>
+                        In the event of any difference between prices shown on GoGlobalMart and the final checkout cart on partner platforms (e.g., Amazon, Flipkart) or restaurant menus, <strong>the price displayed on the seller's final checkout screen takes precedence</strong>.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 8 -->
+            <article class="legal-card" id="section-8">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:alert-decagram-outline"></span></div>
+                        <h2 class="card-heading">8. Food Allergies, Dietary Needs & Health Information</h2>
+                    </div>
+                    <span class="card-badge food">Critical Dietary Alert</span>
+                </div>
+                <div class="legal-body">
+                    <p>When utilizing our <strong>Food Restro</strong> platform, please observe the following dietary guidelines:</p>
+                    <ul>
+                        <li><strong>Dietary Badges:</strong> Labels such as "Pure Veg", "Non-Veg", or "Healthy" reflect information declared by partner restaurants.</li>
+                        <li><strong>Allergens & Cross-Contamination:</strong> Partner kitchens prepare dishes in facilities handling nuts, gluten, dairy, soy, and eggs. Neither GoGlobalMart nor partner restaurants can guarantee an allergen-free environment unless confirmed by the restaurant.</li>
+                        <li><strong>Severe Allergies:</strong> If you have severe food allergies or medical dietary constraints, <strong>you must contact the restaurant directly</strong> before placing an order.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 9 -->
+            <article class="legal-card" id="section-9">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:school-outline"></span></div>
+                        <h2 class="card-heading">9. No Professional Advice (Medical, Legal, Technical)</h2>
+                    </div>
+                    <span class="card-badge gold">General Guidance</span>
+                </div>
+                <div class="legal-body">
+                    <p>Articles, buying guides, tech specifications, and skincare product descriptions featured on GoGlobalMart are provided for general educational and informational purposes only.</p>
+                    <ul>
+                        <li><strong>Cosmetics & Skincare:</strong> Information regarding beauty products (face washes, lip balms, perfumes) does not replace medical or dermatological advice. Perform a patch test before use.</li>
+                        <li><strong>Technical Devices:</strong> Hardware comparisons reflect general consumer benchmarks, not certified lab diagnostics.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 10 -->
+            <article class="legal-card" id="section-10">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:gavel"></span></div>
+                        <h2 class="card-heading">10. Limitation of Liability & Disclaimers of Warranties</h2>
+                    </div>
+                    <span class="card-badge gold">Statutory Boundaries</span>
+                </div>
+                <div class="legal-body">
+                    <p>This section is drafted subject to applicable Indian consumer legislation, including the <em>Consumer Protection Act, 2019</em> and the <em>Information Technology Act, 2000</em>:</p>
+                    <ul>
+                        <li><strong>"As Is" Basis:</strong> GoGlobalMart and all associated features are provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind.</li>
+                        <li><strong>Damage Exclusion:</strong> GoGlobalMart and its operators shall not be liable for any indirect, incidental, or consequential damages resulting from website downtime, product defects from external sellers, or restaurant fulfillment delays.</li>
+                        <li><strong>Preservation of Rights:</strong> Nothing in this Disclaimer attempts to unlawfully limit or exclude statutory rights that cannot be excluded under applicable consumer law.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 11 -->
+            <article class="legal-card" id="section-11">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:update"></span></div>
+                        <h2 class="card-heading">11. Amendments, Revisions & Effective Notice</h2>
+                    </div>
+                    <span class="card-badge gold">Policy Updates</span>
+                </div>
+                <div class="legal-body">
+                    <p>GoGlobalMart reserves the right to revise or amend this Disclaimer at any time. Changes take effect immediately upon publication to this page. Continued use of the platform after updates indicates your acceptance of the revised Disclaimer.</p>
+                </div>
+            </article>
+
+            <!-- 12 -->
+            <article class="legal-card" id="section-12">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><span class="iconify" data-icon="mdi:account-box-outline"></span></div>
+                        <h2 class="card-heading">12. Contact Information & Grievance Mechanism</h2>
+                    </div>
+                    <span class="card-badge gold">Support Desk</span>
+                </div>
+                <div class="legal-body">
+                    <p>For questions, compliance inquiries, or grievance redressal regarding this Disclaimer, please reach out to our team:</p>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-label"><span class="iconify" data-icon="mdi:email"></span> Primary Inquiries</div>
+                            <div class="contact-val"><a href="mailto:goglobalmart01@gmail.com">goglobalmart01@gmail.com</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label"><span class="iconify" data-icon="mdi:email-check"></span> Operational Support</div>
+                            <div class="contact-val"><a href="mailto:support@bansiwalvicky6@gmail.com">support@bansiwalvicky6@gmail.com</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label"><span class="iconify" data-icon="mdi:phone"></span> Helpline</div>
+                            <div class="contact-val"><a href="tel:+918107747972">+91 8107747972</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label"><span class="iconify" data-icon="mdi:map-marker"></span> Location</div>
+                            <div class="contact-val">Sanganer, Jaipur, Rajasthan, India</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">GoGlobal <span>Mart</span></div>
+                    <p>India's integrated shopping portal combining affiliate price comparisons, direct e-commerce mini store shopping, and restaurant discovery under one unified roof.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform Wings</h4>
+                    <ul>
+                        <li><a href="https://goglobalmart.me/">Affiliate Shopping</a></li>
+                        <li><a href="https://goglobalmart.me/mini-home.html">Mini Store</a></li>
+                        <li><a href="https://goglobalmart.me/food-home.html">Food Restro</a></li>
+                        <li><a href="https://goglobalmart.me/#trending">Trending Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal & Policy</h4>
+                    <ul>
+                        <li><a href="disclamer.html" style="color:var(--gold-primary); font-weight:600;">Disclaimer</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-service.html">Terms of Service</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="mailto:goglobalmart01@gmail.com">goglobalmart01@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 GoGlobalMart. All rights reserved. | Multi-Section Compliance Documentation</p>
+                <div style="display:flex; gap:16px;">
+                    <a href="https://goglobalmart.me/">Home</a>
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-service.html">Terms</a>
+                    <a href="disclamer.html">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Scroll to top">
+        <span class="iconify" data-icon="mdi:chevron-up"></span>
+    </button>
+
+    <script>
+        const header = document.getElementById('header');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const tocItems = document.querySelectorAll('.toc-item');
+        const sections = document.querySelectorAll('.legal-card');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            header.classList.toggle('scrolled', scrollY > 20);
+            scrollTopBtn.classList.toggle('visible', scrollY > 400);
+
+            let currentSectionId = '';
+            sections.forEach(section => {
+                if (scrollY >= section.offsetTop - 140) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+            if (currentSectionId) {
+                tocItems.forEach(item => {
+                    const link = item.querySelector('a');
+                    item.classList.toggle('active', link.getAttribute('href') === '#' + currentSectionId);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

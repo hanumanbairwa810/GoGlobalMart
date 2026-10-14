@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ | GoGlobal Mart – Affiliate Shopping, Orders, Privacy &amp; Support</title>
+<meta name="description" content="Answers to common questions about shopping with GoGlobal Mart: affiliate links, order tracking, privacy, contact and more.">
+<meta name="theme-color" content="#16140f">
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
+<link rel="canonical" href="https://goglobalmart.me/faq.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16140f;        /* charcoal */
+  --ink-2:#221f18;
+  --ivory:#faf7f0;
+  --paper:#ffffff;
+  --line:#e5dfd0;
+  --text:#2b2820;
+  --muted:#6b6557;
+  --gold:#b08a3e;
+  --gold-soft:#d9bd7f;
+  --gold-tint:#f4ecd7;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--ivory);color:var(--text);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:#7a5c1c;text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold-soft);color:var(--ink);padding:8px 14px;border-radius:6px;z-index:100}
+.skip:focus{left:8px}
+.wrap{width:min(920px,100% - 2rem);margin-inline:auto}
+
+/* header */
+.site-header{background:var(--ink);border-bottom:1px solid #3a342626;position:sticky;top:0;z-index:50}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px;width:min(1100px,100% - 2rem)}
+.brand{font:700 1.45rem/1 var(--serif);color:var(--ivory);text-decoration:none;letter-spacing:.01em}
+.brand span{color:var(--gold-soft)}
+.site-header nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+.site-header nav a{color:#d8d2c2;text-decoration:none;font-size:.92rem;padding:6px 0;border-bottom:1px solid transparent}
+.site-header nav a:hover,.site-header nav a[aria-current="page"]{color:#fff;border-color:var(--gold)}
+
+/* hero */
+.hero{background:var(--ink);color:var(--ivory);padding:4.5rem 0 5.5rem;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero h1{font:600 clamp(2.4rem,6vw,4rem)/1.05 var(--serif);margin:0 0 1rem;letter-spacing:-.01em}
+.hero p{max-width:56ch;margin:0 0 2rem;color:#cfc8b6;font-size:1.05rem}
+
+/* search */
+.search{position:relative;max-width:640px}
+.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:2;pointer-events:none}
+.search input{width:100%;height:54px;border-radius:10px;border:1px solid transparent;background:var(--ivory);color:var(--ink);font:inherit;padding:0 52px 0 46px;font-size:1rem}
+.search input::placeholder{color:#8a8472}
+.search input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.search button{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:38px;height:38px;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font-size:1.3rem;line-height:1;display:none}
+.search button:hover{background:var(--gold-tint);color:var(--ink)}
+.search.has-value button{display:block}
+
+/* main */
+main{padding:0 0 4rem}
+.tools{margin-top:-28px;position:relative;z-index:2}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;padding:.75rem;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 24px -16px rgba(22,20,15,.35);scrollbar-width:thin}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--ivory);color:var(--text);font:500 .9rem var(--sans);padding:.55rem 1rem;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tab:hover{border-color:var(--gold)}
+.tab[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.tab .n{opacity:.65;margin-left:.35rem;font-size:.82rem}
+.status{margin:1.25rem 0 0;color:var(--muted);font-size:.92rem;min-height:1.4em}
+
+.popular{margin:2.25rem 0 0}
+.popular h2,.group h2{font:600 1.7rem/1.2 var(--serif);margin:0 0 .9rem;color:var(--ink)}
+.pop-list{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));list-style:none;margin:0;padding:0}
+.pop-list button{width:100%;text-align:left;background:var(--gold-tint);border:1px solid var(--gold-soft);border-left:4px solid var(--gold);color:var(--ink);border-radius:8px;padding:.8rem 1rem;font:500 .95rem/1.4 var(--sans);cursor:pointer}
+.pop-list button:hover{background:#efe3c3}
+
+.group{margin-top:2.75rem}
+.group > p.desc{margin:-.4rem 0 1rem;color:var(--muted);font-size:.95rem}
+.item{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:.7rem;transition:border-color .2s,box-shadow .2s}
+.item.open{border-color:var(--gold);box-shadow:0 10px 26px -20px rgba(22,20,15,.5)}
+.item h3{margin:0;font:inherit}
+.q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-align:left;background:none;border:0;color:var(--ink);font:600 1.04rem/1.4 var(--sans);padding:1.05rem 1.2rem;cursor:pointer;border-radius:12px}
+.q .tag{display:block;font:500 .78rem var(--sans);color:#7a5c1c;margin-bottom:.15rem}
+.q .icon{flex:0 0 auto;width:28px;height:28px;border-radius:50%;border:1px solid var(--gold-soft);position:relative}
+.q .icon::before,.q .icon::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--gold);transform:translate(-50%,-50%);transition:transform .25s}
+.q .icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.item.open .icon::after{transform:translate(-50%,-50%) rotate(0)}
+.panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .28s ease,visibility 0s .28s}
+.item.open .panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .28s ease,visibility 0s}
+.panel > div{overflow:hidden}
+.answer{padding:0 1.2rem 1.2rem;max-width:68ch}
+.answer p{margin:0 0 .75rem}
+.answer p:last-child{margin-bottom:0}
+mark{background:#f1deaa;color:inherit;border-radius:3px;padding:0 2px}
+
+.empty{display:none;text-align:center;background:var(--paper);border:1px dashed var(--gold-soft);border-radius:14px;padding:2.5rem 1.25rem;margin-top:2rem}
+.empty h2{font:600 1.6rem var(--serif);margin:0 0 .5rem;color:var(--ink)}
+.empty p{margin:0 0 1.25rem;color:var(--muted)}
+
+.btn{display:inline-block;border:1px solid var(--ink);background:var(--ink);color:var(--ivory);font:600 .95rem var(--sans);padding:.75rem 1.4rem;border-radius:10px;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--ink-2);color:#fff;border-color:var(--gold)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--gold-tint);color:var(--ink)}
+
+/* help */
+.help{background:var(--ink);color:var(--ivory);border-radius:18px;padding:2.5rem clamp(1.25rem,4vw,3rem);margin-top:4rem;border:1px solid #3a3426}
+.help h2{font:600 2rem/1.15 var(--serif);margin:0 0 .5rem}
+.help > p{color:#cfc8b6;margin:0 0 1.5rem;max-width:56ch}
+.help .btn{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--ink)}
+.help .btn:hover{background:#ecd29b;color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #3a3426}
+.links a{color:#e9e2cf}
+.links a:hover{color:#fff}
+
+/* footer */
+footer{background:var(--ink);color:#bdb6a3;padding:3rem 0 2rem;margin-top:0;border-top:3px solid var(--gold)}
+footer .wrap{width:min(1100px,100% - 2rem)}
+.fgrid{display:grid;gap:2rem;grid-template-columns:1.4fr 1fr 1fr 1fr}
+footer h2{font:600 1.1rem var(--serif);color:var(--ivory);margin:0 0 .75rem}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+footer a{color:#bdb6a3;text-decoration:none;font-size:.93rem}
+footer a:hover{color:#fff;text-decoration:underline}
+footer p{margin:.5rem 0 0;font-size:.93rem;max-width:34ch}
+.legal{margin-top:2rem;padding-top:1.25rem;border-top:1px solid #3a3426;font-size:.85rem}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>div:first-child{grid-column:1/-1}.site-header nav{display:none}.hero{padding:3rem 0 4.5rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#faq-main">Skip to FAQs</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="https://goglobalmart.me/">GoGlobal<span>Mart</span></a>
+    <nav aria-label="Primary">
+      <a href="https://goglobalmart.me/">Home</a>
+      <a href="track-order.html">Track order</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Frequently Asked Questions</h1>
+    <p>Find quick answers about shopping through GoGlobal Mart, affiliate links, orders, privacy and support. Search below or pick a topic.</p>
+    <div class="search" id="searchBox" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label for="q" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search FAQs</label>
+      <input id="q" type="search" placeholder="Search questions, e.g. refund, tracking, cookies" autocomplete="off" enterkeyhint="search">
+      <button type="button" id="clear" aria-label="Clear search">&times;</button>
+    </div>
+  </div>
+</section>
+
+<main id="faq-main">
+  <div class="wrap">
+    <div class="tools">
+      <div class="tabs" id="tabs" role="group" aria-label="Filter by category"></div>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+
+    <section class="popular" id="popular" aria-labelledby="popH">
+      <h2 id="popH">Popular questions</h2>
+      <ul class="pop-list" id="popList"></ul>
+    </section>
+
+    <div id="groups"></div>
+
+    <div class="empty" id="empty">
+      <h2>No matching questions</h2>
+      <p>Check the spelling, try fewer words, or choose a different category.</p>
+      <button class="btn ghost" type="button" id="reset">Clear search and filters</button>
+    </div>
+
+    <section class="help" aria-labelledby="helpH">
+      <h2 id="helpH">Still need help?</h2>
+      <p>If you can't find your answer here, send us a message and include the platform, product and any order details you have.</p>
+      <a class="btn" href="contact.html">Contact Us</a>
+      <nav class="links" aria-label="Related pages">
+        <a href="track-order.html">Track Order</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-service.html">Terms of Service</a>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+      </nav>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h2>GoGlobal Mart</h2>
+        <p>Compare deals across India's top shopping platforms and shop smart.</p>
+      </div>
+      <div>
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="https://goglobalmart.me/">Home</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="https://amzn.to/4sSHxWr" rel="sponsored noopener" target="_blank">Amazon Deals</a></li>
+          <li><a href="https://fktr.in/riVvexm" rel="sponsored noopener" target="_blank">Flipkart Offers</a></li>
+          <li><a href="https://myntr.it/OXhYBxt" rel="sponsored noopener" target="_blank">Myntra Fashion</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-service.html">Terms of Service</a></li>
+          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; <span id="yr">2025</span> GoGlobal Mart. All rights reserved. Affiliate Disclosure: We may earn from qualifying purchases.</p>
+  </div>
+</footer>
+
+<script>
+/* ------------------------------------------------------------------
+   FAQ DATA — edit here. Fields: id, cat, q, a (HTML allowed), confirm
+   confirm:true = wording is conditional; owner should verify before
+   publishing stronger claims (see delivery notes).
+------------------------------------------------------------------- */
+const SITE = "https://goglobalmart.me/";
+const L = {
+  contact:  `<a href="${SITE}contact.html">Contact Us</a>`,
+  track:    `<a href="${SITE}track-order.html">Track Order</a>`,
+  privacy:  `<a href="${SITE}privacy-policy.html">Privacy Policy</a>`,
+  terms:    `<a href="${SITE}terms-service.html">Terms of Service</a>`,
+  affiliate:`<a href="${SITE}affiliate-disclosure.html">Affiliate Disclosure</a>`
+};
+
+const CATS = [
+  {id:"general",   name:"General",                 desc:"The basics about GoGlobal Mart."},
+  {id:"affiliate", name:"Affiliate Shopping",      desc:"Discovering products through affiliate links."},
+  {id:"mini",      name:"Mini Store",              desc:"Shopping directly from GoGlobal Mart, where available."},
+  {id:"food",      name:"Food Restro",             desc:"Restaurant and food ordering, where available."},
+  {id:"orders",    name:"Orders, Payments & Refunds", desc:"Tracking, payment problems and refunds."},
+  {id:"privacy",   name:"Privacy, Security & Accounts", desc:"How your information and account are handled."},
+  {id:"other",     name:"Careers, Partnerships & Other", desc:"Jobs, business enquiries and feedback."}
+];
+
+const FAQS = [
+/* ---------- General ---------- */
+{id:"what-is-ggm",cat:"general",q:"What is GoGlobal Mart?",
+ a:`<p>GoGlobal Mart is a shopping website for India that helps you discover and compare deals from platforms such as Amazon, Flipkart, Meesho and Myntra in one place.</p>`},
+{id:"services",cat:"general",q:"What services does GoGlobal Mart offer?",
+ a:`<p>The main service is affiliate shopping: we list products and deals and send you to the seller's site to buy. The website also offers a wishlist, an order-tracking page and an address helper. Direct-selling (Mini Store) and food-ordering (Food Restro) sections are covered below and are only available where they are shown live on the website.</p>`,confirm:true},
+{id:"difference",cat:"general",q:"What is the difference between Affiliate Shopping, Mini Store and Food Restro?",
+ a:`<p><strong>Affiliate Shopping:</strong> you discover a product on GoGlobal Mart and complete the purchase on the linked seller's website.</p><p><strong>Mini Store:</strong> a section for buying directly from GoGlobal Mart, where it is available.</p><p><strong>Food Restro:</strong> a section for restaurant and food orders, where it is available.</p><p>Who handles your order, payment and delivery depends on which of these you used.</p>`,confirm:true},
+{id:"account-browse",cat:"general",q:"Do I need an account to browse the website?",
+ a:`<p>You can browse deals without signing in. Features that save information to you, such as a profile, may need an account. The wishlist is shown on the site; check the wishlist panel to see how your saved items are kept.</p>`,confirm:true},
+{id:"support",cat:"general",q:"How can I contact customer support?",
+ a:`<p>Use the ${L.contact} page. Please include the platform or section (affiliate, Mini Store or Food Restro), the product name and any order details you have so we can help faster.</p>`},
+{id:"policies",cat:"general",q:"Where can I find GoGlobal Mart's policies?",
+ a:`<p>Our policies are linked in the website footer: ${L.privacy}, ${L.terms} and ${L.affiliate}.</p>`},
+
+/* ---------- Affiliate ---------- */
+{id:"aff-what",cat:"affiliate",q:"What is Affiliate Shopping?",
+ a:`<p>Affiliate Shopping means GoGlobal Mart showcases products and deals from other shopping platforms. When you choose a product, you are taken to that platform to buy it.</p>`},
+{id:"aff-links",cat:"affiliate",q:"How do affiliate product links work?",
+ a:`<p>Some links on GoGlobal Mart carry a tracking code that tells the seller you arrived from us. The price you pay is set by the seller. Not every link on the site is necessarily an affiliate link; see the ${L.affiliate} for details.</p>`},
+{id:"aff-seller",cat:"affiliate",q:"Will I purchase directly from GoGlobal Mart or an external seller?",
+ a:`<p>For affiliate products, you generally buy from the external platform or seller you are redirected to, not from GoGlobal Mart.</p>`},
+{id:"aff-redirect",cat:"affiliate",q:"Why am I redirected to another website?",
+ a:`<p>Because the product is sold and fulfilled by that platform. The checkout, payment and order process happen on their site under their terms.</p>`},
+{id:"aff-price",cat:"affiliate",q:"Can product prices and availability change?",
+ a:`<p>Yes. Prices, discounts, offers and stock are controlled by the seller and can change at any time. Always confirm the final price and availability on the seller's page before you pay.</p>`},
+{id:"aff-commission",cat:"affiliate",q:"Does GoGlobal Mart earn commissions from affiliate purchases?",
+ a:`<p>Yes, we may earn a commission from qualifying purchases made through affiliate links, at no extra cost to you. Read the full ${L.affiliate}.</p>`},
+{id:"aff-support",cat:"affiliate",q:"Who handles shipping, returns, refunds and warranties for affiliate purchases?",
+ a:`<p>The seller or platform you bought from. Their shipping, return, refund and warranty policies usually apply, and these can differ between platforms and sellers. Please check the policy on the seller's website or app.</p>`},
+{id:"aff-track",cat:"affiliate",q:"How can I track an order placed with an external seller?",
+ a:`<p>Sign in to the platform where you ordered (for example Amazon, Flipkart, Meesho or Myntra) and open its orders section, or use the tracking link in the seller's confirmation email or SMS.</p>`},
+
+/* ---------- Mini Store ---------- */
+{id:"mini-what",cat:"mini",q:"What is the GoGlobal Mart Mini Store?",
+ a:`<p>The Mini Store is intended as a section where you can buy selected products directly from GoGlobal Mart. If you do not see a Mini Store on the website yet, it is not available to order from at this time.</p>`,confirm:true},
+{id:"mini-browse",cat:"mini",q:"How can I browse Mini Store products?",
+ a:`<p>When the Mini Store is available, you can browse its categories and product pages from the website navigation. Use the search and category options shown on the page.</p>`,confirm:true},
+{id:"mini-order",cat:"mini",q:"How do I place a Mini Store order?",
+ a:`<p>Where available, choose a product, review the details and follow the on-screen checkout steps. You will see the final price and available payment options before you confirm.</p>`,confirm:true},
+{id:"mini-avail",cat:"mini",q:"How can I check Mini Store product availability?",
+ a:`<p>Availability is shown on the product page at the time you view it. If an item shows as unavailable, ${L.contact} to ask about restocking.</p>`,confirm:true},
+{id:"mini-pay",cat:"mini",q:"What payment methods does the Mini Store accept?",
+ a:`<p>Accepted payment methods are shown at checkout. We do not list payment methods here because they depend on what is enabled at the time you order.</p>`,confirm:true},
+{id:"mini-track",cat:"mini",q:"How can I track my Mini Store order?",
+ a:`<p>Use the ${L.track} page on the website, and check any confirmation message or email you received for the details required.</p>`,confirm:true},
+{id:"mini-cancel",cat:"mini",q:"Can I cancel a Mini Store order?",
+ a:`<p>Cancellation depends on the order's status and our Terms. If you need to cancel, ${L.contact} as soon as possible with your order details. See the ${L.terms} for current conditions.</p>`,confirm:true},
+{id:"mini-return",cat:"mini",q:"What is the Mini Store return or refund process?",
+ a:`<p>Eligibility, time limits and refund steps are set out in the ${L.terms}. If your order qualifies, our team will explain the next steps after you ${L.contact}.</p>`,confirm:true},
+{id:"mini-damaged",cat:"mini",q:"What should I do if I receive a damaged or incorrect Mini Store item?",
+ a:`<p>Keep the item and its packaging, take clear photos, and ${L.contact} as soon as possible with your order details and the photos.</p>`,confirm:true},
+{id:"mini-support",cat:"mini",q:"How can I contact support about a Mini Store order?",
+ a:`<p>Use the ${L.contact} page and mention that your question is about a Mini Store order, along with your order details.</p>`,confirm:true},
+
+/* ---------- Food Restro ---------- */
+{id:"food-what",cat:"food",q:"What is Food Restro?",
+ a:`<p>Food Restro is intended as a section for finding restaurants and ordering food. If it is not visible on the website, food ordering is not available through GoGlobal Mart at this time.</p>`,confirm:true},
+{id:"food-find",cat:"food",q:"How can I find restaurants or food options?",
+ a:`<p>Where Food Restro is available, browse or search the listings shown in that section. Listings and menus can change.</p>`,confirm:true},
+{id:"food-order",cat:"food",q:"How do I place a food order?",
+ a:`<p>Where available, pick a restaurant, choose your items and follow the checkout steps. Review your order and the final amount before confirming.</p>`,confirm:true},
+{id:"food-delivery",cat:"food",q:"How can I check whether a restaurant delivers to my location?",
+ a:`<p>Delivery coverage is determined by each restaurant or delivery arrangement. Check the restaurant's page, or ${L.contact} if the information isn't shown.</p>`,confirm:true},
+{id:"food-track",cat:"food",q:"How can I track my food order?",
+ a:`<p>Use the status shown after you order and any messages you receive. Live tracking and delivery time estimates are not guaranteed, so use ${L.contact} if you need an update.</p>`,confirm:true},
+{id:"food-cancel",cat:"food",q:"Can I cancel a food order?",
+ a:`<p>Food is often prepared quickly, so cancellation may not always be possible. ${L.contact} immediately and we will tell you what can be done for your order.</p>`,confirm:true},
+{id:"food-delay",cat:"food",q:"What happens if my food order is delayed?",
+ a:`<p>Delays can happen because of restaurant, delivery or other conditions. If your order is much later than expected, ${L.contact} with your order details.</p>`,confirm:true},
+{id:"food-missing",cat:"food",q:"What should I do if a food item is missing or incorrect?",
+ a:`<p>Contact us as soon as you notice, with your order details and, if possible, a photo of what you received.</p>`,confirm:true},
+{id:"food-quality",cat:"food",q:"How can I report a food-quality issue?",
+ a:`<p>${L.contact} promptly with your order details and photos if you have them. If you have a health concern after eating, seek medical advice first.</p>`,confirm:true},
+{id:"food-allergy",cat:"food",q:"How can I ask about ingredients or food allergies?",
+ a:`<p>Please confirm ingredients and cross-contact risks directly with the restaurant before ordering. GoGlobal Mart cannot guarantee that any item is free from a particular allergen.</p>`},
+
+/* ---------- Orders ---------- */
+{id:"ord-track",cat:"orders",q:"How can I track an order?",
+ a:`<p>It depends where you ordered:</p><p><strong>Affiliate purchase:</strong> track it on the seller's platform.</p><p><strong>Mini Store order:</strong> use the ${L.track} page, where available.</p><p><strong>Food Restro order:</strong> use the status and messages provided with your order, where available.</p>`,confirm:true},
+{id:"ord-details",cat:"orders",q:"What details do I need to look up an order?",
+ a:`<p>The ${L.track} page will tell you what it needs. For your privacy, order details are only shown after the required information is verified, so an order number alone may not be enough.</p>`,confirm:true},
+{id:"ord-paid",cat:"orders",q:"What should I do if my payment succeeds but the order is not confirmed?",
+ a:`<p>Don't pay again. Keep your payment receipt or reference, wait a short while for the status to update, then ${L.contact} with the payment reference and the time of payment. For an affiliate purchase, contact the seller's support, since the payment was made on their site.</p>`},
+{id:"ord-dup",cat:"orders",q:"How can I report a duplicate payment?",
+ a:`<p>Keep screenshots or statements showing both payments and ${L.contact} with the references. If the payment was made on an external seller's site, report it to that seller or your payment provider.</p>`},
+{id:"ord-refund",cat:"orders",q:"How are refunds processed?",
+ a:`<p>Refund steps and timelines depend on the order type and payment method. Affiliate purchases are refunded by the seller under their policy. For direct orders, see the ${L.terms} or ${L.contact}.</p>`,confirm:true},
+{id:"ord-who",cat:"orders",q:"Who should I contact about an order placed through an external affiliate seller?",
+ a:`<p>Contact that seller's customer support first, because they hold your order and payment. You can still ${L.contact} if you need help finding the right place.</p>`},
+{id:"ord-slow",cat:"orders",q:"Why might an order status take time to update?",
+ a:`<p>Status updates depend on payment confirmation, packing and carrier or seller updates, so there can be a delay. If the status looks stuck for longer than expected, ${L.contact}.</p>`},
+
+/* ---------- Privacy ---------- */
+{id:"prv-info",cat:"privacy",q:"How does GoGlobal Mart handle personal information?",
+ a:`<p>Our ${L.privacy} explains what information is collected, how it is used and your choices. Please read it for the authoritative details.</p>`},
+{id:"prv-cookies",cat:"privacy",q:"Does the website use cookies?",
+ a:`<p>Websites commonly use cookies or similar storage technologies for features and analytics. See the ${L.privacy} for what GoGlobal Mart uses.</p>`,confirm:true},
+{id:"prv-manage",cat:"privacy",q:"How can I manage cookie preferences?",
+ a:`<p>You can manage or clear cookies and site data in your browser settings. Blocking them may affect some features, such as saved items.</p>`},
+{id:"prv-account",cat:"privacy",q:"How can I request help with my account?",
+ a:`<p>${L.contact} and describe the issue. Never share your password in a message.</p>`},
+{id:"prv-report",cat:"privacy",q:"How should I report a security or privacy concern?",
+ a:`<p>Use the ${L.contact} page and describe what you noticed. Include links or screenshots, but do not include passwords or full payment card numbers.</p>`},
+
+/* ---------- Other ---------- */
+{id:"oth-job",cat:"other",q:"How can I apply for a job?",
+ a:`<p>We don't list vacancies on this page. If you'd like to be considered for a future opening, ${L.contact} with your details and area of interest.</p>`,confirm:true},
+{id:"oth-careers",cat:"other",q:"Where can I find career opportunities?",
+ a:`<p>If openings are published, they will be announced on the website. Otherwise, reach out through ${L.contact}.</p>`,confirm:true},
+{id:"oth-partner",cat:"other",q:"How can a business contact GoGlobal Mart about a partnership?",
+ a:`<p>Send your enquiry through ${L.contact} with your company details and what you have in mind. Sending an enquiry does not guarantee a partnership.</p>`},
+{id:"oth-disclosure",cat:"other",q:"Where can I read the Affiliate Disclosure?",
+ a:`<p>The full ${L.affiliate} is linked in the website footer.</p>`},
+{id:"oth-feedback",cat:"other",q:"How can I send feedback or make a complaint?",
+ a:`<p>Use ${L.contact}. Tell us what happened and include any order details so we can look into it.</p>`}
+];
+
+const POPULAR = ["what-is-ggm","aff-seller","aff-support","ord-track","ord-paid","prv-info"];
+
+/* ------------------------------------------------------------------ */
+const $ = s => document.querySelector(s);
+const state = {cat:"all", term:""};
+const plain = html => html.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim();
+const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const rx = s => s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+FAQS.forEach(f => f.text = (f.q + " " + plain(f.a)).toLowerCase());
+const catName = id => CATS.find(c=>c.id===id).name;
+
+function matches(f){
+  if(state.cat!=="all" && f.cat!==state.cat) return false;
+  const words = state.term.toLowerCase().split(/\s+/).filter(Boolean);
+  return words.every(w => f.text.includes(w));
+}
+function hl(text){
+  const words = state.term.split(/\s+/).filter(Boolean);
+  let out = esc(text);
+  if(!words.length) return out;
+  return out.replace(new RegExp("("+words.map(w=>rx(esc(w))).join("|")+")","gi"),"<mark>$1</mark>");
+}
+
+/* tabs */
+function renderTabs(){
+  const counts = {all:FAQS.length};
+  FAQS.forEach(f=>counts[f.cat]=(counts[f.cat]||0)+1);
+  const mk = (id,name) => `<button class="tab" type="button" data-cat="${id}" aria-pressed="${state.cat===id}">${name}<span class="n">${counts[id]}</span></button>`;
+  $("#tabs").innerHTML = mk("all","All") + CATS.map(c=>mk(c.id,c.name)).join("");
+}
+
+/* list */
+function renderList(keepOpen){
+  const open = keepOpen ? new Set([...document.querySelectorAll(".item.open")].map(e=>e.dataset.id)) : new Set();
+  const searching = !!state.term.trim();
+  let total = 0, html = "";
+  CATS.forEach(c=>{
+    const items = FAQS.filter(f=>f.cat===c.id && matches(f));
+    if(!items.length) return;
+    total += items.length;
+    html += `<section class="group" aria-labelledby="g-${c.id}"><h2 id="g-${c.id}">${c.name}</h2><p class="desc">${c.desc}</p>` +
+      items.map(f=>`
+      <article class="item${open.has(f.id)?" open":""}" data-id="${f.id}" id="${f.id}">
+        <h3><button class="q" type="button" id="b-${f.id}" aria-expanded="${open.has(f.id)}" aria-controls="p-${f.id}">
+          <span>${searching?`<span class="tag">${c.name}</span>`:""}${hl(f.q)}</span><span class="icon" aria-hidden="true"></span>
+        </button></h3>
+        <div class="panel" id="p-${f.id}" role="region" aria-labelledby="b-${f.id}"><div><div class="answer">${f.a}</div></div></div>
+      </article>`).join("") + `</section>`;
+  });
+  $("#groups").innerHTML = html;
+  $("#empty").style.display = total ? "none" : "block";
+  $("#popular").hidden = searching || state.cat!=="all";
+  $("#status").textContent = searching
+    ? (total ? `${total} result${total>1?"s":""} for “${state.term.trim()}”` : "")
+    : (state.cat==="all" ? `${FAQS.length} questions` : `${total} questions in ${catName(state.cat)}`);
+  $("#searchBox").classList.toggle("has-value", !!$("#q").value);
+}
+
+function renderPopular(){
+  $("#popList").innerHTML = POPULAR.map(id=>{
+    const f = FAQS.find(x=>x.id===id); return f?`<li><button type="button" data-open="${id}">${f.q}</button></li>`:"";
+  }).join("");
+}
+
+function setOpen(item, on){
+  item.classList.toggle("open", on);
+  item.querySelector(".q").setAttribute("aria-expanded", on);
+}
+function openById(id){
+  state.cat="all"; state.term=""; $("#q").value="";
+  renderTabs(); renderList(false);
+  const el = document.getElementById(id);
+  if(!el) return;
+  setOpen(el,true);
+  el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
+  el.querySelector(".q").focus({preventScroll:true});
+  history.replaceState(null,"","#"+id);
+}
+
+/* events */
+$("#groups").addEventListener("click",e=>{
+  const b = e.target.closest(".q"); if(!b) return;
+  const item = b.closest(".item"); const on = !item.classList.contains("open");
+  setOpen(item,on);
+  history.replaceState(null,"",on?"#"+item.dataset.id:location.pathname+location.search);
+});
+$("#groups").addEventListener("keydown",e=>{
+  const b = e.target.closest(".q"); if(!b) return;
+  const all = [...document.querySelectorAll(".q")], i = all.indexOf(b);
+  const go = {ArrowDown:i+1,ArrowUp:i-1,Home:0,End:all.length-1}[e.key];
+  if(go===undefined) return;
+  e.preventDefault(); (all[go]||b).focus();
+});
+$("#tabs").addEventListener("click",e=>{
+  const t = e.target.closest(".tab"); if(!t) return;
+  state.cat = t.dataset.cat; renderTabs(); renderList(false);
+});
+$("#popList").addEventListener("click",e=>{
+  const b = e.target.closest("[data-open]"); if(b) openById(b.dataset.open);
+});
+$("#q").addEventListener("input",e=>{ state.term = e.target.value; renderList(true); });
+$("#q").addEventListener("keydown",e=>{ if(e.key==="Escape") clearSearch(); });
+function clearSearch(){ $("#q").value=""; state.term=""; renderList(true); $("#q").focus(); }
+$("#clear").addEventListener("click",clearSearch);
+$("#reset").addEventListener("click",()=>{ state.cat="all"; state.term=""; $("#q").value=""; renderTabs(); renderList(false); $("#q").focus(); });
+
+/* init */
+$("#yr").textContent = new Date().getFullYear();
+renderTabs(); renderPopular(); renderList(false);
+if(location.hash.length>1){
+  const id = decodeURIComponent(location.hash.slice(1)), el = document.getElementById(id);
+  if(el && el.classList.contains("item")){ setOpen(el,true); setTimeout(()=>el.scrollIntoView({block:"center"}),50); }
+}
+
+/* FAQ structured data (generated from the same questions shown on the page) */
+(function(){
+  const s = document.createElement("script"); s.type="application/ld+json";
+  s.textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",
+    mainEntity:FAQS.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:plain(f.a)}}))});
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>

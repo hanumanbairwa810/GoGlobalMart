@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How GoGlobalMart Works | Affiliate Shopping, Mini Store &amp; Food Restro</title>
+<meta name="description" content="Learn how GoGlobalMart works: how affiliate shopping links to external sellers, and how the Mini Store and Food Restro sections differ.">
+<link rel="canonical" href="https://goglobalmart.me/how-it-works.html">
+<meta name="theme-color" content="#14130f">
+<link rel="icon" type="image/png" sizez="32*32" href="fevicon.png">
+<link rel="shortcut icon" href="/fevicon.png">
+<link rel="apple-touch-icon" href="/fevicon.png">
+<style>
+:root{--bg:#14130f;--bg2:#1d1b15;--ivory:#f7f3e9;--ink:#23211b;--muted:#6f6a5c;--gold:#c9a24b;--gold2:#e4c77d;--line:rgba(201,162,75,.35);--r:16px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--ivory);color:var(--ink);line-height:1.65}
+h1,h2,h3{font-weight:600;line-height:1.2}
+p,li,a,span,td,th,button{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#000;padding:8px 14px;border-radius:8px;z-index:9}
+.skip:focus{left:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header.top{background:var(--bg);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.logo{color:var(--gold2);text-decoration:none;font-size:1.25rem;font-family:Georgia,serif;letter-spacing:.04em}
+header.top nav a{color:#d8d2bf;text-decoration:none;font-size:.9rem;margin-left:18px}
+header.top nav a:hover{color:var(--gold2)}
+.hero{background:radial-gradient(circle at 80% 0,#2b2617,var(--bg) 60%);color:var(--ivory);padding:80px 0 100px}
+.eyebrow{color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;font-family:system-ui,sans-serif}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);margin:12px 0 16px}
+.hero p.lead{max-width:640px;color:#cfc9b6;font-size:1.08rem}
+section{padding:72px 0}
+section.dark{background:var(--bg);color:var(--ivory)}
+section h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-bottom:10px}
+.sub{color:var(--muted);max-width:680px;margin-bottom:34px}
+.dark .sub{color:#b9b3a0}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:#fff;border:1px solid #e6dfc9;border-radius:var(--r);padding:26px;transition:transform .25s,box-shadow .25s,border-color .25s;display:flex;flex-direction:column;gap:10px}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.1);border-color:var(--gold)}
+.hero .card{background:var(--bg2);border-color:var(--line);color:var(--ivory);margin-top:36px}
+.hero .grid{margin-top:0}
+.card h3{font-size:1.2rem}
+.card p{font-size:.95rem;color:var(--muted)}
+.hero .card p{color:#bfb9a6}
+.badge{align-self:flex-start;font-size:.72rem;padding:3px 10px;border-radius:99px;border:1px solid var(--gold);color:var(--gold);font-family:system-ui,sans-serif}
+.badge.live{background:var(--gold);color:#1a1608}
+.badge.unk{border-style:dashed}
+.btn{display:inline-block;margin-top:auto;text-decoration:none;background:var(--gold);color:#1a1608;padding:10px 18px;border-radius:99px;font-weight:600;font-size:.9rem;text-align:center;transition:background .2s}
+.btn:hover{background:var(--gold2)}
+.btn.off{background:transparent;border:1px dashed var(--gold);color:var(--muted);cursor:not-allowed}
+.warn{border-left:4px solid var(--gold);background:#fff8e3;padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 28px;font-size:.93rem}
+.dark .warn{background:#25210f;color:#e9e2c8}
+.journey{margin-bottom:56px}
+.journey h3{font-size:1.5rem;margin-bottom:6px}
+.steps{list-style:none;padding:0;margin-top:22px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));counter-reset:s}
+.steps li{counter-increment:s;position:relative;background:#fff;border:1px solid #e6dfc9;border-radius:var(--r);padding:48px 18px 18px;font-size:.9rem;color:var(--muted);transition:transform .25s,border-color .25s}
+.steps li:hover{transform:translateY(-3px);border-color:var(--gold)}
+.steps li::before{content:counter(s);position:absolute;top:12px;left:16px;width:28px;height:28px;border-radius:50%;background:var(--bg);color:var(--gold2);display:grid;place-items:center;font:600 .85rem system-ui}
+.steps li strong{display:block;color:var(--ink);font-size:1rem;margin-bottom:4px;font-family:Georgia,serif}
+.steps li.pending{border-style:dashed;background:#fbf8ee}
+.steps li.pending em{display:block;margin-top:8px;font-size:.75rem;color:#9a7b2a;font-style:normal;font-weight:600}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px;background:#fff;border-radius:var(--r);overflow:hidden}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid #eee6cf;font-size:.9rem;vertical-align:top}
+th{background:var(--bg);color:var(--gold2);font-weight:600}
+td:first-child{font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.links a,.links span{padding:9px 16px;border:1px solid var(--line);border-radius:99px;font-size:.88rem;text-decoration:none;color:var(--ivory)}
+.links a:hover{background:var(--gold);color:#1a1608}
+.links span{border-style:dashed;opacity:.55}
+footer{background:#0d0c09;color:#a59f8b;padding:28px 0;font-size:.85rem;font-family:system-ui,sans-serif}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer a{color:var(--gold2)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+@media(max-width:600px){header.top nav a{margin-left:10px;font-size:.8rem}section{padding:52px 0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" data-route="home">GoGlobal Mart</a>
+    <nav aria-label="Primary"><a href="index.html" data-route="home">Home</a><a href="#journeys">Journeys</a><a href="#support">Support</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- A: HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Your guide</p>
+    <h1>How GoGlobalMart Works</h1>
+    <p class="lead">Discover deals from top shopping platforms and follow links to the sellers. Our Mini Store and Food Restro sections are explained below, along with what is and isn't confirmed to be live.</p>
+    <div class="grid reveal" style="margin-top:36px">
+      <article class="card"><span class="badge live">Live</span><h3>Affiliate Shopping</h3><p>Browse and compare deals, then go to Amazon, Flipkart, Meesho or Myntra to buy.</p><a class="btn" href="#" data-route="affiliate">Explore deals</a></article>
+      <article class="card"><span class="badge unk">Status to confirm</span><h3>Mini Store</h3><p>Products intended to be sold directly through GoGlobalMart's own store experience.</p><a class="btn" href="#" data-route="miniStore">Open Mini Store</a></article>
+      <article class="card"><span class="badge unk">Status to confirm</span><h3>Food Restro</h3><p>Food and restaurant-related services, explained only as far as they are available.</p><a class="btn" href="#" data-route="foodRestro">Open Food Restro</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- B: THREE EXPERIENCES -->
+<section>
+  <div class="wrap">
+    <h2>Three experiences, three different models</h2>
+    <p class="sub">The biggest difference is who completes the sale: an external seller, or GoGlobalMart.</p>
+    <div class="grid">
+      <article class="card reveal"><h3>Affiliate Shopping</h3><p>You discover products on GoGlobalMart and may follow links to external seller websites to buy. The external seller generally handles payment, fulfillment, shipping and returns under its own policies. GoGlobalMart may earn a commission on qualifying purchases.</p></article>
+      <article class="card reveal"><h3>Mini Store</h3><p>A direct-sale experience on GoGlobalMart. The ordering, payment, fulfillment and support steps are described below only once they are confirmed as implemented.</p></article>
+      <article class="card reveal"><h3>Food Restro</h3><p>Food and restaurant-related services. Restaurant discovery, ordering, payment and delivery or pickup are described only once confirmed as available.</p></article>
+    </div>
+    <p class="warn" style="margin-top:28px"><strong>Important:</strong> an affiliate purchase is not a direct GoGlobalMart sale. Mini Store and Food Restro are direct-transaction sections, and aren't presented as operational unless they actually are.</p>
+  </div>
+</section>
+
+<!-- JOURNEYS -->
+<section class="dark" id="journeys">
+  <div class="wrap">
+    <h2>Step-by-step journeys</h2>
+    <p class="sub">Solid cards are active steps. Dashed cards are not yet confirmed as live.</p>
+
+    <div class="journey reveal" id="affiliate-journey">
+      <h3>1 · Affiliate Shopping</h3>
+      <ol class="steps">
+        <li><strong>Discover Products</strong>Browse the available products and deals.</li>
+        <li><strong>Review Details</strong>Check the information shown here. Seller details, prices, stock and conditions may differ or change.</li>
+        <li><strong>Visit the Seller</strong>Follow the product's external link, where one is available.</li>
+        <li><strong>Complete the Purchase</strong>If the seller supports it, buy on that seller's own website or platform.</li>
+        <li><strong>Manage the Order</strong>Contact the seller or platform for tracking, shipping, returns, refunds and warranty.</li>
+      </ol>
+      <p class="sub" style="margin:16px 0 0;font-size:.85rem">Not every product link is necessarily an affiliate link, and sellers do not all offer the same services.</p>
+    </div>
+
+    <div class="journey reveal" id="mini-journey">
+      <h3>2 · Mini Store</h3>
+      <p class="warn" style="margin-top:12px">Not verified on the public site. Steps are marked until a Mini Store route is confirmed and its features are checked.</p>
+      <ol class="steps" id="miniSteps"></ol>
+    </div>
+
+    <div class="journey reveal" id="food-journey">
+      <h3>3 · Food Restro</h3>
+      <p class="warn" style="margin-top:12px">Not verified on the public site. No restaurants, riders, delivery times or live tracking are claimed.</p>
+      <ol class="steps" id="foodSteps"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSIBILITIES -->
+<section>
+  <div class="wrap">
+    <h2>Payments, tracking and support</h2>
+    <p class="sub">Who is responsible depends on which section you used.</p>
+    <div class="tbl reveal">
+      <table>
+        <thead><tr><th scope="col">Section</th><th scope="col">Payment &amp; fulfillment</th><th scope="col">Support</th></tr></thead>
+        <tbody>
+          <tr><td>Affiliate Shopping</td><td>Takes place on the external seller's platform, under the seller's terms.</td><td>Contact the seller for order-specific help. Use <a href="contact.html" data-route="contact">Contact Us</a> for questions about this website.</td></tr>
+          <tr><td>Mini Store</td><td>To be confirmed: who accepts payment and fulfills orders.</td><td><a href="track-order.html" data-route="track">Track Order</a> and <a href="contact.html" data-route="contact">Contact Us</a>. Return and refund policy to be confirmed.</td></tr>
+          <tr><td>Food Restro</td><td>To be confirmed: ordering, payment, and delivery or pickup.</td><td>To be confirmed. Support links shown only if they work.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CHOOSE PATH -->
+<section class="dark">
+  <div class="wrap">
+    <h2>Choose your path</h2>
+    <p class="sub">Each button goes to a real page, or shows as unavailable if the page isn't confirmed.</p>
+    <div class="grid">
+      <article class="card reveal" style="background:var(--bg2);border-color:var(--line)"><h3>Explore Products</h3><p style="color:#bfb9a6">Find deals and head to external sellers.</p><a class="btn" href="#" data-route="affiliate">Explore Products</a></article>
+      <article class="card reveal" style="background:var(--bg2);border-color:var(--line)"><h3>Shop the Mini Store</h3><p style="color:#bfb9a6">Direct-store experience.</p><a class="btn" href="#" data-route="miniStore">Shop the Mini Store</a></article>
+      <article class="card reveal" style="background:var(--bg2);border-color:var(--line)"><h3>Explore Food Restro</h3><p style="color:#bfb9a6">Food and restaurant services.</p><a class="btn" href="#" data-route="foodRestro">Explore Food Restro</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT LINKS -->
+<section id="support">
+  <div class="wrap" style="text-align:center">
+    <h2>Still have questions?</h2>
+    <p class="sub" style="margin-inline:auto">Browse the pages below or get in touch.</p>
+    <nav class="links" aria-label="Supporting links" style="justify-content:center">
+      <a data-route="faq" href="faq.html" style="color:var(--ink)">FAQ</a>
+      <a data-route="track" href="track-order.html" style="color:var(--ink)">Track Order</a>
+      <a data-route="contact" href="contact.html" style="color:var(--ink)">Contact Us</a>
+      <a data-route="about" href="about.html" style="color:var(--ink)">About Us</a>
+      <a data-route="privacy" href="privacy-policy.html" style="color:var(--ink)">Privacy Policy</a>
+      <a data-route="cookies" href="cookies-policy.html" style="color:var(--ink)">Cookies Policy</a>
+      <a data-route="terms" href="terms-service.html" style="color:var(--ink)">Terms of Service</a>
+      <a data-route="affiliateDisclosure" href="affiliate-disclosure.html" style="color:var(--ink)">Affiliate Disclosure</a>
+    </nav>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© GoGlobal Mart. We may earn from qualifying purchases.</span>
+    <a href="#" data-route="howItWorks">How It Works</a>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIG: set routes here. Leave "" if the page doesn't exist yet. =====
+   BASE lets this file work standalone. Set BASE = "" when hosted on goglobalmart.me. */
+const BASE = "https://goglobalmart.me";
+const ROUTES = {
+  home: "/index.html", affiliate: "/#trending",
+  miniStore: "mini-home.html",        // not found on the public site; add real route
+  foodRestro: "food-home.html",       // not found on the public site; add real route
+  faq: "", about: "/about.html", cookies: "/cookies-policy.html",   // not found on the public site
+  track: "/track-order.html", contact: "/contact.html",
+  privacy: "/privacy-policy.html", terms: "/terms-service.html", affiliateDisclosure: "/affiliate-disclosure.html",
+  howItWorks: "/how-it-works.html"
+};
+/* Set to true once each section's steps are verified as live */
+const VERIFIED = { miniStore: false, foodRestro: false };
+
+document.querySelectorAll("[data-route]").forEach(el => {
+  const path = ROUTES[el.dataset.route];
+  if (path) { el.href = BASE + path; }
+  else {
+    const s = document.createElement("span");
+    s.className = el.classList.contains("btn") ? "btn off" : "";
+    s.textContent = el.textContent + (el.classList.contains("btn") ? " (unavailable)" : "");
+    s.setAttribute("aria-disabled", "true");
+    s.style.cssText = el.getAttribute("style") || "";
+    if (!el.classList.contains("btn")) s.style.opacity = ".6";
+    el.replaceWith(s);
+  }
+});
+
+function steps(id, key, list) {
+  const ol = document.getElementById(id);
+  ol.innerHTML = list.map(([t, d]) =>
+    `<li class="${VERIFIED[key] ? "" : "pending"}"><strong>${t}</strong>${d}${VERIFIED[key] ? "" : "<em>Needs confirmation</em>"}</li>`).join("");
+}
+steps("miniSteps", "miniStore", [
+  ["Browse Products", "Explore products in the Mini Store."],
+  ["Review Details", "Check descriptions, prices, availability and terms."],
+  ["Add to Cart", "Only if cart functionality is implemented."],
+  ["Enter Order Details", "Provide delivery and contact details in the real checkout."],
+  ["Complete Payment", "Only via payment methods actually integrated."],
+  ["Order Confirmation", "Only if the order system supports it."],
+  ["Track &amp; Receive", "Tracking, cancellation, returns and refunds per published policies."]
+]);
+steps("foodSteps", "foodRestro", [
+  ["Explore Food Options", "Browse available food or restaurant options."],
+  ["Review Menu", "See items, prices and restaurant information where provided."],
+  ["Select Items", "Only if menu selection and cart exist."],
+  ["Enter Order Details", "Provide details for the actual ordering process."],
+  ["Confirm &amp; Pay", "Real confirmation and payment, with no invented methods."],
+  ["Follow Progress", "Only if status tracking is implemented."],
+  ["Receive or Collect", "Delivery or pickup only where genuinely offered."]
+]);
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
