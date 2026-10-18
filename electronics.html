@@ -19,36 +19,37 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --white: #ffffff;
-            --bg: #f5f5f7;
-            --bg-dark: #1a1a2e;
-            --text: #1d1d1f;
-            --text-secondary: #6e6e73;
-            --text-muted: #86868b;
-            --border: #e5e5ea;
-            --border-light: #f0f0f5;
-            --amazon: #FF9900;
-            --amazon-hover: #e68a00;
-            --flipkart: #2874F0;
-            --flipkart-hover: #1a5dc8;
-            --myntra: #E91E8C;
-            --myntra-hover: #c4177a;
-            --badge-hot: #ff3b30;
-            --badge-best: #34c759;
-            --badge-limited: #ff6b00;
-            --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            --card-shadow-hover: 0 12px 40px rgba(0,0,0,0.15);
-            --nav-shadow: 0 1px 8px rgba(0,0,0,0.08);
+            --primary: #D4AF37;
+            --primary-dark: #B38F24;
+            --primary-light: rgba(212, 175, 55, 0.15);
+            --secondary: #0B0C0E;
+            --bg: #0F1012;
+            --card: #16171B;
+            --text: #F5F5F7;
+            --text-light: #A0A0A0;
+            --border: #2A2A2E;
+            --shadow: 0 2px 16px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+            --shadow-hover: 0 12px 40px rgba(212,175,55,0.15);
             --radius: 16px;
             --radius-sm: 10px;
-            --radius-xs: 6px;
-        }
+            --radius-full: 9999px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Playfair Display', serif;
+
+            /* Platform Colors */
+            --amazon: #FF9900;
+            --flipkart: #2874F0;
+            --meesho: #570A57;
+            --myntra: #FF3F6C;
+}
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
+            background: #0B0C0E;
             color: var(--text);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -237,7 +238,7 @@
 
         /* === AD PLACEHOLDER === */
         .ad-placeholder {
-            background: var(--white);
+            background: var(--card);
             border: 2px dashed var(--border);
             border-radius: var(--radius-sm);
             display: flex;
@@ -300,7 +301,7 @@
 
         /* === PRODUCT CARD === */
         .product-card {
-            background: var(--white);
+            background: var(--card);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--card-shadow);
@@ -469,7 +470,7 @@
             gap: 20px;
         }
         .myntra-card {
-            background: var(--white);
+            background: var(--card);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--card-shadow);
