@@ -76,33 +76,38 @@ content="https://goglobalmart.me/assets/deals.html" />
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --orange: #FF6B00;
-            --orange-hover: #E55D00;
-            --orange-light: #FFF3E8;
-            --blue: #2874F0;
-            --blue-hover: #1A5DC8;
-            --blue-light: #E8F0FE;
-            --white: #FFFFFF;
-            --bg: #F5F5F5;
-            --text-dark: #1A1A2E;
-            --text-mid: #555555;
-            --text-light: #888888;
-            --border: #E8E8E8;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-            --shadow-hover: 0 12px 40px rgba(0,0,0,0.15);
-            --radius: 12px;
-            --radius-sm: 8px;
+            --primary: #D4AF37;
+            --primary-dark: #B38F24;
+            --primary-light: rgba(212, 175, 55, 0.15);
+            --secondary: #0B0C0E;
+            --bg: #0F1012;
+            --card: #16171B;
+            --text: #F5F5F7;
+            --text-light: #A0A0A0;
+            --border: #2A2A2E;
+            --shadow: 0 2px 16px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+            --shadow-hover: 0 12px 40px rgba(212,175,55,0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-full: 9999px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+            --font: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Playfair Display', serif;
+
+            /* Platform Colors */
+            --amazon: #FF9900;
+            --flipkart: #2874F0;
+            --meesho: #570A57;
+            --myntra: #FF3F6C;
+}
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text-dark);
+            background: #0B0C0E;
+            color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -112,7 +117,7 @@ content="https://goglobalmart.me/assets/deals.html" />
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: var(--white);
+            background: var(--card);
             border-bottom: 1px solid var(--border);
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
@@ -130,7 +135,7 @@ content="https://goglobalmart.me/assets/deals.html" />
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--text-dark);
+            color: var(--text);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -147,7 +152,7 @@ content="https://goglobalmart.me/assets/deals.html" />
         }
         .nav-links a {
             text-decoration: none;
-            color: var(--text-mid);
+            color: var(--text-light);
             font-size: 0.88rem;
             font-weight: 500;
             padding: 8px 14px;
@@ -175,7 +180,7 @@ content="https://goglobalmart.me/assets/deals.html" />
             background: none;
             border: none;
             font-size: 1.4rem;
-            color: var(--text-dark);
+            color: var(--text);
             cursor: pointer;
             padding: 8px;
         }
@@ -185,7 +190,7 @@ content="https://goglobalmart.me/assets/deals.html" />
             top: 64px;
             left: 0;
             right: 0;
-            background: var(--white);
+            background: var(--card);
             border-bottom: 1px solid var(--border);
             box-shadow: var(--shadow-md);
             z-index: 999;
@@ -195,7 +200,7 @@ content="https://goglobalmart.me/assets/deals.html" />
         .mobile-menu a {
             display: block;
             text-decoration: none;
-            color: var(--text-mid);
+            color: var(--text-light);
             font-size: 0.95rem;
             font-weight: 500;
             padding: 12px 0;
@@ -252,7 +257,7 @@ content="https://goglobalmart.me/assets/deals.html" />
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--white);
+            background: var(--card);
             color: var(--orange);
             font-size: 0.95rem;
             font-weight: 700;
@@ -276,7 +281,7 @@ content="https://goglobalmart.me/assets/deals.html" />
 
         /* ===== AD PLACEHOLDER ===== */
         .ad-placeholder {
-            background: var(--white);
+            background: var(--card);
             border: 2px dashed var(--border);
             border-radius: var(--radius);
             display: flex;
@@ -297,7 +302,7 @@ content="https://goglobalmart.me/assets/deals.html" />
             padding: 32px 0 8px;
             position: sticky;
             top: 64px;
-            background: var(--bg);
+            background: #0B0C0E;
             z-index: 100;
         }
         .filter-header {
@@ -311,13 +316,13 @@ content="https://goglobalmart.me/assets/deals.html" />
         .filter-header h2 {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--text);
         }
         .product-count {
             font-size: 0.85rem;
             color: var(--text-light);
             font-weight: 500;
-            background: var(--white);
+            background: var(--card);
             padding: 6px 14px;
             border-radius: 50px;
             border: 1px solid var(--border);
@@ -330,8 +335,8 @@ content="https://goglobalmart.me/assets/deals.html" />
         .filter-btn {
             padding: 10px 20px;
             border: 2px solid var(--border);
-            background: var(--white);
-            color: var(--text-mid);
+            background: var(--card);
+            color: var(--text-light);
             font-size: 0.85rem;
             font-weight: 600;
             border-radius: 50px;
@@ -362,7 +367,7 @@ content="https://goglobalmart.me/assets/deals.html" />
 
         /* ===== PRODUCT CARD ===== */
         .product-card {
-            background: var(--white);
+            background: var(--card);
             border-radius: var(--radius);
             overflow: hidden;
             border: 1px solid var(--border);
@@ -469,7 +474,7 @@ content="https://goglobalmart.me/assets/deals.html" />
         .card-title {
             font-size: 0.88rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--text);
             line-height: 1.4;
             margin-bottom: 6px;
             display: -webkit-box;
@@ -498,7 +503,7 @@ content="https://goglobalmart.me/assets/deals.html" />
         .price-current {
             font-size: 1.25rem;
             font-weight: 800;
-            color: var(--text-dark);
+            color: var(--text);
         }
         .price-original {
             font-size: 0.82rem;
@@ -552,7 +557,7 @@ content="https://goglobalmart.me/assets/deals.html" />
             grid-column: 1 / -1;
         }
         .no-results i { font-size: 3rem; color: var(--border); margin-bottom: 16px; }
-        .no-results h3 { font-size: 1.2rem; color: var(--text-mid); margin-bottom: 8px; }
+        .no-results h3 { font-size: 1.2rem; color: var(--text-light); margin-bottom: 8px; }
         .no-results p { font-size: 0.9rem; color: var(--text-light); }
 
         /* ===== FOOTER ===== */
